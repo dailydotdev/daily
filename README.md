@@ -10,7 +10,7 @@ Don’t bother looking anywhere else, simply install the extension, open a new t
 
 ### We built this repository to get your feedback! 
 
-Open a new issue with your feedback / suggestion / bug report or whatever you would like to share and we will take it from there.
+[Open a new issue](https://github.com/elegantmonkeys/daily/issues/new) with your feedback / suggestion / bug report or whatever you would like to share and we will take it from there.
 
 ----
 
