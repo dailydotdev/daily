@@ -18,3 +18,6 @@ Open a new issue with your feedback / suggestion / bug report or whatever you wo
 
 - [Chrome Web Store](https://bit.ly/chromedaily)
 - [Product Hunt](https://www.producthunt.com/posts/daily-7)
+
+
+![Daily animation](assets/animation.gif)
