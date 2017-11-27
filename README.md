@@ -16,6 +16,7 @@ Don’t bother looking anywhere else, simply install the extension, open a new t
 
 #### Check us out:
 
+- [Website](https://www.dailynow.co)
 - [Chrome Web Store](https://bit.ly/chromedaily)
 - [Firefox Add-ons](https://bit.ly/firefoxdaily)
 - [Product Hunt](https://www.producthunt.com/posts/daily-7)
