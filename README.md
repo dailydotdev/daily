@@ -3,7 +3,7 @@
 #### A dev news curator delivering relevant updates to your new tab. It gathers and ranks articles from tens of different sources to help you optimize your time and boost your knowledge.
 ###### Made by developers for developers ❤️
 
-[![Daily animation](assets/animation.gif)](https://www.youtube.com/watch?v=Oso6dYXw5lc)
+[![Daily animation](assets/daily2.gif)](https://www.youtube.com/watch?v=Oso6dYXw5lc)
 
 ----
 
