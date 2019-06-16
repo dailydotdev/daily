@@ -1,10 +1,9 @@
-# Daily
+# Daily 2.0
 
-#### Staying updated is a huge hassle. Daily was made by developers for developers to help us focus on code instead of searching for news.
+#### A dev news curator delivering relevant updates to your new tab. It gathers and ranks articles from tens of different sources to help you optimize your time and boost your knowledge.
+###### Made by developers for developers ❤️
 
-Being a brilliant developer means that you should always strive to learn more and stay most updated about the latest technologies out there. Every single day new and updated development technologies are being released across the web. For us as developers, staying updated is a huge hassle. Daily was made by developers for developers to help us focus on code instead of constantly search for news around the web. 
-
-Don’t bother looking anywhere else, simply install the extension, open a new tab and you’re all set :wink:
+[![Daily animation](assets/animation.gif)](https://www.youtube.com/watch?v=Oso6dYXw5lc)
 
 ----
 
@@ -19,7 +18,4 @@ Don’t bother looking anywhere else, simply install the extension, open a new t
 - [Website](https://www.dailynow.co)
 - [Chrome Web Store](https://bit.ly/chromedaily)
 - [Firefox Add-ons](https://bit.ly/firefoxdaily)
-- [Product Hunt](https://www.producthunt.com/posts/daily-7)
-
-
-![Daily animation](assets/animation.gif)
+- [Product Hunt](https://www.producthunt.com/posts/daily-2-0)
