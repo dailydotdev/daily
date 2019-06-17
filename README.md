@@ -1,11 +1,11 @@
-[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/daily/daily)
+# Daily
 
-# Daily 2.0
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/daily/daily)
 
 #### A dev news curator delivering relevant updates to your new tab. It gathers and ranks articles from tens of different sources to help you optimize your time and boost your knowledge.
 ###### Made by developers for developers ❤️
 
-[![Daily animation](assets/daily2.gif)](https://www.youtube.com/watch?v=Oso6dYXw5lc)
+<a href="https://app.dailynow.co/download"><img src="assets/daily2.gif" alt="Get it now gif" width="300"/></a>
 
 ----
 
