@@ -1,5 +1,6 @@
 <div align="center">
   <br>
+  <img src="/assets/logo.png" alt="Daily Logo" width="200">
   <h1>Daily</h1>
   <strong>Curated dev news delivered to your new tab 👩🏽‍💻</strong>
   <h6>Made by developers for developers ❤️</h6>
