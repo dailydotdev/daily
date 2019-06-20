@@ -51,3 +51,10 @@ Daily might look pretty simple on the surface but actually it is powered by seve
 <p align="center">
     <img src="/assets/arch.png" alt="Daily architecture" width="700">
 </p>
+
+## Tech Stack
+
+We use Vue for web application development and Netlify for hosting them.
+Backend wise most of the services and cloud functions are written in Node and some minor services are written in Go (wanted to learn Go, perfect chance 😜). Everything is Docker-based and deployed to the almighty Kubernetes cluster with Helm charts.
+MySQL is the database which powers everything and Google Pub/Sub is used for inter-service communitcation.
+Lastly, we use Google's Cloud Build for CI/CD but a migration to a more open source friendly platform is on the roadmap (Travis, CircleCI, or whatever).
