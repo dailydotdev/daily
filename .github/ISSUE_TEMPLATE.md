@@ -2,15 +2,6 @@ We are looking for all kinds of feedback and we created a template for almost al
 Fill only the relevant section to your issue and delete the other sections, if you can't find a relevant section feel free to go freestyle.
 
 
-#### New Blog Suggestion
-
-Name: *Name of the blog*
-
-Link: *URL to the blog*
-
-Topic: *Main topic of the blog*
-
-
 #### Feature Suggestion
 
 *Describe your feature and explain why you need it*
@@ -29,10 +20,4 @@ Browser version: *Your browser version*
 OS: *Your operating system including version*
 
 *Please add screenshots if possible or any other information that can help fixing the bug*
-
-
-#### Feedback
-
-*Share with us your thoughts about Daily, positive and negative as one*
-
 
