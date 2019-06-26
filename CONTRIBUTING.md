@@ -21,7 +21,7 @@ If you are still not sure where is the right place to contribute, ask here by [s
 ## Found a Bug?
 
 If you find a bug (sorry for that :sweat_smile:), you can contribute by [submitting an issue][submit-issue].
-If you are really into it and [submit a Pull Request][submit-pr] with your fix, we will be grateful.
+If you are really into it, [submit a Pull Request][submit-pr] with your fix, we will be grateful forever.
 
 ## Documentation Never Ends
 
@@ -32,16 +32,16 @@ You can feel free to [submit a Pull Request][submit-pr] with your documentation 
 ## Have a Great Idea?
 
 Feel like you know what feature is missing, share you thoughts with us by [submitting an issue][submit-issue].
-Want to make sure your feature is implemented and develop it yourself, submit an issue with your proposal.
+Do you Want to make sure your feature is implemented? submit an issue with your implementation proposal.
 This will allow us to prevent duplication of work, discuss the details of the implementation and even provide design if necessary.
-It will make sure that your work will be accepted into the project.
+Discussing about your proposal will make sure that your work will be accepted into the project.
 
 
 ## Contribution Guideline
 
 ### Submitting an Issue
 
-Before submitting your issue, please check that it was not reported already (open / closed).
+Before submitting your issue, please check that it was not reported already (open or closed).
 Please provide as many details as possible so we can act as soon as possible.
 
 
@@ -49,9 +49,9 @@ Please provide as many details as possible so we can act as soon as possible.
 
 Before submitting a pull request consider the following guidelines:
 
-1. To prevent duplication of work, please search for existing PR (open / closed) that relates to yours.
+1. To prevent duplication of work, please search for existing PR (open or closed) that relates to yours.
 1. Make sure there is an issue describing your submission, whether it is a bug fix or a feature. Discussing the issue up front will make the review process much faster.
-1. Please sign our [Contributor License Agreement (CLA)][cla]. Unfortunately, we cannot accept contribution without this. Make sure you sign and contribute with the same GitHub account.
+1. Please sign our [Contributor License Agreement (CLA)][cla]. Unfortunately, we cannot accept any contribution without this. Make sure you sign and contribute with the same GitHub account.
 1. Make sure your pull request is addressing only a single concern.
  
 How to submit a pull request?
@@ -75,6 +75,9 @@ As a general rule of thumb we use  [Airbnb JavaScript style guide][style] for mo
 ### Commit Messages
 
 We follow [Angular's commit message guidlines][commit]. This leads to more readable messages and automatic change log generation.
+
+
+Once again, thank you for joining our journey and good luck contributing :pray:
 
 
 [coc]: https://github.com/dailynowco/daily/blob/master/CODE_OF_CONDUCT.md
