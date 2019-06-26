@@ -46,11 +46,18 @@ Daily might look pretty simple on the surface but actually it is powered by seve
 * [daily-monetization](https://github.com/dailynowco/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
 * [daily-functions](https://github.com/dailynowco/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
+
+## Want to help?
+
+Looking to contribute to Daily? Awesome! We are glad to hear it, check out our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
+
+
 ## Architecture
 
 <p align="center">
     <img src="/assets/arch.png" alt="Daily architecture" width="700">
 </p>
+
 
 ## Tech Stack
 
