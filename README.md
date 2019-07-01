@@ -9,6 +9,9 @@
   <a href="https://stackshare.io/daily/daily">
     <img src="http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="StackShare">
   </a>
+  <a href="https://storybook.dailynow.co">
+    <img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" alt="Storybook">
+  </a>
 </p>
 
 Hi there 👋! So you probably here because you want to understand deeper what's going on behind the scenes of Daily... This is exactly the place for you so calm down and keep on reading 📖!
