@@ -1,4 +1,5 @@
 <div align="center">
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
   <img src="/assets/logo.png" alt="Daily Logo" width="150">
   <h1>Daily</h1>
   <strong>Curated dev news delivered to your new tab 👩🏽‍💻</strong>
@@ -97,3 +98,19 @@ Follow the instructions to install everything:
 That's it! :clap: Now you have a running environment waiting for you to try it out. Each project explains what services are needed and how to dive into the actual code and contribute.
 
 \* Please note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you. Don't worry it just means that if you click on an article you will get error 404 and that you will not see ads on your local environment.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://shamun.dev"><img src="https://avatars2.githubusercontent.com/u/1993245?v=4" width="100px;" alt="Ido Shamun"/><br /><sub><b>Ido Shamun</b></sub></a><br /><a href="#ideas-idoshamun" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
