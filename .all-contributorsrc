@@ -53,6 +53,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "gian8",
+      "name": "Glub0t",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5846287?v=4",
+      "profile": "http://www.gianlucamangiapelo.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
