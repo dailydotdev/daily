@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -109,6 +109,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://shamun.dev"><img src="https://avatars2.githubusercontent.com/u/1993245?v=4" width="100px;" alt="Ido Shamun"/><br /><sub><b>Ido Shamun</b></sub></a><br /><a href="#ideas-idoshamun" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Code">💻</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/tsahimatsliah"><img src="https://avatars1.githubusercontent.com/u/41912669?v=4" width="100px;" alt="Tsahi Matsliah"/><br /><sub><b>Tsahi Matsliah</b></sub></a><br /><a href="#ideas-tsahimatsliah" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-tsahimatsliah" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/ram-mar"><img src="https://avatars1.githubusercontent.com/u/23351306?v=4" width="100px;" alt="Ram Subramanian"/><br /><sub><b>Ram Subramanian</b></sub></a><br /><a href="#ideas-ram-mar" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
