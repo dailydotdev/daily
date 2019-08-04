@@ -113,6 +113,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://sigfriedseldeslachts.be"><img src="https://avatars2.githubusercontent.com/u/15171357?v=4" width="100px;" alt="Sigfried Seldeslachts"/><br /><sub><b>Sigfried Seldeslachts</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Asigfriedseldeslachts" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Ornataweaver"><img src="https://avatars1.githubusercontent.com/u/27126408?v=4" width="100px;" alt="Ornataweaver"/><br /><sub><b>Ornataweaver</b></sub></a><br /><a href="#ideas-Ornataweaver" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://twitter.com/ja_alwan"><img src="https://avatars3.githubusercontent.com/u/7735122?v=4" width="100px;" alt="Jundi Alwan"/><br /><sub><b>Jundi Alwan</b></sub></a><br /><a href="#ideas-jundialwan" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://www.gianlucamangiapelo.com"><img src="https://avatars2.githubusercontent.com/u/5846287?v=4" width="100px;" alt="Glub0t"/><br /><sub><b>Glub0t</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Agian8" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
