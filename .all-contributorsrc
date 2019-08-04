@@ -35,6 +35,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "sigfriedseldeslachts",
+      "name": "Sigfried Seldeslachts",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/15171357?v=4",
+      "profile": "https://sigfriedseldeslachts.be",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
