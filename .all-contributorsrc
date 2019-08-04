@@ -53,6 +53,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "SevketYALCIN",
+      "name": "Sevket Yalcin",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17293211?v=4",
+      "profile": "https://sevketyalcin.com/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
