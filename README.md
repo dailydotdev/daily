@@ -111,6 +111,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/tsahimatsliah"><img src="https://avatars1.githubusercontent.com/u/41912669?v=4" width="100px;" alt="Tsahi Matsliah"/><br /><sub><b>Tsahi Matsliah</b></sub></a><br /><a href="#ideas-tsahimatsliah" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-tsahimatsliah" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/ram-mar"><img src="https://avatars1.githubusercontent.com/u/23351306?v=4" width="100px;" alt="Ram Subramanian"/><br /><sub><b>Ram Subramanian</b></sub></a><br /><a href="#ideas-ram-mar" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://sigfriedseldeslachts.be"><img src="https://avatars2.githubusercontent.com/u/15171357?v=4" width="100px;" alt="Sigfried Seldeslachts"/><br /><sub><b>Sigfried Seldeslachts</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Asigfriedseldeslachts" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/Ornataweaver"><img src="https://avatars1.githubusercontent.com/u/27126408?v=4" width="100px;" alt="Ornataweaver"/><br /><sub><b>Ornataweaver</b></sub></a><br /><a href="#ideas-Ornataweaver" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
