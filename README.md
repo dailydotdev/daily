@@ -118,6 +118,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/isthatcentered"><img src="https://avatars0.githubusercontent.com/u/10481124?v=4" width="100px;" alt="Edouard"/><br /><sub><b>Edouard</b></sub></a><br /><a href="#ideas-isthatcentered" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://sevketyalcin.com/"><img src="https://avatars1.githubusercontent.com/u/17293211?v=4" width="100px;" alt="Sevket Yalcin"/><br /><sub><b>Sevket Yalcin</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ASevketYALCIN" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/teja463"><img src="https://avatars3.githubusercontent.com/u/4502488?v=4" width="100px;" alt="Brahma Teja Ponnuru"/><br /><sub><b>Brahma Teja Ponnuru</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Ateja463" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
