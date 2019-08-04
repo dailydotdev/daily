@@ -53,6 +53,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "teja463",
+      "name": "Brahma Teja Ponnuru",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4502488?v=4",
+      "profile": "https://github.com/teja463",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
