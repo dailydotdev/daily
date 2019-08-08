@@ -116,6 +116,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "itaiterner",
+      "name": "Itai Terner",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7588919?v=4",
+      "profile": "https://github.com/itaiterner",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
