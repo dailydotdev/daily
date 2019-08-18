@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -122,6 +122,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Jaydelyn"><img src="https://avatars0.githubusercontent.com/u/24854453?v=4" width="100px;" alt="Mia Durand"/><br /><sub><b>Mia Durand</b></sub></a><br /><a href="#ideas-Jaydelyn" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/vishalksuthar"><img src="https://avatars2.githubusercontent.com/u/43471370?v=4" width="100px;" alt="Vishal Sutnar"/><br /><sub><b>Vishal Sutnar</b></sub></a><br /><a href="#ideas-vishalksuthar" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/issues?q=author%3Avishalksuthar" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/itaiterner"><img src="https://avatars2.githubusercontent.com/u/7588919?v=4" width="100px;" alt="Itai Terner"/><br /><sub><b>Itai Terner</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=itaiterner" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jtan743"><img src="https://avatars3.githubusercontent.com/u/7684140?v=4" width="100px;" alt="Justin Tan"/><br /><sub><b>Justin Tan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=jtan743" title="Code">💻</a></td>
   </tr>
 </table>
 
