@@ -124,6 +124,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/itaiterner"><img src="https://avatars2.githubusercontent.com/u/7588919?v=4" width="100px;" alt="Itai Terner"/><br /><sub><b>Itai Terner</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=itaiterner" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/jtan743"><img src="https://avatars3.githubusercontent.com/u/7684140?v=4" width="100px;" alt="Justin Tan"/><br /><sub><b>Justin Tan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=jtan743" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Andrei0872"><img src="https://avatars2.githubusercontent.com/u/36248290?v=4" width="100px;" alt="Gatej Andrei"/><br /><sub><b>Gatej Andrei</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=Andrei0872" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
