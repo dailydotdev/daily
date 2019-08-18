@@ -126,6 +126,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jtan743",
+      "name": "Justin Tan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7684140?v=4",
+      "profile": "https://github.com/jtan743",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
