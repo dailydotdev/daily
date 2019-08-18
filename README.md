@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -123,6 +123,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/vishalksuthar"><img src="https://avatars2.githubusercontent.com/u/43471370?v=4" width="100px;" alt="Vishal Sutnar"/><br /><sub><b>Vishal Sutnar</b></sub></a><br /><a href="#ideas-vishalksuthar" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/issues?q=author%3Avishalksuthar" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/itaiterner"><img src="https://avatars2.githubusercontent.com/u/7588919?v=4" width="100px;" alt="Itai Terner"/><br /><sub><b>Itai Terner</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=itaiterner" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/jtan743"><img src="https://avatars3.githubusercontent.com/u/7684140?v=4" width="100px;" alt="Justin Tan"/><br /><sub><b>Justin Tan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=jtan743" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Andrei0872"><img src="https://avatars2.githubusercontent.com/u/36248290?v=4" width="100px;" alt="Gatej Andrei"/><br /><sub><b>Gatej Andrei</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=Andrei0872" title="Code">💻</a></td>
   </tr>
 </table>
 
