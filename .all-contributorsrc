@@ -153,11 +153,21 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "justnewbee",
+      "name": "Jianchun Wang",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2276086?v=4",
+      "profile": "https://github.com/justnewbee",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "daily",
   "projectOwner": "dailynowco",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "commitConvention": "angular"
 }
