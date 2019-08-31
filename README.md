@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -104,8 +104,7 @@ That's it! :clap: Now you have a running environment waiting for you to try it o
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+<!-- prettier-ignore -->
 <table>
   <tr>
     <td align="center"><a href="https://shamun.dev"><img src="https://avatars2.githubusercontent.com/u/1993245?v=4" width="100px;" alt="Ido Shamun"/><br /><sub><b>Ido Shamun</b></sub></a><br /><a href="#ideas-idoshamun" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Code">💻</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Documentation">📖</a></td>
@@ -129,11 +128,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Andrei0872"><img src="https://avatars2.githubusercontent.com/u/36248290?v=4" width="100px;" alt="Gatej Andrei"/><br /><sub><b>Gatej Andrei</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=Andrei0872" title="Code">💻</a></td>
     <td align="center"><a href="https://zd-zero.github.io"><img src="https://avatars0.githubusercontent.com/u/21978370?v=4" width="100px;" alt="Zaerald Denze Lungos"/><br /><sub><b>Zaerald Denze Lungos</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=zd-zero" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/justnewbee"><img src="https://avatars0.githubusercontent.com/u/2276086?v=4" width="100px;" alt="Jianchun Wang"/><br /><sub><b>Jianchun Wang</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Ajustnewbee" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://randalvance.net"><img src="https://avatars0.githubusercontent.com/u/3318476?v=4" width="100px;" alt="Randal Vance Cunanan"/><br /><sub><b>Randal Vance Cunanan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=randalvance" title="Code">💻</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
