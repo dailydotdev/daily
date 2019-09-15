@@ -180,6 +180,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DarkMannn",
+      "name": "Darko",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29717360?v=4",
+      "profile": "https://github.com/DarkMannn",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
