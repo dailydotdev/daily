@@ -130,6 +130,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/justnewbee"><img src="https://avatars0.githubusercontent.com/u/2276086?v=4" width="100px;" alt="Jianchun Wang"/><br /><sub><b>Jianchun Wang</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Ajustnewbee" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://randalvance.net"><img src="https://avatars0.githubusercontent.com/u/3318476?v=4" width="100px;" alt="Randal Vance Cunanan"/><br /><sub><b>Randal Vance Cunanan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=randalvance" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/wtfua92"><img src="https://avatars2.githubusercontent.com/u/14012934?v=4" width="100px;" alt="Andrii Tynok"/><br /><sub><b>Andrii Tynok</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=wtfua92" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/DarkMannn"><img src="https://avatars1.githubusercontent.com/u/29717360?v=4" width="100px;" alt="Darko"/><br /><sub><b>Darko</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ADarkMannn" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
