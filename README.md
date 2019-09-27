@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -132,6 +132,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/wtfua92"><img src="https://avatars2.githubusercontent.com/u/14012934?v=4" width="100px;" alt="Andrii Tynok"/><br /><sub><b>Andrii Tynok</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=wtfua92" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/DarkMannn"><img src="https://avatars1.githubusercontent.com/u/29717360?v=4" width="100px;" alt="Darko"/><br /><sub><b>Darko</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ADarkMannn" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://sergiofaya.github.io"><img src="https://avatars1.githubusercontent.com/u/15983833?v=4" width="100px;" alt="Sergio Faya Fernández"/><br /><sub><b>Sergio Faya Fernández</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ASergioFaya" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/231293"><img src="https://avatars3.githubusercontent.com/u/27280585?v=4" width="100px;" alt="N D"/><br /><sub><b>N D</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=231293" title="Documentation">📖</a></td>
   </tr>
 </table>
 
