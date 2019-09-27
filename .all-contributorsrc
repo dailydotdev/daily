@@ -189,6 +189,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "231293",
+      "name": "N D",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/27280585?v=4",
+      "profile": "https://github.com/231293",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
