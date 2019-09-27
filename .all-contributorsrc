@@ -189,6 +189,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "SergioFaya",
+      "name": "Sergio Faya Fernández",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/15983833?v=4",
+      "profile": "https://sergiofaya.github.io",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
