@@ -73,7 +73,7 @@ Looking to contribute to Daily? Awesome! We are glad to hear it, check out our [
 
 We use Vue for web application development and Netlify for hosting them.
 Backend wise most of the services and cloud functions are written in Node and some minor services are written in Go (wanted to learn Go, perfect chance 😜). Everything is Docker-based and deployed to the almighty Kubernetes cluster with Helm charts.
-MySQL is the database which powers everything and Google Pub/Sub is used for inter-service communitcation.
+MySQL is the database which powers everything and Google Pub/Sub is used for inter-service communication.
 Lastly, we use CircleCI for running the CI/CD pipelines.
 
 
@@ -81,7 +81,7 @@ Lastly, we use CircleCI for running the CI/CD pipelines.
 
 Before proceeding to setting up your own Daily environment, make sure to go over the [projects description](#projects) and [the architecture](#architecture) to make sure you understand the system and its components.
 
-Daily services are fully dockerized and publicy available on a `gcr.io` repository. This means that all you need is docker on your system and we are good to go. If you don't have docker already you can [check out this guide](https://docs.docker.com/install/).
+Daily services are fully dockerized and publicly available on a `gcr.io` repository. This means that all you need is docker on your system and we are good to go. If you don't have docker already you can [check out this guide](https://docs.docker.com/install/).
 
 Follow the instructions to install everything:
 1. Create a network so the services can communicate with each other.<br/>
