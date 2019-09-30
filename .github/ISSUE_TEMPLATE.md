@@ -13,7 +13,7 @@ Explanation: *Describe the bug as accurate as possible*
 
 Reproduce: *Steps to reproduce the bug, if you know them*
 
-Version: *Daily version (can be found in Chrome's extension page)*
+Version: *Daily version (can be found in Chrome/Firefox's extension page)*
 
 Browser version: *Your browser version*
 
