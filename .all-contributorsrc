@@ -216,6 +216,24 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "dmpinder",
+      "name": "Darren Pinder",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4732147?v=4",
+      "profile": "https://vatu.co.uk",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "zvikarp",
+      "name": "zvikarp",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13397207?v=4",
+      "profile": "http://zektec.com",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
