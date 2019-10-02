@@ -135,6 +135,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/231293"><img src="https://avatars3.githubusercontent.com/u/27280585?v=4" width="100px;" alt="N D"/><br /><sub><b>N D</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=231293" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://thatrobot.dev"><img src="https://avatars0.githubusercontent.com/u/18013689?v=4" width="100px;" alt="James Kerrane"/><br /><sub><b>James Kerrane</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=thatrobotdev" title="Documentation">📖</a></td>
   </tr>
 </table>
 
