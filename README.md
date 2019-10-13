@@ -104,8 +104,7 @@ That's it! :clap: Now you have a running environment waiting for you to try it o
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+<!-- prettier-ignore -->
 <table>
   <tr>
     <td align="center"><a href="https://shamun.dev"><img src="https://avatars2.githubusercontent.com/u/1993245?v=4" width="100px;" alt="Ido Shamun"/><br /><sub><b>Ido Shamun</b></sub></a><br /><a href="#ideas-idoshamun" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Code">💻</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Documentation">📖</a></td>
@@ -136,14 +135,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/231293"><img src="https://avatars3.githubusercontent.com/u/27280585?v=4" width="100px;" alt="N D"/><br /><sub><b>N D</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=231293" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://thatrobot.dev"><img src="https://avatars0.githubusercontent.com/u/18013689?v=4" width="100px;" alt="James Kerrane"/><br /><sub><b>James Kerrane</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=thatrobotdev" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://thatrobot.dev"><img src="https://avatars0.githubusercontent.com/u/18013689?v=4" width="100px;" alt="James Kerrane"/><br /><sub><b>James Kerrane</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=thatrobotdev" title="Documentation">📖</a> <a href="https://github.com/dailynowco/daily/issues?q=author%3Athatrobotdev" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://vatu.co.uk"><img src="https://avatars2.githubusercontent.com/u/4732147?v=4" width="100px;" alt="Darren Pinder"/><br /><sub><b>Darren Pinder</b></sub></a><br /><a href="#ideas-dmpinder" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://zektec.com"><img src="https://avatars2.githubusercontent.com/u/13397207?v=4" width="100px;" alt="zvikarp"/><br /><sub><b>zvikarp</b></sub></a><br /><a href="#ideas-zvikarp" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
