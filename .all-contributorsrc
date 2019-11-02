@@ -235,6 +235,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "wowkanwowka",
+      "name": "wowkanwowka",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16153753?v=4",
+      "profile": "https://github.com/wowkanwowka",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
