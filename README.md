@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-27-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -139,6 +139,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://vatu.co.uk"><img src="https://avatars2.githubusercontent.com/u/4732147?v=4" width="100px;" alt="Darren Pinder"/><br /><sub><b>Darren Pinder</b></sub></a><br /><a href="#ideas-dmpinder" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://zektec.com"><img src="https://avatars2.githubusercontent.com/u/13397207?v=4" width="100px;" alt="zvikarp"/><br /><sub><b>zvikarp</b></sub></a><br /><a href="#ideas-zvikarp" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/wowkanwowka"><img src="https://avatars3.githubusercontent.com/u/16153753?v=4" width="100px;" alt="wowkanwowka"/><br /><sub><b>wowkanwowka</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Awowkanwowka" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/JohannesBe"><img src="https://avatars3.githubusercontent.com/u/21303311?v=4" width="100px;" alt="JohannesBe"/><br /><sub><b>JohannesBe</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3AJohannesBe" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
