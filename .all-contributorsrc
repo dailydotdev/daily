@@ -253,6 +253,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "TxsAdamWest",
+      "name": "Adan Huerta",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16004559?v=4",
+      "profile": "http://txsadamwest.github.io/portfolio",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
