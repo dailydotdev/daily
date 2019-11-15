@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -141,6 +141,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/wowkanwowka"><img src="https://avatars3.githubusercontent.com/u/16153753?v=4" width="100px;" alt="wowkanwowka"/><br /><sub><b>wowkanwowka</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Awowkanwowka" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/JohannesBe"><img src="https://avatars3.githubusercontent.com/u/21303311?v=4" width="100px;" alt="JohannesBe"/><br /><sub><b>JohannesBe</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3AJohannesBe" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://txsadamwest.github.io/portfolio"><img src="https://avatars3.githubusercontent.com/u/16004559?v=4" width="100px;" alt="Adan Huerta"/><br /><sub><b>Adan Huerta</b></sub></a><br /><a href="#ideas-TxsAdamWest" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/paulz1"><img src="https://avatars0.githubusercontent.com/u/6814620?v=4" width="100px;" alt="paulz1"/><br /><sub><b>paulz1</b></sub></a><br /><a href="#ideas-paulz1" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
