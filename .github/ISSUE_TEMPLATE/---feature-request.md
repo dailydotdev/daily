@@ -25,8 +25,8 @@ assignees: ''
     Describe the functionality you would like to have in Daily in a precise and clear way.
     e.g I would like to have a ...
 
-    If it's an issue with the current implementation, please mention and describe it clearly.
-    e.g I have an issue when ...
+    If you want to request an update in current implementation, please mention and describe it clearly.
+    e.g I would like to request an update for ...
 -->
 
 ### Solution
