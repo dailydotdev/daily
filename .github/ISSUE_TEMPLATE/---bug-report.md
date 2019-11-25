@@ -2,7 +2,7 @@
 name: "\U0001F41B Bug Report"
 about: I would like to report a bug.
 title: "\U0001F41B BUG: "
-labels: bug
+labels: "Type: Bug"
 assignees: ''
 
 ---
@@ -30,7 +30,7 @@ assignees: ''
 ### Expected Behavior
 
 <!--
-    How you expected it to behave?
+    How did you expect it to behave?
 --->
 
 ### Actual Behavior
@@ -45,7 +45,7 @@ assignees: ''
     If possible, please share the steps to reproduce the issue.
 -->
 
-**Solution**
+### Solution
 
 <!--
     If you have any suggestions on fixing the issue.
