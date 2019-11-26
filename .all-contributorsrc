@@ -271,6 +271,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "saqibameen",
+      "name": "Saqib Ameen",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31374163?v=4",
+      "profile": "https://saqib.dev",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

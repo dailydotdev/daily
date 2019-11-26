@@ -6,7 +6,7 @@
 </div>
 <br>
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square" alt="All Contributors"></a>
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
   </a>
@@ -144,6 +144,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/paulz1"><img src="https://avatars0.githubusercontent.com/u/6814620?v=4" width="100px;" alt="paulz1"/><br /><sub><b>paulz1</b></sub></a><br /><a href="#ideas-paulz1" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://saqib.dev"><img src="https://avatars1.githubusercontent.com/u/31374163?v=4" width="100px;" alt="Saqib Ameen"/><br /><sub><b>Saqib Ameen</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=saqibameen" title="Documentation">📖</a></td>
   </tr>
 </table>
 
