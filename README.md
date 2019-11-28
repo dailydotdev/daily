@@ -2,28 +2,38 @@
   <img src="/assets/logo.png" alt="Daily Logo" width="150">
   <h1>Daily</h1>
   <strong>Curated dev news delivered to your new tab 👩🏽‍💻</strong>
-  <h6>Made by developers for developers ❤️</h6>
+  <h6>Made by developers for developers</h6>
 </div>
 <br>
+
+
 <p align="center">
-  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square" alt="All Contributors"></a>
+  <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-30-dca82a.svg?style=flat&label=contributors" alt="All Contributors"></a>
+
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
-    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store users">
+    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?color=2ac78a" alt="Chrome Web Store users">
   </a>
+
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
-    <img src="https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied.svg?style=flat" alt="Chrome Web Store rating">
+    <img src="https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied?color=91cf25&label=rating" alt="Chrome Web Store rating">
   </a>
+
   <a href="https://stackshare.io/daily/daily">
-    <img src="http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="StackShare">
+    <img src="https://img.shields.io/badge/tech-stack-2788c4" alt="StackShare">
   </a>
+
   <a href="https://storybook.dailynow.co">
-    <img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" alt="Storybook">
+    <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook" alt="Storybook">
   </a>
+
 </p>
 
-Hi there 👋! So you probably here because you want to understand deeper what's going on behind the scenes of Daily... This is exactly the place for you so calm down and keep on reading 📖!
 
-## Don't know Daily!?
+
+## 🗃 Daily
+
+> Daily is an open source browser extension which provides curated dev news to your new tab.
+
 
 Daily is a dev news curator delivering relevant updates to your new tab. It gathers and ranks articles from tens of different sources to help you optimize your time and boost your knowledge.
 
@@ -35,7 +45,7 @@ Daily is a dev news curator delivering relevant updates to your new tab. It gath
 - [Firefox Add-ons](https://bit.ly/firefoxdaily)
 - [Product Hunt](https://www.producthunt.com/posts/daily-2-0)
 
-## Projects 
+## Projects
 
 Daily might look pretty simple on the surface but actually it is powered by several services, some might be big and legacy and other micro and easy to maintain. We would like to guide you through the different repositories so you can get by the codebase.
 
