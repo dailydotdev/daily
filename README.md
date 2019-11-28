@@ -11,22 +11,27 @@
   <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-30-dca82a.svg?style=flat&label=contributors" alt="All Contributors"></a>
 
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
-    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?color=2ac78a" alt="Chrome Web Store users">
+    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?color=2ac78a&logo=google-chrome&logoColor=white" alt="Chrome Web Store users">
+  </a>
+
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
+    <img src=" https://img.shields.io/amo/users/daily?color=orange&logo=mozilla" alt="Mozilla Web Store users">
   </a>
 
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied?color=91cf25&label=rating" alt="Chrome Web Store rating">
   </a>
 
-  <a href="https://stackshare.io/daily/daily">
-    <img src="https://img.shields.io/badge/tech-stack-2788c4" alt="StackShare">
+  <a href="https://storybook.dailynow.co">
+    <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook&logoColor=white" alt="Storybook">
   </a>
 
-  <a href="https://storybook.dailynow.co">
-    <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook" alt="Storybook">
+  <a href="https://twitter.com/dailynowco">
+    <img src="https://img.shields.io/twitter/follow/dailynowco?color=26A0ED&label=Follow&logo=twitter&logoColor=white&style=flat" alt="Twitter">
   </a>
 
 </p>
+
 
 
 
@@ -34,8 +39,25 @@
 
 > Daily is an open source browser extension which provides curated dev news to your new tab.
 
+It gathers and ranks articles from tens of unique sources to help developers stay updated with the most relevant developer news. You can bookmark items, sync your data across devices, and read when you want.
 
-Daily is a dev news curator delivering relevant updates to your new tab. It gathers and ranks articles from tens of different sources to help you optimize your time and boost your knowledge.
+Daily is:
+
+* 🥞 Well-maintained
+* ♾ Constantly updated
+* 🧵 Always improving
+* 🌟 Completely open source
+
+It's not just an extension, but a community.
+
+
+
+We've built Daily because we, as developers, find ourselves spending a lot of time looking for valuable articles and blog posts. It wastes a lot of time that otherwise could have been used for coding and being productive. We are here to help other devs around the world save time by collecting, ranking and delivering the best dev news out there.
+
+stay up to date
+save time
+read later
+read anywhere
 
 
 ### Check us out:
