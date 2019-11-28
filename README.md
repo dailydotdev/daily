@@ -11,7 +11,7 @@
   <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-30-dca82a.svg?style=flat&label=contributors" alt="All Contributors"></a>
 
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
-    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?color=2ac78a&logo=google-chrome&logoColor=white" alt="Chrome Web Store users">
+    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?color=EA4335&logo=google-chrome&logoColor=white" alt="Chrome Web Store users">
   </a>
 
   <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
@@ -22,12 +22,12 @@
     <img src="https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied?color=91cf25&label=rating" alt="Chrome Web Store rating">
   </a>
 
-  <a href="https://storybook.dailynow.co">
-    <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook&logoColor=white" alt="Storybook">
-  </a>
-
   <a href="https://twitter.com/dailynowco">
     <img src="https://img.shields.io/twitter/follow/dailynowco?color=26A0ED&label=Follow&logo=twitter&logoColor=white&style=flat" alt="Twitter">
+  </a>
+
+  <a href="https://storybook.dailynow.co">
+    <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook&logoColor=white" alt="Storybook">
   </a>
 
 </p>
