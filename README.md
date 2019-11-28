@@ -48,8 +48,7 @@ Daily is:
 * 🧵 Always improving
 * 🌟 Completely open source
 
-It's not just an extension, but a community.
-
+## 🔮 Philosophy
 
 
 We've built Daily because we, as developers, find ourselves spending a lot of time looking for valuable articles and blog posts. It wastes a lot of time that otherwise could have been used for coding and being productive. We are here to help other devs around the world save time by collecting, ranking and delivering the best dev news out there.
