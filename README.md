@@ -15,7 +15,7 @@
   </a>
 
   <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
-    <img src=" https://img.shields.io/amo/users/daily?color=orange&logo=mozilla" alt="Mozilla Web Store users">
+    <img src="https://img.shields.io/amo/users/daily?color=orange&logo=mozilla" alt="Mozilla Web Store users">
   </a>
 
   <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
