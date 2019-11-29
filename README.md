@@ -48,16 +48,16 @@ Daily is:
 * 🧵 Always improving
 * 🌟 Completely open source
 
-## 🎩 Philosophy
+## 📣 Philosophy
 
 We, as developers, spend a lot of time looking for valuable articles and blog posts. It's hard to catch up with all the latest happenings — coz it's frustrating and consumes a ton of time.
 
 That's why built Daily to help you:
 
-stay up to date
-save time
-read later
-read anywhere
+* 👨‍💻 Stay up-to-date
+* ⏳Save time
+* 🔖 Read when you want
+* 📱Read anywhere
 
 
 ### Check us out:
