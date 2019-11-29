@@ -48,6 +48,11 @@ Daily is:
 * 🧵 Always improving
 * 🌟 Completely open source
 
+<p align="center">
+    <img src="/assets/daily-header.jpeg" alt="Daily" width="700">
+</p>
+
+
 ## 📣 Philosophy
 
 We, as developers, spend a lot of time looking for valuable articles and blog posts. It's hard to catch up with all the latest happenings — coz it's frustrating and consumes a ton of time.
