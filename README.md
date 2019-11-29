@@ -49,7 +49,7 @@ Daily is:
 * 🌟 Completely open source
 
 <p align="center">
-    <img src="/assets/daily-header.jpeg" alt="Daily" width="700">
+    <img src="/assets/daily-header.jpg" alt="Daily" width="700">
 </p>
 
 
