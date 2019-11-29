@@ -50,6 +50,8 @@ Daily is:
 
 <p align="center">
     <img src="/assets/daily-header.jpg" alt="Daily" width="700">
+    <br>
+    <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
 </p>
 
 
