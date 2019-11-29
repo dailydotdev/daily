@@ -39,7 +39,7 @@
 
 > Daily is an open source browser extension which provides curated dev news to your new tab.
 
-It gathers and ranks articles from tens of unique sources to help developers stay updated with the most relevant developer news. You can bookmark items, sync your data across devices, and read when you want.
+It gathers and ranks articles from tens of unique sources to help developers stay updated with the most relevant developer news. You can bookmark items, sync your data across devices, and read when you want. It works offline as well and has a [progressive web app (PWA) for mobile](#check-us-out).
 
 Daily is:
 
@@ -48,10 +48,11 @@ Daily is:
 * 🧵 Always improving
 * 🌟 Completely open source
 
-## 🔮 Philosophy
+## 🎩 Philosophy
 
+We, as developers, spend a lot of time looking for valuable articles and blog posts. It's hard to catch up with all the latest happenings — coz it's frustrating and consumes a ton of time.
 
-We've built Daily because we, as developers, find ourselves spending a lot of time looking for valuable articles and blog posts. It wastes a lot of time that otherwise could have been used for coding and being productive. We are here to help other devs around the world save time by collecting, ranking and delivering the best dev news out there.
+That's why built Daily to help you:
 
 stay up to date
 save time
