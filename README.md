@@ -53,14 +53,19 @@ Daily is:
     <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
 </p>
 
-## ⚡️ Get Daily
+## 🎯 Get Daily
 
-- [Website](https://www.dailynow.co)
-- [Chrome Web Store](https://bit.ly/chromedaily)
-- [Firefox Add-ons](https://bit.ly/firefoxdaily)
-- [Product Hunt](https://www.producthunt.com/posts/daily-2-0)
+Daily is currently available for Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices.
 
-## 📣 Philosophy
+Grab it now for:
+- [Chrome](https://bit.ly/chromedaily)
+- [Firefox](https://bit.ly/firefoxdaily)
+- [Mobile](http://go.dailynow.co/)
+
+
+
+
+## 📯 Philosophy
 
 We, as developers, spend a lot of time looking for valuable articles and blog posts. It's hard to catch up with all the latest happenings — coz it's frustrating and consumes a ton of time.
 
