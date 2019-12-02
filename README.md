@@ -35,7 +35,7 @@
 
 
 
-## 🗃 Daily
+## 🧶 Daily
 
 > Daily is an open source browser extension which provides curated dev news to your new tab.
 
@@ -53,6 +53,12 @@ Daily is:
     <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
 </p>
 
+## ⚡️ Get Daily
+
+- [Website](https://www.dailynow.co)
+- [Chrome Web Store](https://bit.ly/chromedaily)
+- [Firefox Add-ons](https://bit.ly/firefoxdaily)
+- [Product Hunt](https://www.producthunt.com/posts/daily-2-0)
 
 ## 📣 Philosophy
 
@@ -64,14 +70,6 @@ That's why built Daily to help you:
 * ⏳Save time
 * 📱Read anywhere
 * 🔖 Read when you want
-
-
-### Check us out:
-
-- [Website](https://www.dailynow.co)
-- [Chrome Web Store](https://bit.ly/chromedaily)
-- [Firefox Add-ons](https://bit.ly/firefoxdaily)
-- [Product Hunt](https://www.producthunt.com/posts/daily-2-0)
 
 ## Projects
 
