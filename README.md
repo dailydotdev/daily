@@ -39,7 +39,7 @@
 
 > Daily is an open source browser extension which provides curated dev news to your new tab.
 
-It gathers and ranks articles from tens of unique sources to help developers stay updated with the most relevant developer news. You can bookmark items, sync your data across devices, and read when you want. It works offline as well and has a [progressive web app (PWA) for mobile](#check-us-out).
+It gathers and ranks articles from tens of unique sources to help developers stay updated with the most relevant developer news. You can bookmark items, sync your data across devices, and read when you want. It works offline as well and has a progressive web app (PWA) for mobile.
 
 Daily is:
 
@@ -127,9 +127,13 @@ Below is a list of technologies we use at Daily.
 * 🚨 OneSignal for push notifications
 
 
-## Setting up local environment
+## 🚀 Running Daily Locally
 
-Before proceeding to setting up your own Daily environment, make sure to go over the [projects description](#projects) and [the architecture](#architecture) to make sure you understand the system and its components.
+Let's setup Daily locally.
+
+#### → STEP #0
+
+Before proceeding to setting up your own Daily environment, make sure to go over the [projects description](#-daily-projects) and [the architecture](#-architecture) to make sure you understand the system and its components.
 
 Daily services are fully dockerized and publicly available on a `gcr.io` repository. This means that all you need is docker on your system and we are good to go. If you don't have docker already you can [check out this guide](https://docs.docker.com/install/).
 
