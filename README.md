@@ -112,19 +112,19 @@ Daily might look simple on the surface but actually it is powered by a complex a
 </p>
 
 
-## 🥞 Tech Stack
+## 🗂 Tech Stack
 
 Below is a list of technologies we use at Daily.
 
-*  🎨 Vue.js for frontend
-* 🌳 Node.js & Golang for Services
-* ☁️ Google Cloud Pub/Sub | SQL | Serverless
-* ♾ CircleCI for CI/CD
-* 🎩 Kubernetes with Helm charts
-* 🔍 Algolia to power search
-* 🎛 Superfeedr to feeding data
-* 📨 SendGrid to send emails
-* 🚨 OneSignal for push notifications
+*  🎨 **Frontend:** Vue.js
+* 🌳 **Services:** Node.js & Golang
+* ☁️ **Cloud:** Google Cloud Platform Pub/Sub | SQL | Serverless
+* ♾ **CI/CD:** CircleCI
+* 🎩 **Deployment:** Kubernetes with Helm charts
+* 🔍 **Search:** Algolia
+* 🎛 **Data Feed:** Superfeedr
+* 📨 **Email Service:** SendGrid
+* 🚨 **Push Notifications:** OneSignal
 
 
 ## 🚀 Running Daily Locally
