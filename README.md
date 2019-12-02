@@ -80,34 +80,32 @@ That's why built Daily to help you:
 * 📱Read anywhere
 * 🔖 Read when you want
 
-## Projects
+## 🌲 Daily Projects
 
-Daily might look pretty simple on the surface but actually it is powered by several services, some might be big and legacy and other micro and easy to maintain. We would like to guide you through the different repositories so you can get by the codebase.
+Daily might look simple on the surface but actually it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under Daily.
 
-### Community & Docs
+### 🙌 Community & Docs
 
-* [daily](https://github.com/dailynowco/daily) - This is the repository you are currently at and it is actually the repository with overall documentation, community ideas, suggestions and whatnot.
+*  [daily](https://github.com/dailynowco/daily) - This is the repository you are currently at. It serves as a central place for all the projects. It contains documentation, community ideas, suggestions, and whatnot.
 
-### Frontend
 
-* [daily-apps](https://github.com/dailynowco/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0, our Vue components library, API encapsulation library, obviously Daily extension and others.
-* [daily-go](https://github.com/dailynowco/daily-go) - Our Daily Go webapp, with a story like interface (called toilet mode) and user's bookmarks.
+### 🎨 Frontend
 
-### Backend
+* [daily-apps](https://github.com/dailynowco/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 — Vue components library, API encapsulation library, Daily extension and everything related to frontend.
 
-* [daily-api](https://github.com/dailynowco/daily-api) - Started as a monolith API service and slowly has been split apart to different services. Currently the target domain is to manage content related data such as posts, feeds, tags, etc.
+* [daily-go](https://github.com/dailynowco/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage
+
+### 🏗 Backend
+
+* [daily-api](https://github.com/dailynowco/daily-api) - A monolith API service, being slowly split apart to different services. It manages content related data such as posts, feeds, tags, etc.
 * [daily-redirector](https://github.com/dailynowco/daily-redirector) - Service for redirecting visitors from Daily custom links to the original link.
 * [daily-gateway](https://github.com/dailynowco/daily-gateway) - API gateway which receives all traffic and forward it to the relevant services after authenticating and authorizing the request.
 * [daily-monetization](https://github.com/dailynowco/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
 * [daily-functions](https://github.com/dailynowco/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
 
-## Want to help?
 
-Looking to contribute to Daily? Awesome! We are glad to hear it, check out our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
-
-
-## Architecture
+## 🏛 Architecture
 
 <p align="center">
     <img src="/assets/arch.png" alt="Daily architecture" width="700">
@@ -143,6 +141,11 @@ Follow the instructions to install everything:
 That's it! :clap: Now you have a running environment waiting for you to try it out. Each project explains what services are needed and how to dive into the actual code and contribute.
 
 \* Please note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you. Don't worry it just means that if you click on an article you will get error 404 and that you will not see ads on your local environment.
+
+## Want to help?
+
+Looking to contribute to Daily? Awesome! We are glad to hear it, check out our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
+
 
 ## Contributors ✨
 
