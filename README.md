@@ -131,15 +131,30 @@ Below is a list of technologies we use at Daily.
 
 Let's setup Daily locally.
 
-#### → STEP #0
+### → STEP #0
 
-Before proceeding to setting up your own Daily environment, make sure to go over the [projects description](#-daily-projects) and [the architecture](#-architecture) to make sure you understand the system and its components.
+* Go through the [projects description](#-daily-projects) and [the architecture](#-architecture) to familiarize yourself with the system and its components.
+* Make sure Docker is installed on your machine. Take a look at the [official guide](https://docs.docker.com/install/#desktop) for installation. After installation, run the following command in your terminal for a double check.
 
-Daily services are fully dockerized and publicly available on a `gcr.io` repository. This means that all you need is docker on your system and we are good to go. If you don't have docker already you can [check out this guide](https://docs.docker.com/install/).
+```sh
+docker -v
+# Docker version 18.09.2, build 6247962     // Expected result
+```
 
-Follow the instructions to install everything:
-1. Create a network so the services can communicate with each other.<br/>
-`docker network create daily`
+### → STEP #1
+
+The first step is to **create a network**, so the different services of Daily can communicate with each other.
+
+> Daily services are fully dockerized and publicly available on a Google Cloud Registry. We are going to use them to complete the setup.
+
+Run the following command to create a network. It will be instant.
+
+```sh
+docker network create daily
+
+# 465691b49f0ba36020f0533e174c019382e82c4a827432132d0e045282dfc995     // Expected result
+```
+
 1. Start a MySQL instance (contains the relevant databases already), it exposes port `3306` so you can use any MySQL client to connect and inspect the data. The root user is `root` and password is `12345`.<br/>
 `docker run -d --name daily-mysql -p 3306:3306 --network daily gcr.io/daily-ops/mysql`
 1. Run [Daily Gateway](https://github.com/dailynowco/daily-gateway) service, it exposes port `4000`. Obviously, the OAuth credentials are for our staging environment and don't provide any real Daily user information.<br/>
