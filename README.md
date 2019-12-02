@@ -43,10 +43,9 @@ It gathers and ranks articles from tens of unique sources to help developers sta
 
 Daily is:
 
-* 🥞 Well-maintained
-* ♾ Constantly updated
-* 🧵 Always improving
-* 🌟 Completely open source
+* 🌟 **Well-maintained**: We are working continuously to introduce new features, fix bugs, and improve user experience — 40+ releases on average in a year.
+* ♾ **Constantly Updated**: Daily's article feed is constantly updated. As soon as new articles get published, they start appearing in Daily.
+* 🧵 **Open Source**: Daily is completely open source. You can see the code to learn how it works, and contribute to help it improve.
 
 <p align="center">
     <img src="/assets/daily-header.jpg" alt="Daily" width="850">
@@ -63,8 +62,8 @@ That's why built Daily to help you:
 
 * 👨‍💻 Stay up-to-date
 * ⏳Save time
-* 🔖 Read when you want
 * 📱Read anywhere
+* 🔖 Read when you want
 
 
 ### Check us out:
