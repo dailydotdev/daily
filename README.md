@@ -112,12 +112,19 @@ Daily might look simple on the surface but actually it is powered by a complex a
 </p>
 
 
-## Tech Stack
+## 🥞 Tech Stack
 
-We use Vue for web application development and Netlify for hosting them.
-Backend wise most of the services and cloud functions are written in Node and some minor services are written in Go (wanted to learn Go, perfect chance 😜). Everything is Docker-based and deployed to the almighty Kubernetes cluster with Helm charts.
-MySQL is the database which powers everything and Google Pub/Sub is used for inter-service communication.
-Lastly, we use CircleCI for running the CI/CD pipelines.
+Below is a list of technologies we use at Daily.
+
+*  🎨 Vue.js for frontend
+* 🌳 Node.js & Golang for Services
+* ☁️ Google Cloud Pub/Sub | SQL | Serverless
+* ♾ CircleCI for CI/CD
+* 🎩 Kubernetes with Helm charts
+* 🔍 Algolia to power search
+* 🎛 Superfeedr to feeding data
+* 📨 SendGrid to send emails
+* 🚨 OneSignal for push notifications
 
 
 ## Setting up local environment
