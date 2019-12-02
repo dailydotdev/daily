@@ -169,7 +169,7 @@ The command will take a while depending upon your internet speed. The results wi
 
 ![Setting up MySQL - Screenshot](/assets/setting&#32;up&#32;/setting&#32;up&#32;mysql&#32;-&#32;screenshot.png)
 
-### ### → STEP #3
+### → STEP #3
 
 
 1. Run [Daily Gateway](https://github.com/dailynowco/daily-gateway) service, it exposes port `4000`. Obviously, the OAuth credentials are for our staging environment and don't provide any real Daily user information.<br/>
