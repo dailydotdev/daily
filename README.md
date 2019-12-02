@@ -53,17 +53,21 @@ Daily is:
     <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
 </p>
 
-## 🎯 Get Daily
+## 📌 Get Daily
 
-Daily is currently available for Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices.
+Daily is currently available for Google Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices. Download for:
 
-Grab it now for:
-- [Chrome](https://bit.ly/chromedaily)
-- [Firefox](https://bit.ly/firefoxdaily)
-- [Mobile](http://go.dailynow.co/)
-
-
-
+<p align="center">
+    <a href="https://bit.ly/chromedaily">
+    <img src="https://img.shields.io/badge/%20-Chrome-red?logo=google-chrome&logoColor=white" alt="Download for Chrome" />
+    </a>
+    <a href="https://bit.ly/firefoxdaily">
+    <img src="https://img.shields.io/badge/%20-Firefox-orange?logo=mozilla&logoColor=white" alt="Download for Firefox" />
+    </a>
+    <a href="http://go.dailynow.co/">
+    <img src="https://img.shields.io/badge/%20-Mobile-502ab0" alt="Download for Mobile" />
+    </a>
+</p>
 
 ## 📯 Philosophy
 
