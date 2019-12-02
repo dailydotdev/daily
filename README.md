@@ -145,7 +145,7 @@ docker -v
 
 The first step is to **create a network**, so the different services of Daily can communicate with each other.
 
-> Daily services are fully dockerized and publicly available on a Google Cloud Registry. We are going to use them to complete the setup.
+> Daily services are fully dockerized and publicly available on a Google Cloud Registry repository. We are going to use them to complete the setup.
 
 Run the following command to create a network. It will be instant.
 
