@@ -294,4 +294,18 @@ Meet the core team of Daily.
 
 Feel free to reach us out and say hi 👋.
 
-## License
+## 💬 What You Think of Daily?
+
+<div align="left">
+    <p><a href="https://twitter.com/dailynowco/"><img alt="Twitter @dailynowco" align="center" src="https://img.shields.io/badge/%20-Twitter-26A0ED" /></a>&nbsp; Tweet us @dailynowco to share your thoughts and stay up-to-date. </p>
+    <p><a href="https://facebook.com/dailynowco/"><img alt="Facebook @dailynowco" align="center" src="https://img.shields.io/badge/%20-Facebook-4267B2" /></a>&nbsp; Like us to know what's happening at Daily and share your reviews.</p>
+    <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="Daily at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProdcutHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let's know what you think.</p>
+    <p><a href="https://www.dailynow.co"><img alt="Daily Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
+    <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="Daily at ChomeStore" align="center" src="https://img.shields.io/badge/%20-Chrome Store-Red" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
+    <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="Daily at Firefox" align="center" src="https://img.shields.io/badge/%20-Mozilla Addon-Orange" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
+</div>
+
+
+
+## 📑 License
+Licensed under [AGPL-3.0](https://github.com/saqibameen/daily/blob/master/LICENSE).
