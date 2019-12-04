@@ -131,7 +131,7 @@ Below is a list of technologies we use at Daily.
 
 Let's setup Daily locally. First you need to setup the services required to run the Daily applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
-## ⚙️ Setting Up Daily Service
+## ⚙️ Setting Up Daily Services
 
 ### → STEP #0
 
