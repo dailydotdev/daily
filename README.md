@@ -131,6 +131,8 @@ Below is a list of technologies we use at Daily.
 
 Let's setup Daily locally. First you need to setup the services required to run the Daily applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
+## ⚙️ Setting Up Daily Service
+
 ### → STEP #0
 
 * Go through the [projects description](#-daily-projects) and [the architecture](#-architecture) to familiarize yourself with the system and its components.
@@ -154,6 +156,7 @@ docker network create daily
 
 # 465691b49f0ba36020f0533e174c019382e82c4a827432132d0e045282dfc995     // Expected result
 ```
+
 ### → STEP #2
 
 Second step in this process is to start a MySQL instance with appropriate databases. We are going to use our database service for this purpose.
@@ -214,13 +217,72 @@ docker exec daily-api npx knex seed:run
 
 That's it! 🥂
 
-Now you have a running environment waiting for you to try it out. Each project explains what services are needed and how to dive into the actual code and contribute.
+Now you have all the required services running. Each project' repo explains what services are needed and how to get started with them.
 
-\* Please note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you. Don't worry it just means that if you click on an article you will get error 404 and that you will not see ads on your local environment.
+> Note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you.
+>
+> It means that if you click on an article you will get error 404 and that you will not see ads on your local environment.
 
-## Want to help?
+## 🎨 Setting Up Daily Apps
 
-Looking to contribute to Daily? Awesome! We are glad to hear it, check out our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
+Now, let's quickly setup Daily chrome extension to elaborate how you can setup each Daily application.
+
+### → STEP #1
+
+Clone the [daily-apps](https://github.com/dailynowco/daily-apps) repo and run the following commands in your terminal to bootstrap.
+
+Yes, we use `lerna` for this purpose.
+
+```sh
+npx lerna bootstrap
+
+# npx: installed 698 in 89.279s     // Expected result
+# ...
+# lerna success Bootstrapped 4 packages
+
+npx lerna run build
+
+# Done in 29.19s.     // Expected result
+# lerna success run Ran npm script 'build' in 4 packages in 48.5s:
+# lerna success - @daily/components
+# lerna success - @daily/extension
+# lerna success - @daily/moderator
+# lerna success - @daily/services
+```
+### → STEP #2
+
+Go to `packages/extension` in the `daily-apps` folder. Run the following command to start it in development mode. It will watch for all the file changes and generate the output in `dist` folder.
+
+```sh
+yarn serve
+
+# ...
+# DONE  Build complete. Watching for changes...      // Expected result
+```
+### → STEP #3
+
+By now, you will have unpacked Daily extension in your `dist` folder. Follow the steps listed below to load the extension.
+
+1. Go to `chrome://extensions` path in your Chrome browser.
+2. Enable `Developer mode` from the top right section.
+3. Click on `Load Unpack` button and select your `dist` folder.
+
+That's it! Your extension has been loaded in your browser. Happy hacking! ✌️
+
+![Daily in development mode](/assets/setting&#32;up&#32;/daily&#32;in&#32;development&#32;mode.png)
+
+
+For Firefox, you can follow [this guide](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/). Similarly, you can run all the other Daily apps. Each app has a readme file in its repo to help you get started.
+
+## 🙌 Want to Contribute?
+
+We are open to all kind of contributions. If you want to:
+* 🤔 Share an idea
+* 🐛 Report an issue
+* 📖 Improve doc
+* 👨‍💻 Contribute to the code
+
+You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
 
 
 ## Contributors ✨
