@@ -129,7 +129,7 @@ Below is a list of technologies we use at Daily.
 
 ## 🚀 Running Daily Locally
 
-Let's setup Daily locally.
+Let's setup Daily locally. First you need to setup the services required to run the Daily applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
 ### → STEP #0
 
@@ -165,26 +165,56 @@ Run the following command to accomplish this task:
 ```sh
 docker run -d --name daily-mysql -p 3306:3306 --network daily gcr.io/daily-ops/mysql
 ```
-The command will take a while depending upon your internet speed. The results will look like the screenshot.
+The command will take a while depending upon your internet speed. See the GIF to follow up.
 
-![Setting up MySQL - Screenshot](/assets/setting&#32;up&#32;/setting&#32;up&#32;mysql&#32;-&#32;screenshot.png)
+![Setting up MySQL](/assets/setting&#32;up&#32;/starting&#32;sql&#32;server.gif)
 
 ### → STEP #3
 
+The next step is to run the Daily Gateway service and connect it with our `daily` network. This service exposes port `4000 ` when your run it.
 
-1. Run [Daily Gateway](https://github.com/dailynowco/daily-gateway) service, it exposes port `4000`. Obviously, the OAuth credentials are for our staging environment and don't provide any real Daily user information.<br/>
-`docker run -d --name daily-gateway -p 4000:4000 --network daily -e MYSQL_USER=root -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=gateway -e MYSQL_HOST=daily-mysql -e COOKIES_DOMAIN=localhost -e COOKIES_KEY=topsecret -e GITHUB_CLIENT_ID=7b514cee17923d0acedc -e GITHUB_CLIENT_SECRET=064d875c7b370d271be839242538c87ab8bb6f92 -e GOOGLE_CLIENT_ID=750405661228-fmeg35uuaopbcnc4c6m6g51755s355bm.apps.googleusercontent.com -e GOOGLE_CLIENT_SECRET=MMv_wZAS6Etoleg-sn__BlDC -e URL_PREFIX=http://localhost:4000 -e JWT_SECRET='|r+.2!!!.Qf_-|63*%.D' -e JWT_AUDIENCE='Daily Staging' -e JWT_ISSUER='Daily API Staging' -e CORS_ORIGIN='http://,chrome-extension://,moz-extension://' -e PORT=4000 -e API_URL=http://daily-api:5000 -e API_SECRET=topsecret gcr.io/daily-ops/daily-gateway`
+To start Daily Gateway service, run the following command in your terminal. Again, depending upon your internet connection, it may take a while.
+
+```sh
+docker run -d --name daily-gateway -p 4000:4000 --network daily -e MYSQL_USER=root -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=gateway -e MYSQL_HOST=daily-mysql -e COOKIES_DOMAIN=localhost -e COOKIES_KEY=topsecret -e GITHUB_CLIENT_ID=7b514cee17923d0acedc -e GITHUB_CLIENT_SECRET=064d875c7b370d271be839242538c87ab8bb6f92 -e GOOGLE_CLIENT_ID=750405661228-fmeg35uuaopbcnc4c6m6g51755s355bm.apps.googleusercontent.com -e GOOGLE_CLIENT_SECRET=MMv_wZAS6Etoleg-sn__BlDC -e URL_PREFIX=http://localhost:4000 -e JWT_SECRET='|r+.2!!!.Qf_-|63*%.D' -e JWT_AUDIENCE='Daily Staging' -e JWT_ISSUER='Daily API Staging' -e CORS_ORIGIN='http://,chrome-extension://,moz-extension://' -e PORT=4000 -e API_URL=http://daily-api:5000 -e API_SECRET=topsecret gcr.io/daily-ops/daily-gateway
+```
+
+> The OAuth credentials are for our staging environment and don't provide any real Daily user information.
+
+Yes, we have a GIF for you showing how it should go ideally.
+
+![Setting up Daily Gateway](/assets/setting&#32;up&#32;/setting&#32;gateway&#32;service.gif)
+
+### → STEP #4
+
+We have MySQL service in running with Daily gateway service. Next, we need to run the Daily API Service and connect it to our network. It exposes port `5000`.
+
+Run the following command your terminal to start it.
+
+```sh
+docker run -d --name daily-api -p 5000:5000 --network daily -e DEFAULT_IMAGE_URL=https://storage.cloud.google.com/devkit-assets/placeholder.jpg -e DEFAULT_IMAGE_PLACEHOLDER='data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QCYRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAABIAAAAAQAAAEgAAAABAAWQAAAHAAAABDAyMTCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAAAqgAwAEAAAAAQAAAAYAAAAA/+ECz2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiB4bWxuczpleGlmPSdodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyc+CiAgPGV4aWY6WFJlc29sdXRpb24+NzI8L2V4aWY6WFJlc29sdXRpb24+CiAgPGV4aWY6WVJlc29sdXRpb24+NzI8L2V4aWY6WVJlc29sdXRpb24+CiAgPGV4aWY6UmVzb2x1dGlvblVuaXQ+SW5jaDwvZXhpZjpSZXNvbHV0aW9uVW5pdD4KICA8ZXhpZjpFeGlmVmVyc2lvbj5FeGlmIFZlcnNpb24gMi4xPC9leGlmOkV4aWZWZXJzaW9uPgogIDxleGlmOkZsYXNoUGl4VmVyc2lvbj5GbGFzaFBpeCBWZXJzaW9uIDEuMDwvZXhpZjpGbGFzaFBpeFZlcnNpb24+CiAgPGV4aWY6Q29sb3JTcGFjZT5zUkdCPC9leGlmOkNvbG9yU3BhY2U+CiAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjEwMjQ8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogIDxleGlmOlBpeGVsWURpbWVuc2lvbj42MDA8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogPC9yZGY6RGVzY3JpcHRpb24+Cgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSdyJz8+Cv/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/CABEIAAYACgMBEQACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAEBv/EABYBAQEBAAAAAAAAAAAAAAAAAAgDBP/aAAwDAQACEAMQAAABuW6Vha4f/8QAFxAAAwEAAAAAAAAAAAAAAAAAAAIDAf/aAAgBAQABBQJHjkz/xAAcEQEBAQACAwEAAAAAAAAAAAACAwEREgAEEyH/2gAIAQMBAT8BFIGNA/W+llu9LbahyZ08fkhxiZeFFNaOm0Ckkp0j5//EABwRAAMBAAIDAAAAAAAAAAAAAAECAwQAExESIf/aAAgBAgEBPwGsdL6JUnsMc6Admdc8nNnD+ft6ezJJplldJoKdgjRLoqWjp5//xAAdEAACAQQDAAAAAAAAAAAAAAABAgMREiEjABMi/9oACAEBAAY/AirQXybKSdrrQNHanhcExSbAThqlHUi0rz//xAAXEAEBAQEAAAAAAAAAAAAAAAABERAx/9oACAEBAAE/IRRs0xVxiFhHGC//2gAMAwEAAgADAAAAEGP/xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QNAUSVjBHQudd/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EEkCGWNRJa8Ww//EABcQAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQEAAT8QpeTsA40GpPBD/9k=' -e DEFAULT_IMAGE_RATIO=1.7 -e MYSQL_USER=root -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=devkit -e MYSQL_HOST=daily-mysql -e URL_PREFIX=http://localhost:4000 -e PORT=5000 -e GATEWAY_URL=http://daily-gateway:4000 -e GATEWAY_SECRET=topsecret gcr.io/daily-ops/daily-api
+```
+
+Ideally, this is how it should work:
+
+![Setting up Daily API](/assets/setting&#32;up&#32;/setting&#32;daily&#32;api&#32;service.gif)
+
+### → STEP #5
+
+Last step is to populate your database using the seed data. We use `knex.js` for this purpose. All you need to do is, run the following command in your terminal:
+
+```sh
+docker exec daily-api npx knex seed:run
+
+# npx: installed 160 in 10.92s     // Expected result
+# Using environment: development
+# Ran 1 seed files
+```
 
 
+That's it! 🥂
 
-1. Run [Daily API](https://github.com/dailynowco/daily-api) service, it exposes port `5000`.<br/>
-`docker run -d --name daily-api -p 5000:5000 --network daily -e DEFAULT_IMAGE_URL=https://storage.cloud.google.com/devkit-assets/placeholder.jpg -e DEFAULT_IMAGE_PLACEHOLDER='data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QCYRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAABIAAAAAQAAAEgAAAABAAWQAAAHAAAABDAyMTCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAAAqgAwAEAAAAAQAAAAYAAAAA/+ECz2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiB4bWxuczpleGlmPSdodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyc+CiAgPGV4aWY6WFJlc29sdXRpb24+NzI8L2V4aWY6WFJlc29sdXRpb24+CiAgPGV4aWY6WVJlc29sdXRpb24+NzI8L2V4aWY6WVJlc29sdXRpb24+CiAgPGV4aWY6UmVzb2x1dGlvblVuaXQ+SW5jaDwvZXhpZjpSZXNvbHV0aW9uVW5pdD4KICA8ZXhpZjpFeGlmVmVyc2lvbj5FeGlmIFZlcnNpb24gMi4xPC9leGlmOkV4aWZWZXJzaW9uPgogIDxleGlmOkZsYXNoUGl4VmVyc2lvbj5GbGFzaFBpeCBWZXJzaW9uIDEuMDwvZXhpZjpGbGFzaFBpeFZlcnNpb24+CiAgPGV4aWY6Q29sb3JTcGFjZT5zUkdCPC9leGlmOkNvbG9yU3BhY2U+CiAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjEwMjQ8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogIDxleGlmOlBpeGVsWURpbWVuc2lvbj42MDA8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogPC9yZGY6RGVzY3JpcHRpb24+Cgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSdyJz8+Cv/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/CABEIAAYACgMBEQACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAEBv/EABYBAQEBAAAAAAAAAAAAAAAAAAgDBP/aAAwDAQACEAMQAAABuW6Vha4f/8QAFxAAAwEAAAAAAAAAAAAAAAAAAAIDAf/aAAgBAQABBQJHjkz/xAAcEQEBAQACAwEAAAAAAAAAAAACAwEREgAEEyH/2gAIAQMBAT8BFIGNA/W+llu9LbahyZ08fkhxiZeFFNaOm0Ckkp0j5//EABwRAAMBAAIDAAAAAAAAAAAAAAECAwQAExESIf/aAAgBAgEBPwGsdL6JUnsMc6Admdc8nNnD+ft6ezJJplldJoKdgjRLoqWjp5//xAAdEAACAQQDAAAAAAAAAAAAAAABAgMREiEjABMi/9oACAEBAAY/AirQXybKSdrrQNHanhcExSbAThqlHUi0rz//xAAXEAEBAQEAAAAAAAAAAAAAAAABERAx/9oACAEBAAE/IRRs0xVxiFhHGC//2gAMAwEAAgADAAAAEGP/xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QNAUSVjBHQudd/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EEkCGWNRJa8Ww//EABcQAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQEAAT8QpeTsA40GpPBD/9k=' -e DEFAULT_IMAGE_RATIO=1.7 -e MYSQL_USER=root -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=devkit -e MYSQL_HOST=daily-mysql -e URL_PREFIX=http://localhost:4000 -e PORT=5000 -e GATEWAY_URL=http://daily-gateway:4000 -e GATEWAY_SECRET=topsecret gcr.io/daily-ops/daily-api`
-
-
-1. Populate database with seed data.<br/>
-`docker exec daily-api npx knex seed:run`
-
-That's it! :clap: Now you have a running environment waiting for you to try it out. Each project explains what services are needed and how to dive into the actual code and contribute.
+Now you have a running environment waiting for you to try it out. Each project explains what services are needed and how to dive into the actual code and contribute.
 
 \* Please note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you. Don't worry it just means that if you click on an article you will get error 404 and that you will not see ads on your local environment.
 
