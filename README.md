@@ -279,7 +279,7 @@ For Firefox, you can follow [this guide](https://extensionworkshop.com/documenta
 We are open to all kind of contributions. If you want to:
 * 🤔 Share an idea
 * 🐛 Report an issue
-* 📖 Improve doc
+* 📖 Improve documentation
 * 👨‍💻 Contribute to the code
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
