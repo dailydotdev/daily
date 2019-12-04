@@ -285,55 +285,13 @@ We are open to all kind of contributions. If you want to:
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
 
 
-## Contributors ✨
+## 🎩 Core Team
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Meet the core team of Daily.
+* [@idoshamun](https://twitter.com/idoshamun)
+* [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
+* [@saqibameen](https://twitter.com/saqibameen)
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<table>
-  <tr>
-    <td align="center"><a href="https://shamun.dev"><img src="https://avatars2.githubusercontent.com/u/1993245?v=4" width="100px;" alt="Ido Shamun"/><br /><sub><b>Ido Shamun</b></sub></a><br /><a href="#ideas-idoshamun" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Code">💻</a> <a href="https://github.com/dailynowco/daily/commits?author=idoshamun" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/tsahimatsliah"><img src="https://avatars1.githubusercontent.com/u/41912669?v=4" width="100px;" alt="Tsahi Matsliah"/><br /><sub><b>Tsahi Matsliah</b></sub></a><br /><a href="#ideas-tsahimatsliah" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-tsahimatsliah" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/ram-mar"><img src="https://avatars1.githubusercontent.com/u/23351306?v=4" width="100px;" alt="Ram Subramanian"/><br /><sub><b>Ram Subramanian</b></sub></a><br /><a href="#ideas-ram-mar" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://sigfriedseldeslachts.be"><img src="https://avatars2.githubusercontent.com/u/15171357?v=4" width="100px;" alt="Sigfried Seldeslachts"/><br /><sub><b>Sigfried Seldeslachts</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Asigfriedseldeslachts" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/Ornataweaver"><img src="https://avatars1.githubusercontent.com/u/27126408?v=4" width="100px;" alt="Ornataweaver"/><br /><sub><b>Ornataweaver</b></sub></a><br /><a href="#ideas-Ornataweaver" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://twitter.com/ja_alwan"><img src="https://avatars3.githubusercontent.com/u/7735122?v=4" width="100px;" alt="Jundi Alwan"/><br /><sub><b>Jundi Alwan</b></sub></a><br /><a href="#ideas-jundialwan" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://www.gianlucamangiapelo.com"><img src="https://avatars2.githubusercontent.com/u/5846287?v=4" width="100px;" alt="Glub0t"/><br /><sub><b>Glub0t</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Agian8" title="Bug reports">🐛</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/isthatcentered"><img src="https://avatars0.githubusercontent.com/u/10481124?v=4" width="100px;" alt="Edouard"/><br /><sub><b>Edouard</b></sub></a><br /><a href="#ideas-isthatcentered" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://sevketyalcin.com/"><img src="https://avatars1.githubusercontent.com/u/17293211?v=4" width="100px;" alt="Sevket Yalcin"/><br /><sub><b>Sevket Yalcin</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ASevketYALCIN" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/teja463"><img src="https://avatars3.githubusercontent.com/u/4502488?v=4" width="100px;" alt="Brahma Teja Ponnuru"/><br /><sub><b>Brahma Teja Ponnuru</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Ateja463" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/Jaydelyn"><img src="https://avatars0.githubusercontent.com/u/24854453?v=4" width="100px;" alt="Mia Durand"/><br /><sub><b>Mia Durand</b></sub></a><br /><a href="#ideas-Jaydelyn" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/vishalksuthar"><img src="https://avatars2.githubusercontent.com/u/43471370?v=4" width="100px;" alt="Vishal Sutnar"/><br /><sub><b>Vishal Sutnar</b></sub></a><br /><a href="#ideas-vishalksuthar" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/dailynowco/daily/issues?q=author%3Avishalksuthar" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/itaiterner"><img src="https://avatars2.githubusercontent.com/u/7588919?v=4" width="100px;" alt="Itai Terner"/><br /><sub><b>Itai Terner</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=itaiterner" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/jtan743"><img src="https://avatars3.githubusercontent.com/u/7684140?v=4" width="100px;" alt="Justin Tan"/><br /><sub><b>Justin Tan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=jtan743" title="Code">💻</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/Andrei0872"><img src="https://avatars2.githubusercontent.com/u/36248290?v=4" width="100px;" alt="Gatej Andrei"/><br /><sub><b>Gatej Andrei</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=Andrei0872" title="Code">💻</a></td>
-    <td align="center"><a href="https://zd-zero.github.io"><img src="https://avatars0.githubusercontent.com/u/21978370?v=4" width="100px;" alt="Zaerald Denze Lungos"/><br /><sub><b>Zaerald Denze Lungos</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=zd-zero" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/justnewbee"><img src="https://avatars0.githubusercontent.com/u/2276086?v=4" width="100px;" alt="Jianchun Wang"/><br /><sub><b>Jianchun Wang</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Ajustnewbee" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="http://randalvance.net"><img src="https://avatars0.githubusercontent.com/u/3318476?v=4" width="100px;" alt="Randal Vance Cunanan"/><br /><sub><b>Randal Vance Cunanan</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=randalvance" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/wtfua92"><img src="https://avatars2.githubusercontent.com/u/14012934?v=4" width="100px;" alt="Andrii Tynok"/><br /><sub><b>Andrii Tynok</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=wtfua92" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/DarkMannn"><img src="https://avatars1.githubusercontent.com/u/29717360?v=4" width="100px;" alt="Darko"/><br /><sub><b>Darko</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ADarkMannn" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://sergiofaya.github.io"><img src="https://avatars1.githubusercontent.com/u/15983833?v=4" width="100px;" alt="Sergio Faya Fernández"/><br /><sub><b>Sergio Faya Fernández</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3ASergioFaya" title="Bug reports">🐛</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/231293"><img src="https://avatars3.githubusercontent.com/u/27280585?v=4" width="100px;" alt="N D"/><br /><sub><b>N D</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=231293" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://thatrobot.dev"><img src="https://avatars0.githubusercontent.com/u/18013689?v=4" width="100px;" alt="James Kerrane"/><br /><sub><b>James Kerrane</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=thatrobotdev" title="Documentation">📖</a> <a href="https://github.com/dailynowco/daily/issues?q=author%3Athatrobotdev" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://vatu.co.uk"><img src="https://avatars2.githubusercontent.com/u/4732147?v=4" width="100px;" alt="Darren Pinder"/><br /><sub><b>Darren Pinder</b></sub></a><br /><a href="#ideas-dmpinder" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://zektec.com"><img src="https://avatars2.githubusercontent.com/u/13397207?v=4" width="100px;" alt="zvikarp"/><br /><sub><b>zvikarp</b></sub></a><br /><a href="#ideas-zvikarp" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/wowkanwowka"><img src="https://avatars3.githubusercontent.com/u/16153753?v=4" width="100px;" alt="wowkanwowka"/><br /><sub><b>wowkanwowka</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3Awowkanwowka" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/JohannesBe"><img src="https://avatars3.githubusercontent.com/u/21303311?v=4" width="100px;" alt="JohannesBe"/><br /><sub><b>JohannesBe</b></sub></a><br /><a href="https://github.com/dailynowco/daily/issues?q=author%3AJohannesBe" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="http://txsadamwest.github.io/portfolio"><img src="https://avatars3.githubusercontent.com/u/16004559?v=4" width="100px;" alt="Adan Huerta"/><br /><sub><b>Adan Huerta</b></sub></a><br /><a href="#ideas-TxsAdamWest" title="Ideas, Planning, & Feedback">🤔</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/paulz1"><img src="https://avatars0.githubusercontent.com/u/6814620?v=4" width="100px;" alt="paulz1"/><br /><sub><b>paulz1</b></sub></a><br /><a href="#ideas-paulz1" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://saqib.dev"><img src="https://avatars1.githubusercontent.com/u/31374163?v=4" width="100px;" alt="Saqib Ameen"/><br /><sub><b>Saqib Ameen</b></sub></a><br /><a href="https://github.com/dailynowco/daily/commits?author=saqibameen" title="Documentation">📖</a></td>
-  </tr>
-</table>
+Feel free to reach us out and say hi 👋.
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+## License
