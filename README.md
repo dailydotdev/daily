@@ -35,7 +35,7 @@
 
 
 
-## 🧶 Daily
+## 🗞 Daily
 
 > Daily is an open source browser extension which provides curated dev news to your new tab.
 
@@ -77,8 +77,7 @@ That's why built Daily to help you:
 
 * 👨‍💻 Stay up-to-date
 * ⏳Save time
-* 📱Read anywhere
-* 🔖 Read when you want
+* 📰 Read articles at one click
 
 ## 🌲 Daily Projects
 
@@ -93,7 +92,7 @@ Daily might look simple on the surface but actually it is powered by a complex a
 
 * [daily-apps](https://github.com/dailynowco/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 — Vue components library, API encapsulation library, Daily extension and everything related to frontend.
 
-* [daily-go](https://github.com/dailynowco/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage
+* [daily-go](https://github.com/dailynowco/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage your bookmarks on it.
 
 ### 🏗 Backend
 
@@ -217,7 +216,7 @@ docker exec daily-api npx knex seed:run
 
 That's it! 🥂
 
-Now you have all the required services running. Each project' repo explains what services are needed and how to get started with them.
+Now you have all the required services running. Each project's repo explains what services are needed and how to get started with them.
 
 > Note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you.
 >
@@ -294,7 +293,7 @@ Meet the core team of Daily.
 
 Feel free to reach us out and say hi 👋.
 
-## 💬 What You Think of Daily?
+## 💬 What Do You Think of Daily?
 
 <div align="left">
     <p><a href="https://twitter.com/dailynowco/"><img alt="Twitter @dailynowco" align="center" src="https://img.shields.io/badge/%20-Twitter-26A0ED" /></a>&nbsp; Tweet us @dailynowco to share your thoughts and stay up-to-date. </p>
