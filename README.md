@@ -231,6 +231,16 @@ Clone the [daily-apps](https://github.com/dailynowco/daily-apps) repo and run th
 Yes, we use `lerna` for this purpose.
 
 ```sh
+npx lerna init
+
+# npx: installed 707 in 26.904s
+# lerna notice cli v3.20.2
+# lerna info Initializing Git repository
+# lerna info Creating package.json
+# lerna info Creating lerna.json
+# lerna info Creating packages directory
+# lerna success Initialized Lerna files
+
 npx lerna bootstrap
 
 # npx: installed 698 in 89.279s     // Expected result
