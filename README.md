@@ -20,11 +20,11 @@
     <img src="https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied?color=91cf25&label=rating" alt="Chrome Web Store rating">
   </a>
 
-  <a href="https://twitter.com/dailynowco">
-    <img src="https://img.shields.io/twitter/follow/dailynowco?color=26A0ED&label=Follow&logo=twitter&logoColor=white&style=flat" alt="Twitter">
+  <a href="https://twitter.com/dailydotdev">
+    <img src="https://img.shields.io/twitter/follow/dailydotdev?color=26A0ED&label=Follow&logo=twitter&logoColor=white&style=flat" alt="Twitter">
   </a>
 
-  <a href="https://storybook.dailynow.co">
+  <a href="https://storybook.daily.dev">
     <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook&logoColor=white" alt="Storybook">
   </a>
 
@@ -62,7 +62,7 @@ Daily is currently available for Google Chrome, and Firefox. There's also a prog
     <a href="https://bit.ly/firefoxdaily">
     <img src="https://img.shields.io/badge/%20-Firefox-orange?logo=mozilla&logoColor=white" alt="Download for Firefox" />
     </a>
-    <a href="http://go.dailynow.co/">
+    <a href="http://go.daily.dev/">
     <img src="https://img.shields.io/badge/%20-Mobile-502ab0" alt="Download for Mobile" />
     </a>
 </p>
@@ -83,22 +83,22 @@ Daily might look simple on the surface but actually it is powered by a complex a
 
 ### 🙌 Community & Docs
 
-*  [daily](https://github.com/dailynowco/daily) - This is the repository you are currently at. It serves as a central place for all the projects. It contains documentation, community ideas, suggestions, and whatnot.
+*  [daily](https://github.com/dailydotdev/daily) - This is the repository you are currently at. It serves as a central place for all the projects. It contains documentation, community ideas, suggestions, and whatnot.
 
 
 ### 🎨 Frontend
 
-* [daily-apps](https://github.com/dailynowco/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 — Vue components library, API encapsulation library, Daily extension and everything related to frontend.
+* [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 — Vue components library, API encapsulation library, Daily extension and everything related to frontend.
 
-* [daily-go](https://github.com/dailynowco/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage your bookmarks on it.
+* [daily-go](https://github.com/dailydotdev/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage your bookmarks on it.
 
 ### 🏗 Backend
 
-* [daily-api](https://github.com/dailynowco/daily-api) - A monolith API service, being slowly split apart to different services. It manages content related data such as posts, feeds, tags, etc.
-* [daily-redirector](https://github.com/dailynowco/daily-redirector) - Service for redirecting visitors from Daily custom links to the original link.
-* [daily-gateway](https://github.com/dailynowco/daily-gateway) - API gateway which receives all traffic and forward it to the relevant services after authenticating and authorizing the request.
-* [daily-monetization](https://github.com/dailynowco/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
-* [daily-functions](https://github.com/dailynowco/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
+* [daily-api](https://github.com/dailydotdev/daily-api) - A monolith API service, being slowly split apart to different services. It manages content related data such as posts, feeds, tags, etc.
+* [daily-redirector](https://github.com/dailydotdev/daily-redirector) - Service for redirecting visitors from Daily custom links to the original link.
+* [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forward it to the relevant services after authenticating and authorizing the request.
+* [daily-monetization](https://github.com/dailydotdev/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
+* [daily-functions](https://github.com/dailydotdev/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
 
 
@@ -226,7 +226,7 @@ Now, let's quickly setup Daily chrome extension to elaborate how you can setup e
 
 ### → STEP #1
 
-Clone the [daily-apps](https://github.com/dailynowco/daily-apps) repo and run the following commands in your terminal to bootstrap.
+Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo and run the following commands in your terminal to bootstrap.
 
 Yes, we use `lerna` for this purpose.
 
@@ -279,7 +279,7 @@ We are open to all kind of contributions. If you want to:
 * 📖 Improve documentation
 * 👨‍💻 Contribute to the code
 
-You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailynowco/daily/blob/master/CONTRIBUTING.md).
+You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/daily/blob/master/CONTRIBUTING.md).
 
 
 ## 🎩 Core Team
@@ -294,10 +294,10 @@ Feel free to reach us out and say hi 👋.
 ## 💬 What Do You Think of Daily?
 
 <div align="left">
-    <p><a href="https://twitter.com/dailynowco/"><img alt="Twitter @dailynowco" align="center" src="https://img.shields.io/badge/%20-Twitter-26A0ED" /></a>&nbsp; Tweet us @dailynowco to share your thoughts and stay up-to-date. </p>
-    <p><a href="https://facebook.com/dailynowco/"><img alt="Facebook @dailynowco" align="center" src="https://img.shields.io/badge/%20-Facebook-4267B2" /></a>&nbsp; Like us to know what's happening at Daily and share your reviews.</p>
+    <p><a href="https://twitter.com/dailydotdev/"><img alt="Twitter @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Twitter-26A0ED" /></a>&nbsp; Tweet us @dailydotdev to share your thoughts and stay up-to-date. </p>
+    <p><a href="https://facebook.com/dailydotdev/"><img alt="Facebook @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Facebook-4267B2" /></a>&nbsp; Like us to know what's happening at Daily and share your reviews.</p>
     <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="Daily at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProdcutHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let's know what you think.</p>
-    <p><a href="https://www.dailynow.co"><img alt="Daily Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
+    <p><a href="https://daily.dev"><img alt="Daily Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="Daily at ChomeStore" align="center" src="https://img.shields.io/badge/%20-Chrome Store-Red" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
     <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="Daily at Firefox" align="center" src="https://img.shields.io/badge/%20-Mozilla Addon-Orange" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
 </div>
