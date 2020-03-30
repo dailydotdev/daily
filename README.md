@@ -281,6 +281,9 @@ We are open to all kind of contributions. If you want to:
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/daily/blob/master/CONTRIBUTING.md).
 
+## 🤔 FAQs
+
+We have compiled a list of FAQs. You can find it [here](https://github.com/dailydotdev/daily/blob/master/FAQs.md).
 
 ## 🎩 Core Team
 
@@ -291,9 +294,6 @@ Meet the core team of Daily.
 
 Feel free to reach us out and say hi 👋.
 
-## 🤔 FAQs
-
-We have compiled a list of FAQs. You can find it [here](https://github.com/dailydotdev/daily/blob/master/FAQs.md).
 
 ## 💬 What Do You Think of Daily?
 
