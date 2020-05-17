@@ -185,7 +185,7 @@ Yes, we have a GIF for you showing how it should go ideally.
 
 ![Setting up Daily Gateway](/assets/setting&#32;up&#32;/setting&#32;gateway&#32;service.gif)
 
-### → STEP #4
+### → STEP #4 (Outdated)
 
 We have MySQL service in running with Daily gateway service. Next, we need to run the Daily API Service and connect it to our network. It exposes port `5000`.
 
