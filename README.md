@@ -157,7 +157,7 @@ docker-compose pull && docker-compose up
 ```
 
 The command will take a while depending upon your internet speed. See the GIF to follow up.
-![Setting up Daily Services](/assets/setting&#32;up&#32;/starting&#32;sql&#32;server.gif)
+![Setting up Daily Services](/assets/setting&#32;up/docker-compose-up.gif)
 
 ### → STEP #3
 
@@ -254,7 +254,6 @@ We have compiled a list of FAQs. You can find it [here](https://github.com/daily
 Meet the core team of Daily.
 * [@idoshamun](https://twitter.com/idoshamun)
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
-* [@saqibameen](https://twitter.com/saqibameen)
 
 Feel free to reach us out and say hi 👋.
 
@@ -273,4 +272,4 @@ Feel free to reach us out and say hi 👋.
 
 
 ## 📑 License
-Licensed under [AGPL-3.0](https://github.com/saqibameen/daily/blob/master/LICENSE).
+Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
