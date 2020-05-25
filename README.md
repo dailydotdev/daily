@@ -133,82 +133,46 @@ Let's setup Daily locally. First you need to setup the services required to run 
 ### → STEP #0
 
 * Go through the [projects description](#-daily-projects) and [the architecture](#-architecture) to familiarize yourself with the system and its components.
-* Make sure Docker is installed on your machine. Take a look at the [official guide](https://docs.docker.com/install/#desktop) for installation. After installation, run the following command in your terminal for a double check.
+* Make sure docker-compose is installed on your machine. Take a look at the [official guide](https://docs.docker.com/compose/install/) for installation. After installation, run the following command in your terminal for a double check.
 
 ```sh
-docker -v
-# Docker version 18.09.2, build 6247962     // Expected result
+docker-compose -v
+# docker-compose version 1.25.5, build 8a1c60f6     // Expected result
 ```
 
 ### → STEP #1
 
-The first step is to **create a network**, so the different services of Daily can communicate with each other.
-
-> Daily services are fully dockerized and publicly available on a Google Cloud Registry (GCR) repository. We are going to use them to complete the setup.
-
-Run the following command to create a network. It will be instant. We will use the name of the network, `daily` in this case, to connect our services.
-
-```sh
-docker network create daily
-
-# 465691b49f0ba36020f0533e174c019382e82c4a827432132d0e045282dfc995     // Expected result
-```
+Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo
 
 ### → STEP #2
 
-Second step in this process is to start a MySQL instance with appropriate databases. We are going to use our database service for this purpose.
+> Daily services are fully dockerized and publicly available on a Google Cloud Registry (GCR) repository. We are going to use them!
 
-We will grab the image from GCR, run it, and connect to our network `daily`. It exposes port `3306` so you can use any MySQL client to connect and inspect the data. The root user is `root` and password is `12345`.
+The first step is to **pull and run the docker images**, thanks to docker-compose network and environment variables are preconfigured and ready to-go.
 
 Run the following command to accomplish this task:
 
 ```sh
-docker run -d --name daily-mysql -p 3306:3306 --network daily gcr.io/daily-ops/mysql
+docker-compose pull && docker-compose up
 ```
-The command will take a while depending upon your internet speed. See the GIF to follow up.
 
-![Setting up MySQL](/assets/setting&#32;up&#32;/starting&#32;sql&#32;server.gif)
+The command will take a while depending upon your internet speed. See the GIF to follow up.
+![Setting up Daily Services](/assets/setting&#32;up/docker-compose-up.gif)
 
 ### → STEP #3
 
-The next step is to run the Daily Gateway service and connect it with our `daily` network. This service exposes port `4000 ` when your run it.
-
-To start Daily Gateway service, run the following command in your terminal. Again, depending upon your internet connection, it may take a while.
+Last step is to populate your database using the seed data. All you need to do is, run the following command in your terminal:
 
 ```sh
-docker run -d --name daily-gateway -p 4000:4000 --network daily -e MYSQL_USER=root -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=gateway -e MYSQL_HOST=daily-mysql -e COOKIES_DOMAIN=localhost -e COOKIES_KEY=topsecret -e GITHUB_CLIENT_ID=7b514cee17923d0acedc -e GITHUB_CLIENT_SECRET=064d875c7b370d271be839242538c87ab8bb6f92 -e GOOGLE_CLIENT_ID=750405661228-fmeg35uuaopbcnc4c6m6g51755s355bm.apps.googleusercontent.com -e GOOGLE_CLIENT_SECRET=MMv_wZAS6Etoleg-sn__BlDC -e URL_PREFIX=http://localhost:4000 -e JWT_SECRET='|r+.2!!!.Qf_-|63*%.D' -e JWT_AUDIENCE='Daily Staging' -e JWT_ISSUER='Daily API Staging' -e CORS_ORIGIN='http://,chrome-extension://,moz-extension://' -e PORT=4000 -e API_URL=http://daily-api:5000 -e API_SECRET=topsecret gcr.io/daily-ops/daily-gateway
-```
+docker exec daily-apps_daily-api_1 node bin/import.js
 
-> The OAuth credentials are for our staging environment and don't provide any real Daily user information.
-
-Yes, we have a GIF for you showing how it should go ideally.
-
-![Setting up Daily Gateway](/assets/setting&#32;up&#32;/setting&#32;gateway&#32;service.gif)
-
-### → STEP #4 (Outdated)
-
-We have MySQL service in running with Daily gateway service. Next, we need to run the Daily API Service and connect it to our network. It exposes port `5000`.
-
-Run the following command your terminal to start it.
-
-```sh
-docker run -d --name daily-api -p 5000:5000 --network daily -e DEFAULT_IMAGE_URL=https://storage.cloud.google.com/devkit-assets/placeholder.jpg -e DEFAULT_IMAGE_PLACEHOLDER='data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QCYRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAABIAAAAAQAAAEgAAAABAAWQAAAHAAAABDAyMTCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAAAqgAwAEAAAAAQAAAAYAAAAA/+ECz2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiB4bWxuczpleGlmPSdodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyc+CiAgPGV4aWY6WFJlc29sdXRpb24+NzI8L2V4aWY6WFJlc29sdXRpb24+CiAgPGV4aWY6WVJlc29sdXRpb24+NzI8L2V4aWY6WVJlc29sdXRpb24+CiAgPGV4aWY6UmVzb2x1dGlvblVuaXQ+SW5jaDwvZXhpZjpSZXNvbHV0aW9uVW5pdD4KICA8ZXhpZjpFeGlmVmVyc2lvbj5FeGlmIFZlcnNpb24gMi4xPC9leGlmOkV4aWZWZXJzaW9uPgogIDxleGlmOkZsYXNoUGl4VmVyc2lvbj5GbGFzaFBpeCBWZXJzaW9uIDEuMDwvZXhpZjpGbGFzaFBpeFZlcnNpb24+CiAgPGV4aWY6Q29sb3JTcGFjZT5zUkdCPC9leGlmOkNvbG9yU3BhY2U+CiAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjEwMjQ8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogIDxleGlmOlBpeGVsWURpbWVuc2lvbj42MDA8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogPC9yZGY6RGVzY3JpcHRpb24+Cgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSdyJz8+Cv/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/CABEIAAYACgMBEQACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAEBv/EABYBAQEBAAAAAAAAAAAAAAAAAAgDBP/aAAwDAQACEAMQAAABuW6Vha4f/8QAFxAAAwEAAAAAAAAAAAAAAAAAAAIDAf/aAAgBAQABBQJHjkz/xAAcEQEBAQACAwEAAAAAAAAAAAACAwEREgAEEyH/2gAIAQMBAT8BFIGNA/W+llu9LbahyZ08fkhxiZeFFNaOm0Ckkp0j5//EABwRAAMBAAIDAAAAAAAAAAAAAAECAwQAExESIf/aAAgBAgEBPwGsdL6JUnsMc6Admdc8nNnD+ft6ezJJplldJoKdgjRLoqWjp5//xAAdEAACAQQDAAAAAAAAAAAAAAABAgMREiEjABMi/9oACAEBAAY/AirQXybKSdrrQNHanhcExSbAThqlHUi0rz//xAAXEAEBAQEAAAAAAAAAAAAAAAABERAx/9oACAEBAAE/IRRs0xVxiFhHGC//2gAMAwEAAgADAAAAEGP/xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QNAUSVjBHQudd/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EEkCGWNRJa8Ww//EABcQAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQEAAT8QpeTsA40GpPBD/9k=' -e DEFAULT_IMAGE_RATIO=1.7 -e MYSQL_USER=root -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=devkit -e MYSQL_HOST=daily-mysql -e URL_PREFIX=http://localhost:4000 -e PORT=5000 -e GATEWAY_URL=http://daily-gateway:4000 -e GATEWAY_SECRET=topsecret gcr.io/daily-ops/daily-api
-```
-
-Ideally, this is how it should work:
-
-![Setting up Daily API](/assets/setting&#32;up&#32;/setting&#32;daily&#32;api&#32;service.gif)
-
-### → STEP #5
-
-Last step is to populate your database using the seed data. We use `knex.js` for this purpose. All you need to do is, run the following command in your terminal:
-
-```sh
-docker exec daily-api npx knex seed:run
-
-# npx: installed 160 in 10.92s     // Expected result
-# Using environment: development
-# Ran 1 seed files
+# importing Source              // Expected result
+# importing SourceDisplay
+# importing Post
+# importing PostTag
+# importing TagCount
+# importing Notification
+# done
 ```
 
 
@@ -226,7 +190,7 @@ Now, let's quickly setup Daily chrome extension to elaborate how you can setup e
 
 ### → STEP #1
 
-Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo and run the following commands in your terminal to bootstrap.
+Run the following commands in your terminal to bootstrap.
 
 Yes, we use `lerna` for this purpose.
 
@@ -290,7 +254,6 @@ We have compiled a list of FAQs. You can find it [here](https://github.com/daily
 Meet the core team of Daily.
 * [@idoshamun](https://twitter.com/idoshamun)
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
-* [@saqibameen](https://twitter.com/saqibameen)
 
 Feel free to reach us out and say hi 👋.
 
@@ -309,4 +272,4 @@ Feel free to reach us out and say hi 👋.
 
 
 ## 📑 License
-Licensed under [AGPL-3.0](https://github.com/saqibameen/daily/blob/master/LICENSE).
+Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
