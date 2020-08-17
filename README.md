@@ -1,8 +1,8 @@
 <div align="center">
   <img src="/assets/logo.png" alt="Daily Logo" width="150">
-  <h1>Daily</h1>
-  <strong>Curated dev news delivered to your new tab 👩🏽‍💻</strong>
-  <h6>Made by developers for developers</h6>
+  <h1>Welcome to the daily.dev respository</h1>
+  <strong>The latest dev news delivered to your new tab 👩🏽‍💻</strong>
+  <h6>Made with ❤️ by developers for developers</h6>
 </div>
 <br>
 
@@ -33,17 +33,17 @@
 
 
 
-## 🗞 Daily
+## 🗞 daily.dev
 
-> Daily is an open source browser extension which provides curated dev news to your new tab.
+> daily.dev is an open-source browser extension that helps developers stay updated with the latest programming news 👩‍💻
 
-It gathers and ranks articles from tens of unique sources to help developers stay updated with the most relevant developer news. You can bookmark items, sync your data across devices, and read when you want. It works offline as well and has a progressive web app (PWA) for mobile.
+It collects and ranks articles from hunderds of unique publications to help developers stay updated with the leatest tech news. You can bookmark posts, sync your data across devices, and read later whenever you want. It works offline and has a progressive web app (PWA) for mobile.
 
-Daily is:
+At daily.dev we care about:
 
-* 🌟 **Well-maintained**: We are working continuously to introduce new features, fix bugs, and improve user experience — 40+ releases on average in a year.
-* ♾ **Constantly Updated**: Daily's article feed is constantly updated. As soon as new articles get published, they start appearing in Daily.
-* 🧵 **Open Source**: Daily is completely open source. You can see the code to learn how it works, and contribute to help it improve.
+* 🌟 **Maintainance**: We are working continuously to introduce new features, fix bugs, and improve user experience — 40+ releases on average in a year.
+* ♾ **Being relevant**: daily.dev's article feed is constantly updated. Discover brand-new content as soon as it is published.
+* 🧵 **Open-source**: daily.dev is completely open-source. We believe in transparency and giving back to the community, so we decided to publish the source code to GitHub. Suggest a feature, report a bug, or even contribute. Everyone is welcome!
 
 <p align="center">
     <img src="/assets/daily-header.jpg" alt="Daily" width="850">
@@ -51,15 +51,15 @@ Daily is:
     <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
 </p>
 
-## 📌 Get Daily
+## 📌 Get daily.dev
 
-Daily is currently available for Google Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices. Download for:
+daily.dev is currently available for Google Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
 
 <p align="center">
-    <a href="https://bit.ly/chromedaily">
+    <a href="https://r.daily.dev/chrome">
     <img src="https://img.shields.io/badge/%20-Chrome-red?logo=google-chrome&logoColor=white" alt="Download for Chrome" />
     </a>
-    <a href="https://bit.ly/firefoxdaily">
+    <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
     <img src="https://img.shields.io/badge/%20-Firefox-orange?logo=mozilla&logoColor=white" alt="Download for Firefox" />
     </a>
     <a href="http://go.daily.dev/">
@@ -69,17 +69,17 @@ Daily is currently available for Google Chrome, and Firefox. There's also a prog
 
 ## 📯 Philosophy
 
-We, as developers, spend a lot of time looking for valuable articles and blog posts. It's hard to catch up with all the latest happenings — coz it's frustrating and consumes a ton of time.
+We, as developers, spend a lot of time looking for valuable articles and blog posts. We believe that searching for content isn't a thing developers should do anymore. It's hard to catch up with all the latest happenings — coz it's spread on so many blogs and consumes tons of time.
 
-That's why built Daily to help you:
+That's why built daily.dev, to help you:
 
 * 👨‍💻 Stay up-to-date
 * ⏳Save time
-* 📰 Read articles at one click
+* 📰 Discover articles in one click
 
-## 🌲 Daily Projects
+## 🌲 daily.dev Projects
 
-Daily might look simple on the surface but actually it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under Daily.
+daily.dev might look simple on the surface but actually it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
 
 ### 🙌 Community & Docs
 
@@ -88,14 +88,14 @@ Daily might look simple on the surface but actually it is powered by a complex a
 
 ### 🎨 Frontend
 
-* [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 — Vue components library, API encapsulation library, Daily extension and everything related to frontend.
+* [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 (the previous name before daily.dev) — Vue components library, API encapsulation library, daily.dev extension and everything related to frontend.
 
 * [daily-go](https://github.com/dailydotdev/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage your bookmarks on it.
 
 ### 🏗 Backend
 
 * [daily-api](https://github.com/dailydotdev/daily-api) - A monolith API service, being slowly split apart to different services. It manages content related data such as posts, feeds, tags, etc.
-* [daily-redirector](https://github.com/dailydotdev/daily-redirector) - Service for redirecting visitors from Daily custom links to the original link.
+* [daily-redirector](https://github.com/dailydotdev/daily-redirector) - Service for redirecting visitors from daily.dev custom links to the original link.
 * [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forward it to the relevant services after authenticating and authorizing the request.
 * [daily-monetization](https://github.com/dailydotdev/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
 * [daily-functions](https://github.com/dailydotdev/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
@@ -111,7 +111,7 @@ Daily might look simple on the surface but actually it is powered by a complex a
 
 ## 🗂 Tech Stack
 
-Below is a list of technologies we use at Daily.
+Below is a list of technologies we use at daily.dev.
 
 *  🎨 **Frontend:** Vue.js
 * 🌳 **Services:** Node.js & Golang
@@ -124,9 +124,9 @@ Below is a list of technologies we use at Daily.
 * 🚨 **Push Notifications:** OneSignal
 
 
-## 🚀 Running Daily Locally
+## 🚀 Running daily.dev Locally
 
-Let's setup Daily locally. First you need to setup the services required to run the Daily applications, then you can run the application you want. Follow up the setups below to quickly get started.
+Let's setup daily.dev locally. First you need to setup the services required to run the daily.dev applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
 ## ⚙️ Setting Up Daily Services
 
@@ -186,7 +186,7 @@ Now you have all the required services running. Each project's repo explains wha
 
 ## 🎨 Setting Up Daily Apps
 
-Now, let's quickly setup Daily chrome extension to elaborate how you can setup each Daily application.
+Now, let's quickly setup daily.dev chrome extension to elaborate how you can setup each daily.dev application.
 
 ### → STEP #1
 
@@ -222,7 +222,7 @@ yarn serve
 ```
 ### → STEP #3
 
-By now, you will have unpacked Daily extension in your `dist` folder. Follow the steps listed below to load the extension.
+By now, you will have unpacked daily.dev extension in your `dist` folder. Follow the steps listed below to load the extension.
 
 1. Go to `chrome://extensions` path in your Chrome browser.
 2. Enable `Developer mode` from the top right section.
@@ -233,12 +233,12 @@ That's it! Your extension has been loaded in your browser. Happy hacking! ✌️
 ![Daily in development mode](/assets/setting&#32;up&#32;/daily&#32;in&#32;development&#32;mode.png)
 
 
-For Firefox, you can follow [this guide](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/). Similarly, you can run all the other Daily apps. Each app has a readme file in its repo to help you get started.
+For Firefox, you can follow [this guide](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/). Similarly, you can run all the other daily.dev apps. Each app has a readme file in its repo to help you get started.
 
 ## 🙌 Want to Contribute?
 
 We are open to all kind of contributions. If you want to:
-* 🤔 Share an idea
+* 🤔 Suggest a feature
 * 🐛 Report an issue
 * 📖 Improve documentation
 * 👨‍💻 Contribute to the code
@@ -247,26 +247,27 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
 
 ## 🤔 FAQs
 
-We have compiled a list of FAQs. You can find it [here](https://github.com/dailydotdev/daily/blob/master/FAQs.md).
+We have compiled a list of FAQs. You can find it [here](https://daily.dev/support).
 
 ## 🎩 Core Team
 
-Meet the core team of Daily.
+Meet the core team of daily.dev:
 * [@idoshamun](https://twitter.com/idoshamun)
+* [@nimrodkramer](https://twitter.com/NimrodKramer)
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
 
 Feel free to reach us out and say hi 👋.
 
 
-## 💬 What Do You Think of Daily?
+## 💬 What Do You Think of daily.dev?
 
 <div align="left">
     <p><a href="https://twitter.com/dailydotdev/"><img alt="Twitter @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Twitter-26A0ED" /></a>&nbsp; Tweet us @dailydotdev to share your thoughts and stay up-to-date. </p>
-    <p><a href="https://facebook.com/dailydotdev/"><img alt="Facebook @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Facebook-4267B2" /></a>&nbsp; Like us to know what's happening at Daily and share your reviews.</p>
-    <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="Daily at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProdcutHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let's know what you think.</p>
-    <p><a href="https://daily.dev"><img alt="Daily Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
-    <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="Daily at ChomeStore" align="center" src="https://img.shields.io/badge/%20-Chrome Store-Red" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
-    <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="Daily at Firefox" align="center" src="https://img.shields.io/badge/%20-Mozilla Addon-Orange" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
+    <p><a href="https://facebook.com/dailydotdev/"><img alt="Facebook @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Facebook-4267B2" /></a>&nbsp; Like us to know what's happening at daily.dev and share your reviews.</p>
+    <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProdcutHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let's know what you think.</p>
+    <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
+    <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/%20-Chrome Store-Red" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
+    <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/%20-Mozilla Addon-Orange" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
 </div>
 
 
