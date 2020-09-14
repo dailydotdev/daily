@@ -53,11 +53,14 @@ At daily.dev we care about:
 
 ## 📌 Get daily.dev
 
-daily.dev is currently available for Google Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
+daily.dev is currently available for Google Chrome, Microsoft Edge, and Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
 
 <p align="center">
     <a href="https://r.daily.dev/chrome">
     <img src="https://img.shields.io/badge/%20-Chrome-red?logo=google-chrome&logoColor=white" alt="Download for Chrome" />
+    </a>
+    <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb">
+    <img src="https://img.shields.io/badge/%20-Edge-blue?logo=microsoft-edge&logoColor=white" alt="Download for Edge" />
     </a>
     <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
     <img src="https://img.shields.io/badge/%20-Firefox-orange?logo=mozilla&logoColor=white" alt="Download for Firefox" />
@@ -267,6 +270,7 @@ Feel free to reach us out and say hi 👋.
     <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProdcutHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let's know what you think.</p>
     <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/%20-Chrome Store-Red" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
+      <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/%20-Edge Addons-Blue" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
     <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/%20-Mozilla Addon-Orange" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
 </div>
 
