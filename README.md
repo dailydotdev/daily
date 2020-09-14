@@ -53,11 +53,14 @@ At daily.dev we care about:
 
 ## 📌 Get daily.dev
 
-daily.dev is currently available for Google Chrome, and Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
+daily.dev is currently available for Google Chrome, Microsoft Edge, and Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
 
 <p align="center">
     <a href="https://r.daily.dev/chrome">
     <img src="https://img.shields.io/badge/%20-Chrome-red?logo=google-chrome&logoColor=white" alt="Download for Chrome" />
+    </a>
+    <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb">
+    <img src="https://img.shields.io/badge/%20-Edge-blue?logo=microsoft-edge&logoColor=white" alt="Download for Edge" />
     </a>
     <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
     <img src="https://img.shields.io/badge/%20-Firefox-orange?logo=mozilla&logoColor=white" alt="Download for Firefox" />
