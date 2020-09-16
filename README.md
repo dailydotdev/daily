@@ -33,7 +33,7 @@
 
 > daily.dev is an open-source browser extension that helps developers stay updated with the latest programming news 👩‍💻
 
-It collects and ranks articles from hunderds of unique publications to help developers stay updated with the leatest tech news. You can bookmark posts, sync your data across devices, and read later whenever you want. It works offline and has a progressive web app (PWA) for mobile.
+It collects and ranks articles from hundreds of unique publications to help developers stay updated with the latest tech news. You can bookmark posts, sync your data across devices, and read later whenever you want. It works offline and has a progressive web app (PWA) for mobile.
 
 At daily.dev we care about:
 
@@ -78,7 +78,7 @@ That's why built daily.dev, to help you:
 
 ## 🌲 daily.dev Projects
 
-daily.dev might look simple on the surface but actually it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
+daily.dev might look simple on the surface but actually, it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
 
 ### 🙌 Community & Docs
 
@@ -89,13 +89,13 @@ daily.dev might look simple on the surface but actually it is powered by a compl
 
 * [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 (the previous name before daily.dev) — Vue components library, API encapsulation library, daily.dev extension and everything related to frontend.
 
-* [daily-go](https://github.com/dailydotdev/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story like interface, called **toilet mode**. You can also manage your bookmarks on it.
+* [daily-go](https://github.com/dailydotdev/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story-like interface, called **toilet mode**. You can also manage your bookmarks on it.
 
 ### 🏗 Backend
 
-* [daily-api](https://github.com/dailydotdev/daily-api) - A monolith API service, being slowly split apart to different services. It manages content related data such as posts, feeds, tags, etc.
+* [daily-api](https://github.com/dailydotdev/daily-api) - A monolith API service, being slowly split apart to different services. It manages content-related data such as posts, feeds, tags, etc.
 * [daily-redirector](https://github.com/dailydotdev/daily-redirector) - Service for redirecting visitors from daily.dev custom links to the original link.
-* [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forward it to the relevant services after authenticating and authorizing the request.
+* [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forwards it to the relevant services after authenticating and authorizing the request.
 * [daily-monetization](https://github.com/dailydotdev/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
 * [daily-functions](https://github.com/dailydotdev/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
@@ -147,7 +147,7 @@ Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo
 
 > Daily services are fully dockerized and publicly available on a Google Cloud Registry (GCR) repository. We are going to use them!
 
-The first step is to **pull and run the docker images**, thanks to docker-compose network and environment variables are preconfigured and ready to-go.
+The first step is to **pull and run the docker images**, thanks to docker-compose network and environment variables are preconfigured and ready-to-go.
 
 Run the following command to accomplish this task:
 
@@ -160,7 +160,7 @@ The command will take a while depending upon your internet speed. See the GIF to
 
 ### → STEP #3
 
-Last step is to populate your database using the seed data. All you need to do is, run the following command in your terminal:
+The last step is to populate your database using the seed data. All you need to do is, run the following command in your terminal:
 
 ```sh
 docker exec daily-apps_daily-api_1 node bin/import.js
@@ -179,13 +179,13 @@ That's it! 🥂
 
 Now you have all the required services running. Each project's repo explains what services are needed and how to get started with them.
 
-> Note that currently not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you.
+> Note that currently, not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you.
 >
 > It means that if you click on an article you will get error 404 and that you will not see ads on your local environment.
 
 ## 🎨 Setting Up Daily Apps
 
-Now, let's quickly setup daily.dev chrome extension to elaborate how you can setup each daily.dev application.
+Now, let's quickly set up daily.dev chrome extension to elaborate on how you can set up each daily.dev application.
 
 ### → STEP #1
 
@@ -236,7 +236,7 @@ For Firefox, you can follow [this guide](https://extensionworkshop.com/documenta
 
 ## 🙌 Want to Contribute?
 
-We are open to all kind of contributions. If you want to:
+We are open to all kinds of contributions. If you want to:
 * 🤔 Suggest a feature
 * 🐛 Report an issue
 * 📖 Improve documentation
@@ -263,7 +263,7 @@ Feel free to reach us out and say hi 👋.
 <div align="left">
     <p><a href="https://twitter.com/dailydotdev/"><img alt="Twitter @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Twitter-26A0ED" /></a>&nbsp; Tweet us @dailydotdev to share your thoughts and stay up-to-date. </p>
     <p><a href="https://facebook.com/dailydotdev/"><img alt="Facebook @dailydotdev" align="center" src="https://img.shields.io/badge/%20-Facebook-4267B2" /></a>&nbsp; Like us to know what's happening at daily.dev and share your reviews.</p>
-    <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProductHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let's know what you think.</p>
+    <p><a href="https://www.producthunt.com/posts/daily-2-0"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/%20-ProductHunt-CC4C28" /></a>&nbsp; Checkout our ProductHunt page and let us know what you think.</p>
     <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/%20-Daily Website-9A9B9D" /></a>&nbsp; Visit our home for all useful links.</p>
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/%20-Chrome Store-Red" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
       <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/%20-Edge Addons-Blue" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
