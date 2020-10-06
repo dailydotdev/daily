@@ -42,7 +42,7 @@ At daily.dev we care about:
 * 🧵 **Open-source**: daily.dev is completely open-source. We believe in transparency and giving back to the community, so we decided to publish the source code to GitHub. Suggest a feature, report a bug, or even contribute. Everyone is welcome!
 
 <p align="center">
-    <img src="/assets/daily-header.jpg" alt="Daily" width="850">
+    <img src="/assets/daily-cover-photo.png" alt="daily.dev" width="850">
     <br>
     <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
 </p>
