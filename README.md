@@ -89,7 +89,9 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 * [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 (the previous name before daily.dev) — Vue components library, API encapsulation library, daily.dev extension and everything related to frontend.
 
-* [daily-go](https://github.com/dailydotdev/daily-go) - Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story-like interface, called **toilet mode**. You can also manage your bookmarks on it.
+* [daily-webapp](https://github.com/dailydotdev/daily-webapp) - Next.js + React web application that is available on app.dail.dev.
+
+* [daily-go](https://github.com/dailydotdev/daily-go) - **Legacy**. Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story-like interface, called **toilet mode**. You can also manage your bookmarks on it.
 
 ### 🏗 Backend
 
@@ -97,6 +99,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 * [daily-redirector](https://github.com/dailydotdev/daily-redirector) - Service for redirecting visitors from daily.dev custom links to the original link.
 * [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forwards it to the relevant services after authenticating and authorizing the request.
 * [daily-monetization](https://github.com/dailydotdev/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
+* [daily-scraper](https://github.com/dailydotdev/daily-scraper) - Scraping webpages for relevant information.
 * [daily-functions](https://github.com/dailydotdev/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
 
@@ -112,11 +115,11 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 Below is a list of technologies we use at daily.dev.
 
-*  🎨 **Frontend:** Vue.js
+*  🎨 **Frontend:** Vue.js, React
 * 🌳 **Services:** Node.js & Golang
 * ☁️ **Cloud:** Google Cloud Platform Pub/Sub | SQL | Serverless
 * ♾ **CI/CD:** CircleCI
-* 🎩 **Deployment:** Kubernetes with Helm charts
+* 🎩 **Deployment:** Kubernetes with Helm charts, Vercel
 * 🔍 **Search:** Algolia
 * 🎛 **Data Feed:** Superfeedr
 * 📨 **Email Service:** SendGrid
