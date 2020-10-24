@@ -37,7 +37,7 @@ It collects and ranks articles from hundreds of unique publications to help deve
 
 At daily.dev we care about:
 
-* 🌟 **Maintainance**: We are working continuously to introduce new features, fix bugs, and improve user experience — 40+ releases on average in a year.
+* 🌟 **Maintenance**: We are working continuously to introduce new features, fix bugs, and improve user experience — 40+ releases on average in a year.
 * ♾ **Being relevant**: daily.dev's article feed is constantly updated. Discover brand-new content as soon as it is published.
 * 🧵 **Open-source**: daily.dev is completely open-source. We believe in transparency and giving back to the community, so we decided to publish the source code to GitHub. Suggest a feature, report a bug, or even contribute. Everyone is welcome!
 
@@ -89,7 +89,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 * [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 (the previous name before daily.dev) — Vue components library, API encapsulation library, daily.dev extension and everything related to frontend.
 
-* [daily-webapp](https://github.com/dailydotdev/daily-webapp) - Next.js + React web application that is available on app.dail.dev.
+* [daily-webapp](https://github.com/dailydotdev/daily-webapp) - Next.js + React web application that is available on [app.daily.dev](https://app.daily.dev/).
 
 * [daily-go](https://github.com/dailydotdev/daily-go) - **Legacy**. Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story-like interface, called **toilet mode**. You can also manage your bookmarks on it.
 
@@ -144,7 +144,7 @@ docker-compose -v
 
 ### → STEP #1
 
-Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo
+Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo.
 
 ### → STEP #2
 
@@ -152,7 +152,7 @@ Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo
 
 The first step is to **pull and run the docker images**, thanks to docker-compose network and environment variables are preconfigured and ready-to-go.
 
-Run the following command to accomplish this task:
+Navigate to the cloned repository and make sure Docker is running on your machine. After that run the following command to run all daily services:
 
 ```sh
 docker-compose pull && docker-compose up
