@@ -107,7 +107,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 ## 🏛 Architecture
 
 <p align="center">
-    <img src="/assets/arch.png" alt="Daily architecture" width="700">
+    <img src="/assets/architecture/overview.svg" alt="Daily architecture" width="700">
 </p>
 
 
@@ -232,7 +232,7 @@ By now, you will have unpacked daily.dev extension in your `dist` folder. Follow
 
 That's it! Your extension has been loaded in your browser. Happy hacking! ✌️
 
-![Daily in development mode](/assets/setting&#32;up&#32;/daily&#32;in&#32;development&#32;mode.png)
+![Daily in development mode](/assets/setting&#32;up/daily&#32;in&#32;development&#32;mode.png)
 
 
 For Firefox, you can follow [this guide](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/). Similarly, you can run all the other daily.dev apps. Each app has a readme file in its repo to help you get started.
