@@ -14,7 +14,7 @@ What application infrastructure is the right choice for daily.dev?
 ## Decision Drivers
 
 * I'm a single developer and cannot operate a complex infrastructure 24/7
-* daily.dev is growing fast and we need an elastic platform to support the growth
+* daily.dev is growing fast, and we need an elastic platform to support the growth
 * Cost-effective
 * Allows secured intercommunication between services
 
@@ -27,7 +27,7 @@ What application infrastructure is the right choice for daily.dev?
 ## Decision Outcome
 
 Chosen option: "Cloud Run", because it's a no-ops solution that can autoscale based on the requests per second and can even scale to zero when needed.
-Cloud Run is based on Knative which is a Kubernetes addon so it should be easy to migrate if needed to other container-based solutions.
+Cloud Run is based on Knative, a Kubernetes addon, so it should be easy to migrate if needed to other container-based solutions.
 
 ### Positive Consequences
 
@@ -49,9 +49,9 @@ Cloud Run is based on Knative which is a Kubernetes addon so it should be easy t
 
 ### Google Kubernetes Engine
 
-* Good, because it's an open source platform and available on every major provider
+* Good, because it's an open-source platform and available on every major provider
 * Good, because it's a very popular solution with lots of public knowledge
-* Good, because it's the current application infrastructure and it works great
+* Good, because it's the current application infrastructure, and it works great
 * Bad, because autoscaling is hard and requires manual monitoring
 * Bad, because there is no secured intercommunication out-of-the-box
 
