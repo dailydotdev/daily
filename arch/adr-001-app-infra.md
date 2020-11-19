@@ -35,7 +35,7 @@ Cloud Run is based on Knative, a Kubernetes addon, so it should be easy to migra
 * Zero scale for background processes when idle
 * Easily manage traffic between new versions
 * Dedicated monitoring for every service
-* HTTPS communicated by default
+* HTTPS communication by default
 * Secure services using Google IAM
 
 ### Negative Consequences
