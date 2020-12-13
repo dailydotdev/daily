@@ -245,7 +245,7 @@ We are open to all kinds of contributions. If you want to:
 * 📖 Improve documentation
 * 👨‍💻 Contribute to the code
 
-You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/daily/blob/master/CONTRIBUTING.md).
+You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md).
 
 ## 🤔 FAQs
 
