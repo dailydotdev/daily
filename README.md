@@ -87,16 +87,11 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 ### 🎨 Frontend
 
-* [daily-apps](https://github.com/dailydotdev/daily-apps) - Monorepo with all the frontend related projects since Daily 2.0 (the previous name before daily.dev) — Vue components library, API encapsulation library, daily.dev extension and everything related to frontend.
-
-* [daily-webapp](https://github.com/dailydotdev/daily-webapp) - Next.js + React web application that is available on [app.daily.dev](https://app.daily.dev/).
-
-* [daily-go](https://github.com/dailydotdev/daily-go) - **Legacy**. Progressive web app (PWA) called **Daily Go** for mobile devices.  It comes with a story-like interface, called **toilet mode**. You can also manage your bookmarks on it.
+* [apps](https://github.com/dailydotdev/apps) - Monorepo with all the frontend related projects since daily.dev 3.0. This includes both the extension and the webapp.
 
 ### 🏗 Backend
 
 * [daily-api](https://github.com/dailydotdev/daily-api) - A monolith API service, being slowly split apart to different services. It manages content-related data such as posts, feeds, tags, etc.
-* [daily-redirector](https://github.com/dailydotdev/daily-redirector) - Service for redirecting visitors from daily.dev custom links to the original link.
 * [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forwards it to the relevant services after authenticating and authorizing the request.
 * [daily-monetization](https://github.com/dailydotdev/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
 * [daily-scraper](https://github.com/dailydotdev/daily-scraper) - Scraping webpages for relevant information.
@@ -115,12 +110,11 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 Below is a list of technologies we use at daily.dev.
 
-*  🎨 **Frontend:** Vue.js, React
+*  🎨 **Frontend:** Preact
 * 🌳 **Services:** Node.js & Golang
 * ☁️ **Cloud:** Google Cloud Platform Pub/Sub | SQL | Serverless
 * ♾ **CI/CD:** CircleCI
-* 🎩 **Deployment:** Kubernetes with Helm charts, Vercel
-* 🔍 **Search:** Algolia
+* 🎩 **Deployment:** Pulumi
 * 🎛 **Data Feed:** Superfeedr
 * 📨 **Email Service:** SendGrid
 * 🚨 **Push Notifications:** OneSignal
@@ -139,12 +133,12 @@ Let's setup daily.dev locally. First you need to setup the services required to 
 
 ```sh
 docker-compose -v
-# docker-compose version 1.25.5, build 8a1c60f6     // Expected result
+# docker-compose version 1.29.2, build 5becea4c     // Expected result
 ```
 
 ### → STEP #1
 
-Clone the [daily-apps](https://github.com/dailydotdev/daily-apps) repo.
+Clone the [apps](https://github.com/dailydotdev/apps) repo.
 
 ### → STEP #2
 
@@ -158,22 +152,37 @@ Navigate to the cloned repository and make sure Docker is running on your machin
 docker-compose pull && docker-compose up
 ```
 
-The command will take a while depending upon your internet speed. See the GIF to follow up.
-![Setting up Daily Services](/assets/setting&#32;up/docker-compose-up.gif)
+The command will take a while depending upon your internet speed.
 
 ### → STEP #3
+
+Now we need to apply the migrations on our databases so they will have the latest schema:
+
+```sh
+docker exec apps_daily-api_1 node ./node_modules/typeorm/cli.js migration:run
+
+# ... // Expected result
+# Migration PostToc1623847855158 has been executed successfully.
+# query: COMMIT
+
+docker exec apps_daily-gateway_1 yarn run db:migrate:latest
+
+# Using environment: development   // Expected result
+# Batch 1 run: 23 migrations
+# Done in 1.57s.
+```
+
+### → STEP #4
 
 The last step is to populate your database using the seed data. All you need to do is, run the following command in your terminal:
 
 ```sh
-docker exec daily-apps_daily-api_1 node bin/import.js
+docker exec apps_daily-api_1 node bin/import.js
 
 # importing Source              // Expected result
-# importing SourceDisplay
 # importing Post
-# importing PostTag
-# importing TagCount
-# importing Notification
+# importing Keyword
+# importing PostKeyword
 # done
 ```
 
@@ -188,7 +197,7 @@ Now you have all the required services running. Each project's repo explains wha
 
 ## 🎨 Setting Up Daily Apps
 
-Now, let's quickly set up daily.dev chrome extension to elaborate on how you can set up each daily.dev application.
+Now, let's quickly set up daily.dev apps.
 
 ### → STEP #1
 
@@ -197,32 +206,27 @@ Run the following commands in your terminal to bootstrap.
 Yes, we use `lerna` for this purpose.
 
 ```sh
-npx lerna bootstrap
+npm i -g lerna
+lerna bootstrap
 
-# npx: installed 698 in 89.279s     // Expected result
-# ...
-# lerna success Bootstrapped 4 packages
-
-npx lerna run build
-
-# Done in 29.19s.     // Expected result
-# lerna success run Ran npm script 'build' in 4 packages in 48.5s:
-# lerna success - @daily/components
-# lerna success - @daily/extension
-# lerna success - @daily/moderator
-# lerna success - @daily/services
+# ...     // Expected result
+# lerna success Bootstrapped 5 packages
 ```
 ### → STEP #2
 
-Go to `packages/extension` in the `daily-apps` folder. Run the following command to start it in development mode. It will watch for all the file changes and generate the output in `dist` folder.
+Go to `packages/webapp` in the `apps` folder. Run the following command to start the webapp in development mode. It will watch for all the file changes.
 
 ```sh
-yarn serve
-
-# ...
-# DONE  Build complete. Watching for changes...      // Expected result
+npm run dev
 ```
 ### → STEP #3
+
+Go to `packages/extension` in the `apps` folder. Run the following command to start the extension in development mode. It will watch for all the file changes and generate the output in `dist` folder.
+
+```sh
+npm run dev:chrome
+```
+### → STEP #4
 
 By now, you will have unpacked daily.dev extension in your `dist` folder. Follow the steps listed below to load the extension.
 
@@ -231,11 +235,6 @@ By now, you will have unpacked daily.dev extension in your `dist` folder. Follow
 3. Click on `Load Unpack` button and select your `dist` folder.
 
 That's it! Your extension has been loaded in your browser. Happy hacking! ✌️
-
-![Daily in development mode](/assets/setting&#32;up/daily&#32;in&#32;development&#32;mode.png)
-
-
-For Firefox, you can follow [this guide](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/). Similarly, you can run all the other daily.dev apps. Each app has a readme file in its repo to help you get started.
 
 ## 🙌 Want to Contribute?
 
@@ -272,7 +271,6 @@ Feel free to reach us out and say hi 👋.
       <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
     <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/Firefox Addons-%23FF7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
 </div>
-
 
 
 ## 📑 License
