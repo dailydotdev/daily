@@ -73,7 +73,7 @@ We, as developers, spend a lot of time looking for valuable articles and blog po
 That's why built daily.dev, to help you:
 
 * 👨‍💻 Stay up-to-date
-* 🕒 Save time
+* 🕒 Saves time
 * 📰 Discover articles in one click
 
 ## 🌲 daily.dev Projects
