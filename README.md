@@ -70,10 +70,10 @@ daily.dev is currently available for Google Chrome, Microsoft Edge, and Firefox.
 
 We, as developers, spend a lot of time looking for valuable articles and blog posts. We believe that searching for content isn't a thing developers should do anymore. It's hard to catch up with all the latest happenings — coz it's spread on so many blogs and consumes tons of time.
 
-That's why built daily.dev, to help you:
+That's why we built daily.dev, to help you:
 
 * 👨‍💻 Stay up-to-date
-* 🕒 Saves time
+* 🕒 Save time
 * 📰 Discover articles in one click
 
 ## 🌲 daily.dev Projects
