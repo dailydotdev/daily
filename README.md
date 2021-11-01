@@ -2,7 +2,7 @@
   <img src="/assets/logo.png" alt="Daily Logo" width="150">
   <h1>Welcome to the daily.dev repository</h1>
   <strong>The latest dev news delivered to your new tab 👩🏽‍💻</strong>
-  <h6>Made with ❤️ by developers for developers</h6>
+  <h6>Made with ❤️ &nbsp;by developers for developers</h6>
 </div>
 <br>
 
