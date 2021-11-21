@@ -102,7 +102,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 ## 🏛 Architecture
 
 <p align="center">
-    <img src="/assets/architecture/Architecture.drawio.png.svg" alt="Daily architecture" width="700">
+    <img src="assets/architecture/Architecture.drawio.png" alt="Daily architecture" width="700">
 </p>
 
 
