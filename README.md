@@ -257,7 +257,7 @@ Meet the core team of daily.dev:
 * [@nimrodkramer](https://twitter.com/NimrodKramer)
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
 
-Feel free to reach us out and say hi 👋.
+Feel free to reach out to us and say hi 👋.
 
 
 ## 💬 What Do You Think of daily.dev?
