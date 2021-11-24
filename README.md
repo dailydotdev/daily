@@ -102,7 +102,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 ## 🏛 Architecture
 
 <p align="center">
-    <img src="/assets/architecture/overview.svg" alt="Daily architecture" width="700">
+    <img src="assets/architecture/overview.svg" alt="Daily architecture" width="700">
 </p>
 
 
@@ -257,7 +257,7 @@ Meet the core team of daily.dev:
 * [@nimrodkramer](https://twitter.com/NimrodKramer)
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
 
-Feel free to reach us out and say hi 👋.
+Feel free to reach out to us and say hi 👋.
 
 
 ## 💬 What Do You Think of daily.dev?
