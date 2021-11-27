@@ -84,6 +84,8 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 *  [daily](https://github.com/dailydotdev/daily) - This is the repository you are currently at. It serves as a central place for all the projects. It contains documentation, community ideas, suggestions, and whatnot.
 
+*  [docs](https://github.com/dailydotdev/docs) - This is the official product docs of daily.dev.
+
 
 ### 🎨 Frontend
 
