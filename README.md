@@ -99,6 +99,10 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 * [daily-scraper](https://github.com/dailydotdev/daily-scraper) - Scraping webpages for relevant information.
 * [daily-functions](https://github.com/dailydotdev/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
+### 🎈 Others
+
+* [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
+
 
 
 ## 🏛 Architecture
