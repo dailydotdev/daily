@@ -255,17 +255,17 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 Meet the core team of daily.dev:
 
 <figure>
-  <img align='left' width=100px src="assets/nimrod.jpg">
+  <img align='left' width="100" height="100" src="assets/nimrod.jpg">
   <figcaption>Nimrod Kramer</figcaption>
 </figure>
 
 <figure>
-  <img align='center' width=100px src="assets/ido.jpg">
+  <img align='center' width="100" height="100" src="assets/ido.jpg">
   <figcaption>Ido Shamun</figcaption>
 </figure>
 
 <figure>
-  <img align='right' width=100px src="assets/tsa.jpg">
+  <img align='right' width="100" height="100" src="assets/tsa.jpg">
   <figcaption>Nimrod Kramer</figcaption>
 </figure>
 
