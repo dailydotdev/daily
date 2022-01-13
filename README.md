@@ -256,13 +256,13 @@ Meet the core team of daily.dev:
 
 <div class="row">
   <div class="column">
-    <img src="assets/nimrod.jpg" alt="Snow" style="width:50%">
+    <img src="assets/nimrod.jpg" alt="Snow" width="100" height="100">
   </div>
   <div class="column">
-    <img src="assets/ido.jpg" alt="Forest" style="width:50">
+    <img src="assets/ido.jpg" alt="Forest" width="100" height="100">
   </div>
   <div class="column">
-    <img src="assets/tsa.jpg" alt="Mountains" style="width:50%">
+    <img src="assets/tsa.jpg" alt="Mountains" width="100" height="100">
   </div>
 </div>
 
