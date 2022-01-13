@@ -253,12 +253,19 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 ## 🎩 Core Team
 
 Meet the core team of daily.dev:
-* [@idoshamun](https://twitter.com/idoshamun)
-* [@nimrodkramer](https://twitter.com/NimrodKramer)
-* [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
 
 <figure>
-  <img width=50px src="assets/nimrod.jpg">
+  <img width=100px src="assets/nimrod.jpg">
+  <figcaption>Nimrod Kramer</figcaption>
+</figure>
+
+<figure>
+  <img width=100px src="assets/ido.jpg">
+  <figcaption>Ido Shamun</figcaption>
+</figure>
+
+<figure>
+  <img width=100px src="assets/tsa.jpg">
   <figcaption>Nimrod Kramer</figcaption>
 </figure>
 
