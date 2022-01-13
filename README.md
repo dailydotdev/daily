@@ -255,13 +255,13 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 Meet the core team of daily.dev:
 
 
- <div>
- <img width="100" height="100" src="assets/nimrod.jpg" alt="" align="left" />
- <div id="content" align="center"> 
- <img width="100" height="100" src="assets/ido.jpg" alt="" align="center" />
- </div>
- <img width="100" height="100" src="assets/tsa.jpg" alt="" align="right"/>
- </div>
+ 
+ 
+ <div style="display: flex; flex-direction: row;">
+ <img class="img" width = "49%" src="assets/nimrod.jpg" />
+ <img class="img" width = "49%" src="assets/ido.jpg" />
+ <img class="img" width = "49%" src="assets/tsa.jpg" />
+</div>
 
 
  Feel free to reach out to us and say hi 👋.
