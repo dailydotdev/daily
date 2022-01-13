@@ -263,9 +263,9 @@ Meet the core team of daily.dev:
   <a href="https://twitter.com/TsahiMatsliah"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/tsa.jpg" />
 </div>
 
-<br><br>
+<p>
  Click on the photo & feel free to reach out to us and say hi 👋.
-
+    </p>
 
 ## 💬 What Do You Think of daily.dev?
 
