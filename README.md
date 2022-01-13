@@ -258,9 +258,9 @@ Meet the core team of daily.dev:
  
  
  <div style="display: flex; flex-direction: row;">
- <img class="img" width = "20%" hspace=5 vspace=5 src="assets/nimrod.jpg" />
- <img class="img" width = "20%" hspace=5 vspace=5 src="assets/ido.jpg" />
- <img class="img" width = "20%" hspace=5 vspace=5 src="assets/tsa.jpg" />
+  <a href="https://www.qries.com/"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/nimrod.jpg" />
+  <a href="https://www.qries.com/"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/ido.jpg" />
+  <a href="https://www.qries.com/"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/tsa.jpg" />
 </div>
 
 
