@@ -262,7 +262,7 @@ Meet the core team of daily.dev:
     <img src="assets/ido.jpg" alt="Forest" width="100" height="100">
   </div>
   <div class="column">
-    <img src="assets/tsa.jpg" alt="Mountains" width="100" height="100">
+    <img align = 'right' src="assets/tsa.jpg" alt="Mountains" width="100" height="100">
   </div>
 </div>
 
