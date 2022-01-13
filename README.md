@@ -258,8 +258,8 @@ Meet the core team of daily.dev:
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
 
 <figure>
-  <img src="assets/nimrod.jpg">
-  <figcaption>MDN Logo</figcaption>
+  <img width=50px src="assets/nimrod.jpg">
+  <figcaption>Nimrod Kramer</figcaption>
 </figure>
 
 
