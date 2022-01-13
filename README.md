@@ -256,11 +256,11 @@ Meet the core team of daily.dev:
 
 
  <div>
- <img src="assets/nimrod.jpg" alt="" align="left" />
+ <img width="100" height="100" src="assets/nimrod.jpg" alt="" align="left" />
  <div id="content" align="center"> 
- <img src="assets/ido.jpg" alt="" align="center" />
+ <img width="100" height="100" src="assets/ido.jpg" alt="" align="center" />
  </div>
- <img src="assets/tsa.jpg" alt="" align="right"/>
+ <img width="100" height="100" src="assets/tsa.jpg" alt="" align="right"/>
  </div>
 
 
