@@ -258,14 +258,14 @@ Meet the core team of daily.dev:
  
  
  <div style="display: flex; flex-direction: row;">
-  <a href="https://twitter.com/NimrodKramer"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/nimrod.jpg" />
-  <a href="https://twitter.com/idoshamun"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/ido.jpg" />
-  <a href="https://twitter.com/TsahiMatsliah"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/tsa.jpg" />
+  <a href="https://twitter.com/NimrodKramer"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/nimrod.jpg" /> </a>
+  <a href="https://twitter.com/idoshamun"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/ido.jpg" /> </a>
+  <a href="https://twitter.com/TsahiMatsliah"><img class="img" width = "20%" hspace=5 vspace=5 src="assets/tsa.jpg" /> </a>
 </div>
 
-<p>
- Click on the photo & feel free to reach out to us and say hi 👋.
-    </p>
+<br>
+Click on the photo & feel free to reach out to us & say hi👋
+
 
 ## 💬 What Do You Think of daily.dev?
 
