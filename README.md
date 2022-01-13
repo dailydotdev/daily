@@ -254,26 +254,26 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 
 Meet the core team of daily.dev:
 
-<div id="design-cast">
-     <h4>Design</h4>
 
-    <div class="member">
-        <img src="assets/nimrod.jpg" class="img-responsive img-thumbnail" alt="Responsive image" />
-        <div class="name">Name
-            <br />Description</div>
-    </div>
-    <div class="member">
-        <img src="assets/ido.jpg" class="img-responsive img-thumbnail" alt="Responsive image" />
-        <div class="name">Name
-            <br />Description</div>
-    </div>
-    <div class="member">
-        <img src="assets/tsa.jpg" class="img-responsive img-thumbnail" alt="Responsive image" />
-        <div class="name">Name
-            <br />Description</div>
-    </div>
-</div>
+ <div>
+ <img src="@Url.Content("assets/nimrod.jpg")" alt="" align="left" />
+ <div id="content" align="center"> 
+ <img src="@Url.Content("assets/ido.jpg")" alt="" align="center" />
+ </div>
+ <img src="@Url.Content("assets/tsa.jpg")" alt="" align="right"/>
+ </div>
 
+
+ <style type="text/css">
+ #content {
+
+
+ width:50%;
+ margin-left: auto ;
+ margin-right:auto ;
+
+
+ }
 
 
 Feel free to reach out to us and say hi 👋.
