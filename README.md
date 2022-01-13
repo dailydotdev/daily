@@ -255,7 +255,7 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 Meet the core team of daily.dev:
 
 <figure>
-  <img align='left' width="100" height="100" src="assets/nimrod.jpg">
+  <img align='left' width="100%" src="assets/nimrod.jpg">
   <figcaption>Nimrod Kramer</figcaption>
 </figure>
 
