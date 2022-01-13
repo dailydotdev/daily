@@ -258,9 +258,9 @@ Meet the core team of daily.dev:
  
  
  <div style="display: flex; flex-direction: row;">
- <img class="img" width = "20%" src="assets/nimrod.jpg" /><!--
+ <img class="img" width = "20%" src="assets/nimrod.jpg" /><!-------
 -->
-  <img class="img" width = "20%" src="assets/ido.jpg" /><!--
+  <img class="img" width = "20%" src="assets/ido.jpg" /><!-------
 -->
  <img class="img" width = "20%" src="assets/tsa.jpg" />
 </div>
