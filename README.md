@@ -256,7 +256,10 @@ Meet the core team of daily.dev:
 * [@idoshamun](https://twitter.com/idoshamun)
 * [@nimrodkramer](https://twitter.com/NimrodKramer)
 * [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
-[@idoshamun](https://twitter.com/idoshamun) | [@Brawrdon](https://github.com/Brawrdon) | [@dayhaysoos](https://github.com/dayhaysoos)
+![ido](https://user-images.githubusercontent.com/39756589/149363462-036e1892-0433-48bf-a5a5-a0526b4608c1.jpg)
+![nimrod](https://user-images.githubusercontent.com/39756589/149363469-e5145def-8842-4ecc-a582-66288a2d19ea.jpg)
+![tsa](https://user-images.githubusercontent.com/39756589/149363472-6291bb3f-db7c-424e-8708-8ebd1a95d458.jpg)
+
 
 Feel free to reach out to us and say hi 👋.
 
