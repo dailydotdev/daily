@@ -254,20 +254,17 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 
 Meet the core team of daily.dev:
 
-<figure>
-  <img align='left' width="100%" src="assets/nimrod.jpg">
-  <figcaption>Nimrod Kramer</figcaption>
-</figure>
-
-<figure>
-  <img align='center' width="100" height="100" src="assets/ido.jpg">
-  <figcaption>Ido Shamun</figcaption>
-</figure>
-
-<figure>
-  <img align='right' width="100" height="100" src="assets/tsa.jpg">
-  <figcaption>Nimrod Kramer</figcaption>
-</figure>
+<div class="row">
+  <div class="column">
+    <img src="assets/nimrod.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="assets/ido.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="assets/tsa.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
 
 
 Feel free to reach out to us and say hi 👋.
