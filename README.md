@@ -264,19 +264,7 @@ Meet the core team of daily.dev:
  </div>
 
 
- <style type="text/css">
- #content {
-
-
- width:50%;
- margin-left: auto ;
- margin-right:auto ;
-
-
- }
-
-
-Feel free to reach out to us and say hi 👋.
+ Feel free to reach out to us and say hi 👋.
 
 
 ## 💬 What Do You Think of daily.dev?
