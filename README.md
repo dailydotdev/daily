@@ -258,11 +258,9 @@ Meet the core team of daily.dev:
  
  
  <div style="display: flex; flex-direction: row;">
- <img class="img" width = "20%" hspace=5 vspace=5 src="assets/nimrod.jpg" /><p>Nimrod Kramer</p><!-------
--->
+ <img class="img" width = "20%" hspace=5 vspace=5 src="assets/nimrod.jpg" /><p align='center'>Nimrod Kramer</p><a href="https://twitter.com/idoshamun"></a>
   
-  <img class="img" width = "20%" hspace=5 vspace=5 src="assets/ido.jpg" /><!-------
--->
+  <img class="img" width = "20%" hspace=5 vspace=5 src="assets/ido.jpg" />
  <img class="img" width = "20%" hspace=5 vspace=5 src="assets/tsa.jpg" />
 </div>
 
