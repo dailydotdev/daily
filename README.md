@@ -26,7 +26,11 @@
 
 </p>
 
-
+<p align="center">
+  <a href="https://gitpod.io/#https://github.com/dailydotdev/apps/">
+    <img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod">
+  </a>
+</p>
 
 
 ## 🗞 daily.dev
@@ -131,6 +135,8 @@ Below is a list of technologies we use at daily.dev.
 Let's setup daily.dev locally. First you need to setup the services required to run the daily.dev applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
 ## ⚙️ Setting Up Daily Services
+
+You can go the easy way by using [Gitpod](https://gitpod.io/#https://github.com/dailydotdev/apps/) or follow the instructions below.
 
 ### → STEP #0
 
