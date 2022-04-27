@@ -20,10 +20,6 @@
     <img src="https://img.shields.io/twitter/follow/dailydotdev?color=26A0ED&label=Follow&logo=twitter&logoColor=white&style=flat" alt="Twitter">
   </a>
 
-  <a href="https://storybook.daily.dev">
-    <img src="https://img.shields.io/badge/%20-storybook-502ab0?logo=storybook&logoColor=white" alt="Storybook">
-  </a>
-
 </p>
 
 <p align="center">
