@@ -49,7 +49,7 @@ At daily.dev we care about:
 
 ## 📌 Get daily.dev
 
-daily.dev is currently available for Google Chrome, Microsoft Edge, and Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
+daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
 
 <p align="center">
     <a href="https://r.daily.dev/chrome">
@@ -257,15 +257,6 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
 ## 🤔 FAQs
 
 We have compiled a list of FAQs. You can find it [here](https://daily.dev/support).
-
-## 🎩 Core Team
-
-Meet the core team of daily.dev:
-* [@idoshamun](https://twitter.com/idoshamun)
-* [@nimrodkramer](https://twitter.com/NimrodKramer)
-* [@tsahimatsliah](https://twitter.com/TsahiMatsliah)
-
-Feel free to reach out to us and say hi 👋.
 
 
 ## 💬 What Do You Think of daily.dev?
