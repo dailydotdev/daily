@@ -140,8 +140,8 @@ You can go the easy way by using [Gitpod](https://gitpod.io/#https://github.com/
 * Make sure docker-compose is installed on your machine. Take a look at the [official guide](https://docs.docker.com/compose/install/) for installation. After installation, run the following command in your terminal for a double check.
 
 ```sh
-docker-compose -v
-# docker-compose version 1.29.2, build 5becea4c     // Expected result
+docker compose version
+# Docker Compose version v2.10.0 // Expected result
 ```
 
 ### → STEP #1
@@ -157,7 +157,7 @@ The first step is to **pull and run the docker images**, thanks to docker-compos
 Navigate to the cloned repository and make sure Docker is running on your machine. After that run the following command to run all daily services:
 
 ```sh
-docker-compose pull && docker-compose up
+docker compose pull && docker compose up
 ```
 
 The command will take a while depending upon your internet speed.
