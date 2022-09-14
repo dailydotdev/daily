@@ -274,3 +274,8 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 
 ## 📑 License
 Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
+
+## Thanks to all the contributors ❤
+ <a href = "https://github.com/dailydotdev/daily/graphs/contributors">
+   <img src = "https://contrib.rocks/image?repo=dailydotdev/daily"/>
+ </a>
