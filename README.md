@@ -167,13 +167,13 @@ The command will take a while depending upon your internet speed.
 Now we need to apply the migrations on our databases so they will have the latest schema:
 
 ```sh
-docker exec apps_daily-api_1 node ./node_modules/typeorm/cli.js migration:run
+docker exec apps-daily-api-1 node ./node_modules/typeorm/cli.js migration:run
 
 # ... // Expected result
 # Migration PostToc1623847855158 has been executed successfully.
 # query: COMMIT
 
-docker exec apps_daily-gateway_1 yarn run db:migrate:latest
+docker exec apps-daily-gateway-1 yarn run db:migrate:latest
 
 # Using environment: development   // Expected result
 # Batch 1 run: 23 migrations
@@ -185,7 +185,7 @@ docker exec apps_daily-gateway_1 yarn run db:migrate:latest
 The last step is to populate your database using the seed data. All you need to do is, run the following command in your terminal:
 
 ```sh
-docker exec apps_daily-api_1 node bin/import.js
+docker exec apps-daily-api-1 node bin/import.js
 
 # importing Source              // Expected result
 # importing Post
