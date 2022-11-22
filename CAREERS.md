@@ -1,9 +1,9 @@
-🧳 Careers at daily.dev
+# 🧳 Careers at daily.dev
 
 Are you looking for a new opportunity?
-We are a young and dynamic team with opportunities for amazing people like you to grow with our product.
+We are a high-energy and dynamic team, looking for amazing people like you to grow alongside our product
 
-Currently we have the following applications open.
+Currently we have the following applications open:
 
 ## 🔬 QA Engineer
 
