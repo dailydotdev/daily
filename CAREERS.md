@@ -7,7 +7,7 @@ Currently we have the following applications open:
 
 ## 🔬 QA Engineer
 
-required:
+Required:
 - Team-player mentality
 - Hands-on experience in QA for 2+ years
 - Experience in creating robust and thorough testing plans, both user-facing and technical
