@@ -261,7 +261,7 @@ We have compiled a list of FAQs. You can find it [here](https://daily.dev/suppor
 
 ## 🧳 Careers
 
-We are always looking for talent. You can find all open positions [here](https://github.com/dailydotdev/.github/blob/master/CAREERS.md)
+We are always looking for talent. You can find all open positions [here](https://github.com/dailydotdev/daily/blob/master/CAREERS.md)
 
 
 ## 💬 What Do You Think of daily.dev?
