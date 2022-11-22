@@ -3,7 +3,7 @@
 Are you looking for a new opportunity?
 We are a high-energy and dynamic team, looking for amazing people like you to grow alongside our product
 
-Currently we have the following applications open:
+Currently we have the following positions open:
 
 ## 🔬 QA Engineer
 
