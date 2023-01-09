@@ -1,7 +1,6 @@
 # 🧳 Careers at daily.dev
 
-Are you looking for a new opportunity?
-We are a high-energy and dynamic team, looking for amazing people like you to grow alongside our product
+We're an all-remote startup building a professional network for developers to stay up to date and collaborate with like-minded developers. Our community is global and growing, and we can't wait for you to join us and bring your skills and insights to the table. Sound like your kind of thing? Apply now and let's build the homepage every developer deserves together!
 
 Currently we have the following positions open:
 
