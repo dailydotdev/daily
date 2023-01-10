@@ -116,7 +116,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 Below is a list of technologies we use at daily.dev.
 
-*  🎨 **Frontend:** Preact
+*  🎨 **Frontend:** React
 * 🌳 **Services:** Node.js & Golang
 * ☁️ **Cloud:** Google Cloud Platform Pub/Sub | SQL | Serverless
 * ♾ **CI/CD:** CircleCI
