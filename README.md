@@ -167,7 +167,7 @@ The command will take a while depending upon your internet speed.
 Now we need to apply the migrations on our databases so they will have the latest schema:
 
 ```sh
-docker exec apps-daily-api-1 node ./node_modules/typeorm/cli.js migration:run
+docker exec apps-daily-api-1 node ./node_modules/typeorm/cli.js migration:run -d src/data-source.js
 
 # ... // Expected result
 # Migration PostToc1623847855158 has been executed successfully.
