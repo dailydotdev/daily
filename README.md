@@ -172,12 +172,6 @@ docker exec apps-daily-api-1 node ./node_modules/typeorm/cli.js migration:run -d
 # ... // Expected result
 # Migration PostToc1623847855158 has been executed successfully.
 # query: COMMIT
-
-docker exec apps-daily-gateway-1 yarn run db:migrate:latest
-
-# Using environment: development   // Expected result
-# Batch 1 run: 23 migrations
-# Done in 1.57s.
 ```
 
 ### → STEP #4
