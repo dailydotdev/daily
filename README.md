@@ -103,29 +103,6 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 * [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
 
-
-
-## 🏛 Architecture
-
-<p align="center">
-    <img src="assets/architecture/overview.svg" alt="Daily architecture" width="700">
-</p>
-
-
-## 🗂 Tech Stack
-
-Below is a list of technologies we use at daily.dev.
-
-*  🎨 **Frontend:** Preact
-* 🌳 **Services:** Node.js & Golang
-* ☁️ **Cloud:** Google Cloud Platform Pub/Sub | SQL | Serverless
-* ♾ **CI/CD:** CircleCI
-* 🎩 **Deployment:** Pulumi
-* 🎛 **Data Feed:** Superfeedr
-* 📨 **Email Service:** SendGrid
-* 🚨 **Push Notifications:** OneSignal
-
-
 ## 🚀 Running daily.dev Locally
 
 Let's setup daily.dev locally. First you need to setup the services required to run the daily.dev applications, then you can run the application you want. Follow up the setups below to quickly get started.
@@ -136,7 +113,6 @@ You can go the easy way by using [Gitpod](https://gitpod.io/#https://github.com/
 
 ### → STEP #0
 
-* Go through the [projects description](#-daily-projects) and [the architecture](#-architecture) to familiarize yourself with the system and its components.
 * Make sure docker-compose is installed on your machine. Take a look at the [official guide](https://docs.docker.com/compose/install/) for installation. After installation, run the following command in your terminal for a double check.
 
 ```sh
@@ -150,7 +126,7 @@ Clone the [apps](https://github.com/dailydotdev/apps) repo.
 
 ### → STEP #2
 
-> Daily services are fully dockerized and publicly available on a Google Cloud Registry (GCR) repository. We are going to use them!
+> daily.dev services are fully dockerized and publicly available on a Google Cloud Registry (GCR) repository. We are going to use them!
 
 The first step is to **pull and run the docker images**, thanks to docker-compose network and environment variables are preconfigured and ready-to-go.
 
