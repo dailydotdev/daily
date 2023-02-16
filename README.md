@@ -35,12 +35,6 @@
 
 It collects and ranks articles from hundreds of unique publications to help developers stay updated with the latest tech news. You can bookmark posts, sync your data across devices, and read later whenever you want. It works offline and has a progressive web app (PWA) for mobile.
 
-At daily.dev we care about:
-
-* 🌟 **Maintenance**: We are working continuously to introduce new features, fix bugs, and improve user experience — 40+ releases on average in a year.
-* ♾ **Being relevant**: daily.dev's article feed is constantly updated. Discover brand-new content as soon as it is published.
-* 🧵 **Open-source**: daily.dev is completely open-source. We believe in transparency and giving back to the community, so we decided to publish the source code to GitHub. Suggest a feature, report a bug, or even contribute. Everyone is welcome!
-
 <p align="center">
     <img src="/assets/daily-cover-photo.png" alt="daily.dev" width="550">
     <br>
@@ -90,14 +84,6 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 ### 🎨 Frontend
 
 * [apps](https://github.com/dailydotdev/apps) - Monorepo with all the frontend related projects since daily.dev 3.0. This includes both the extension and the webapp.
-
-### 🏗 Backend
-
-* [daily-api](https://github.com/dailydotdev/daily-api) - A monolith API service, being slowly split apart to different services. It manages content-related data such as posts, feeds, tags, etc.
-* [daily-gateway](https://github.com/dailydotdev/daily-gateway) - API gateway which receives all traffic and forwards it to the relevant services after authenticating and authorizing the request.
-* [daily-monetization](https://github.com/dailydotdev/daily-monetization) - Serving ads from different providers including CodeFund, BuySellAds and self-hosted campaigns.
-* [daily-scraper](https://github.com/dailydotdev/daily-scraper) - Scraping webpages for relevant information.
-* [daily-functions](https://github.com/dailydotdev/daily-functions) - Monorepo with Cloud Functions which mostly take care of ingesting new content but also web push and others.
 
 ### 🎈 Others
 
