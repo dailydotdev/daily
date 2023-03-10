@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/Logo - Black (1).jpg" alt="Daily Dev Logo" width="320">
   <h1>Welcome to the daily.dev repository</h1>
-  <strong>The latest dev news delivered to your new tab 👩🏽‍💻</strong>
+  <strong>The professional network for developers</strong>
   <h6>Made with ❤️ &nbsp;by developers for developers</h6>
 </div>
 <br>
@@ -29,16 +29,17 @@
 </p>
 
 
-## 🗞 daily.dev
+## 💜 daily.dev
 
-> daily.dev is an open-source browser extension that helps developers stay updated with the latest programming news 👩‍💻
+> daily.dev is a professional network for developers to learn, collaborate, and grow together
+ 👩‍💻
 
-It collects and ranks articles from hundreds of unique publications to help developers stay updated with the latest tech news. You can bookmark posts, sync your data across devices, and read later whenever you want. It works offline and has a progressive web app (PWA) for mobile.
+With daily.dev you can discover a wide variety of professional knowledge, create groups where they can collaborate with other developers they appreciate, and discuss the latest trends in the developer ecosystem. It works offline and available both as a browser extension and as a PWA. 
 
 <p align="center">
     <img src="/assets/daily-cover-photo.png" alt="daily.dev" width="550">
     <br>
-    <a href="https://www.youtube.com/watch?v=Oso6dYXw5lc"><strong>📺 Watch Intro Video → </strong></a>
+    <a href="https://youtu.be/igZCEr3HwCg"><strong>👀 Watch it in action → </strong></a>
 </p>
 
 ## 📌 Get daily.dev
@@ -62,15 +63,15 @@ daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla 
 
 ## 📯 Philosophy
 
-We, as developers, spend a lot of time looking for valuable articles and blog posts. We believe that searching for content isn't a thing developers should do anymore. It's hard to catch up with all the latest happenings — coz it's spread on so many blogs and consumes tons of time.
+There are many platforms that provide developers with tools that serve the success of their workplaces, but daily.dev is by-design for developers themselves. We, as developers, spend a lot of time in our professional growth. We built daily.dev to make it easy for ourselves to navigate the abundance of knowledge and discover all the content we they need with zero effort.
 
 That's why we built daily.dev, to help you:
 
-* 👨‍💻 Stay up-to-date
-* 🕒 Save time
-* 📰 Discover articles in one click
+* 👨‍💻 Learn and stay up-to-date
+* 🙌 Intract based on the latest trends in our ecosystem
+* 🚀 Collaborate with other developers you know and appreciate
 
-## 🌲 daily.dev Projects
+## 🌲 daily.dev projects
 
 daily.dev might look simple on the surface but actually, it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
 
@@ -89,7 +90,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 * [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
 
-## 🚀 Running daily.dev Locally
+## 🚀 Running daily.dev locally
 
 Let's setup daily.dev locally. First you need to setup the services required to run the daily.dev applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
@@ -200,7 +201,7 @@ By now, you will have unpacked daily.dev extension in your `dist` folder. Follow
 
 That's it! Your extension has been loaded in your browser. Happy hacking! ✌️
 
-## 🙌 Want to Contribute?
+## 🙌 Want to contribute?
 
 We are open to all kinds of contributions. If you want to:
 * 🤔 Suggest a feature
@@ -210,26 +211,20 @@ We are open to all kinds of contributions. If you want to:
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md).
 
-## 🤔 FAQs
-
-We have compiled a list of FAQs. You can find it [here](https://daily.dev/support).
-
-
 ## 🧳 Careers
 
 We are always looking for talent. You can find all open positions [here](https://github.com/dailydotdev/daily/blob/master/CAREERS.md)
 
 
-## 💬 What Do You Think of daily.dev?
+## 💬 What do you think of daily.dev?
 
 <div align="left">
     <p><a href="https://twitter.com/dailydotdev/"><img alt="Twitter @dailydotdev" align="center" src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" /></a>&nbsp; Tweet us @dailydotdev to share your thoughts and stay up-to-date. </p>
-    <p><a href="https://facebook.com/dailydotdev/"><img alt="Facebook @dailydotdev" align="center" src="https://img.shields.io/badge/facebook-%231877F2.svg?&style=for-the-badge&logo=facebook&logoColor=white" /></a>&nbsp; Like us to know what's happening at daily.dev and share your reviews.</p>
-    <p><a href="https://www.producthunt.com/posts/daily-dev"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/producthunt-%23DA552F.svg?&style=for-the-badge&logo=product-hunt&logoColor=white" /></a>&nbsp; Checkout our ProductHunt page and let us know what you think.</p>
-    <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/Daily Website-%233693F3.svg?&style=for-the-badge&logo=icloud&logoColor=white" /></a>&nbsp; Visit our home for all useful links.</p>
+    <p><a href="https://www.producthunt.com/products/daily-dev"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/producthunt-%23DA552F.svg?&style=for-the-badge&logo=product-hunt&logoColor=white" /></a>&nbsp; Check out our Product Hunt page.</p>
+    <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/Daily Website-%233693F3.svg?&style=for-the-badge&logo=icloud&logoColor=white" /></a>&nbsp; Visit our home for a bunch of useful links.</p>
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
-      <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
     <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/Firefox Addons-%23FF7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
+    <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
 </div>
 
 
