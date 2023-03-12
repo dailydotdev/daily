@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/Logo - Black (1).jpg" alt="Daily Dev Logo" width="320">
+  <img src="assets/Logo - Black (1).jpg" alt="daily.dev Logo" width="320">
   <h1>Welcome to the daily.dev repository</h1>
   <strong>The professional network for developers</strong>
   <h6>Made with ❤️ &nbsp;by developers for developers</h6>
@@ -37,7 +37,7 @@
 With daily.dev you can discover a wide variety of professional knowledge, create groups where they can collaborate with other developers they appreciate, and discuss the latest trends in the developer ecosystem. It works offline and available both as a browser extension and as a PWA. 
 
 <p align="center">
-    <img src="/assets/daily-cover-photo.png" alt="daily.dev" width="550">
+    <img src="/assets/cover.png" alt="daily.dev cover" width="550">
     <br>
     <a href="https://youtu.be/igZCEr3HwCg"><strong>👀 Watch it in action → </strong></a>
 </p>
