@@ -34,7 +34,7 @@
 > daily.dev is a professional network for developers to learn, collaborate, and grow together
  👩‍💻
 
-With daily.dev you can discover a wide variety of professional knowledge, create groups where they can collaborate with other developers they appreciate, and discuss the latest trends in the developer ecosystem. It works offline and available both as a browser extension and as a PWA. 
+With daily.dev you can discover a wide variety of professional knowledge, create groups where you can collaborate with other developers you appreciate, and discuss the latest trends in the developer ecosystem. It works offline and available both as a browser extension and as a PWA. 
 
 <p align="center">
     <img src="/assets/cover.png" alt="daily.dev cover" width="550">
