@@ -1,8 +1,7 @@
 <div align="center">
   <img src="assets/Logo - Black (1).jpg" alt="daily.dev Logo" width="320">
   <h1>Welcome to the daily.dev repository</h1>
-  <strong>The professional network for developers</strong>
-  <h6>Made with ❤️ &nbsp;by developers for developers</h6>
+  <h3><strong>The professional network for developers</strong></h3>
 </div>
 <br>
 
@@ -29,7 +28,7 @@
 </p>
 
 
-## 💜 daily.dev
+## 💜 About daily.dev
 
 > daily.dev is a professional network for developers to learn, collaborate, and grow together
  👩‍💻
@@ -44,7 +43,9 @@ With daily.dev you can discover a wide variety of professional knowledge, create
 
 ## 📌 Get daily.dev
 
-daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a progressive web app (PWA) for mobile devices. Get it now on:
+daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a progressive web app (PWA) for mobile devices. 
+
+Get it now on:
 
 <p align="center">
     <a href="https://r.daily.dev/chrome">
@@ -63,9 +64,11 @@ daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla 
 
 ## 📯 Philosophy
 
-There are many platforms that provide developers with tools that serve the success of their workplaces, but daily.dev is by-design for developers themselves. We, as developers, spend a lot of time in our professional growth. We built daily.dev to make it easy for ourselves to navigate the abundance of knowledge and discover all the content we they need with zero effort.
+We recognize that developers today have the greatest power as a professional group to drive change and affect the lives of billions. There are many platforms that provide developers with tools that serve their success, or the goals of their workplace, but daily.dev is by-design for developers themselves. 
 
-That's why we built daily.dev, to help you:
+We, as developers, know how challenging it is to grow professionally with so much going on, and that's why we built daily.dev - to make it easy for us to navigate the abundance of content and discover all the knowledge we they need with zero effort.
+
+You can use daily.dev to:
 
 * 👨‍💻 Learn and stay up-to-date
 * 🙌 Intract based on the latest trends in our ecosystem
