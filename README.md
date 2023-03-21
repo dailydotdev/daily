@@ -216,7 +216,7 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
 
 ## 🧳 Careers
 
-We are always looking for talent. You can find all open positions [here](https://github.com/dailydotdev/daily/blob/master/CAREERS.md)
+We are always looking for talent. You can find all open positions [here](https://daily.dev/careers)
 
 
 ## 💬 What do you think of daily.dev?
