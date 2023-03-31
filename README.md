@@ -33,7 +33,7 @@
 > daily.dev is a professional network for developers to learn, collaborate, and grow together
  👩‍💻
 
-With daily.dev you can discover a wide variety of professional knowledge, create groups where you can collaborate with other developers you appreciate, and discuss the latest trends in the developer ecosystem. It works offline and available both as a browser extension and as a PWA. 
+With daily.dev you can discover a wide variety of professional knowledge, create groups where you can collaborate with other developers you appreciate, and discuss the latest trends in the developer ecosystem. It works offline and is available both as a browser extension and as a Progressive Web App (PWA). 
 
 <p align="center">
     <img src="/assets/cover.png" alt="daily.dev cover" width="550">
@@ -43,7 +43,7 @@ With daily.dev you can discover a wide variety of professional knowledge, create
 
 ## 📌 Get daily.dev
 
-daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a progressive web app (PWA) for mobile devices. 
+daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a PWA for mobile devices. 
 
 Get it now on:
 
@@ -64,14 +64,14 @@ Get it now on:
 
 ## 📯 Philosophy
 
-We recognize that developers today have the greatest power as a professional group to drive change and affect the lives of billions. There are many platforms that provide developers with tools that serve their success, or the goals of their workplace, but daily.dev is by-design for developers themselves. 
+We recognize that developers today have the greatest power as a professional group to drive change and affect lives of billions. There are many platforms that provide developers with tools that serve to their success, or the goals of their workplace, but daily.dev is by-design for developers themselves. 
 
-We, as developers, know how challenging it is to grow professionally with so much going on, and that's why we built daily.dev - to make it easy for us to navigate the abundance of content and discover all the knowledge we they need with zero effort.
+We, as developers, know how challenging it is to grow professionally with so much going on, and that's why we built daily.dev - to make it easy for us to navigate abundance of content and discover all the knowledge they need with zero effort.
 
 You can use daily.dev to:
 
 * 👨‍💻 Learn and stay up-to-date
-* 🙌 Intract based on the latest trends in our ecosystem
+* 🙌 Interact based on the latest trends in our ecosystem
 * 🚀 Collaborate with other developers you know and appreciate
 
 ## 🌲 daily.dev projects
@@ -82,7 +82,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 *  [daily](https://github.com/dailydotdev/daily) - This is the repository you are currently at. It serves as a central place for all the projects. It contains documentation, community ideas, suggestions, and whatnot.
 
-*  [docs](https://github.com/dailydotdev/docs) - This is the official product docs of daily.dev.
+*  [docs](https://github.com/dailydotdev/docs) - This is the repository for official product documentation of daily.dev.
 
 
 ### 🎨 Frontend
@@ -95,7 +95,7 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 ## 🚀 Running daily.dev locally
 
-Let's setup daily.dev locally. First you need to setup the services required to run the daily.dev applications, then you can run the application you want. Follow up the setups below to quickly get started.
+Let's setup daily.dev locally. First, you need to setup the services required to run the daily.dev applications, then you can run the application you want. Follow up the setups below to quickly get started.
 
 ## ⚙️ Setting Up Daily Services
 
@@ -157,7 +157,7 @@ docker exec apps-daily-api-1 node bin/import.js
 
 That's it! 🥂
 
-Now you have all the required services running. Each project's repo explains what services are needed and how to get started with them.
+Now, you have all the required services running. Each project's repo explains what services are needed and how to get started with them.
 
 > Note that currently, not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization services are not available for you.
 >
