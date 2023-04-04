@@ -1,0 +1,130 @@
+name: "🐛 Bug Report"
+description: I would like to report a bug.
+title: "🐛 BUG: "
+labels: [
+  "Type: Bug"
+]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        - Thank you for using Daily and taking time to report a bug.
+        - Please try to spend some time to understand the bug and reproduce it.
+        - Take a look at our template and try to add as much detail as possible.
+        - The more details we have, easier it would be to fix it. 
+        - If any heading is not applicable, put `NA`
+        - For additional information, create an extra H2 heading and add extra info.
+  - type: textarea
+    id: something_wrong
+    attributes:
+      label: "What went wrong? 🤔"
+      description: |
+        - Please provide a detailed description of the issue you encountered. Be clear and concise in explaining what is not working as expected.
+      placeholder:  Please describe the issue you experienced in detail, including any relevant information or context.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: "Expected Behavior"
+      description: Please describe how you expected the system to behave when you encountered the issue.
+      placeholder: Please describe the behavior that you expected to see when encountering the issue.
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: "Actual Behavior"
+      description: Please describe the actual behavior of the system that you observed when the issue occurred.
+      placeholder: Please describe the behavior that you actually observed when encountering the issue, including any unexpected or erroneous outcomes.
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: "Steps to Reproduce Issue"
+      description: If possible, please share the steps to reproduce the issue.
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See the error
+      render: bash
+  - type: textarea
+    id: solution_proposed
+    attributes:
+      label: "Solution Proposed"
+      description: If you have any ideas or suggestions for how to fix the issue you encountered, please provide them in this section.
+      placeholder: Please describe any potential solutions or ideas you may have for fixing the issue.
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Screenshots"
+      description: If applicable, add screenshots to help explain your problem.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment"
+      description: You can specify your operating system and version, web browser and version, or any other software that may be related to the issue.
+      placeholder: ex. Windows 10, Chrome 91.0.4472.124
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "Browsers"
+      description: What browsers are you seeing the problem on ?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - Brave
+        - Other
+    validations:
+      required: false
+  - type: dropdown
+    id: os
+    attributes:
+      label: "OS"
+      description: Please select the operating system(s) on which you are experiencing the issue from the dropdown list provided.
+      multiple: true
+      options:
+        - Windows
+        - Linux
+        - Mac
+        - iOS
+        - Android
+    validations:
+      required: false
+  - type: input
+    id: version_daily
+    attributes:
+      label: "Version of Daily"
+      description: Please provide the version number of Daily you are using (if applicable) in the text field provided. This can help developers to identify whether the issue has already been fixed in a newer version of the software.
+      placeholder: ex. 10.1.2
+    validations:
+      required: false
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Context"
+      description: If you have any additional context or information that may help us understand the problem better, please provide it here.
+      placeholder: This can include any relevant logs, error messages, or other information that may be useful in diagnosing the issue.
+      render: bash
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/dailydotdev/.github/blob/master/CODE_OF_CONDUCT.md)
+      options:
+        - label: I follow [Contributing Guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md) of this project.
+          required: true
+  - type: markdown
+    attributes:
+      value: Thank you for taking your time to report the issue! Appreciate your help.
