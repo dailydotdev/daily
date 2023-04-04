@@ -13,7 +13,7 @@ body:
         - Take a look at our template and try to add as much detail as possible.
         - The more details we have, easier it would be to fix it. 
         - If any heading is not applicable, put `NA`
-        - For additional information, create an extra H2 heading and add extra info.
+        - For additional information, write it in additional context.
   - type: textarea
     id: something_wrong
     attributes:
