@@ -60,4 +60,4 @@ body:
           required: true
   - type: markdown
     attributes:
-      value: Thank you for taking your time to report the issue! Appreciate your help.
+      value: Thank you for taking the time to suggest a feature request! Your input is greatly appreciated.
