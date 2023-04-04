@@ -1,0 +1,63 @@
+name: "🧩 Feature Request"
+description: I would like to request a feature.
+title: "🧩 FEATURE REQUEST:  "
+labels: [
+  "Type: Feature"
+]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        - Thank you for using Daily and taking time to report a bug.
+        - Please try to spend some time to understand the bug and reproduce it.
+        - Take a look at our template and try to add as much detail as possible.
+        - The more details we have, easier it would be to fix it. 
+        - If any heading is not applicable, put `NA`
+        - For additional information, write it in additional context.
+  - type: input
+    id: concise_title
+    attributes:
+      label: "Concise Description"
+      placeholder: Enter a concise and appropriate one-line description of your feature request.
+    validations:
+      required: false
+  - type: textarea
+    id: description_feature
+    attributes:
+      label: "Description of the Feature Request"
+      description: Please describe the new functionality you would like to see added to Daily in a clear and detailed manner.
+      placeholder: Please enter your detailed description of the new feature request here. 
+    validations:
+      required: true
+  - type: textarea
+    id: feature_solution_proposed
+    attributes:
+      label: "Solution Proposed"
+      description: A precise description of how you would like to see this functionality implemented.
+      placeholder: Including any relevant materials such as sketches, wireframes, or flowcharts to illustrate your proposal is highly welcomed.
+  - type: textarea
+    id: alternate_solution_proposed
+    attributes:
+      label: "Alternate Solution Proposed"
+      description: Suggest alternative solutions to achieve the same functionality as the main proposed solution.
+      placeholder: Please provide a detailed description of any alternate solutions you have considered.
+  - type: textarea
+    id: additional_context_feature
+    attributes:
+      label: "Additional Context"
+      description: If you have any additional context or information that may help us understand the problem better, please provide it here.
+      placeholder: This can include any relevant logs, error messages, or other information that may be useful in diagnosing the issue.
+      render: bash
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/dailydotdev/.github/blob/master/CODE_OF_CONDUCT.md)
+      options:
+        - label: I follow [Contributing Guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md) of this project.
+          required: true
+  - type: markdown
+    attributes:
+      value: Thank you for taking your time to report the issue! Appreciate your help.
