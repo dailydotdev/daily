@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        - Thank you for using Daily and taking time to report a bug.
+        - Thank you for using Daily.dev and taking the time to report a bug! 😄 
         - Please try to spend some time to understand the bug and reproduce it.
         - Take a look at our template and try to add as much detail as possible.
         - The more details we have, easier it would be to fix it. 
@@ -74,7 +74,7 @@ body:
     id: browsers
     attributes:
       label: "Browsers"
-      description: What browsers are you seeing the problem on ?
+      description: What browser(s) are you seeing the problem on?
       multiple: true
       options:
         - Chrome
@@ -104,7 +104,7 @@ body:
     id: version_daily
     attributes:
       label: "Version of Daily"
-      description: Please provide the version number of Daily you are using (if applicable) in the text field provided. This can help developers to identify whether the issue has already been fixed in a newer version of the software.
+      description: Please provide the version number of Daily.dev you are using (if applicable) in the text field provided. This can help developers determine if the issue has already been solved in a newer version of the software.
       placeholder: ex. 10.1.2
     validations:
       required: false
@@ -127,4 +127,4 @@ body:
           required: true
   - type: markdown
     attributes:
-      value: Thank you for taking your time to report the issue! Appreciate your help.
+      value: Thank you for taking the time to report the issue! 😄  We appreciate your help! 😄 
