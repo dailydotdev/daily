@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        - Thank you for using Daily.dev and taking the time to report a bug! 😄 
+        - Thank you for using daily.dev and taking the time to report a bug! 😄 
         - Please try to spend some time to understand the bug and reproduce it.
         - Take a look at our template and try to add as much detail as possible.
         - The more details we have, easier it would be to fix it. 
@@ -29,12 +29,6 @@ body:
       label: "Expected Behavior"
       description: Please describe how you expected the system to behave when you encountered the issue.
       placeholder: Please describe the behavior that you expected to see when encountering the issue.
-  - type: textarea
-    id: actual_behavior
-    attributes:
-      label: "Actual Behavior"
-      description: Please describe the actual behavior of the system that you observed when the issue occurred.
-      placeholder: Please describe the behavior that you actually observed when encountering the issue, including any unexpected or erroneous outcomes.
   - type: textarea
     id: reproduction_steps
     attributes:
@@ -98,6 +92,7 @@ body:
         - Mac
         - iOS
         - Android
+        - Other
     validations:
       required: false
   - type: input
