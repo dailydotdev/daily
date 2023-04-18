@@ -98,8 +98,8 @@ body:
   - type: input
     id: version_daily
     attributes:
-      label: "Version of Daily"
-      description: Please provide the version number of Daily.dev you are using (if applicable) in the text field provided. This can help developers determine if the issue has already been solved in a newer version of the software.
+      label: "Version of daily.dev"
+      description: Please provide the version number of daily.dev you are using (if applicable) in the text field provided. This can help developers determine if the issue has already been solved in a newer version of the software.
       placeholder: ex. 10.1.2
     validations:
       required: false
