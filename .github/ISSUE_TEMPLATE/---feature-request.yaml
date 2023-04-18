@@ -24,8 +24,7 @@ body:
   - type: textarea
     id: description_feature
     attributes:
-      label: "Description of the Feature Request"
-      description: Please describe the new functionality you would like to see added to Daily in a clear and detailed manner.
+      description: Please describe the new functionality you would like to see added to daily.dev in a clear and detailed manner.
       placeholder: Please enter your detailed description of the new feature request here. 
     validations:
       required: true
