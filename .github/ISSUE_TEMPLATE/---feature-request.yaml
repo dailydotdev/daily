@@ -8,11 +8,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        - Thank you for using Daily and taking time to report a bug.
-        - Please try to spend some time to understand the bug and reproduce it.
+        - Thank you for using daily.dev and taking time to request a feature.
+        - Please try to spend some time to clearly speculate on the feature you need.
         - Take a look at our template and try to add as much detail as possible.
         - The more details we have, easier it would be to fix it. 
-        - If any heading is not applicable, put `NA`
+        - If any heading is not applicable, put `NA`.
         - For additional information, write it in additional context.
   - type: input
     id: concise_title
@@ -35,12 +35,6 @@ body:
       label: "Solution Proposed"
       description: A precise description of how you would like to see this functionality implemented.
       placeholder: Including any relevant materials such as sketches, wireframes, or flowcharts to illustrate your proposal is highly welcomed.
-  - type: textarea
-    id: alternate_solution_proposed
-    attributes:
-      label: "Alternate Solution Proposed"
-      description: Suggest alternative solutions to achieve the same functionality as the main proposed solution.
-      placeholder: Please provide a detailed description of any alternate solutions you have considered.
   - type: textarea
     id: additional_context_feature
     attributes:
