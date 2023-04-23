@@ -116,9 +116,9 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/dailydotdev/.github/blob/master/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/dailydotdev/.github/blob/master/CODE_OF_CONDUCT.md) and [Contributing Guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md)
       options:
-        - label: I follow [Contributing Guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md) of this project.
+        - label: I follow the conditions of this project.
           required: true
   - type: markdown
     attributes:
