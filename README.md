@@ -118,7 +118,7 @@ Clone the [apps](https://github.com/dailydotdev/apps) repo.
 
 > daily.dev services are fully dockerized and publicly available on a Google Cloud Registry (GCR) repository. We are going to use them!
 
-The first step is to **pull and run the docker images**, thanks to the docker-compose network and environment variables being preconfigured and ready to go.
+The first step is to **pull and run the docker images**. Thanks to docker-compose, network and environment variables are preconfigured and ready to go.
 
 Navigate to the cloned repository and make sure Docker is running on your machine. After that run the following command to run all daily services:
 
