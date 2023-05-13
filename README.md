@@ -155,7 +155,7 @@ docker exec apps-daily-api-1 node bin/import.js
 ```
 
 
-That's it! 🥂
+That's it! 🍻
 
 Now, you have all the required services running. Each project's repo explains what services are needed and how to get started with them.
 
