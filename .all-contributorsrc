@@ -280,6 +280,17 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "wesleywaka",
+      "name": "Wesley Waka",
+      "avatar_url": "https://avatars.githubusercontent.com/Wesley-waka",
+      "profile": "https://github.com/Wesley-waka",
+      "contributions": [
+        "ideas",
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
