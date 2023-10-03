@@ -128,6 +128,10 @@ docker compose pull && docker compose up
 
 The command will take a while depending on your internet speed.
 
+> This might throw an error on MacOS Monterey and MacOS Ventura saying that the port is already in use, this is due to the "AirPlay Receiver" in "Sharing" being on by default in that port, but can be turned off in the System Preferences.
+
+
+
 ### → STEP #3
 
 Now we need to apply the migrations on our databases so they will have the latest schema:
