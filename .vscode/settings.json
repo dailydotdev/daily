@@ -1,0 +1,4 @@
+{
+  "cmake.options.statusBarVisibility": "visible",
+  "python.analysis.autoImportCompletions": true
+}
