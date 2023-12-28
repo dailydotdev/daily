@@ -1,25 +1,38 @@
+<a name="readme-top"></a>
+
 <div align="center">
-  <img src="assets/Logo - Black (1).jpg" alt="daily.dev Logo" width="320">
-  <h1>Welcome to the daily.dev repository</h1>
-  <h3><strong>The professional network for developers</strong></h3>
-</div>
+
+<img src="assets/App Icon - White.png" alt="daily.dev app icon" width="80">
+
 <br>
 
+# Welcome to the daily.dev repository
 
-<p align="center">
-  <a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied">
-    <img src="https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?color=EA4335&logo=google-chrome&logoColor=white" alt="Chrome Web Store users">
-  </a>
+We know how hard it is to be a developer. It doesn't have to be. <br/>
+daily.dev is the homepage every developer deserves. <br/>
+ Personalized news feed, dev communities and search, much better than what’s out there. Maybe ;)
 
-  <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
-    <img src="https://img.shields.io/amo/users/daily?color=orange&logo=mozilla" alt="Mozilla Web Store users">
-  </a>
+[Product Docs][product-docs-link] · [Changelog][changelog-link] · [Report a Bug][report-bug-link] · [Request a Feature][github-discussions-link] · [Swag Store][swag-store-link] · [Brand Assets][brand-book-link]
 
-  <a href="https://twitter.com/dailydotdev">
-    <img src="https://img.shields.io/twitter/follow/dailydotdev?color=26A0ED&label=Follow&logo=twitter&logoColor=white&style=flat" alt="Twitter">
-  </a>
+<!-- SHIELD GROUP -->
 
-</p>
+[![][chrome-users-shield]][chrome-users-link]
+[![][firefox-users-shield]][firefox-users-link]<br/>
+[![][extension-rating-shield]][extension-rating-link]
+[![][latest-version-shield]][latest-version-link]<br/>
+[![][github-stars-shield]][github-stars-link]
+[![][github-license-shield]][github-license-link]<br/>
+
+**Help more developers suffer less by sharing daily.dev**
+
+[![][share-x-shield]][share-x-link]
+[![][share-telegram-shield]][share-telegram-link]
+[![][share-whatsapp-shield]][share-whatsapp-link]
+[![][share-reddit-shield]][share-reddit-link]
+[![][share-mastodon-shield]][share-mastodon-link]
+[![][share-linkedin-shield]][share-linkedin-link]
+
+<sup>Want to contribute? Get started with Gitpod by clicking the button below</sup>
 
 <p align="center">
   <a href="https://gitpod.io/#https://github.com/dailydotdev/apps/">
@@ -27,6 +40,7 @@
   </a>
 </p>
 
+</div>
 
 ## 💜 About daily.dev
 
@@ -128,3 +142,43 @@ We are always looking for talent. You can find all open positions [here](https:/
 
 ## 📑 License
 Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
+
+<!-- LINK GROUP -->
+
+[back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
+[product-docs-link]: https://docs.daily.dev/docs/intro
+[changelog-link]: https://app.daily.dev/sources/daily_updates
+[report-bug-link]: ../ISSUE_TEMPLATE/---bug-report.yml
+[github-discussions-link]: https://github.com/dailydotdev/daily/discussions/new?category=feature-requests
+[swag-store-link]: https://store.daily.dev/
+[brand-book-link]: https://brand.daily.dev/
+
+<!-- SHIELDS GROUP -->
+
+[chrome-users-shield]: https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&logo=googlechrome&logoColor=white&label=chrome%20active%20users&labelColor=black&color=9E15D9
+[chrome-users-link]: https://chromewebstore.google.com/detail/dailydev-the-homepage-dev/jlmpjdjjbgclbocgajdjefcidcncaied
+[firefox-users-shield]: https://img.shields.io/amo/users/daily?style=flat-square&logo=firefox&logoColor=white&label=firefox%20active%20users&labelColor=black&color=9E15D9
+[firefox-users-link]: https://addons.mozilla.org/en-US/firefox/addon/daily/
+[extension-rating-shield]: https://img.shields.io/amo/rating/daily?style=flat-square&labelColor=black&color=0FC54F
+[extension-rating-link]: https://api.daily.dev/get
+[latest-version-shield]: https://img.shields.io/chrome-web-store/v/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&label=latest%20version&labelColor=black&color=0FC54F
+[latest-version-link]: https://api.daily.dev/get
+[github-stars-shield]: https://img.shields.io/github/stars/dailydotdev/daily?style=flat-square&logo=github&labelColor=black&color=508CF9
+[github-stars-link]: https://github.com/dailydotdev/daily/stargazers
+[github-license-shield]: https://img.shields.io/github/license/dailydotdev/daily?style=flat-square&logo=github&labelColor=black&color=508CF9
+[github-license-link]: https://github.com/dailydotdev/daily/issues
+
+<!-- SHARE BUTTONS GROUP -->
+
+[share-linkedin-link]: https://www.linkedin.com/shareArticle?mini=true&url=https%3A//daily.dev
+[share-linkedin-shield]: https://img.shields.io/badge/-share%20on%20linkedin-black?labelColor=black&logo=linkedin&logoColor=white&style=flat-square
+[share-mastodon-link]: https://mastodon.social/share?text=I%20recently%20started%20using%20daily.dev%20-%20It's%20like%20a%20newsfeed%20but%20just%20for%20dev%20content.%20Pretty%20handy%20for%20staying%20up%20to%20date%20without%20the%20usual%20internet%20rabbit%20hole.%20Might%20be%20a%20nice%20break%20from%20the%20usual%20sites.&url=
+[share-mastodon-shield]: https://img.shields.io/badge/-share%20on%20mastodon-black?labelColor=black&logo=mastodon&logoColor=white&style=flat-square
+[share-reddit-link]: http://www.reddit.com/submit?url=https%3A%2F%2Fdaily.dev&title=I%20recently%20started%20using%20daily.dev%20-%20It's%20like%20a%20newsfeed%20but%20just%20for%20dev%20content.%20Pretty%20handy%20for%20staying%20up%20to%20date%20without%20the%20usual%20internet%20rabbit%20hole.%20Might%20be%20a%20nice%20break%20from%20the%20usual%20sites.
+[share-reddit-shield]: https://img.shields.io/badge/-share%20on%20reddit-black?labelColor=black&logo=reddit&logoColor=white&style=flat-square
+[share-telegram-link]: https://t.me/share/url?url=https%3A//daily.dev&text=I%20recently%20started%20using%20daily.dev%20-%20It's%20like%20a%20newsfeed%20but%20just%20for%20dev%20content.%20Pretty%20handy%20for%20staying%20up%20to%20date%20without%20the%20usual%20internet%20rabbit%20hole.%20Might%20be%20a%20nice%20break%20from%20the%20usual%20sites.
+[share-telegram-shield]: https://img.shields.io/badge/-share%20on%20telegram-black?labelColor=black&logo=telegram&logoColor=white&style=flat-square
+[share-whatsapp-link]: https://api.whatsapp.com/send?text=I%20recently%20started%20using%20daily.dev%20-%20It's%20like%20a%20newsfeed%20but%20just%20for%20dev%20content.%20Pretty%20handy%20for%20staying%20up%20to%20date%20without%20the%20usual%20internet%20rabbit%20hole.%20Might%20be%20a%20nice%20break%20from%20the%20usual%20sites.%20https%3A%2F%2Fdaily.dev
+[share-whatsapp-shield]: https://img.shields.io/badge/-share%20on%20whatsapp-black?labelColor=black&logo=whatsapp&logoColor=white&style=flat-square
+[share-x-link]: https://twitter.com/intent/tweet?text=I%20recently%20started%20using%20daily.dev%20-%20It's%20like%20a%20newsfeed%20but%20just%20for%20dev%20content.%20Pretty%20handy%20for%20staying%20up%20to%20date%20without%20the%20usual%20internet%20rabbit%20hole.%20Might%20be%20a%20nice%20break%20from%20the%20usual%20sites.&url=
+[share-x-shield]: https://img.shields.io/badge/-share%20on%20x-black?labelColor=black&logo=x&logoColor=white&style=flat-square
