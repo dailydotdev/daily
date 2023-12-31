@@ -76,6 +76,12 @@ Get it now on:
     </a>
 </p>
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 ## 📯 Philosophy
 
 We recognize that developers today have the greatest power as a professional group to drive change and affect lives of billions. There are many platforms that provide developers with tools that serve to their success, or the goals of their workplace, but daily.dev is by-design for developers themselves. 
