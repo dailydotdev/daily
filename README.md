@@ -88,6 +88,12 @@ You can use daily.dev to:
 * 🙌 Interact based on the latest trends in our ecosystem
 * 🚀 Collaborate with other developers you know and appreciate
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 ## 🌲 daily.dev projects
 
 daily.dev might look simple on the surface but actually, it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
@@ -107,11 +113,23 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 * [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
 ## 🚀 Running daily.dev locally
 
 To spin up a local environment, we suggest using GitPod. Everything is already configured and should work out of the box. We have a GitPod button above, click on it and let's roll!
 
 > Note that currently, not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization and Authentication services are not available for you.
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
 
 ## 🙌 Want to contribute?
 
@@ -123,10 +141,11 @@ We are open to all kinds of contributions. If you want to:
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md).
 
-## 🧳 Careers
+<div align="right">
 
-We are always looking for talent. You can find all open positions [here](https://daily.dev/careers)
+[![][back-to-top]](#readme-top)
 
+</div>
 
 ## 💬 What do you think of daily.dev?
 
@@ -139,9 +158,20 @@ We are always looking for talent. You can find all open positions [here](https:/
     <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
 </div>
 
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
 
 ## 📑 License
 Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
 
 <!-- LINK GROUP -->
 
