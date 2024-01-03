@@ -123,11 +123,6 @@ We are open to all kinds of contributions. If you want to:
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md).
 
-## 🧳 Careers
-
-We are always looking for talent. You can find all open positions [here](https://daily.dev/careers)
-
-
 ## 💬 What do you think of daily.dev?
 
 <div align="left">
@@ -137,11 +132,15 @@ We are always looking for talent. You can find all open positions [here](https:/
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
     <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/Firefox Addons-%23FF7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
     <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
-</div>
-
 
 ## 📑 License
 Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
 
 <!-- LINK GROUP -->
 
