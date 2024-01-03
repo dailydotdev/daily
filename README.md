@@ -76,12 +76,6 @@ Get it now on:
     </a>
 </p>
 
-<div align="right">
-
-[![][back-to-top]](#readme-top)
-
-</div>
-
 ## 📯 Philosophy
 
 We recognize that developers today have the greatest power as a professional group to drive change and affect lives of billions. There are many platforms that provide developers with tools that serve to their success, or the goals of their workplace, but daily.dev is by-design for developers themselves. 
@@ -93,12 +87,6 @@ You can use daily.dev to:
 * 👨‍💻 Learn and stay up-to-date
 * 🙌 Interact based on the latest trends in our ecosystem
 * 🚀 Collaborate with other developers you know and appreciate
-
-<div align="right">
-
-[![][back-to-top]](#readme-top)
-
-</div>
 
 ## 🌲 daily.dev projects
 
@@ -119,23 +107,11 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 * [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
 
-<div align="right">
-
-[![][back-to-top]](#readme-top)
-
-</div>
-
 ## 🚀 Running daily.dev locally
 
 To spin up a local environment, we suggest using GitPod. Everything is already configured and should work out of the box. We have a GitPod button above, click on it and let's roll!
 
 > Note that currently, not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization and Authentication services are not available for you.
-
-<div align="right">
-
-[![][back-to-top]](#readme-top)
-
-</div>
 
 ## 🙌 Want to contribute?
 
@@ -147,12 +123,6 @@ We are open to all kinds of contributions. If you want to:
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md).
 
-<div align="right">
-
-[![][back-to-top]](#readme-top)
-
-</div>
-
 ## 💬 What do you think of daily.dev?
 
 <div align="left">
@@ -162,13 +132,6 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
     <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/Firefox Addons-%23FF7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
     <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
-</div>
-
-<div align="right">
-
-[![][back-to-top]](#readme-top)
-
-</div>
 
 ## 📑 License
 Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
