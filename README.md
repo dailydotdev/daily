@@ -40,6 +40,10 @@ daily.dev is the homepage every developer deserves. <br/>
   </a>
 </p>
 
+<img src="assets/github repo banner with browser.png" alt="daily.dev cover image" width="100%" border-radius="12px">
+</br>
+<a href="https://youtu.be/igZCEr3HwCg"><strong>👀 Watch it in action → </strong></a>
+
 </div>
 
 ## 💜 About daily.dev
@@ -49,11 +53,11 @@ daily.dev is the homepage every developer deserves. <br/>
 
 With daily.dev you can discover a wide variety of professional knowledge, create groups where you can collaborate with other developers you appreciate, and discuss the latest trends in the developer ecosystem. It works offline and is available both as a browser extension and as a Progressive Web App (PWA). 
 
-<p align="center">
-    <img src="/assets/cover.png" alt="daily.dev cover" width="550">
-    <br>
-    <a href="https://youtu.be/igZCEr3HwCg"><strong>👀 Watch it in action → </strong></a>
-</p>
+> \[!IMPORTANT]
+>
+> Star us to show your support and love for daily.dev ⭐️
+
+<img src="assets/github repo star graphic.png" alt="daily.dev star banner" width="100%" border-radius="12px">
 
 ## 📌 Get daily.dev
 
