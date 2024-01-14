@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/github-repo-logo.gif" alt="daily.dev animated logo" width="240">
+<img src="assets/github-repo-logo.gif" alt="daily.dev animated logo" height="80">
 
 <br>
 
