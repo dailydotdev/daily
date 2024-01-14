@@ -40,7 +40,7 @@ daily.dev is the homepage every developer deserves. <br/>
   </a>
 </p>
 
-<img src="assets/github repo banner with browser.png" alt="daily.dev cover image" width="100%" style="border-radius: 12px;">
+<img src="assets/github repo banner with browser.png" alt="daily.dev cover image" width="100%">
 </br>
 <a href="https://youtu.be/igZCEr3HwCg"><strong>👀 Watch it in action → </strong></a>
 
@@ -57,7 +57,7 @@ With daily.dev you can discover a wide variety of professional knowledge, create
 >
 > Star us to show your support and love for daily.dev ⭐️
 
-<img src="assets/github repo star graphic.png" alt="daily.dev star banner" width="100%" style="border-radius: 12px;">
+<img src="assets/github repo star graphic.png" alt="daily.dev star banner" width="100%">
 
 ## 📌 Get daily.dev
 
