@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/App Icon - White.png" alt="daily.dev app icon" width="80">
+<img src="assets/github-repo-logo.gif" alt="daily.dev animated logo" width="240">
 
 <br>
 
