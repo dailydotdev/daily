@@ -59,6 +59,14 @@ With daily.dev you can discover a wide variety of professional knowledge, create
 
 <img src="assets/github repo star graphic.png" alt="daily.dev star banner" width="100%">
 
+<details>
+  <summary><kbd>Star History</kbd></summary>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&theme=dark&type=Date">
+    <img width="100%" src="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&type=Date">
+  </picture>
+</details>
+
 ## 📌 Get daily.dev
 
 daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a PWA for mobile devices. 
