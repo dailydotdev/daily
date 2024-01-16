@@ -62,7 +62,7 @@ With daily.dev you can discover a wide variety of professional knowledge, create
 <details>
   <summary><kbd>Star History</kbd></summary>
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&theme=dark&type=Date">
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&theme=light&type=Date">
     <img width="100%" src="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&type=Date">
   </picture>
 </details>
