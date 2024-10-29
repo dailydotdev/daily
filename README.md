@@ -17,7 +17,6 @@ daily.dev is the homepage every developer deserves. <br/>
 <!-- SHIELD GROUP -->
 
 [![][chrome-users-shield]][chrome-users-link]
-[![][firefox-users-shield]][firefox-users-link]<br/>
 [![][extension-rating-shield]][extension-rating-link]
 [![][latest-version-shield]][latest-version-link]<br/>
 [![][github-stars-shield]][github-stars-link]
@@ -69,7 +68,7 @@ With daily.dev you can discover a wide variety of professional knowledge, create
 
 ## 📌 Get daily.dev
 
-daily.dev is currently available for Google Chrome, Microsoft Edge, and Mozilla Firefox. There's also a PWA for mobile devices. 
+daily.dev is currently available for Google Chrome and Microsoft Edge. There's also a PWA for mobile devices. 
 
 Get it now on:
 
@@ -79,9 +78,6 @@ Get it now on:
     </a>
     <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb">
     <img src="https://img.shields.io/badge/%20-Edge-blue?logo=microsoft-edge&logoColor=white" alt="Download for Edge" />
-    </a>
-    <a href="https://addons.mozilla.org/en-US/firefox/addon/daily/">
-    <img src="https://img.shields.io/badge/%20-Firefox-orange?logo=mozilla&logoColor=white" alt="Download for Firefox" />
     </a>
     <a href="http://go.daily.dev/">
     <img src="https://img.shields.io/badge/%20-Mobile-502ab0" alt="Download for Mobile" />
@@ -142,7 +138,6 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
     <p><a href="https://www.producthunt.com/products/daily-dev"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/producthunt-%23DA552F.svg?&style=for-the-badge&logo=product-hunt&logoColor=white" /></a>&nbsp; Check out our Product Hunt page.</p>
     <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/Daily Website-%233693F3.svg?&style=for-the-badge&logo=icloud&logoColor=white" /></a>&nbsp; Visit our home for a bunch of useful links.</p>
     <p><a href="https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
-    <p><a href="https://addons.mozilla.org/en-US/firefox/addon/daily/"><img alt="daily.dev at Firefox" align="center" src="https://img.shields.io/badge/Firefox Addons-%23FF7139.svg?&style=for-the-badge&logo=firefox-browser&logoColor=white" /></a>&nbsp; Check our Firefox Add-on and share your thoughts.</p>
     <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
 
 ## 📑 License
@@ -168,8 +163,6 @@ Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICEN
 
 [chrome-users-shield]: https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&logo=googlechrome&logoColor=white&label=chrome%20active%20users&labelColor=black&color=9E15D9
 [chrome-users-link]: https://chromewebstore.google.com/detail/dailydev-the-homepage-dev/jlmpjdjjbgclbocgajdjefcidcncaied
-[firefox-users-shield]: https://img.shields.io/amo/users/daily?style=flat-square&logo=firefox&logoColor=white&label=firefox%20active%20users&labelColor=black&color=9E15D9
-[firefox-users-link]: https://addons.mozilla.org/en-US/firefox/addon/daily/
 [extension-rating-shield]: https://img.shields.io/amo/rating/daily?style=flat-square&labelColor=black&color=0FC54F
 [extension-rating-link]: https://api.daily.dev/get
 [latest-version-shield]: https://img.shields.io/chrome-web-store/v/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&label=latest%20version&labelColor=black&color=0FC54F
