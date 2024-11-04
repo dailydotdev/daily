@@ -46,13 +46,12 @@ body:
       label: "Solution Proposed"
       description: If you have any ideas or suggestions for how to fix the issue you encountered, please provide them in this section.
       placeholder: Please describe any potential solutions or ideas you may have for fixing the issue.
-  - type: textarea
+  - type: input
     id: screenshot
     attributes:
       label: "Screenshots"
       description: If applicable, add screenshots to help explain your problem.
-      placeholder: |
-        ![DESCRIPTION](LINK.png)
+      placeholder: ![DESCRIPTION](LINK.png)
     validations:
       required: false
   - type: input
