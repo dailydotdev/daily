@@ -79,7 +79,7 @@ Get it now on:
     <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb">
     <img src="https://img.shields.io/badge/%20-Edge-blue?logo=microsoft-edge&logoColor=white" alt="Download for Edge" />
     </a>
-    <a href="http://go.daily.dev/">
+    <a href="https://api.daily.dev/get">
     <img src="https://img.shields.io/badge/%20-Mobile-502ab0" alt="Download for Mobile" />
     </a>
 </p>
