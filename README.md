@@ -10,7 +10,7 @@
 
 We know how hard it is to be a developer. It doesn't have to be. <br/>
 daily.dev is the homepage every developer deserves. <br/>
- Personalized news feed, dev communities and search, much better than what’s out there. Maybe ;)
+Personalized news feed, dev communities, and search, much better than what’s out there. Maybe ;)
 
 [Product Docs][product-docs-link] · [Changelog][changelog-link] · [Report a Bug][report-bug-link] · [Request a Feature][github-discussions-link] · [Swag Store][swag-store-link] · [Brand Assets][brand-book-link]
 
@@ -47,14 +47,10 @@ daily.dev is the homepage every developer deserves. <br/>
 
 ## 💜 About daily.dev
 
-> daily.dev is a professional network for developers to learn, collaborate, and grow together
- 👩‍💻
-
-With daily.dev you can discover a wide variety of professional knowledge, create groups where you can collaborate with other developers you appreciate, and discuss the latest trends in the developer ecosystem. It works offline and is available both as a browser extension and as a Progressive Web App (PWA). 
-
-> \[!IMPORTANT]
->
+> [!IMPORTANT]
 > Star us to show your support and love for daily.dev ⭐️
+
+daily.dev is a professional network for developers to learn, collaborate, and grow together. With daily.dev, you can discover a wide variety of professional knowledge, create groups where you can collaborate with other developers you appreciate, and discuss the latest trends in the developer ecosystem. It works offline and is available both as a browser extension and as a Progressive Web App (PWA). 
 
 <img src="assets/github repo star graphic.png" alt="daily.dev star banner" width="100%">
 
@@ -86,21 +82,26 @@ Get it now on:
 
 ## 📯 Philosophy
 
-We recognize that developers today have the greatest power as a professional group to drive change and affect lives of billions. There are many platforms that provide developers with tools that serve to their success, or the goals of their workplace, but daily.dev is by-design for developers themselves. 
+We recognize that developers today have the greatest power as a professional group to drive change and affect the lives of billions. Many platforms provide developers with tools that serve their success or the goals of their workplace, but daily.dev is by design for developers themselves. 
 
-We, as developers, know how challenging it is to grow professionally with so much going on, and that's why we built daily.dev - to make it easy for us to navigate abundance of content and discover all the knowledge they need with zero effort.
+We, as developers, know how challenging it is to grow professionally with so much going on, and that's why we built daily.dev — to make it easy for us to navigate the abundant content and discover all the knowledge they need with zero effort.
 
 You can use daily.dev to:
 
+
 * 👨‍💻 Learn and stay up-to-date
+
 * 🙌 Interact based on the latest trends in our ecosystem
+
 * 🚀 Collaborate with other developers you know and appreciate
+
 
 ## 🌲 daily.dev projects
 
-daily.dev might look simple on the surface but actually, it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
+daily.dev might look simple on the surface, but actually, it is powered by a complex and robust system of different applications. It contains several services, some are big, others are micro and easy to maintain. Below is the list of different projects that we maintain under daily.dev.
 
 ### 🙌 Community & Docs
+
 
 *  [daily](https://github.com/dailydotdev/daily) - This is the repository you are currently at. It serves as a central place for all the projects. It contains documentation, community ideas, suggestions, and whatnot.
 
@@ -109,25 +110,37 @@ daily.dev might look simple on the surface but actually, it is powered by a comp
 
 ### 🎨 Frontend
 
-* [apps](https://github.com/dailydotdev/apps) - Monorepo with all the frontend related projects since daily.dev 3.0. This includes both the extension and the webapp.
+
+* [apps](https://github.com/dailydotdev/apps) - Monorepo with all the frontend-related projects since daily.dev 3.0. This includes both the extension and the webapp.
+
 
 ### 🎈 Others
 
+
 * [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
+
 
 ## 🚀 Running daily.dev locally
 
-To spin up a local environment, we suggest using GitPod. Everything is already configured and should work out of the box. We have a GitPod button above, click on it and let's roll!
+> [!NOTE]
+> Currently, not all services are ready (or needed) for local environments, so Daily Redirector, Daily Monetization, and Authentication services are not available for you.
 
-> Note that currently, not all services are ready (or needed) for local environment so Daily Redirector and Daily Monetization and Authentication services are not available for you.
+
+To spin up a local environment, we suggest using GitPod. Everything is already configured and should work out of the box. We have a GitPod button above, click on it, and let's roll!
 
 ## 🙌 Want to contribute?
 
 We are open to all kinds of contributions. If you want to:
+
+
 * 🤔 Suggest a feature
+
 * 🐛 Report an issue
+
 * 📖 Improve documentation
+
 * 👨‍💻 Contribute to the code
+
 
 You are more than welcome. Before contributing, kindly check our [guidelines](https://github.com/dailydotdev/.github/blob/master/CONTRIBUTING.md).
 
