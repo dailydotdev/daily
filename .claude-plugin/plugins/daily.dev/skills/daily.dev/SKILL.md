@@ -22,6 +22,54 @@ Access personalized developer content feeds from daily.dev - the professional ne
 2. **Create a token** at https://app.daily.dev/settings/api
 3. Store your token securely (environment variables, secrets manager)
 
+User can use environment variable or choose one of the secure storage methods below per operating system.
+
+### Secure Token Storage (Recommended)
+
+#### macOS - Keychain
+
+```bash
+# Store token
+security add-generic-password -a "$USER" -s "daily-dev-api" -w "dda_your_token"
+
+# Retrieve token
+security find-generic-password -a "$USER" -s "daily-dev-api" -w
+
+# Auto-load in ~/.zshrc or ~/.bashrc
+export DAILY_DEV_TOKEN=$(security find-generic-password -a "$USER" -s "daily-dev-api" -w 2>/dev/null)
+```
+
+#### Windows - Credential Manager
+
+```powershell
+# Store token (run in PowerShell)
+$credential = New-Object System.Management.Automation.PSCredential("daily-dev-api", (ConvertTo-SecureString "dda_your_token" -AsPlainText -Force))
+$credential | Export-Clixml "$env:USERPROFILE\.daily-dev-credential.xml"
+
+# Retrieve token - add to PowerShell profile ($PROFILE)
+$cred = Import-Clixml "$env:USERPROFILE\.daily-dev-credential.xml"
+$env:DAILY_DEV_TOKEN = $cred.GetNetworkCredential().Password
+```
+
+Or use the Windows Credential Manager GUI: Control Panel → Credential Manager → Windows Credentials → Add a generic credential
+
+#### Linux - Secret Service (GNOME Keyring / KWallet)
+
+```bash
+# Requires libsecret-tools
+# Ubuntu/Debian: sudo apt install libsecret-tools
+# Fedora: sudo dnf install libsecret
+
+# Store token
+echo "dda_your_token" | secret-tool store --label="daily.dev API Token" service daily-dev-api username "$USER"
+
+# Retrieve token
+secret-tool lookup service daily-dev-api username "$USER"
+
+# Auto-load in ~/.bashrc or ~/.zshrc
+export DAILY_DEV_TOKEN=$(secret-tool lookup service daily-dev-api username "$USER" 2>/dev/null)
+```
+
 ## Authentication
 
 ```
