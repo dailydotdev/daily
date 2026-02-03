@@ -1,0 +1,26 @@
+{
+  "name": "daily.dev",
+  "owner": {
+    "name": "daily.dev",
+    "email": "support@daily.dev"
+  },
+  "metadata": {
+    "description": "Official daily.dev plugins for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "daily.dev",
+      "source": "./.claude-plugin/plugins/daily.dev",
+      "description": " Access personalized developer content feeds from daily.dev - the professional network for developers. Surface relevant articles, tutorials, and discussions based on user interests.",
+      "version": "0.2.0",
+      "author": {
+        "name": "daily.dev"
+      },
+      "homepage": "https://daily.dev",
+      "license": "MIT",
+      "keywords": ["daily.dev", "api", "developer", "content", "feed", "dailydotdev"],
+      "category": "productivity"
+    }
+  ]
+}
