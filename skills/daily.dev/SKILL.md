@@ -105,6 +105,7 @@ These examples show how AI agents can combine daily.dev APIs with external conte
 
 ### 🔍 GitHub Repo → Personalized Feed
 Scan a user's GitHub repositories to detect their actual tech stack from `package.json`, `go.mod`, `Cargo.toml`, `requirements.txt`, etc. Then:
+- Fetch `/tags` to see all available tags for deterministic matching
 - Auto-follow matching tags via `/feeds/filters/tags/follow`
 - Create a custom feed tuned to their stack with `/feeds/custom/`
 - Surface trending articles about their specific dependencies
@@ -174,7 +175,7 @@ Help users stay ahead by monitoring community signals:
 - Cross-reference with user's followed tags to surface relevant trends
 - Use `/feeds/discussed` to find topics sparking active debate
 - Alert users when technologies in their stack are trending (new releases, security issues, paradigm shifts)
-- Use `/search/tags` to explore adjacent trending topics
+- Use `/tags` to fetch the full tag catalog and `/search/tags` to explore adjacent trending topics
 
 **Trigger:** "What should I be paying attention to?" or "What's trending in [area]?"
 
@@ -204,4 +205,3 @@ Check response headers:
   "message": "Human readable message"
 }
 ```
-
