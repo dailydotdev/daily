@@ -1,1 +1,1 @@
-../../../skills/daily.dev/SKILL.md
+../../../../../skills/daily.dev/SKILL.md
