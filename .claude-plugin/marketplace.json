@@ -19,7 +19,14 @@
       },
       "homepage": "https://daily.dev",
       "license": "MIT",
-      "keywords": ["daily.dev", "api", "developer", "content", "feed", "dailydotdev"],
+      "keywords": [
+        "daily.dev",
+        "api",
+        "developer",
+        "content",
+        "feed",
+        "dailydotdev"
+      ],
       "category": "productivity"
     },
     {
