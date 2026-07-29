@@ -5,8 +5,9 @@
  * Rotating daily.dev headlines while you wait: curated major headlines
  * interleaved with the community's most-upvoted posts of the day.
  *
- * Enabled via this plugin's settings.json:
- *   { "statusLine": { "type": "command", "command": "node ${CLAUDE_PLUGIN_ROOT}/statusline/statusline.mjs", "refreshInterval": 10 } }
+ * Claude Code does not activate statuslines from plugin settings — users wire
+ * this script into their own settings via the /daily.dev:statusline skill
+ * (or manually; see the plugin README).
  *
  * Design constraints:
  * - The statusline command must exit fast: all network I/O happens in a
@@ -36,7 +37,7 @@ const IDENTITY_FILE = join(CACHE_DIR, 'identity.json');
 const STATE_FILE = join(CACHE_DIR, 'impressions-state.json');
 const QUEUE_FILE = join(CACHE_DIR, 'events-queue.jsonl');
 const CACHE_TTL_MS = 10 * 60 * 1000; // refresh headlines every 10 min
-const ROTATE_SECONDS = 20; // show each headline for ~20s
+const ROTATE_SECONDS = 60; // show each headline for ~60s
 const IMPRESSION_DEDUP_MS = 30 * 60 * 1000; // log each post at most every 30 min
 const ORIGIN = 'https://api.daily.dev';
 const API = `${ORIGIN}/graphql`;
@@ -242,7 +243,6 @@ const style = (code) => (s) => (COLOR_ENABLED ? `\x1b[${code}m${s}\x1b[0m` : s);
 const dim = style('2');
 const bold = style('1');
 const purple = style('38;5;135'); // daily.dev accent
-const cyan = style('36');
 // OSC 8 hyperlink — clickable in iTerm2/Kitty/WezTerm/Ghostty; harmless elsewhere.
 // Links hit the click-tracking redirect, which lands on the post page with UTM.
 const link = (url, s) => `\x1b]8;;${url}\x1b\\${s}\x1b]8;;\x1b\\`;
@@ -264,14 +264,12 @@ function render(sessionInfo) {
   const idx = Math.floor(Date.now() / 1000 / ROTATE_SECONDS) % items.length;
   const item = items[idx];
   maybeLogImpression(item, cache);
-  const tag = item.kind === 'headline' ? purple('headlines') : cyan('popular');
   const stats = item.numUpvotes > 0 ? dim(` ▲${item.numUpvotes}`) : '';
-  const counter = dim(` [${idx + 1}/${items.length}]`);
   const title = link(
     `${ORIGIN}/c/${item.postId}?${UTM}`,
     bold(truncate(item.title, 90)),
   );
-  return `${prefix}${purple('daily.dev')} ${tag} ${title}${stats}${counter}`;
+  return `${prefix}${purple('daily.dev')} ${title}${stats}`;
 }
 
 // --- main ---
