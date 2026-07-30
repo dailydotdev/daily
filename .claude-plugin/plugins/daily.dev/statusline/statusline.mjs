@@ -36,8 +36,14 @@ const CACHE_FILE = join(CACHE_DIR, 'headlines.json');
 const IDENTITY_FILE = join(CACHE_DIR, 'identity.json');
 const STATE_FILE = join(CACHE_DIR, 'impressions-state.json');
 const QUEUE_FILE = join(CACHE_DIR, 'events-queue.jsonl');
-const CACHE_TTL_MS = 10 * 60 * 1000; // refresh headlines every 10 min
 const ROTATE_SECONDS = 60; // show each headline for ~60s
+// One full rotation of a ~20-item batch takes ~20 min; refresh in step with it
+// so every batch gets shown once before the next one replaces it.
+const CACHE_TTL_MS = 20 * 60 * 1000;
+const HISTORY_FILE = join(CACHE_DIR, 'shown-history.json');
+const HISTORY_RETENTION_MS = 24 * 60 * 60 * 1000; // don't repeat a post within a day
+const MAX_ITEMS = 20; // batch size per refresh cycle
+const MIN_ITEMS = 10; // below this, recycle least-recently-shown items
 const IMPRESSION_DEDUP_MS = 30 * 60 * 1000; // log each post at most every 30 min
 const ORIGIN = 'https://api.daily.dev';
 const API = `${ORIGIN}/graphql`;
@@ -60,23 +66,19 @@ function pluginVersion() {
 }
 const APP_VERSION = pluginVersion();
 
-// Both queries are public (no auth): curated headlines + most-upvoted posts.
+// Both queries are public (no auth): curated headlines + the ranked feed the
+// logged-out webapp homepage shows (version/supportedTypes match the webapp —
+// without them the resolver falls back to a stale generic feed).
 const QUERY = `query ClaudeCodeStatusline {
   headlines: majorHeadlines(first: 10) {
     edges { node { id headline channel post { id numUpvotes numComments } } }
   }
-  popular: mostUpvotedFeed(first: 10, period: 1) {
+  popular: anonymousFeed(first: 40, ranking: POPULARITY, version: 15, supportedTypes: ["article", "collection", "video:youtube"]) {
     edges { node { id title numUpvotes numComments tags } }
   }
 }`;
 
-async function refreshCache() {
-  const res = await fetch(API, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ query: QUERY }),
-  });
-  const { data } = await res.json();
+function interleave(data) {
   const seen = new Set();
   const items = [];
   // Interleave curated headlines and popular posts so rotation alternates flavors
@@ -103,12 +105,56 @@ async function refreshCache() {
       }
     }
   }
+  return items;
+}
+
+async function refreshCache() {
+  // Freshness without deep pagination: always fetch the top of both feeds
+  // (curated headline inventory is small; the popular feed re-ranks all day
+  // as new posts land), then skip whatever already rotated through the line
+  // in the last 24h. If the unseen pool runs low, recycle the items shown
+  // longest ago instead of paginating into low-quality depths or going blank.
+  const prev = readCache();
+  const now = Date.now();
+  let history = {};
+  try {
+    history = JSON.parse(readFileSync(HISTORY_FILE, 'utf8'));
+  } catch {
+    // first run
+  }
+  for (const item of prev?.items ?? []) {
+    history[item.postId] = prev.fetchedAt ?? now;
+  }
+  for (const [id, ts] of Object.entries(history)) {
+    if (now - ts > HISTORY_RETENTION_MS) delete history[id];
+  }
+
+  const res = await fetch(API, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ query: QUERY }),
+  });
+  const { data } = await res.json();
+  const all = interleave(data);
+  let items = all.filter((i) => !history[i.postId]).slice(0, MAX_ITEMS);
+  if (items.length < MIN_ITEMS) {
+    const recycled = all
+      .filter((i) => history[i.postId])
+      .sort((a, b) => history[a.postId] - history[b.postId]);
+    items = items.concat(recycled.slice(0, MIN_ITEMS - items.length));
+  }
+  if (!items.length && prev?.items?.length) {
+    // fetch came back empty — keep showing the previous batch
+    items = prev.items;
+  }
+
   mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(HISTORY_FILE, JSON.stringify(history));
   // A fresh visit per refresh cycle; the collector dedupes on event_id + visit_id.
   writeFileSync(
     CACHE_FILE,
     JSON.stringify({
-      fetchedAt: Date.now(),
+      fetchedAt: now,
       visitId: randomUUID(),
       sessionId: randomUUID(),
       items,
