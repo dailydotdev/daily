@@ -36,8 +36,10 @@ const CACHE_FILE = join(CACHE_DIR, 'headlines.json');
 const IDENTITY_FILE = join(CACHE_DIR, 'identity.json');
 const STATE_FILE = join(CACHE_DIR, 'impressions-state.json');
 const QUEUE_FILE = join(CACHE_DIR, 'events-queue.jsonl');
-const CACHE_TTL_MS = 10 * 60 * 1000; // refresh headlines every 10 min
 const ROTATE_SECONDS = 60; // show each headline for ~60s
+// One full rotation of a ~20-item batch takes ~20 min; refresh in step with it
+// so every batch gets shown once before the next page replaces it.
+const CACHE_TTL_MS = 20 * 60 * 1000;
 const IMPRESSION_DEDUP_MS = 30 * 60 * 1000; // log each post at most every 30 min
 const ORIGIN = 'https://api.daily.dev';
 const API = `${ORIGIN}/graphql`;
@@ -61,22 +63,27 @@ function pluginVersion() {
 const APP_VERSION = pluginVersion();
 
 // Both queries are public (no auth): curated headlines + most-upvoted posts.
-const QUERY = `query ClaudeCodeStatusline {
-  headlines: majorHeadlines(first: 10) {
+const QUERY = `query ClaudeCodeStatusline($headlinesAfter: String, $popularAfter: String) {
+  headlines: majorHeadlines(first: 10, after: $headlinesAfter) {
+    pageInfo { endCursor hasNextPage }
     edges { node { id headline channel post { id numUpvotes numComments } } }
   }
-  popular: mostUpvotedFeed(first: 10, period: 1) {
+  popular: mostUpvotedFeed(first: 10, period: 1, after: $popularAfter) {
+    pageInfo { endCursor hasNextPage }
     edges { node { id title numUpvotes numComments tags } }
   }
 }`;
 
-async function refreshCache() {
+async function fetchPage(variables) {
   const res = await fetch(API, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ query: QUERY }),
+    body: JSON.stringify({ query: QUERY, variables }),
   });
-  const { data } = await res.json();
+  return (await res.json())?.data;
+}
+
+function interleave(data) {
   const seen = new Set();
   const items = [];
   // Interleave curated headlines and popular posts so rotation alternates flavors
@@ -103,6 +110,31 @@ async function refreshCache() {
       }
     }
   }
+  return items;
+}
+
+async function refreshCache() {
+  // Walk the feeds page by page across refreshes so each batch is new
+  // articles, not the same top-10 again; an exhausted feed (or a cursor the
+  // API no longer recognizes) restarts from the top, where fresh content has
+  // accumulated in the meantime.
+  const prev = readCache();
+  const cursors = prev?.cursors ?? {};
+  let data = await fetchPage({
+    headlinesAfter: cursors.headlines ?? null,
+    popularAfter: cursors.popular ?? null,
+  });
+  let items = interleave(data);
+  if (!items.length && (cursors.headlines || cursors.popular)) {
+    data = await fetchPage({ headlinesAfter: null, popularAfter: null });
+    items = interleave(data);
+  }
+  if (!items.length && prev?.items?.length) {
+    // fetch came back empty — keep showing the previous batch
+    items = prev.items;
+  }
+  const nextCursor = (conn) =>
+    conn?.pageInfo?.hasNextPage ? (conn.pageInfo.endCursor ?? null) : null;
   mkdirSync(CACHE_DIR, { recursive: true });
   // A fresh visit per refresh cycle; the collector dedupes on event_id + visit_id.
   writeFileSync(
@@ -111,6 +143,10 @@ async function refreshCache() {
       fetchedAt: Date.now(),
       visitId: randomUUID(),
       sessionId: randomUUID(),
+      cursors: {
+        headlines: nextCursor(data?.headlines),
+        popular: nextCursor(data?.popular),
+      },
       items,
     }),
   );
