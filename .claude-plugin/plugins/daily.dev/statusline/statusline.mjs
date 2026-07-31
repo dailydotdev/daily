@@ -45,9 +45,8 @@ const HISTORY_RETENTION_MS = 24 * 60 * 60 * 1000; // don't repeat a post within 
 const MAX_ITEMS = 20; // batch size per refresh cycle
 const MIN_ITEMS = 10; // below this, recycle least-recently-shown items
 const IMPRESSION_DEDUP_MS = 30 * 60 * 1000; // log each post at most every 30 min
-const ORIGIN = 'https://api.daily.dev';
+const ORIGIN = process.env.DAILY_DEV_ORIGIN || 'https://api.daily.dev';
 const API = `${ORIGIN}/graphql`;
-const UTM = 'utm_source=claude-code&utm_medium=statusline';
 
 const TELEMETRY_ENABLED = !['0', 'false'].includes(
   process.env.DAILY_DEV_TELEMETRY ?? '',
@@ -66,54 +65,22 @@ function pluginVersion() {
 }
 const APP_VERSION = pluginVersion();
 
-// Both queries are public (no auth): curated headlines + the ranked feed the
-// logged-out webapp homepage shows (version/supportedTypes match the webapp —
-// without them the resolver falls back to a stale generic feed).
-const QUERY = `query ClaudeCodeStatusline {
-  headlines: majorHeadlines(first: 10) {
-    edges { node { id headline channel post { id numUpvotes numComments } } }
-  }
-  popular: anonymousFeed(first: 40, ranking: POPULARITY, version: 15, supportedTypes: ["article", "collection", "video:youtube"]) {
-    edges { node { id title numUpvotes numComments tags } }
-  }
+// Single public query (no auth). The API returns fully rendered lines
+// (ANSI styling + OSC 8 links to the /c/ click redirect), so content and
+// format are controlled server-side and can change without a plugin release.
+const QUERY = `query ClaudeCodeStatusline($first: Int) {
+  statuslineHeadlines(first: $first)
 }`;
 
-function interleave(data) {
-  const seen = new Set();
-  const items = [];
-  // Interleave curated headlines and popular posts so rotation alternates flavors
-  const headlines = (data?.headlines?.edges ?? []).map((e) => ({
-    id: e.node.id,
-    postId: e.node.post?.id,
-    title: e.node.headline,
-    numUpvotes: e.node.post?.numUpvotes ?? 0,
-    kind: 'headline',
-  }));
-  const popular = (data?.popular?.edges ?? []).map((e) => ({
-    id: e.node.id,
-    postId: e.node.id,
-    title: e.node.title,
-    numUpvotes: e.node.numUpvotes ?? 0,
-    kind: 'popular',
-  }));
-  const max = Math.max(headlines.length, popular.length);
-  for (let i = 0; i < max; i++) {
-    for (const item of [headlines[i], popular[i]]) {
-      if (item && item.postId && !seen.has(item.postId)) {
-        seen.add(item.postId);
-        items.push(item);
-      }
-    }
-  }
-  return items;
-}
+// The post id is embedded in each line's /c/ link; used for the no-repeat
+// history and impression analytics.
+const linePostId = (line) => line.match(/\/c\/([^?\s]+)/)?.[1] ?? null;
 
 async function refreshCache() {
-  // Freshness without deep pagination: always fetch the top of both feeds
-  // (curated headline inventory is small; the popular feed re-ranks all day
-  // as new posts land), then skip whatever already rotated through the line
-  // in the last 24h. If the unseen pool runs low, recycle the items shown
-  // longest ago instead of paginating into low-quality depths or going blank.
+  // Freshness stays client-side: the server returns its current top lines;
+  // we skip posts that already rotated through the line in the last 24h and
+  // recycle the ones shown longest ago when the unseen pool runs low, so the
+  // line never goes blank.
   const prev = readCache();
   const now = Date.now();
   let history = {};
@@ -123,7 +90,7 @@ async function refreshCache() {
     // first run
   }
   for (const item of prev?.items ?? []) {
-    history[item.postId] = prev.fetchedAt ?? now;
+    if (item.postId) history[item.postId] = prev.fetchedAt ?? now;
   }
   for (const [id, ts] of Object.entries(history)) {
     if (now - ts > HISTORY_RETENTION_MS) delete history[id];
@@ -132,14 +99,22 @@ async function refreshCache() {
   const res = await fetch(API, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ query: QUERY }),
+    body: JSON.stringify({ query: QUERY, variables: { first: 40 } }),
   });
   const { data } = await res.json();
-  const all = interleave(data);
-  let items = all.filter((i) => !history[i.postId]).slice(0, MAX_ITEMS);
+  const seen = new Set();
+  const all = (data?.statuslineHeadlines ?? []).flatMap((line) => {
+    const postId = linePostId(line);
+    if (seen.has(postId ?? line)) return [];
+    seen.add(postId ?? line);
+    return [{ line, postId }];
+  });
+  let items = all
+    .filter((i) => !i.postId || !history[i.postId])
+    .slice(0, MAX_ITEMS);
   if (items.length < MIN_ITEMS) {
     const recycled = all
-      .filter((i) => history[i.postId])
+      .filter((i) => i.postId && history[i.postId])
       .sort((a, b) => history[a.postId] - history[b.postId]);
     items = items.concat(recycled.slice(0, MIN_ITEMS - items.length));
   }
@@ -240,8 +215,17 @@ async function flushQueue() {
   }
 }
 
+// Plain title for analytics: drop OSC 8 wrappers, SGR codes, the brand
+// label, and the trailing upvote count from a server-rendered line.
+const plainTitle = (line) =>
+  line
+    .replace(/\x1b\]8;;[^\x1b\x07]*(?:\x1b\\|\x07)/g, '')
+    .replace(/\x1b\[[0-9;]*m/g, '')
+    .replace(/^daily\.dev /, '')
+    .replace(/ ▲\d+$/, '');
+
 function maybeLogImpression(item, cache) {
-  if (!TELEMETRY_ENABLED) return;
+  if (!TELEMETRY_ENABLED || !item.postId) return;
   try {
     const identity = JSON.parse(readFileSync(IDENTITY_FILE, 'utf8'));
     let state = {};
@@ -267,10 +251,9 @@ function maybeLogImpression(item, cache) {
         app_version: APP_VERSION,
         target_type: 'post',
         target_id: item.postId,
-        feed_item_title: item.title,
+        feed_item_title: plainTitle(item.line),
         extra: JSON.stringify({
           origin: 'claude code statusline',
-          feed: item.kind,
         }),
       })}\n`,
     );
@@ -287,15 +270,9 @@ function maybeLogImpression(item, cache) {
 // --- rendering ---
 const style = (code) => (s) => (COLOR_ENABLED ? `\x1b[${code}m${s}\x1b[0m` : s);
 const dim = style('2');
-const bold = style('1');
 const purple = style('38;5;135'); // daily.dev accent
-// OSC 8 hyperlink — clickable in iTerm2/Kitty/WezTerm/Ghostty; harmless elsewhere.
-// Links hit the click-tracking redirect, which lands on the post page with UTM.
-const link = (url, s) => `\x1b]8;;${url}\x1b\\${s}\x1b]8;;\x1b\\`;
-
-function truncate(s, n) {
-  return s.length > n ? `${s.slice(0, n - 1)}…` : s;
-}
+// NO_COLOR strips SGR styling only; OSC 8 hyperlinks stay (they carry no color)
+const stripColors = (s) => s.replace(/\x1b\[[0-9;]*m/g, '');
 
 function render(sessionInfo) {
   const cache = readCache();
@@ -310,12 +287,7 @@ function render(sessionInfo) {
   const idx = Math.floor(Date.now() / 1000 / ROTATE_SECONDS) % items.length;
   const item = items[idx];
   maybeLogImpression(item, cache);
-  const stats = item.numUpvotes > 0 ? dim(` ▲${item.numUpvotes}`) : '';
-  const title = link(
-    `${ORIGIN}/c/${item.postId}?${UTM}`,
-    bold(truncate(item.title, 90)),
-  );
-  return `${prefix}${purple('daily.dev')} ${title}${stats}`;
+  return `${prefix}${COLOR_ENABLED ? item.line : stripColors(item.line)}`;
 }
 
 // --- main ---
