@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Official daily.dev plugins for Claude Code",
-    "version": "0.4.3"
+    "version": "0.4.4"
   },
   "plugins": [
     {
       "name": "daily.dev",
       "source": "./.claude-plugin/plugins/daily.dev",
       "description": "Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggregates articles from thousands of sources, validated by community engagement, with structured taxonomy for precise discovery.",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "author": {
         "name": "daily.dev"
       },
