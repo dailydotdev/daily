@@ -72,6 +72,36 @@ const QUERY = `query ClaudeCodeStatusline($first: Int) {
   statuslineHeadlines(first: $first)
 }`;
 
+// Clicks reach /c/ with the browser's anonymous id, not this plugin's /boot
+// identity, so impressions and clicks can't be joined as-is. Tag each /c/
+// link with our id as cc_uid: the redirect logs the full query string into
+// the click event's query_params but forwards only utm_* to the post page,
+// so the id never leaks into webapp URLs. (cc_uid, not userid — that param
+// is reserved for referral traffic.)
+function tagClickUrls(line) {
+  if (!TELEMETRY_ENABLED) return line;
+  let userId;
+  try {
+    userId = JSON.parse(readFileSync(IDENTITY_FILE, 'utf8')).userId;
+  } catch {
+    return line; // no identity yet (first run offline)
+  }
+  if (!userId) return line;
+  return line.replace(
+    /(\x1b\]8;;)([^\x1b]+)(\x1b\\)/g,
+    (match, open, url, close) => {
+      try {
+        const parsed = new URL(url);
+        if (!parsed.pathname.startsWith('/c/')) return match;
+        parsed.searchParams.set('cc_uid', userId);
+        return `${open}${parsed}${close}`;
+      } catch {
+        return match;
+      }
+    },
+  );
+}
+
 // The post id is embedded in each line's /c/ link; used for the no-repeat
 // history and impression analytics.
 const linePostId = (line) => line.match(/\/c\/([^?\s]+)/)?.[1] ?? null;
@@ -107,7 +137,7 @@ async function refreshCache() {
     const postId = linePostId(line);
     if (seen.has(postId ?? line)) return [];
     seen.add(postId ?? line);
-    return [{ line, postId }];
+    return [{ line: tagClickUrls(line), postId }];
   });
   let items = all
     .filter((i) => !i.postId || !history[i.postId])
