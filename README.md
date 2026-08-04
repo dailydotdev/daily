@@ -75,7 +75,7 @@ daily.dev is available as a browser extension for Google Chrome and Microsoft Ed
 Get it now on:
 
 <p align="center">
-    <a href="https://r.daily.dev/chrome">
+    <a href="https://chromewebstore.google.com/detail/dailydev-where-developers/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/badge/%20-Chrome-red?logo=google-chrome&logoColor=white" alt="Download daily.dev for Chrome" />
     </a>
     <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-the-homepage-/cbdhgldgiancdheindpekpcbkccpjaeb">
@@ -221,7 +221,7 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
     <p><a href="https://twitter.com/dailydotdev/"><img alt="daily.dev on X" align="center" src="https://img.shields.io/badge/X-%23000000.svg?&style=for-the-badge&logo=x&logoColor=white" /></a>&nbsp; Follow @dailydotdev to share your thoughts and stay up-to-date. </p>
     <p><a href="https://www.producthunt.com/products/daily-dev"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/producthunt-%23DA552F.svg?&style=for-the-badge&logo=product-hunt&logoColor=white" /></a>&nbsp; Check out our Product Hunt page.</p>
     <p><a href="https://daily.dev"><img alt="daily.dev website" align="center" src="https://img.shields.io/badge/daily.dev Website-%233693F3.svg?&style=for-the-badge&logo=icloud&logoColor=white" /></a>&nbsp; Visit our home for a bunch of useful links.</p>
-    <p><a href="https://r.daily.dev/chrome"><img alt="daily.dev on the Chrome Web Store" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
+    <p><a href="https://chromewebstore.google.com/detail/dailydev-where-developers/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev on the Chrome Web Store" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
     <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-the-homepage-/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
 
 ## 📑 License
@@ -246,7 +246,7 @@ Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICEN
 <!-- SHIELDS GROUP -->
 
 [chrome-users-shield]: https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&logo=googlechrome&logoColor=white&label=chrome%20active%20users&labelColor=black&color=9E15D9
-[chrome-users-link]: https://r.daily.dev/chrome
+[chrome-users-link]: https://chromewebstore.google.com/detail/dailydev-where-developers/jlmpjdjjbgclbocgajdjefcidcncaied
 [chrome-rating-shield]: https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&label=chrome%20rating&labelColor=black&color=0FC54F
 [latest-version-shield]: https://img.shields.io/chrome-web-store/v/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&label=latest%20version&labelColor=black&color=0FC54F
 [latest-version-link]: https://api.daily.dev/get
