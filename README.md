@@ -237,7 +237,7 @@ Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICEN
 
 [back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
 [product-docs-link]: https://docs.daily.dev/docs/intro
-[changelog-link]: https://daily.dev/changelog
+[changelog-link]: https://daily.dev/squads/daily_updates
 [report-bug-link]: https://github.com/dailydotdev/daily/issues/new?assignees=&labels=Type%3A+Bug&projects=&template=---bug-report.yml&title=%F0%9F%90%9B+BUG%3A+
 [github-discussions-link]: https://github.com/dailydotdev/daily/discussions/new?category=feature-requests
 [swag-store-link]: https://store.daily.dev/
