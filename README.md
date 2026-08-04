@@ -44,13 +44,13 @@ A personalized developer news feed, dev communities, and search. Free, and open 
 > [!IMPORTANT]
 > Star us to show your support and love for daily.dev ⭐️
 
-daily.dev is a free, open source personalized news feed for developers, used by millions of developers worldwide. It aggregates articles, tutorials, release notes, and news from thousands of trusted sources across the web, and personalizes your feed based on the tags you follow (like #webdev, #ai, #devops) and what you read.
+daily.dev is a free, open source personalized news feed for developers, used by millions of developers worldwide. It aggregates articles, tutorials, release notes, and news from 2,000+ trusted sources across the web, and personalizes your feed based on the tags you follow (like #webdev, #ai, #devops) and what you read.
 
 You can use daily.dev as a new tab browser extension for Chrome and Edge, as a web app, or with the daily.dev mobile apps for iOS and Android. Beyond the feed, daily.dev is a community: join Squads to share and discuss content with other developers, comment on posts, bookmark what you want to read later, and search across everything.
 
 ### ✨ What you get with daily.dev
 
-* 📰 **Personalized feed**: the best developer content from thousands of sources, tuned to your stack via tags and your reading activity
+* 📰 **Personalized feed**: the best developer content from 2,000+ sources, tuned to your stack via tags and your reading activity
 * 🧩 **New tab extension**: turn every new browser tab into your developer homepage (Chrome and Edge)
 * 📱 **Mobile apps**: the same feed and community on iOS and Android
 * 👥 **Squads**: developer communities for sharing and discussing content with your team or people who share your interests
@@ -75,10 +75,10 @@ daily.dev is available as a browser extension for Google Chrome and Microsoft Ed
 Get it now on:
 
 <p align="center">
-    <a href="https://r.daily.dev/chrome">
+    <a href="https://chromewebstore.google.com/detail/dailydev-where-developers/jlmpjdjjbgclbocgajdjefcidcncaied">
     <img src="https://img.shields.io/badge/%20-Chrome-red?logo=google-chrome&logoColor=white" alt="Download daily.dev for Chrome" />
     </a>
-    <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb">
+    <a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-the-homepage-/cbdhgldgiancdheindpekpcbkccpjaeb">
     <img src="https://img.shields.io/badge/%20-Edge-blue?logo=microsoft-edge&logoColor=white" alt="Download daily.dev for Edge" />
     </a>
     <a href="https://apps.apple.com/app/daily-dev/id6740634400">
@@ -87,7 +87,7 @@ Get it now on:
     <a href="https://play.google.com/store/apps/details?id=dev.daily">
     <img src="https://img.shields.io/badge/%20-Android-3DDC84?logo=android&logoColor=white" alt="Download daily.dev for Android" />
     </a>
-    <a href="https://app.daily.dev">
+    <a href="https://daily.dev">
     <img src="https://img.shields.io/badge/%20-Web%20App-502ab0" alt="Open the daily.dev web app" />
     </a>
 </p>
@@ -123,9 +123,21 @@ Yes. daily.dev is open source under the AGPL-3.0 license. This repository is the
 </details>
 
 <details>
+<summary><strong>What are we doing to ensure daily.dev is safe?</strong></summary>
+<br>
+The browser extension only replaces your new tab page. It never tracks your browsing on other websites, never reads or modifies content on other pages, never accesses your browsing history, and never injects scripts into any website. It requests only the permissions it needs, and because daily.dev is fully open source, you can verify all of this in the code yourself. Your data is never sold.
+</details>
+
+<details>
+<summary><strong>How does daily.dev make money?</strong></summary>
+<br>
+daily.dev is an ad-supported business. The feed includes clearly marked native ads from developer-relevant brands, which is what keeps daily.dev free for the community. If you want to reach developers on daily.dev, see <a href="https://business.daily.dev">business.daily.dev</a>.
+</details>
+
+<details>
 <summary><strong>Which platforms does daily.dev support?</strong></summary>
 <br>
-Browser extension for Google Chrome and Microsoft Edge, a web app at <a href="https://app.daily.dev">app.daily.dev</a>, and native mobile apps for <a href="https://apps.apple.com/app/daily-dev/id6740634400">iOS</a> and <a href="https://play.google.com/store/apps/details?id=dev.daily">Android</a>.
+Browser extension for Google Chrome and Microsoft Edge, a web app at <a href="https://daily.dev">daily.dev</a>, and native mobile apps for <a href="https://apps.apple.com/app/daily-dev/id6740634400">iOS</a> and <a href="https://play.google.com/store/apps/details?id=dev.daily">Android</a>.
 </details>
 
 <details>
@@ -137,7 +149,7 @@ You pick the tags and sources you care about (for example #react, #kubernetes, #
 <details>
 <summary><strong>How is daily.dev different from dev.to or Hacker News?</strong></summary>
 <br>
-They solve different problems. dev.to is a blogging community where most content is written on the platform itself. Hacker News is a single shared ranked list of tech and startup links, the same for everyone. daily.dev aggregates developer content from thousands of sources across the web and personalizes the feed to your stack, with communities (Squads) built around it. Many developers use daily.dev alongside these platforms.
+They solve different problems. dev.to is a blogging community where most content is written on the platform itself. Hacker News is a single shared ranked list of tech and startup links, the same for everyone. daily.dev aggregates developer content from 2,000+ sources across the web and personalizes the feed to your stack, with communities (Squads) built around it. Many developers use daily.dev alongside these platforms.
 </details>
 
 <details>
@@ -179,7 +191,7 @@ daily.dev might look simple on the surface, but actually, it is powered by a com
 
 
 To spin up a local environment, you will need Docker. Do the steps below and you should be able to start trying to center a div:
-- Fork this repo: https://github.com/dailydotdev/apps
+- Fork the apps repo: https://github.com/dailydotdev/apps
 - Pull it locally
 - Run `docker compose up`
 - Apply all migrations by running `docker compose exec daily-api node ./node_modules/typeorm/cli.js migration:run -d src/data-source.js`
@@ -208,9 +220,9 @@ You are more than welcome. Before contributing, kindly check our [guidelines](ht
 <div align="left">
     <p><a href="https://twitter.com/dailydotdev/"><img alt="daily.dev on X" align="center" src="https://img.shields.io/badge/X-%23000000.svg?&style=for-the-badge&logo=x&logoColor=white" /></a>&nbsp; Follow @dailydotdev to share your thoughts and stay up-to-date. </p>
     <p><a href="https://www.producthunt.com/products/daily-dev"><img alt="daily.dev at ProductHunt" align="center" src="https://img.shields.io/badge/producthunt-%23DA552F.svg?&style=for-the-badge&logo=product-hunt&logoColor=white" /></a>&nbsp; Check out our Product Hunt page.</p>
-    <p><a href="https://daily.dev"><img alt="daily.dev Website" align="center" src="https://img.shields.io/badge/Daily Website-%233693F3.svg?&style=for-the-badge&logo=icloud&logoColor=white" /></a>&nbsp; Visit our home for a bunch of useful links.</p>
-    <p><a href="https://chromewebstore.google.com/detail/dailydev-the-homepage-dev/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev at ChomeStore" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
-    <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-news-for-busy/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
+    <p><a href="https://daily.dev"><img alt="daily.dev website" align="center" src="https://img.shields.io/badge/daily.dev Website-%233693F3.svg?&style=for-the-badge&logo=icloud&logoColor=white" /></a>&nbsp; Visit our home for a bunch of useful links.</p>
+    <p><a href="https://chromewebstore.google.com/detail/dailydev-where-developers/jlmpjdjjbgclbocgajdjefcidcncaied"><img alt="daily.dev on the Chrome Web Store" align="center" src="https://img.shields.io/badge/Chrome Web Store-%234285F4.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" /></a>&nbsp; See our Chrome Store page to grab the extension or share your feedback.</p>
+    <p><a href="https://microsoftedge.microsoft.com/addons/detail/dailydev-the-homepage-/cbdhgldgiancdheindpekpcbkccpjaeb"><img alt="daily.dev at EdgeAddons" align="center" src="https://img.shields.io/badge/Edge Addons-%230078D7.svg?&style=for-the-badge&logo=microsoft-edge&logoColor=white" /></a>&nbsp; Check us out on Microsoft Edge Addons and let us know your thoughts.</p>
 
 ## 📑 License
 Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICENSE).
@@ -225,7 +237,7 @@ Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICEN
 
 [back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
 [product-docs-link]: https://docs.daily.dev/docs/intro
-[changelog-link]: https://app.daily.dev/sources/daily_updates
+[changelog-link]: https://daily.dev/squads/daily_updates
 [report-bug-link]: https://github.com/dailydotdev/daily/issues/new?assignees=&labels=Type%3A+Bug&projects=&template=---bug-report.yml&title=%F0%9F%90%9B+BUG%3A+
 [github-discussions-link]: https://github.com/dailydotdev/daily/discussions/new?category=feature-requests
 [swag-store-link]: https://store.daily.dev/
@@ -234,7 +246,7 @@ Licensed under [AGPL-3.0](https://github.com/dailydotdev/daily/blob/master/LICEN
 <!-- SHIELDS GROUP -->
 
 [chrome-users-shield]: https://img.shields.io/chrome-web-store/users/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&logo=googlechrome&logoColor=white&label=chrome%20active%20users&labelColor=black&color=9E15D9
-[chrome-users-link]: https://chromewebstore.google.com/detail/dailydev-the-homepage-dev/jlmpjdjjbgclbocgajdjefcidcncaied
+[chrome-users-link]: https://chromewebstore.google.com/detail/dailydev-where-developers/jlmpjdjjbgclbocgajdjefcidcncaied
 [chrome-rating-shield]: https://img.shields.io/chrome-web-store/rating/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&label=chrome%20rating&labelColor=black&color=0FC54F
 [latest-version-shield]: https://img.shields.io/chrome-web-store/v/jlmpjdjjbgclbocgajdjefcidcncaied?style=flat-square&label=latest%20version&labelColor=black&color=0FC54F
 [latest-version-link]: https://api.daily.dev/get
