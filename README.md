@@ -60,14 +60,6 @@ You can use daily.dev as a new tab browser extension for Chrome and Edge, as a w
 
 <img src="assets/github repo star graphic.png" alt="daily.dev GitHub stars growth banner" width="100%">
 
-<details>
-  <summary><kbd>Star History</kbd></summary>
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&theme=light&type=Date">
-    <img width="100%" src="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&type=Date">
-  </picture>
-</details>
-
 ## 📌 Get daily.dev
 
 daily.dev is available as a browser extension for Google Chrome and Microsoft Edge, as a web app, and as a mobile app for iOS and Android.
