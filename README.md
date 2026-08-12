@@ -63,8 +63,8 @@ You can use daily.dev as a new tab browser extension for Chrome and Edge, as a w
 <details>
   <summary><kbd>Star History</kbd></summary>
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&theme=light&type=Date">
-    <img width="100%" src="https://api.star-history.com/svg?repos=dailydotdev%2Fdaily&type=Date">
+    <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=dailydotdev%2Fdaily&theme=light&type=Date">
+    <img width="100%" src="https://star-history.dera.page/svg?repos=dailydotdev%2Fdaily&type=Date">
   </picture>
 </details>
 
