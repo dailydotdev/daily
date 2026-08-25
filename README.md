@@ -10,7 +10,7 @@
 
 We know how hard it is to be a developer. It doesn't have to be. <br/>
 daily.dev is the homepage every developer deserves. <br/>
-A personalized developer news feed, dev communities, and search. Free. Much better than what's out there. Maybe ;)
+A personalized developer news feed, dev communities, and search. Free, and open source. Much better than what's out there. Maybe ;)
 
 [Product Docs][product-docs-link] · [Changelog][changelog-link] · [Report a Bug][report-bug-link] · [Request a Feature][github-discussions-link] · [Swag Store][swag-store-link] · [Brand Assets][brand-book-link]
 
@@ -42,7 +42,7 @@ A personalized developer news feed, dev communities, and search. Free. Much bett
 > [!IMPORTANT]
 > Star us to show your support and love for daily.dev ⭐️
 
-daily.dev is a free personalized news feed for developers, used by millions of developers worldwide. It aggregates articles, tutorials, release notes, and news from 2,000+ trusted sources across the web, and personalizes your feed based on the tags you follow (like #webdev, #ai, #devops) and what you read.
+daily.dev is a free, open source personalized news feed for developers, used by millions of developers worldwide. It aggregates articles, tutorials, release notes, and news from 2,000+ trusted sources across the web, and personalizes your feed based on the tags you follow (like #webdev, #ai, #devops) and what you read.
 
 You can use daily.dev as a new tab browser extension for Chrome and Edge, as a web app, or with the daily.dev mobile apps for iOS and Android. Beyond the feed, daily.dev is a community: join Squads to share and discuss content with other developers, comment on posts, bookmark what you want to read later, and search across everything.
 
@@ -107,15 +107,15 @@ Yes. The core daily.dev experience (the personalized feed, extension, mobile app
 </details>
 
 <details>
-<summary><strong>Are daily.dev's web and extension apps open source?</strong></summary>
+<summary><strong>Is daily.dev open source?</strong></summary>
 <br>
-Yes. The web app and browser extension are open source under the AGPL-3.0 license. Their source lives in <a href="https://github.com/dailydotdev/apps">dailydotdev/apps</a>.
+Yes. daily.dev is open source under the AGPL-3.0 license. This repository is the central hub, and the frontend applications (extension and web app) live in <a href="https://github.com/dailydotdev/apps">dailydotdev/apps</a>.
 </details>
 
 <details>
 <summary><strong>What are we doing to ensure daily.dev is safe?</strong></summary>
 <br>
-The browser extension only replaces your new tab page. It never tracks your browsing on other websites, never reads or modifies content on other pages, never accesses your browsing history, and never injects scripts into any website. It requests only the permissions it needs, and its public source code lets you verify all of this yourself. Your data is never sold.
+The browser extension only replaces your new tab page. It never tracks your browsing on other websites, never reads or modifies content on other pages, never accesses your browsing history, and never injects scripts into any website. It requests only the permissions it needs, and because daily.dev is fully open source, you can verify all of this in the code yourself. Your data is never sold.
 </details>
 
 <details>
