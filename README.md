@@ -31,8 +31,6 @@ A personalized developer news feed, dev communities, and search. Free, and open 
 [![][share-mastodon-shield]][share-mastodon-link]
 [![][share-linkedin-shield]][share-linkedin-link]
 
-<sup>Want to contribute? [Run our app locally](https://github.com/dailydotdev/daily?tab=readme-ov-file#-running-dailydev-locally)</sup>
-
 <img src="assets/github repo banner with browser.png" alt="daily.dev personalized developer news feed shown in a browser new tab" width="100%">
 </br>
 <a href="https://youtu.be/igZCEr3HwCg"><strong>👀 Watch daily.dev in action → </strong></a>
@@ -175,21 +173,6 @@ daily.dev might look simple on the surface, but actually, it is powered by a com
 
 * [action-devcard](https://github.com/dailydotdev/action-devcard) - GitHub Actions for adding daily DevCard to GitHub profile. Read [the guide](https://daily.dev/blog/adding-the-daily-devcard-to-your-github-profile) to set it up.
 
-
-## 🚀 Running daily.dev locally
-
-> [!NOTE]
-> Currently, not all services are ready (or needed) for local environments, so Daily Redirector, Daily Monetization, and Authentication services are not available for you.
-
-
-To spin up a local environment, you will need Docker. Do the steps below and you should be able to start trying to center a div:
-- Fork the apps repo: https://github.com/dailydotdev/apps
-- Pull it locally
-- Run `docker compose up`
-- Apply all migrations by running `docker compose exec daily-api node ./node_modules/typeorm/cli.js migration:run -d src/data-source.js`
-- Once done, seed your local data by running `docker compose exec daily-api node ./bin/import`
-- Then lastly, run `npm run dev:oss`
-- The app should run at `http://localhost:5002/`
 
 ## 🙌 Want to contribute?
 
