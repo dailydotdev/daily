@@ -117,7 +117,222 @@ curl -s https://api.daily.dev/public/v1/docs/json | jq '.components.schemas["def
 ```
 
 ### Available Endpoints
-!`curl -s https://api.daily.dev/public/v1/docs/json | jq -r '.paths | to_entries | map(.key as $path | .value | to_entries | map(.key as $method | {tag: (.value.tags[0] // "other"), line: ("\(.key | ascii_upcase) \($path)" + (if .value.description then " - \(.value.description)" else "" end) + (if (.value.parameters | length) > 0 then "\n  Params: " + ([.value.parameters[] | "\(.name)(\(.in)): \(.description // .schema.type)"] | join("; ")) else "" end) + (if .value.requestBody then "\n  Body: " + (.value.requestBody.content["application/json"].schema | if .properties then ([.properties | to_entries[] | "\(.key)"] | join(", ")) elif ."$ref" then (."$ref" | split("/") | last) else "object" end) else "" end))})) | flatten | group_by(.tag) | map("#### \(.[0].tag)\n" + (map(.line) | join("\n\n"))) | join("\n\n")'`
+
+#### bookmarks
+GET /bookmarks/ - Get user's bookmarked posts
+  Params: limit(query): Number of bookmarks to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; listId(query): Filter by bookmark list ID
+
+POST /bookmarks/ - Add posts to bookmarks
+  Body: postIds, listId
+
+GET /bookmarks/search - Search within bookmarks
+  Params: q(query): Search query (required); limit(query): Number of results to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; listId(query): Filter by bookmark list ID
+
+GET /bookmarks/lists - Get user's bookmark lists
+
+POST /bookmarks/lists - Create a new bookmark list
+  Body: name, icon
+
+DELETE /bookmarks/lists/{id} - Delete a bookmark list
+  Params: id(path): Bookmark list ID
+
+DELETE /bookmarks/{id} - Remove a post from bookmarks
+  Params: id(path): Post ID to unbookmark
+
+PATCH /bookmarks/{id} - Move a bookmark to a list or remove from list (Plus users only)
+  Params: id(path): Post ID of the bookmark to move
+  Body: listId
+
+#### custom-feeds
+GET /feeds/custom/advanced-settings - Get all available advanced settings that can be configured for custom feeds
+
+POST /feeds/custom/ - Create a new custom feed
+  Body: name, icon, orderBy, minDayRange, minUpvotes, minViews, disableEngagementFilter
+
+GET /feeds/custom/ - List user's custom feeds
+  Params: limit(query): Number of feeds to return (1-50); cursor(query): Pagination cursor from previous response
+
+GET /feeds/custom/{feedId} - Get a custom feed's posts
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; feedId(path): Feed ID
+
+PATCH /feeds/custom/{feedId} - Update custom feed settings
+  Params: feedId(path): Feed ID
+  Body: name, icon, orderBy, minDayRange, minUpvotes, minViews, disableEngagementFilter
+
+DELETE /feeds/custom/{feedId} - Delete a custom feed
+  Params: feedId(path): Feed ID
+
+GET /feeds/custom/{feedId}/info - Get custom feed metadata
+  Params: feedId(path): Feed ID
+
+PATCH /feeds/custom/{feedId}/advanced - Update custom feed advanced settings. Use GET /feeds/custom/advanced-settings to see available settings.
+  Params: feedId(path): Feed ID
+  Body: settings
+
+#### experiences
+GET /profile/experiences/ - Get current user's experiences (work, education, etc.)
+  Params: type(query): Filter by experience type; limit(query): Number of items to return (1-50); cursor(query): Pagination cursor from previous response
+
+POST /profile/experiences/ - Create a new experience
+  Body: type, title, subtitle, description, startedAt, endedAt, companyId, customCompanyName, url, grade, externalReferenceId, customDomain, repository, externalLocationId, locationType, employmentType, skills
+
+GET /profile/experiences/{id} - Get a specific experience by ID
+  Params: id(path): Experience ID
+
+PUT /profile/experiences/{id} - Update an existing experience
+  Params: id(path): Experience ID
+  Body: type, title, subtitle, description, startedAt, endedAt, companyId, customCompanyName, url, grade, externalReferenceId, customDomain, repository, externalLocationId, locationType, employmentType, skills
+
+DELETE /profile/experiences/{id} - Delete an experience
+  Params: id(path): Experience ID
+
+#### feed-filters
+GET /feeds/filters/ - Get global feed settings (For You feed)
+
+POST /feeds/filters/tags/follow - Follow tags globally (For You feed)
+  Body: tags
+
+POST /feeds/filters/tags/unfollow - Unfollow tags globally (For You feed)
+  Body: tags
+
+POST /feeds/filters/tags/block - Block tags globally (For You feed)
+  Body: tags
+
+POST /feeds/filters/tags/unblock - Unblock tags globally (For You feed)
+  Body: tags
+
+POST /feeds/filters/sources/follow - Follow sources globally (For You feed)
+  Body: sources
+
+POST /feeds/filters/sources/unfollow - Unfollow sources globally (For You feed)
+  Body: sources
+
+POST /feeds/filters/sources/block - Block sources globally (For You feed)
+  Body: sources
+
+POST /feeds/filters/sources/unblock - Unblock sources globally (For You feed)
+  Body: sources
+
+GET /feeds/filters/{feedId} - Get custom feed filter settings
+  Params: feedId(path): Feed ID
+
+POST /feeds/filters/{feedId}/tags/follow - Follow tags for a custom feed
+  Params: feedId(path): Feed ID
+  Body: tags
+
+POST /feeds/filters/{feedId}/tags/unfollow - Unfollow tags for a custom feed
+  Params: feedId(path): Feed ID
+  Body: tags
+
+POST /feeds/filters/{feedId}/tags/block - Block tags for a custom feed
+  Params: feedId(path): Feed ID
+  Body: tags
+
+POST /feeds/filters/{feedId}/tags/unblock - Unblock tags for a custom feed
+  Params: feedId(path): Feed ID
+  Body: tags
+
+POST /feeds/filters/{feedId}/sources/follow - Follow sources for a custom feed
+  Params: feedId(path): Feed ID
+  Body: sources
+
+POST /feeds/filters/{feedId}/sources/unfollow - Unfollow sources for a custom feed
+  Params: feedId(path): Feed ID
+  Body: sources
+
+POST /feeds/filters/{feedId}/sources/block - Block sources for a custom feed
+  Params: feedId(path): Feed ID
+  Body: sources
+
+POST /feeds/filters/{feedId}/sources/unblock - Unblock sources for a custom feed
+  Params: feedId(path): Feed ID
+  Body: sources
+
+#### feeds
+GET /feeds/foryou - Get personalized "For You" feed
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response
+
+GET /feeds/popular - Get feed with trending and popular posts
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tags(query): Comma-separated list of tags to filter by
+
+GET /feeds/discussed - Get feed of posts with discussions
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; period(query): Number of days to look back (1-30); tag(query): Filter by tag; source(query): Filter by source ID
+
+GET /feeds/tag/{tag} - Get posts by tag
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tag(path): Tag name
+
+GET /feeds/source/{source} - Get posts by source
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; source(path): Source ID or handle
+
+#### notifications
+GET /notifications/ - Get user notifications
+  Params: limit(query): Number of notifications to return (1-50); cursor(query): Pagination cursor from previous response
+
+GET /notifications/unread/count - Get unread notifications count
+
+POST /notifications/read - Mark all notifications as read
+
+#### posts
+GET /posts/{id} - Get post details by ID
+  Params: id(path): Post ID
+
+GET /posts/{id}/comments - Get comments for a post
+  Params: limit(query): Number of comments to return (1-50); cursor(query): Pagination cursor from previous response; sort(query): Sort order (oldest or newest first); id(path): Post ID
+
+#### profile
+GET /profile/ - Get current user's profile
+
+PATCH /profile/ - Update user profile
+  Body: name, bio, timezone, weekStart, experienceLevel, socialLinks
+
+#### recommend
+GET /recommend/keyword - [EXPERIMENTAL] Recommend articles by keyword search. Best when the query contains specific technical terms (e.g. "RAG", "pgvector", "LangChain"). Returns posts with engagement signals for LLM consumption. This endpoint may be removed or changed without notice.
+  Params: q(query): Search query — keywords or technical terms (e.g. "RAG vs fine-tuning", "vector database comparison"); limit(query): Number of articles to return (1-20, default 10). Kept small for LLM context efficiency.; cursor(query): Pagination cursor from previous response; time(query): Time range filter — use "month" or "year" for recent content, "all" for comprehensive results
+
+GET /recommend/semantic - [EXPERIMENTAL] Recommend articles by semantic search. Uses AI-powered matching to find articles for natural language questions. Better for non-technical queries like "how do I make my chatbot remember things?" This endpoint may be removed or changed without notice.
+  Params: q(query): Natural language question or topic (e.g. "how do I make my chatbot remember previous conversations?", "what is the best way to handle authentication in a Next.js app?"); limit(query): Number of articles to return (1-20, default 10). Kept small for LLM context efficiency.; time(query): Time range filter — use "month" or "year" for recent content, "all" for comprehensive results
+
+#### search
+GET /search/posts - Search posts by keyword
+  Params: q(query): Search query (required); limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; time(query): Time range filter (day, week, month, year, all)
+
+GET /search/tags - Search tags by name
+  Params: q(query): Search query (required)
+
+GET /search/sources - Search sources/publishers by name
+  Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
+
+#### signup
+POST /signup/ - Creates a daily.dev account from an email and password. No token required — this is the endpoint to call when you do not have one yet. Personal Access Tokens for the rest of this API are issued separately from account settings.
+  Body: email, password, name, username
+
+#### stack
+GET /profile/stack/search - Search for tools/technologies by name
+  Params: query(query): Search query (minimum 1 character)
+
+GET /profile/stack/ - Get current user's tech stack
+  Params: limit(query): Number of items to return (1-100); cursor(query): Pagination cursor from previous response
+
+POST /profile/stack/ - Add a tool to user stack
+  Body: title, section, startedAt
+
+PATCH /profile/stack/{id} - Update a stack item
+  Params: id(path): Stack item ID
+  Body: section, icon, title, startedAt
+
+DELETE /profile/stack/{id} - Remove a tool from user stack
+  Params: id(path): Stack item ID
+
+PUT /profile/stack/reorder - Reorder stack items
+  Body: items
+
+#### tags
+GET /tags/ - Get all tags
+
+This list is generated from the OpenAPI spec. To regenerate it:
+```bash
+curl -s https://api.daily.dev/public/v1/docs/json | jq -r '.paths | to_entries | map(.key as $path | .value | to_entries | map(.key as $method | {tag: (.value.tags[0] // "other"), line: ("\(.key | ascii_upcase) \($path)" + (if .value.description then " - \(.value.description)" else "" end) + (if (.value.parameters | length) > 0 then "\n  Params: " + ([.value.parameters[] | "\(.name)(\(.in)): \(.description // .schema.type)"] | join("; ")) else "" end) + (if .value.requestBody then "\n  Body: " + (.value.requestBody.content["application/json"].schema | if .properties then ([.properties | to_entries[] | "\(.key)"] | join(", ")) elif ."$ref" then (."$ref" | split("/") | last) else "object" end) else "" end))})) | flatten | group_by(.tag) | map("#### \(.[0].tag)\n" + (map(.line) | join("\n\n"))) | join("\n\n")'
+```
 
 ## Agent Use Cases
 
