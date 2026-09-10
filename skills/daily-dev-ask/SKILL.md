@@ -22,9 +22,12 @@ $ARGUMENTS
 
 ## Setup
 
-1. **Requires Plus subscription** - Get one at https://app.daily.dev/plus
-2. **Create a token** at https://app.daily.dev/settings/api
-3. Store your token securely (environment variables, secrets manager)
+1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
+2. Store your token securely (environment variables, secrets manager)
+
+Every account can use the API. Free accounts get 200 requests per 30 days;
+Plus gives full API access and higher rate limits at 60 requests per minute:
+https://daily.dev/plus
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
@@ -181,7 +184,7 @@ Using all collected articles, compose a response:
 
 - **No results**: State that daily.dev's knowledge base doesn't have relevant articles on this topic yet.
 - **Only some searches return results**: Use whatever you got — partial results are fine.
-- **API errors (401)**: Token is invalid or expired — guide user to regenerate at https://app.daily.dev/settings/api
+- **API errors (401)**: Token is invalid or expired — guide user to regenerate at https://daily.dev/settings/api
 - **API errors (429)**: Rate limited — wait briefly and retry automatically.
 
 ## Important

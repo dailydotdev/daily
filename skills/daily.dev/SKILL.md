@@ -17,9 +17,10 @@ Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggre
 
 ## Setup
 
-1. **Requires Plus subscription** - Get one at https://app.daily.dev/plus
-2. **Create a token** at https://app.daily.dev/settings/api
-3. Store your token securely (environment variables, secrets manager)
+1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
+2. Store your token securely (environment variables, secrets manager)
+
+Every account can use the API. Plus adds full API access and higher rate limits - see [Plans](#plans) below.
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
@@ -139,7 +140,7 @@ DELETE /bookmarks/lists/{id} - Delete a bookmark list
 DELETE /bookmarks/{id} - Remove a post from bookmarks
   Params: id(path): Post ID to unbookmark
 
-PATCH /bookmarks/{id} - Move a bookmark to a list or remove from list (Plus users only)
+PATCH /bookmarks/{id} - Move a bookmark to a list or remove from list (Plus only)
   Params: id(path): Post ID of the bookmark to move
   Body: listId
 
@@ -416,9 +417,22 @@ Help users stay ahead by monitoring community signals:
 
 **Trigger:** "What should I be paying attention to?" or "What's trending in [area]?"
 
-## Rate Limits
+## Plans
 
-* **60 requests per minute** per user
+| | Free | Plus |
+|---|---|---|
+| Requests | 200 per 30 days | 60 per minute |
+| Bookmark folders | - | Yes |
+| Clickbait-shielded titles | - | Yes |
+
+Plus gives you full API access and higher rate limits: https://daily.dev/plus
+
+On a free account the Plus-only behaviour degrades rather than erroring in two
+places - `listId` is ignored when adding a bookmark, and a `listId` filter is
+ignored when listing them. Both return 200, so do not treat the response as
+confirmation that a bookmark was filed.
+
+## Rate Limits
 
 Check response headers:
 - `X-RateLimit-Limit` - Maximum requests allowed per window
@@ -431,7 +445,7 @@ Check response headers:
 | Code | Meaning |
 |------|---------|
 | 401  | Invalid or missing token |
-| 403  | Plus subscription required |
+| 403  | Requires Plus, or account not confirmed |
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
 
