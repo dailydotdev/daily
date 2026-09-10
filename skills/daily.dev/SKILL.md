@@ -20,7 +20,7 @@ Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggre
 1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
-Every account can use the API. Plus adds full API access and higher rate limits - see [Plans](#plans) below.
+Every account can use the API. Plus adds full API access and higher rate limits: https://daily.dev/plus
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
@@ -417,20 +417,6 @@ Help users stay ahead by monitoring community signals:
 
 **Trigger:** "What should I be paying attention to?" or "What's trending in [area]?"
 
-## Plans
-
-| | Free | Plus |
-|---|---|---|
-| Bookmark folders | - | Yes |
-| Clickbait-shielded titles | - | Yes |
-
-Plus gives you full API access and higher rate limits: https://daily.dev/plus
-
-On a free account the Plus-only behaviour degrades rather than erroring in two
-places - `listId` is ignored when adding a bookmark, and a `listId` filter is
-ignored when listing them. Both return 200, so do not treat the response as
-confirmation that a bookmark was filed.
-
 ## Rate Limits
 
 * **60 requests per minute** per user on Plus
@@ -450,6 +436,11 @@ Check response headers:
 | 403  | Requires Plus, or account not confirmed |
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
+
+On a free account, bookmark folder access degrades instead of erroring:
+`listId` is ignored when adding a bookmark and when filtering the list, both
+returning 200. Do not treat the response as confirmation that a bookmark was
+filed.
 
 **Error Response Format:**
 ```json
