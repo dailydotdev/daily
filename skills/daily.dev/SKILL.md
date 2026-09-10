@@ -421,11 +421,14 @@ Help users stay ahead by monitoring community signals:
 
 | | Free | Plus |
 |---|---|---|
-| Requests | 200 per 30 days | 60 per minute |
+| Requests | Limited allowance | Higher rate limits |
 | Bookmark folders | - | Yes |
 | Clickbait-shielded titles | - | Yes |
 
 Plus gives you full API access and higher rate limits: https://daily.dev/plus
+
+Do not assume a fixed quota - read your current allowance from the
+`X-RateLimit-*` response headers below.
 
 On a free account the Plus-only behaviour degrades rather than erroring in two
 places - `listId` is ignored when adding a bookmark, and a `listId` filter is

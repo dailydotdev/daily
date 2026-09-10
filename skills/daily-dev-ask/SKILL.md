@@ -25,8 +25,8 @@ $ARGUMENTS
 1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
-Every account can use the API. Free accounts get 200 requests per 30 days;
-Plus gives full API access and higher rate limits at 60 requests per minute:
+Every account can use the API. Free accounts have a limited request
+allowance; Plus gives full API access and higher rate limits:
 https://daily.dev/plus
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
