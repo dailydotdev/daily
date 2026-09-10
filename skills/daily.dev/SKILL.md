@@ -437,11 +437,6 @@ Check response headers:
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
 
-On a free account, bookmark folder access degrades instead of erroring:
-`listId` is ignored when adding a bookmark and when filtering the list, both
-returning 200. Do not treat the response as confirmation that a bookmark was
-filed.
-
 **Error Response Format:**
 ```json
 {
