@@ -1,0 +1,96 @@
+From 1c138fe35e19253a909e201a984924a3cb21df1e Mon Sep 17 00:00:00 2001
+From: Siddharth Singh <siddharthsingh23122005@gmail.com>
+Date: Wed, 30 Sep 2026 17:33:18 +0530
+Subject: [PATCH] fix(auth): prevent Turnstile reset loop and clear security
+ check error on verification
+
+---
+ .../src/components/auth/RegistrationForm.tsx  | 28 +++++++++++++++++--
+ 1 file changed, 25 insertions(+), 3 deletions(-)
+
+diff --git a/packages/shared/src/components/auth/RegistrationForm.tsx b/packages/shared/src/components/auth/RegistrationForm.tsx
+index 8dc82f7..813cca7 100644
+--- a/packages/shared/src/components/auth/RegistrationForm.tsx
++++ b/packages/shared/src/components/auth/RegistrationForm.tsx
+@@ -104,6 +104,7 @@ const RegistrationForm = ({
+ }: RegistrationFormProps): ReactElement => {
+   const { email } = useAuthData();
+   const { logEvent } = useLogContext();
++  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+   const [turnstileError, setTurnstileError] = useState<boolean>(false);
+   const [turnstileLoaded, setTurnstileLoaded] = useState<boolean>(false);
+   const [turnstileErrorLoading, setTurnstileErrorLoading] =
+@@ -118,6 +119,7 @@ const RegistrationForm = ({
+     isLoading: isLoadingUsername,
+   } = useGenerateUsername(name);
+   const turnstileRef = useRef<TurnstileInstance>(null);
++  const prevHintsRef = useRef<RegistrationError>(hints);
+ 
+   const logRef = useRef(logEvent);
+   logRef.current = logEvent;
+@@ -129,7 +131,11 @@ const RegistrationForm = ({
+   }, []);
+ 
+   useEffect(() => {
+-    if (Object.keys(hints).length) {
++    const hasActiveErrors = Object.values(hints).some((val) =>
++      Boolean(val?.length),
++    );
++
++    if (hasActiveErrors && hints !== prevHintsRef.current) {
+       logRef.current({
+         event_name: AuthEventNames.SubmitSignUpFormError,
+         extra: JSON.stringify({ error: hints }),
+@@ -137,8 +143,10 @@ const RegistrationForm = ({
+       if (hints?.csrf_token) {
+         setTurnstileError(true);
+       }
++      setTurnstileToken(null);
+       turnstileRef?.current?.reset();
+     }
++    prevHintsRef.current = hints;
+   }, [hints]);
+ 
+   useEffect(() => {
+@@ -226,7 +234,10 @@ const RegistrationForm = ({
+       return;
+     }
+ 
+-    if (!turnstileRef?.current?.getResponse()) {
++    const turnstileResponse =
++      turnstileToken || turnstileRef.current?.getResponse();
++
++    if (!turnstileResponse) {
+       logRef.current({
+         event_name: AuthEventNames.SubmitSignUpFormError,
+         extra: JSON.stringify({
+@@ -255,7 +266,6 @@ const RegistrationForm = ({
+       return;
+     }
+ 
+-    const turnstileResponse = turnstileRef.current?.getResponse();
+     let headers: Record<string, string> | undefined;
+     if (!(isDevelopment && !isProductionAPI) && turnstileResponse) {
+       headers = { 'True-Client-Ip': turnstileResponse };
+@@ -528,6 +538,18 @@ const RegistrationForm = ({
+               }}
+               className="mx-auto"
+               onWidgetLoad={() => setTurnstileLoaded(true)}
++              onSuccess={(token) => {
++                setTurnstileToken(token);
++                setTurnstileError(false);
++              }}
++              onError={() => {
++                setTurnstileToken(null);
++                setTurnstileError(true);
++              }}
++              onExpire={() => {
++                setTurnstileToken(null);
++                turnstileRef?.current?.reset();
++              }}
+             />
+             {turnstileError && (
+               <Alert
+-- 
+2.50.1 (Apple Git-155)
+
