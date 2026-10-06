@@ -140,7 +140,7 @@ DELETE /bookmarks/lists/{id} - Delete a bookmark list
 DELETE /bookmarks/{id} - Remove a post from bookmarks
   Params: id(path): Post ID to unbookmark
 
-PATCH /bookmarks/{id} - Move a bookmark to a list or remove from list (Plus only)
+PATCH /bookmarks/{id} - Move a bookmark to a list or remove from list (Plus users only)
   Params: id(path): Post ID of the bookmark to move
   Body: listId
 
@@ -254,7 +254,7 @@ GET /feeds/foryou - Get personalized "For You" feed
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response
 
 GET /feeds/popular - Get feed with trending and popular posts
-  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tags(query): Comma-separated list of tags to filter by
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tags(query): Comma-separated list of tags to filter by (up to 20)
 
 GET /feeds/discussed - Get feed of posts with discussions
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; period(query): Number of days to look back (1-30); tag(query): Filter by tag; source(query): Filter by source ID
@@ -273,6 +273,16 @@ GET /notifications/unread/count - Get unread notifications count
 
 POST /notifications/read - Mark all notifications as read
 
+#### plugins
+GET /plugins/ - List approved plugins from the daily.dev marketplace, newest first. A plugin has an about page plus agent instructions (SKILL.md), a link, or both.
+  Params: q(query): Search in plugin names and descriptions; limit(query): Number of plugins to return (1-50); cursor(query): Pagination cursor from previous response
+
+POST /plugins/ - Submit a plugin to the daily.dev marketplace for review. Provide agent instructions (SKILL.md), a link, or both. The plugin is listed once the daily.dev team approves it.
+  Body: name, description, about, skillMd, url
+
+GET /plugins/{id} - Get an approved plugin by id, including its about page. The SKILL.md is served separately at skillMdUrl.
+  Params: id(path): Plugin id
+
 #### posts
 GET /posts/{id} - Get post details by ID
   Params: id(path): Post ID
@@ -290,7 +300,7 @@ PATCH /profile/ - Update user profile
 GET /recommend/keyword - [EXPERIMENTAL] Recommend articles by keyword search. Best when the query contains specific technical terms (e.g. "RAG", "pgvector", "LangChain"). Returns posts with engagement signals for LLM consumption. This endpoint may be removed or changed without notice.
   Params: q(query): Search query — keywords or technical terms (e.g. "RAG vs fine-tuning", "vector database comparison"); limit(query): Number of articles to return (1-20, default 10). Kept small for LLM context efficiency.; cursor(query): Pagination cursor from previous response; time(query): Time range filter — use "month" or "year" for recent content, "all" for comprehensive results
 
-GET /recommend/semantic - [EXPERIMENTAL] Recommend articles by semantic search. Uses AI-powered matching to find articles for natural language questions. Better for non-technical queries like "how do I make my chatbot remember things?" This endpoint may be removed or changed without notice.
+GET /recommend/semantic - [DEPRECATED] Use /recommend/keyword instead, which this endpoint now answers from. Kept for older clients and scheduled for removal.
   Params: q(query): Natural language question or topic (e.g. "how do I make my chatbot remember previous conversations?", "what is the best way to handle authentication in a Next.js app?"); limit(query): Number of articles to return (1-20, default 10). Kept small for LLM context efficiency.; time(query): Time range filter — use "month" or "year" for recent content, "all" for comprehensive results
 
 #### search
