@@ -17,12 +17,16 @@ Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggre
 
 ## Setup
 
-1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
+1. **Create a token** at https://daily.dev/settings/api - every account can create one, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
-Every account can use the API. Plus adds full API access and higher rate limits: https://daily.dev/plus
+Plus raises the rate limits: https://daily.dev/plus
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
+
+### MCP instead of a token
+
+If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP). Authentication is OAuth: the client registers itself and opens the daily.dev sign-in and consent screens, where the user approves `read` or `read write` access and can disconnect later from Settings > API. Every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
 
 ### Secure Token Storage (Recommended)
 
@@ -257,7 +261,7 @@ GET /feeds/popular - Get feed with trending and popular posts
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tags(query): Comma-separated list of tags to filter by (up to 20)
 
 GET /feeds/discussed - Get feed of posts with discussions
-  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; period(query): Number of days to look back (1-30); tag(query): Filter by tag; source(query): Filter by source ID
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; period(query): Days since publication to look back: 7 (default), 30 or 365. Posts are ranked by comment count within that window.; tag(query): Filter by tag; source(query): Filter by source ID
 
 GET /feeds/tag/{tag} - Get posts by tag
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tag(path): Tag name
@@ -297,7 +301,7 @@ PATCH /profile/ - Update user profile
   Body: name, bio, timezone, weekStart, experienceLevel, socialLinks
 
 #### recommend
-GET /recommend/keyword - [EXPERIMENTAL] Recommend articles by keyword search. Best when the query contains specific technical terms (e.g. "RAG", "pgvector", "LangChain"). Returns posts with engagement signals for LLM consumption. This endpoint may be removed or changed without notice.
+GET /recommend/keyword - [EXPERIMENTAL] Recommend articles by keyword search. Best when the query contains specific technical terms (e.g. "RAG", "pgvector", "LangChain"). Returns posts with engagement signals for LLM consumption. Natural-language questions and long phrases usually match nothing and return an empty list; use GET /search/posts with two or three keywords for those. This endpoint may be removed or changed without notice.
   Params: q(query): Search query — keywords or technical terms (e.g. "RAG vs fine-tuning", "vector database comparison"); limit(query): Number of articles to return (1-20, default 10). Kept small for LLM context efficiency.; cursor(query): Pagination cursor from previous response; time(query): Time range filter — use "month" or "year" for recent content, "all" for comprehensive results
 
 GET /recommend/semantic - [DEPRECATED] Use /recommend/keyword instead, which this endpoint now answers from. Kept for older clients and scheduled for removal.
@@ -308,7 +312,7 @@ GET /search/posts - Search posts by keyword
   Params: q(query): Search query (required); limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; time(query): Time range filter (day, week, month, year, all)
 
 GET /search/tags - Search tags by name
-  Params: q(query): Search query (required)
+  Params: q(query): Search query (required). Tags are lowercase hyphenated slugs such as "claude-code"; spaces in the query are treated as hyphens.
 
 GET /search/sources - Search sources/publishers by name
   Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
@@ -429,8 +433,7 @@ Help users stay ahead by monitoring community signals:
 
 ## Rate Limits
 
-* **60 requests per minute** per user on Plus
-* **200 requests per month** on free accounts
+Requests are rate limited per user and per IP. Free accounts have a monthly allowance; Plus raises the limits. MCP tool calls and OAuth requests count against the same per-user quota as the token.
 
 Check response headers:
 - `X-RateLimit-Limit` - Maximum requests allowed per window
@@ -443,7 +446,7 @@ Check response headers:
 | Code | Meaning |
 |------|---------|
 | 401  | Invalid or missing token |
-| 403  | Requires Plus, or account not confirmed |
+| 403  | Plus-only feature (bookmark folders), account not confirmed, or OAuth token missing the required scope |
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
 

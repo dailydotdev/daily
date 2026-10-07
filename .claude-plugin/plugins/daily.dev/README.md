@@ -2,7 +2,7 @@
 
 Real-time developer content from daily.dev, inside Claude Code:
 
-- **daily.dev skill** — query feeds, search posts, and pull personalized content via the daily.dev API (requires a Plus API token; see the skill for setup).
+- **daily.dev skill** — query feeds, search posts, and pull personalized content via the daily.dev API. Works with any daily.dev account: create a free API token, or connect Claude Code to the daily.dev MCP server at `https://api.daily.dev/mcp` and sign in instead (see the skill for setup).
 - **`/daily.dev:trends` skill** — today's curated headlines and most-upvoted posts, no token needed.
 - **Statusline** — rotating daily.dev headlines at the bottom of Claude Code while you wait. Curated major headlines interleaved with the community's most-upvoted posts of the day, refreshed every 10 minutes, rotating every ~60 seconds. Headlines are clickable in terminals with hyperlink support (iTerm2, Kitty, WezTerm, Ghostty).
 
