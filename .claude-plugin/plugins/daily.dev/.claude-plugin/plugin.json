@@ -1,5 +1,16 @@
 {
   "name": "daily.dev",
   "description": "Access personalized developer content feeds from daily.dev - the professional network for developers. Surface relevant articles, tutorials, and discussions based on user interests.",
-  "version": "0.6.0"
+  "version": "0.7.0",
+  "author": { "name": "daily.dev" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "display": {
+      "type": "string",
+      "title": "Headlines display",
+      "description": "Where daily.dev headlines show: a clickable band above the prompt, the status line, or both.",
+      "options": ["band", "status", "both"],
+      "default": "band"
+    }
+  }
 }
