@@ -26,11 +26,7 @@ User can use environment variable or choose one of the secure storage methods be
 
 ### MCP instead of a token
 
-If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP) and sign in with daily.dev when the client asks. Every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
-
-### Building for other people? Use OAuth
-
-Never ask other users for their personal access token. Register an OAuth app at https://daily.dev/settings/api so they sign in with daily.dev and approve `read` or `read write` access on a consent screen; your app then calls the same endpoints with the OAuth access token. Request `resource=https://api.daily.dev/public/v1` for the REST API. Docs: https://docs.daily.dev/oauth-apps/
+If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP). Authentication is OAuth: the client registers itself and opens the daily.dev sign-in and consent screens, where the user approves `read` or `read write` access and can disconnect later from Settings > API. Every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
 
 ### Secure Token Storage (Recommended)
 
