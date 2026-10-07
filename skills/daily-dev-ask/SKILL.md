@@ -25,9 +25,12 @@ $ARGUMENTS
 1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
-Every account can use the API. Free accounts have a limited request
-allowance; Plus gives full API access and higher rate limits:
+Every account can use the API; Plus raises the rate limits:
 https://daily.dev/plus
+
+Connected to the daily.dev MCP server (`https://api.daily.dev/mcp`)
+instead? Use its `getSearchPosts` and `getPostsById` tools for the same
+calls below, no token needed.
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
 

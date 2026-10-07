@@ -125,6 +125,12 @@ daily.dev is an ad-supported business. The feed includes clearly marked native a
 </details>
 
 <details>
+<summary><strong>Can I use daily.dev from my own tools or AI agent?</strong></summary>
+<br>
+Yes. Every account can create a free personal access token for the <a href="https://docs.daily.dev/public-api/">daily.dev public API</a>: your feed, search, bookmarks, custom feeds and more as JSON. The same API is available as an <a href="https://docs.daily.dev/mcp-server/">MCP server</a> at <code>https://api.daily.dev/mcp</code> for Claude, Cursor, Codex and other agents, and apps can let people <a href="https://docs.daily.dev/oauth-apps/">sign in with daily.dev</a> through OAuth instead of sharing a token.
+</details>
+
+<details>
 <summary><strong>Which platforms does daily.dev support?</strong></summary>
 <br>
 Browser extension for Google Chrome and Microsoft Edge, a web app at <a href="https://daily.dev">daily.dev</a>, and native mobile apps for <a href="https://apps.apple.com/app/daily-dev/id6740634400">iOS</a> and <a href="https://play.google.com/store/apps/details?id=dev.daily">Android</a>.
