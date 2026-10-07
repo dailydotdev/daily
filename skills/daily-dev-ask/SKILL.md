@@ -28,9 +28,9 @@ $ARGUMENTS
 Every account can use the API; Plus raises the rate limits:
 https://daily.dev/plus
 
-Connected to the daily.dev MCP server (`https://api.daily.dev/mcp`)
-instead? Use its `getSearchPosts` and `getPostsById` tools for the same
-calls below, no token needed.
+If the agent is already connected to the daily.dev MCP server
+(`https://api.daily.dev/mcp`), skip the token steps: the calls below
+map to the `getSearchPosts` and `getPostsById` tools.
 
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
