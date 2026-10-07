@@ -1,1 +1,4 @@
 .idea/.DS_Store
+
+# Claude Code mod types, written by the engine on load
+.claude-plugin/plugins/*/.claude-plugin/types/
