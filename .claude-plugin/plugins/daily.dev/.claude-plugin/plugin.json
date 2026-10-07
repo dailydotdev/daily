@@ -1,5 +1,31 @@
 {
   "name": "daily.dev",
   "description": "Access personalized developer content feeds from daily.dev - the professional network for developers. Surface relevant articles, tutorials, and discussions based on user interests.",
-  "version": "0.6.0"
+  "version": "0.7.0",
+  "userConfig": {
+    "band": {
+      "type": "boolean",
+      "title": "Headline band above the prompt",
+      "description": "A sparkly row above the prompt with one rotating daily.dev headline.",
+      "default": true
+    },
+    "statusline": {
+      "type": "boolean",
+      "title": "Headline in the status line",
+      "description": "Pin the current headline under the prompt too (skipped when the classic /daily.dev:statusline script is wired).",
+      "default": false
+    },
+    "packageToasts": {
+      "type": "boolean",
+      "title": "Post suggestions when you install a package",
+      "description": "After a successful npm/pnpm/yarn/bun/pip/uv/cargo/go install, suggest a well-loved recent daily.dev post about it. At most 3 an hour, once a week per package.",
+      "default": true
+    },
+    "telemetry": {
+      "type": "boolean",
+      "title": "Anonymous impression analytics",
+      "description": "Report which headlines were shown (post ids only). DAILY_DEV_TELEMETRY=0 also turns it off.",
+      "default": true
+    }
+  }
 }
