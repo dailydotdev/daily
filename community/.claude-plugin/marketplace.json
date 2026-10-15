@@ -1,0 +1,11 @@
+{
+  "name": "daily-dev-community",
+  "owner": {
+    "name": "daily.dev",
+    "email": "support@daily.dev"
+  },
+  "metadata": {
+    "description": "Community plugins approved on the daily.dev plugin marketplace (daily.dev/marketplace)"
+  },
+  "plugins": []
+}
