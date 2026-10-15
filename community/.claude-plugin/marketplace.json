@@ -5,7 +5,8 @@
     "email": "support@daily.dev"
   },
   "metadata": {
-    "description": "Community plugins approved on the daily.dev plugin marketplace (daily.dev/marketplace)"
+    "description": "Community plugins approved on the daily.dev plugin marketplace (daily.dev/marketplace)",
+    "version": "1.0.0"
   },
   "plugins": []
 }
