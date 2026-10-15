@@ -282,7 +282,7 @@ GET /plugins/ - List approved plugins from the daily.dev marketplace, newest fir
   Params: q(query): Search in plugin names and descriptions; limit(query): Number of plugins to return (1-50); cursor(query): Pagination cursor from previous response
 
 POST /plugins/ - Submit a plugin to the daily.dev marketplace for review. Provide agent instructions (SKILL.md), a link, or both. The plugin is listed once the daily.dev team approves it.
-  Body: name, description, about, skillMd, url
+  Body: name, description, about, skillMd, url, repositoryUrl
 
 GET /plugins/{id} - Get an approved plugin by id, including its about page. The SKILL.md is served separately at skillMdUrl.
   Params: id(path): Plugin id
