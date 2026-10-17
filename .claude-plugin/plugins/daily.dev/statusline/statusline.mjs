@@ -304,6 +304,31 @@ const purple = style('38;5;135'); // daily.dev accent
 // NO_COLOR strips SGR styling only; OSC 8 hyperlinks stay (they carry no color)
 const stripColors = (s) => s.replace(/\x1b\[[0-9;]*m/g, '');
 
+// Only the OSC 8 (hyperlink) and SGR bold/dim/color sequences this script
+// itself emits are allowed through; anything else (OSC 2 title changes, BEL,
+// raw control bytes, or any other escape sequence) is stripped before the
+// line ever reaches the terminal or the UI.
+const ALLOWED_SGR = /\x1b\[(?:0|1|2|38;5;135)m/g;
+const ALLOWED_OSC8_OPEN =
+  /\x1b\]8;;(https:\/\/api\.daily\.dev\/c\/[^\x1b\x07]*)(?:\x1b\\|\x07)/g;
+const ALLOWED_OSC8_CLOSE = /\x1b\]8;;(?:\x1b\\|\x07)/g;
+
+function sanitizeLine(line) {
+  const placeholders = [];
+  const keep = (m) => {
+    placeholders.push(m);
+    return `\x00${placeholders.length - 1}\x00`;
+  };
+  let marked = line
+    .replace(ALLOWED_SGR, keep)
+    .replace(ALLOWED_OSC8_OPEN, keep)
+    .replace(ALLOWED_OSC8_CLOSE, keep);
+  // Strip every remaining ESC/C0 control byte (placeholders use NUL markers,
+  // which are left untouched by this pass).
+  marked = marked.replace(/\x1b./g, '').replace(/[\x01-\x08\x0b-\x1f\x7f]/g, '');
+  return marked.replace(/\x00(\d+)\x00/g, (_, i) => placeholders[Number(i)]);
+}
+
 function render(sessionInfo) {
   const cache = readCache();
   const items = cache?.items ?? [];
@@ -317,7 +342,8 @@ function render(sessionInfo) {
   const idx = Math.floor(Date.now() / 1000 / ROTATE_SECONDS) % items.length;
   const item = items[idx];
   maybeLogImpression(item, cache);
-  return `${prefix}${COLOR_ENABLED ? item.line : stripColors(item.line)}`;
+  const safeLine = sanitizeLine(item.line);
+  return `${prefix}${COLOR_ENABLED ? safeLine : stripColors(safeLine)}`;
 }
 
 // --- main ---

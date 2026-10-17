@@ -28,10 +28,25 @@ function parse(line: string): Headline | undefined {
   const title = line
     .replace(/\x1b\]8;;[^\x1b\x07]*(?:\x1b\\|\x07)/g, '')
     .replace(/\x1b\[[0-9;]*m/g, '')
+    .replace(/\x1b./g, '')
+    .replace(/[\x01-\x08\x0b-\x1f\x7f]/g, '')
     .replace(/^daily\.dev /, '')
     .trim();
   if (!title || title.endsWith('fetching headlines…')) return undefined;
-  return { title, url };
+  let safeUrl: string | undefined;
+  try {
+    const parsed = new URL(url ?? '');
+    if (
+      parsed.protocol === 'https:' &&
+      parsed.hostname === 'api.daily.dev' &&
+      parsed.pathname.startsWith('/c/')
+    ) {
+      safeUrl = parsed.toString();
+    }
+  } catch {
+    // not a valid/allowed URL, don't surface it
+  }
+  return { title, url: safeUrl };
 }
 
 export const register: Register = (on) => {
