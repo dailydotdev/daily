@@ -22,25 +22,28 @@ const bandHiddenAtom = atom(
   false as boolean | undefined,
 );
 
+// Strip whole escape sequences (OSC, CSI, any other ESC + one char) and stray
+// control bytes, so an injected sequence leaves no payload behind as text.
+const UNSAFE_SEQUENCES =
+  /(?:\x1b\]|\u009d)[^\x07\x1b\u009c]*(?:\x07|\x1b\\|\u009c)?|(?:\x1b\[|\u009b)[0-?]*[ -\/]*[@-~]|\x1b[\s\S]|[\x01-\x08\x0b-\x1f\x7f\u0080-\u009f]/g;
+
 // Turn one server-rendered line into a title and its /c/ link.
+// statusline.mjs has already restricted the link to its origin's /c/ redirect
+// (DAILY_DEV_ORIGIN-aware, which this module cannot read); re-check scheme and
+// path here so nothing but an https click link ever becomes the Open button.
 function parse(line: string): Headline | undefined {
   const url = line.match(/\x1b\]8;;([^\x1b\x07]+)(?:\x1b\\|\x07)/)?.[1];
   const title = line
     .replace(/\x1b\]8;;[^\x1b\x07]*(?:\x1b\\|\x07)/g, '')
     .replace(/\x1b\[[0-9;]*m/g, '')
-    .replace(/\x1b./g, '')
-    .replace(/[\x01-\x08\x0b-\x1f\x7f]/g, '')
+    .replace(UNSAFE_SEQUENCES, '')
     .replace(/^daily\.dev /, '')
     .trim();
   if (!title || title.endsWith('fetching headlines…')) return undefined;
   let safeUrl: string | undefined;
   try {
     const parsed = new URL(url ?? '');
-    if (
-      parsed.protocol === 'https:' &&
-      parsed.hostname === 'api.daily.dev' &&
-      parsed.pathname.startsWith('/c/')
-    ) {
+    if (parsed.protocol === 'https:' && parsed.pathname.startsWith('/c/')) {
       safeUrl = parsed.toString();
     }
   } catch {

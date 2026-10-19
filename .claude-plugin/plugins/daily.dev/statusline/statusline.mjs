@@ -305,13 +305,23 @@ const purple = style('38;5;135'); // daily.dev accent
 const stripColors = (s) => s.replace(/\x1b\[[0-9;]*m/g, '');
 
 // Only the OSC 8 (hyperlink) and SGR bold/dim/color sequences this script
-// itself emits are allowed through; anything else (OSC 2 title changes, BEL,
-// raw control bytes, or any other escape sequence) is stripped before the
-// line ever reaches the terminal or the UI.
+// itself emits are allowed through; anything else (OSC 2 title changes, OSC 52
+// clipboard writes, BEL, raw control bytes, or any other escape sequence) is
+// stripped before the line ever reaches the terminal or the UI. Links must
+// point at ORIGIN's /c/ click redirect, so a DAILY_DEV_ORIGIN override (staging,
+// local) keeps its links clickable.
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const ALLOWED_SGR = /\x1b\[(?:0|1|2|38;5;135)m/g;
-const ALLOWED_OSC8_OPEN =
-  /\x1b\]8;;(https:\/\/api\.daily\.dev\/c\/[^\x1b\x07]*)(?:\x1b\\|\x07)/g;
+const ALLOWED_OSC8_OPEN = new RegExp(
+  `\\x1b\\]8;;(${escapeRegExp(ORIGIN)}/c/[^\\x1b\\x07]*)(?:\\x1b\\\\|\\x07)`,
+  'g',
+);
 const ALLOWED_OSC8_CLOSE = /\x1b\]8;;(?:\x1b\\|\x07)/g;
+// Whole sequences, so an injected CSI/OSC leaves no payload behind as text:
+// OSC (ESC ] or 8-bit 0x9D ... BEL|ST), CSI (ESC [ or 8-bit 0x9B params
+// final), any other ESC + one byte, then stray C0/DEL bytes and C1 controls.
+const UNSAFE_SEQUENCES =
+  /(?:\x1b\]|\u009d)[^\x07\x1b\u009c]*(?:\x07|\x1b\\|\u009c)?|(?:\x1b\[|\u009b)[0-?]*[ -\/]*[@-~]|\x1b[\s\S]|[\x01-\x08\x0b-\x1f\x7f\u0080-\u009f]/g;
 
 function sanitizeLine(line) {
   const placeholders = [];
@@ -319,13 +329,11 @@ function sanitizeLine(line) {
     placeholders.push(m);
     return `\x00${placeholders.length - 1}\x00`;
   };
-  let marked = line
+  const marked = line
     .replace(ALLOWED_SGR, keep)
     .replace(ALLOWED_OSC8_OPEN, keep)
-    .replace(ALLOWED_OSC8_CLOSE, keep);
-  // Strip every remaining ESC/C0 control byte (placeholders use NUL markers,
-  // which are left untouched by this pass).
-  marked = marked.replace(/\x1b./g, '').replace(/[\x01-\x08\x0b-\x1f\x7f]/g, '');
+    .replace(ALLOWED_OSC8_CLOSE, keep)
+    .replace(UNSAFE_SEQUENCES, '');
   return marked.replace(/\x00(\d+)\x00/g, (_, i) => placeholders[Number(i)]);
 }
 
