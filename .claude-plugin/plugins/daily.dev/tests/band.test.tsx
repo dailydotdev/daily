@@ -97,3 +97,21 @@ test('pressing Hide dismisses the band for the session', async ($, on) => {
   expect((await ui.drawn()) as any).toMatchObject({ type: 'engine' });
   await ui.unmount();
 });
+
+// A line whose title smuggles escape sequences and whose link is not an https
+// click redirect: the title is shown as plain text and no Open link appears.
+const INJECTED =
+  '\x1b[38;5;135mdaily.dev\x1b[0m \x1b]8;;file:///etc/passwd\x1b\\' +
+  '\x1b[1mHello \x1b]52;c;aGVsbG8=\x07world \x1b[2J\x1b[31m\x9b2Jred\x1b]0;owned\x07\x07\x1b[0m\x1b]8;;\x1b\\ \x1b[2m▲4\x1b[0m';
+
+test('injected escape sequences are stripped from the title and a non-https link is dropped', async ($, on) => {
+  const statuses: (string | undefined)[] = [];
+  world(on, statuses, [], () => INJECTED);
+  await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
+  expect(statuses).toEqual(['daily.dev · Hello world red ▲4']);
+
+  const ui = await $.ui.mount({ plugin: 'daily.dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
+  expect(await ui.find({ type: 'Text', text: 'Hello world red ▲4' })).toBeDefined();
+  expect(await ui.find({ type: 'Link' })).toBeUndefined();
+  await ui.unmount();
+});
