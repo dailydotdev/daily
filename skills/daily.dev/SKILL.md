@@ -287,6 +287,10 @@ POST /plugins/ - Submit a plugin to the daily.dev marketplace for review. Provid
 GET /plugins/{id} - Get an approved plugin by id, including its about page. The SKILL.md is served separately at skillMdUrl.
   Params: id(path): Plugin id
 
+PUT /plugins/{id} - Submit an update to one of your approved plugins for review. Send the full plugin content, it replaces the current version once the daily.dev team approves it. The current version stays live until then, and a newer update replaces one still in review.
+  Params: id(path): Plugin id
+  Body: name, description, about, skillMd, url, repositoryUrl
+
 #### posts
 GET /posts/{id} - Get post details by ID
   Params: id(path): Post ID
