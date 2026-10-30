@@ -254,8 +254,8 @@ POST /feeds/filters/{feedId}/sources/unblock - Unblock sources for a custom feed
   Body: sources
 
 #### feeds
-GET /feeds/foryou - Get personalized "For You" feed
-  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response
+GET /feeds/foryou - Get personalized "For You" feed. With explain=true, every post also says why For You ranked it where it did.
+  Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; explain(query): Add explain to every post: why For You ranked it where it did, with the score's factors (engagement, topic match, follow, freshness, seen before, variety) and the reader's controls that applied. Only posts from the personalized ranking (explain.lane chal) carry more than the lane. If For You served the first page in the last few minutes, the first page with explain is that same page, so it explains what the reader just got.
 
 GET /feeds/popular - Get feed with trending and popular posts
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; tags(query): Comma-separated list of tags to filter by (up to 20)
@@ -275,6 +275,9 @@ GET /feeds/foryou/profile - Read the reader's For You interest profile: every to
 GET /feeds/foryou/controls - Read what the reader changed in For You: every topic, source and author set to anything but auto with its mode or exact weight and when a timed change ends, whether For You learns from their reading, whether popular posts fill it once the personalized ones run out, and the ranking settings they changed. getFeedsForyouProfile says whether these apply yet.
 
 GET /feeds/foryou/left-out - Read what For You leaves out: generates the reader's first page fresh and returns the best posts it left out, up to 20, each with explain.reasons naming why (codes such as hidden, blocked_tag, no_interest_or_follow, older_than_max_age or shown_too_often_without_action), and how often each reason applied across everything left out. Nothing is saved. When cohort is false, a notice says the reader is not on the ranking these reasons come from.
+
+GET /feeds/foryou/posts/{id}/explanation - Explain why a post is in the reader's For You, as getFeedsForyou with explain=true would, for a post an earlier getFeedsForyou call returned. It is read from the page For You served, so send the limit that call used and the pagination.cursor it returned. explain is null, with a notice, when that page did not have the post or For You no longer keeps it (a day at most).
+  Params: cursor(query): The pagination.cursor of the getFeedsForyou response the post came in; limit(query): The limit that getFeedsForyou call was sent with; id(path): Post ID
 
 POST /feeds/foryou/topics/mode - Set how much the reader's For You shows a topic. Follows, blocks and other feeds stay as they are. Free, except duration.
   Body: tag, mode, duration
@@ -305,9 +308,9 @@ POST /feeds/foryou/learning - Turn For You's learning from the reader's reading 
 POST /feeds/foryou/fill-ins - Turn popular fill-ins on or off: whether popular posts fill For You once the personalized ones run out. On by default. Free.
   Body: enabled
 
-DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. Free, at most 10 resets an hour.
+DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. Free, at most 10 resets an hour, counted together with deleteFeedsForyouSeen.
 
-DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. Free, at most 10 resets an hour.
+DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. Free, at most 10 resets an hour, counted together with deleteFeedsForyouLearned.
 
 #### notifications
 GET /notifications/ - Get user notifications
@@ -474,10 +477,11 @@ Help users stay ahead by monitoring community signals:
 ### 🎛️ Tune the For You Feed
 Explain and adjust what the user's For You feed shows:
 - Read `/feeds/foryou/profile` for the topics For You ranks on and why, and `/feeds/foryou/left-out` for the posts it left out and why
+- Fetch `/feeds/foryou?explain=true` to see why each post is where it is, or `/feeds/foryou/posts/{id}/explanation` for one post from an earlier `/feeds/foryou` page
 - Show more or less of a topic, source or author with the `/feeds/foryou/*/mode` endpoints, or set `mode` to `auto` to undo a change
 - Plus users can also set exact weights (`/feeds/foryou/*/weight`), ranking settings (`/feeds/foryou/ranking`) and changes that end after a `duration`
 - Check `/feeds/foryou/controls` for everything the user changed so far
-- When a response carries `notice`, the user's For You is not on the personalized ranking yet: changes are saved and apply later
+- Every response with a `notice` says why in plain words. On the profile and left-out endpoints it means the user's For You is not on the personalized ranking yet, so changes are saved and apply later
 
 **Trigger:** "Why don't I see [topic] in my feed?" or "Show me less [topic]"
 
