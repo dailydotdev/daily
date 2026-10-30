@@ -125,13 +125,13 @@ curl -s https://api.daily.dev/public/v1/docs/json | jq '.components.schemas["def
 
 #### bookmarks
 GET /bookmarks/ - Get user's bookmarked posts
-  Params: limit(query): Number of bookmarks to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; listId(query): Filter by bookmark list ID
+  Params: limit(query): Number of bookmarks to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; status(query): Read status to return: ALL (default, everything that is not archived), UNREAD, READ or ARCHIVED. Archived bookmarks only show up when asked for.; listId(query): Filter by bookmark list ID
 
 POST /bookmarks/ - Add posts to bookmarks
   Body: postIds, listId
 
 GET /bookmarks/search - Search within bookmarks
-  Params: q(query): Search query (required); limit(query): Number of results to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; listId(query): Filter by bookmark list ID
+  Params: q(query): Search query (required); limit(query): Number of results to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; status(query): Read status to return: ALL (default, everything that is not archived), UNREAD, READ or ARCHIVED. Archived bookmarks only show up when asked for.; listId(query): Filter by bookmark list ID
 
 GET /bookmarks/lists - Get user's bookmark lists
 
@@ -269,6 +269,46 @@ GET /feeds/tag/{tag} - Get posts by tag
 GET /feeds/source/{source} - Get posts by source
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; source(path): Source ID or handle
 
+#### for-you
+GET /feeds/foryou/profile - Read the reader's For You interest profile: every topic For You ranks on with its origin (declared: followed, inferred: learned from reading, set: added by the reader's control), how much reading backs it, its weight before the reader's control (computedWeight) and after it (weight), and the control itself. Also the topics turned off (muted) and blocked, whether For You learns from reading, and every ranking setting with its value and default. When cohort is false, a notice says the controls are saved but have no effect yet.
+
+GET /feeds/foryou/controls - Read what the reader changed in For You: every topic, source and author set to anything but auto with its mode or exact weight and when a timed change ends, whether For You learns from their reading, whether popular posts fill it once the personalized ones run out, and the ranking settings they changed. getFeedsForyouProfile says whether these apply yet.
+
+GET /feeds/foryou/left-out - Read what For You leaves out: generates the reader's first page fresh and returns the best posts it left out, up to 20, each with explain.reasons naming why (codes such as hidden, blocked_tag, no_interest_or_follow, older_than_max_age or shown_too_often_without_action), and how often each reason applied across everything left out. Nothing is saved. When cohort is false, a notice says the reader is not on the ranking these reasons come from.
+
+POST /feeds/foryou/topics/mode - Set how much the reader's For You shows a topic. Follows, blocks and other feeds stay as they are. Free, except duration.
+  Body: tag, mode, duration
+
+POST /feeds/foryou/topics/weight - Plus only. Set an exact weight (Exact boost) for a topic in For You. Take it back with postFeedsForyouTopicsMode and mode auto.
+  Body: tag, weight, duration
+
+POST /feeds/foryou/sources/mode - Set how much the reader's For You shows a source or squad. To stop seeing it everywhere, block it with postFeedsFiltersSourcesBlock instead. Free, except duration.
+  Body: source, mode, duration
+
+POST /feeds/foryou/sources/weight - Plus only. Set an exact weight (Exact boost) for a source or squad in For You. Take it back with postFeedsForyouSourcesMode and mode auto.
+  Body: source, weight, duration
+
+POST /feeds/foryou/authors/mode - Set how much the reader's For You shows an author's posts. Free, except duration.
+  Body: author, mode, duration
+
+POST /feeds/foryou/authors/weight - Plus only. Set an exact weight (Exact boost) for an author's posts in For You. Take it back with postFeedsForyouAuthorsMode and mode auto.
+  Body: author, weight, duration
+
+POST /feeds/foryou/ranking - Change one For You ranking setting. Setting a value is Plus only; taking one back to its default is free. getFeedsForyouProfile lists every setting with its value and default.
+  Body: key, value
+
+DELETE /feeds/foryou/ranking - Take every For You ranking setting back to its default. Free.
+
+POST /feeds/foryou/learning - Turn For You's learning from the reader's reading on or off. Off ranks on their follows and controls alone. On by default. Free.
+  Body: enabled
+
+POST /feeds/foryou/fill-ins - Turn popular fill-ins on or off: whether popular posts fill For You once the personalized ones run out. On by default. Free.
+  Body: enabled
+
+DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. Free, at most 10 resets an hour.
+
+DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. Free, at most 10 resets an hour.
+
 #### notifications
 GET /notifications/ - Get user notifications
   Params: limit(query): Number of notifications to return (1-50); cursor(query): Pagination cursor from previous response
@@ -278,7 +318,7 @@ GET /notifications/unread/count - Get unread notifications count
 POST /notifications/read - Mark all notifications as read
 
 #### plugins
-GET /plugins/ - List approved plugins from the daily.dev marketplace, newest first. A plugin has an about page plus agent instructions (SKILL.md), a link, or both.
+GET /plugins/ - List approved plugins from the daily.dev marketplace, most upvoted first. A plugin has an about page plus agent instructions (SKILL.md), a link, or both.
   Params: q(query): Search in plugin names and descriptions; limit(query): Number of plugins to return (1-50); cursor(query): Pagination cursor from previous response
 
 POST /plugins/ - Submit a plugin to the daily.dev marketplace for review. Provide agent instructions (SKILL.md), a link, or both. The plugin is listed once the daily.dev team approves it.
@@ -320,10 +360,6 @@ GET /search/tags - Search tags by name
 
 GET /search/sources - Search sources/publishers by name
   Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
-
-#### signup
-POST /signup/ - Creates a daily.dev account from an email and password. No token required — this is the endpoint to call when you do not have one yet. Personal Access Tokens for the rest of this API are issued separately from account settings.
-  Body: email, password, name, username
 
 #### stack
 GET /profile/stack/search - Search for tools/technologies by name
@@ -435,6 +471,16 @@ Help users stay ahead by monitoring community signals:
 
 **Trigger:** "What should I be paying attention to?" or "What's trending in [area]?"
 
+### 🎛️ Tune the For You Feed
+Explain and adjust what the user's For You feed shows:
+- Read `/feeds/foryou/profile` for the topics For You ranks on and why, and `/feeds/foryou/left-out` for the posts it left out and why
+- Show more or less of a topic, source or author with the `/feeds/foryou/*/mode` endpoints, or set `mode` to `auto` to undo a change
+- Plus users can also set exact weights (`/feeds/foryou/*/weight`), ranking settings (`/feeds/foryou/ranking`) and changes that end after a `duration`
+- Check `/feeds/foryou/controls` for everything the user changed so far
+- When a response carries `notice`, the user's For You is not on the personalized ranking yet: changes are saved and apply later
+
+**Trigger:** "Why don't I see [topic] in my feed?" or "Show me less [topic]"
+
 ## Rate Limits
 
 Requests are rate limited per user and per IP. Free accounts have a monthly allowance; Plus raises the limits. MCP tool calls and OAuth requests count against the same per-user quota as the token.
@@ -450,7 +496,7 @@ Check response headers:
 | Code | Meaning |
 |------|---------|
 | 401  | Invalid or missing token |
-| 403  | Plus-only feature (bookmark folders), account not confirmed, or OAuth token missing the required scope |
+| 403  | Plus-only feature (bookmark folders, For You exact weights, ranking settings and timed changes), account not confirmed, or OAuth token missing the required scope |
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
 
