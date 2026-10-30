@@ -20,13 +20,11 @@ Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggre
 1. **Create a token** at https://daily.dev/settings/api - every account can create one, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
-Plus raises the rate limits: https://daily.dev/plus
-
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
 ### MCP instead of a token
 
-If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP). Authentication is OAuth: the client registers itself and opens the daily.dev sign-in and consent screens, where the user approves `read` or `read write` access and can disconnect later from Settings > API. Every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
+If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP). Authentication is OAuth: the client registers itself and opens the daily.dev sign-in and consent screens, where the user approves `read` or `read write` access and can disconnect later from Settings > API. Almost every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`; deprecated endpoints are REST only and are not exposed as tools. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
 
 ### Secure Token Storage (Recommended)
 
@@ -127,7 +125,7 @@ curl -s https://api.daily.dev/public/v1/docs/json | jq '.components.schemas["def
 GET /bookmarks/ - Get user's bookmarked posts
   Params: limit(query): Number of bookmarks to return (1-50); cursor(query): Pagination cursor from previous response; unreadOnly(query): Filter to unread bookmarks only; status(query): Read status to return: ALL (default, everything that is not archived), UNREAD, READ or ARCHIVED. Archived bookmarks only show up when asked for.; listId(query): Filter by bookmark list ID
 
-POST /bookmarks/ - Add posts to bookmarks
+POST /bookmarks/ - Add posts to bookmarks. Saving a post that is already bookmarked overwrites which folder it sits in.
   Body: postIds, listId
 
 GET /bookmarks/search - Search within bookmarks
@@ -144,7 +142,7 @@ DELETE /bookmarks/lists/{id} - Delete a bookmark list
 DELETE /bookmarks/{id} - Remove a post from bookmarks
   Params: id(path): Post ID to unbookmark
 
-PATCH /bookmarks/{id} - Move a bookmark to a list or remove from list (Plus users only)
+PATCH /bookmarks/{id} - Move a bookmark into a folder, or remove it from its folder. Only available on accounts with bookmark folders enabled.
   Params: id(path): Post ID of the bookmark to move
   Body: listId
 
@@ -194,25 +192,25 @@ DELETE /profile/experiences/{id} - Delete an experience
 #### feed-filters
 GET /feeds/filters/ - Get global feed settings (For You feed)
 
-POST /feeds/filters/tags/follow - Follow tags globally (For You feed)
+POST /feeds/filters/tags/follow - Follow tags globally (For You feed). Following a tag that is currently blocked removes the block.
   Body: tags
 
 POST /feeds/filters/tags/unfollow - Unfollow tags globally (For You feed)
   Body: tags
 
-POST /feeds/filters/tags/block - Block tags globally (For You feed)
+POST /feeds/filters/tags/block - Block tags globally (For You feed). Blocking a tag that is currently followed removes the follow.
   Body: tags
 
 POST /feeds/filters/tags/unblock - Unblock tags globally (For You feed)
   Body: tags
 
-POST /feeds/filters/sources/follow - Follow sources globally (For You feed)
+POST /feeds/filters/sources/follow - Follow sources globally (For You feed). Following a source that is currently blocked removes the block.
   Body: sources
 
 POST /feeds/filters/sources/unfollow - Unfollow sources globally (For You feed)
   Body: sources
 
-POST /feeds/filters/sources/block - Block sources globally (For You feed)
+POST /feeds/filters/sources/block - Block sources globally (For You feed). Blocking a source that is currently followed removes the follow.
   Body: sources
 
 POST /feeds/filters/sources/unblock - Unblock sources globally (For You feed)
@@ -221,7 +219,7 @@ POST /feeds/filters/sources/unblock - Unblock sources globally (For You feed)
 GET /feeds/filters/{feedId} - Get custom feed filter settings
   Params: feedId(path): Feed ID
 
-POST /feeds/filters/{feedId}/tags/follow - Follow tags for a custom feed
+POST /feeds/filters/{feedId}/tags/follow - Follow tags for a custom feed. Following a tag that is currently blocked removes the block.
   Params: feedId(path): Feed ID
   Body: tags
 
@@ -229,7 +227,7 @@ POST /feeds/filters/{feedId}/tags/unfollow - Unfollow tags for a custom feed
   Params: feedId(path): Feed ID
   Body: tags
 
-POST /feeds/filters/{feedId}/tags/block - Block tags for a custom feed
+POST /feeds/filters/{feedId}/tags/block - Block tags for a custom feed. Blocking a tag that is currently followed removes the follow.
   Params: feedId(path): Feed ID
   Body: tags
 
@@ -237,7 +235,7 @@ POST /feeds/filters/{feedId}/tags/unblock - Unblock tags for a custom feed
   Params: feedId(path): Feed ID
   Body: tags
 
-POST /feeds/filters/{feedId}/sources/follow - Follow sources for a custom feed
+POST /feeds/filters/{feedId}/sources/follow - Follow sources for a custom feed. Following a source that is currently blocked removes the block.
   Params: feedId(path): Feed ID
   Body: sources
 
@@ -245,7 +243,7 @@ POST /feeds/filters/{feedId}/sources/unfollow - Unfollow sources for a custom fe
   Params: feedId(path): Feed ID
   Body: sources
 
-POST /feeds/filters/{feedId}/sources/block - Block sources for a custom feed
+POST /feeds/filters/{feedId}/sources/block - Block sources for a custom feed. Blocking a source that is currently followed removes the follow.
   Params: feedId(path): Feed ID
   Body: sources
 
@@ -279,38 +277,38 @@ GET /feeds/foryou/left-out - Read what For You leaves out: generates the reader'
 GET /feeds/foryou/posts/{id}/explanation - Explain why a post is in the reader's For You, as getFeedsForyou with explain=true would, for a post an earlier getFeedsForyou call returned. It is read from the page For You served, so send the limit that call used and the pagination.cursor it returned. explain is null, with a notice, when that page did not have the post or For You no longer keeps it (a day at most).
   Params: cursor(query): The pagination.cursor of the getFeedsForyou response the post came in; limit(query): The limit that getFeedsForyou call was sent with; id(path): Post ID
 
-POST /feeds/foryou/topics/mode - Set how much the reader's For You shows a topic. Follows, blocks and other feeds stay as they are. Free, except duration.
+POST /feeds/foryou/topics/mode - Set how much the reader's For You shows a topic. Follows, blocks and other feeds stay as they are. Setting a duration is not available on every account.
   Body: tag, mode, duration
 
-POST /feeds/foryou/topics/weight - Plus only. Set an exact weight (Exact boost) for a topic in For You. Take it back with postFeedsForyouTopicsMode and mode auto.
+POST /feeds/foryou/topics/weight - Set an exact weight (Exact boost) for a topic in For You. Not available on every account. Take it back with postFeedsForyouTopicsMode and mode auto.
   Body: tag, weight, duration
 
-POST /feeds/foryou/sources/mode - Set how much the reader's For You shows a source or squad. To stop seeing it everywhere, block it with postFeedsFiltersSourcesBlock instead. Free, except duration.
+POST /feeds/foryou/sources/mode - Set how much the reader's For You shows a source or squad. To stop seeing it everywhere, block it with postFeedsFiltersSourcesBlock instead. Setting a duration is not available on every account.
   Body: source, mode, duration
 
-POST /feeds/foryou/sources/weight - Plus only. Set an exact weight (Exact boost) for a source or squad in For You. Take it back with postFeedsForyouSourcesMode and mode auto.
+POST /feeds/foryou/sources/weight - Set an exact weight (Exact boost) for a source or squad in For You. Not available on every account. Take it back with postFeedsForyouSourcesMode and mode auto.
   Body: source, weight, duration
 
-POST /feeds/foryou/authors/mode - Set how much the reader's For You shows an author's posts. Free, except duration.
+POST /feeds/foryou/authors/mode - Set how much the reader's For You shows an author's posts. Setting a duration is not available on every account.
   Body: author, mode, duration
 
-POST /feeds/foryou/authors/weight - Plus only. Set an exact weight (Exact boost) for an author's posts in For You. Take it back with postFeedsForyouAuthorsMode and mode auto.
+POST /feeds/foryou/authors/weight - Set an exact weight (Exact boost) for an author's posts in For You. Not available on every account. Take it back with postFeedsForyouAuthorsMode and mode auto.
   Body: author, weight, duration
 
-POST /feeds/foryou/ranking - Change one For You ranking setting. Setting a value is Plus only; taking one back to its default is free. getFeedsForyouProfile lists every setting with its value and default.
+POST /feeds/foryou/ranking - Change one For You ranking setting. Setting a value is not available on every account; taking one back to its default always is. getFeedsForyouProfile lists every setting with its value and default.
   Body: key, value
 
-DELETE /feeds/foryou/ranking - Take every For You ranking setting back to its default. Free.
+DELETE /feeds/foryou/ranking - Take every For You ranking setting back to its default.
 
-POST /feeds/foryou/learning - Turn For You's learning from the reader's reading on or off. Off ranks on their follows and controls alone. On by default. Free.
+POST /feeds/foryou/learning - Turn For You's learning from the reader's reading on or off. Off ranks on their follows and controls alone. On by default.
   Body: enabled
 
-POST /feeds/foryou/fill-ins - Turn popular fill-ins on or off: whether popular posts fill For You once the personalized ones run out. On by default. Free.
+POST /feeds/foryou/fill-ins - Turn popular fill-ins on or off: whether popular posts fill For You once the personalized ones run out. On by default.
   Body: enabled
 
-DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. Free, at most 10 resets an hour, counted together with deleteFeedsForyouSeen.
+DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. At most 10 resets an hour, counted together with deleteFeedsForyouSeen.
 
-DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. Free, at most 10 resets an hour, counted together with deleteFeedsForyouLearned.
+DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. At most 10 resets an hour, counted together with deleteFeedsForyouLearned.
 
 #### notifications
 GET /notifications/ - Get user notifications
@@ -324,13 +322,13 @@ POST /notifications/read - Mark all notifications as read
 GET /plugins/ - List approved plugins from the daily.dev marketplace, most upvoted first. A plugin has an about page plus agent instructions (SKILL.md), a link, or both.
   Params: q(query): Search in plugin names and descriptions; limit(query): Number of plugins to return (1-50); cursor(query): Pagination cursor from previous response
 
-POST /plugins/ - Submit a plugin to the daily.dev marketplace for review. Provide agent instructions (SKILL.md), a link, or both. The plugin is listed once the daily.dev team approves it.
+POST /plugins/ - Submit a plugin to the daily.dev marketplace for review. Provide agent instructions (SKILL.md), a link, or both. Links may point to third-party sites and repositories hosted outside daily.dev. The plugin becomes publicly visible to everyone in the marketplace once the daily.dev team approves it.
   Body: name, description, about, skillMd, url, repositoryUrl
 
 GET /plugins/{id} - Get an approved plugin by id, including its about page. The SKILL.md is served separately at skillMdUrl.
   Params: id(path): Plugin id
 
-PUT /plugins/{id} - Submit an update to one of your approved plugins for review. Send the full plugin content, it replaces the current version once the daily.dev team approves it. The current version stays live until then, and a newer update replaces one still in review.
+PUT /plugins/{id} - Submit an update to one of your approved plugins for review. Send the full plugin content, it replaces the publicly listed version once the daily.dev team approves it. Links may point to third-party sites and repositories hosted outside daily.dev. The current version stays live until then, and a newer update replaces one still in review.
   Params: id(path): Plugin id
   Body: name, description, about, skillMd, url, repositoryUrl
 
@@ -479,7 +477,7 @@ Explain and adjust what the user's For You feed shows:
 - Read `/feeds/foryou/profile` for the topics For You ranks on and why, and `/feeds/foryou/left-out` for the posts it left out and why
 - Fetch `/feeds/foryou?explain=true` to see why each post is where it is, or `/feeds/foryou/posts/{id}/explanation` for one post from an earlier `/feeds/foryou` page
 - Show more or less of a topic, source or author with the `/feeds/foryou/*/mode` endpoints, or set `mode` to `auto` to undo a change
-- Plus users can also set exact weights (`/feeds/foryou/*/weight`), ranking settings (`/feeds/foryou/ranking`) and changes that end after a `duration`
+- Exact weights (`/feeds/foryou/*/weight`), ranking settings (`/feeds/foryou/ranking`) and changes that end after a `duration` are not available on every account
 - Check `/feeds/foryou/controls` for everything the user changed so far
 - Every response with a `notice` says why in plain words. On the profile and left-out endpoints it means the user's For You is not on the personalized ranking yet, so changes are saved and apply later
 
@@ -487,7 +485,7 @@ Explain and adjust what the user's For You feed shows:
 
 ## Rate Limits
 
-Requests are rate limited per user and per IP. Free accounts have a monthly allowance; Plus raises the limits. MCP tool calls and OAuth requests count against the same per-user quota as the token.
+Requests are rate limited per user and per IP, with a monthly allowance that varies by account. MCP tool calls and OAuth requests count against the same per-user quota as the token.
 
 Check response headers:
 - `X-RateLimit-Limit` - Maximum requests allowed per window
@@ -500,7 +498,7 @@ Check response headers:
 | Code | Meaning |
 |------|---------|
 | 401  | Invalid or missing token |
-| 403  | Plus-only feature (bookmark folders, For You exact weights, ranking settings and timed changes), account not confirmed, or OAuth token missing the required scope |
+| 403  | A capability this account does not have (bookmark folders, For You exact weights, ranking settings and timed changes), account not confirmed, or OAuth token missing the required scope |
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
 

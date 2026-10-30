@@ -22,11 +22,8 @@ $ARGUMENTS
 
 ## Setup
 
-1. **Create a token** at https://daily.dev/settings/api - free accounts included, no subscription needed
+1. **Create a token** at https://daily.dev/settings/api - every account can create one, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
-
-Every account can use the API; Plus raises the rate limits:
-https://daily.dev/plus
 
 If the agent is already connected to the daily.dev MCP server
 (`https://api.daily.dev/mcp`), skip the token steps: the calls below
@@ -105,16 +102,16 @@ If the token is still empty after trying secure storage, direct the user to the 
 
 ### 2. Search iteratively — treat daily.dev like a search engine
 
-Use the two endpoints below as many times as needed to explore the user's question. There is no hard limit on the number of queries — search like you would with web search.
+Use the endpoints below as many times as needed to explore the user's question. There is no hard limit on the number of queries — search like you would with web search.
 
 **Keyword search endpoint:**
 ```bash
 curl -s -H "Authorization: Bearer $DAILY_DEV_TOKEN" "https://api.daily.dev/public/v1/recommend/keyword?q={keywords}&limit=20"
 ```
 
-**Semantic search endpoint:**
+**Full-text search endpoint** (use the user's own wording, and as a fallback whenever keyword recommendations come back thin):
 ```bash
-curl -s -H "Authorization: Bearer $DAILY_DEV_TOKEN" "https://api.daily.dev/public/v1/recommend/semantic?q={query}&limit=20"
+curl -s -H "Authorization: Bearer $DAILY_DEV_TOKEN" "https://api.daily.dev/public/v1/search/posts?q={query}&limit=20"
 ```
 
 Both return:
@@ -138,7 +135,7 @@ Both return:
 
 #### Search strategy
 
-1. **Initial searches** — Start with a keyword search (core technical terms) and a semantic search (full question). You can run these in parallel.
+1. **Initial searches** — Start with a keyword search (core technical terms) and a full-text search (the full question). You can run these in parallel.
 
 2. **Analyze and identify gaps** — Review the results:
    - Did I find enough to fully answer the question?
