@@ -300,15 +300,19 @@ POST /feeds/foryou/ranking - Change one For You ranking setting. Setting a value
 
 DELETE /feeds/foryou/ranking - Take every For You ranking setting back to its default.
 
+DELETE /feeds/foryou/levels - Take every topic, source and author the reader set in For You back to auto: modes, exact weights and timed changes. Follows and blocks stay. getFeedsForyouControls lists what this clears. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
+
 POST /feeds/foryou/learning - Turn For You's learning from the reader's reading on or off. Off ranks on their follows and controls alone. On by default.
   Body: enabled
 
 POST /feeds/foryou/fill-ins - Turn popular fill-ins on or off: whether popular posts fill For You once the personalized ones run out. On by default.
   Body: enabled
 
-DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. At most 10 resets an hour, counted together with deleteFeedsForyouSeen.
+DELETE /feeds/foryou/learned - Make For You forget what it learned from the reader's reading, so it starts over from their follows. Follows, blocks and controls stay. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
-DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. At most 10 resets an hour, counted together with deleteFeedsForyouLearned.
+DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
+
+DELETE /feeds/foryou/personalization - Start For You over in one call: forget what it learned from the reader's reading and which posts they scrolled past, take every topic, source and author back to auto, and every ranking setting back to its default. Follows, blocks and the learning and fill-ins switches stay. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
 #### notifications
 GET /notifications/ - Get user notifications
@@ -479,9 +483,10 @@ Explain and adjust what the user's For You feed shows:
 - Show more or less of a topic, source or author with the `/feeds/foryou/*/mode` endpoints, or set `mode` to `auto` to undo a change
 - Exact weights (`/feeds/foryou/*/weight`), ranking settings (`/feeds/foryou/ranking`) and changes that end after a `duration` are not available on every account
 - Check `/feeds/foryou/controls` for everything the user changed so far
+- Take every topic, source and author change back to auto with `DELETE /feeds/foryou/levels`, or start For You over with `DELETE /feeds/foryou/personalization`. Confirm with the user before calling either one
 - Every response with a `notice` says why in plain words. On the profile and left-out endpoints it means the user's For You is not on the personalized ranking yet, so changes are saved and apply later
 
-**Trigger:** "Why don't I see [topic] in my feed?" or "Show me less [topic]"
+**Trigger:** "Why don't I see [topic] in my feed?", "Show me less [topic]" or "Reset my feed"
 
 ## Rate Limits
 
