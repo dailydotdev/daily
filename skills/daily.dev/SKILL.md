@@ -268,9 +268,9 @@ GET /feeds/source/{source} - Get posts by source
   Params: limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response; source(path): Source ID or handle
 
 #### for-you
-GET /feeds/foryou/profile - Read the reader's For You interest profile: every topic For You ranks on with its origin (declared: followed, inferred: learned from reading, set: added by the reader's control), how much reading backs it, its weight before the reader's control (computedWeight) and after it (weight), and the control itself. Also the topics turned off (muted) and blocked, whether For You learns from reading, and every ranking setting with its value and default. When cohort is false, a notice says the controls are saved but have no effect yet.
+GET /feeds/foryou/profile - Read the reader's For You interest profile: every topic For You ranks on with its origin (declared: followed, inferred: learned from reading, set: added by the reader's control), how much reading backs it, its weight before the reader's control (computedWeight) and after it (weight), and the control itself. Also the topics turned off (muted) and blocked, and whether For You learns from reading. When cohort is false, a notice says the controls are saved but have no effect yet.
 
-GET /feeds/foryou/controls - Read what the reader changed in For You: every topic, source and author set to anything but auto with its mode or exact weight and when a timed change ends, whether For You learns from their reading, whether popular posts fill it once the personalized ones run out, and the ranking settings they changed. getFeedsForyouProfile says whether these apply yet.
+GET /feeds/foryou/controls - Read what the reader changed in For You: every topic, source and author set to anything but auto with its mode or exact weight and when a timed change ends, whether For You learns from their reading, and whether popular posts fill it once the personalized ones run out. getFeedsForyouProfile says whether these apply yet.
 
 GET /feeds/foryou/left-out - Read what For You leaves out: generates the reader's first page fresh and returns the best posts it left out, up to 20, each with explain.reasons naming why (codes such as hidden, blocked_tag, no_interest_or_follow, older_than_max_age or shown_too_often_without_action), and how often each reason applied across everything left out. Nothing is saved. When cohort is false, a notice says the reader is not on the ranking these reasons come from.
 
@@ -295,11 +295,6 @@ POST /feeds/foryou/authors/mode - Set how much the reader's For You shows an aut
 POST /feeds/foryou/authors/weight - Set an exact weight (Exact boost) for an author's posts in For You. Not available on every account. Take it back with postFeedsForyouAuthorsMode and mode auto.
   Body: author, weight, duration
 
-POST /feeds/foryou/ranking - Change one For You ranking setting. Setting a value is not available on every account; taking one back to its default always is. getFeedsForyouProfile lists every setting with its value and default.
-  Body: key, value
-
-DELETE /feeds/foryou/ranking - Take every For You ranking setting back to its default.
-
 DELETE /feeds/foryou/levels - Take every topic, source and author the reader set in For You back to auto: modes, exact weights and timed changes. Follows and blocks stay. getFeedsForyouControls lists what this clears. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
 POST /feeds/foryou/learning - Turn For You's learning from the reader's reading on or off. Off ranks on their follows and controls alone. On by default.
@@ -312,7 +307,7 @@ DELETE /feeds/foryou/learned - Make For You forget what it learned from the read
 
 DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
-DELETE /feeds/foryou/personalization - Start For You over in one call: forget what it learned from the reader's reading and which posts they scrolled past, take every topic, source and author back to auto, and every ranking setting back to its default. Follows, blocks and the learning and fill-ins switches stay. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
+DELETE /feeds/foryou/personalization - Start For You over in one call: forget what it learned from the reader's reading and which posts they scrolled past, and take every topic, source and author back to auto. Follows, blocks and the learning and fill-ins switches stay. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
 #### notifications
 GET /notifications/ - Get user notifications
@@ -481,7 +476,7 @@ Explain and adjust what the user's For You feed shows:
 - Read `/feeds/foryou/profile` for the topics For You ranks on and why, and `/feeds/foryou/left-out` for the posts it left out and why
 - Fetch `/feeds/foryou?explain=true` to see why each post is where it is, or `/feeds/foryou/posts/{id}/explanation` for one post from an earlier `/feeds/foryou` page
 - Show more or less of a topic, source or author with the `/feeds/foryou/*/mode` endpoints, or set `mode` to `auto` to undo a change
-- Exact weights (`/feeds/foryou/*/weight`), ranking settings (`/feeds/foryou/ranking`) and changes that end after a `duration` are not available on every account
+- Exact weights (`/feeds/foryou/*/weight`) and changes that end after a `duration` are not available on every account
 - Check `/feeds/foryou/controls` for everything the user changed so far
 - Take every topic, source and author change back to auto with `DELETE /feeds/foryou/levels`, or start For You over with `DELETE /feeds/foryou/personalization`. Confirm with the user before calling either one
 - Every response with a `notice` says why in plain words. On the profile and left-out endpoints it means the user's For You is not on the personalized ranking yet, so changes are saved and apply later
@@ -503,7 +498,7 @@ Check response headers:
 | Code | Meaning |
 |------|---------|
 | 401  | Invalid or missing token |
-| 403  | A capability this account does not have (bookmark folders, For You exact weights, ranking settings and timed changes), account not confirmed, or OAuth token missing the required scope |
+| 403  | A capability this account does not have (bookmark folders, For You exact weights and timed changes), account not confirmed, or OAuth token missing the required scope |
 | 404  | Resource not found |
 | 429  | Rate limit exceeded |
 
