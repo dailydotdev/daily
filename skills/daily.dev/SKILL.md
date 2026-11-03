@@ -373,7 +373,7 @@ GET /profile/analytics/history - Daily impressions across the posts you authored
   Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted
 
 GET /profile/analytics/posts - The posts you authored with their performance over the period, sorted and paginated.
-  Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted; sort(query): Column to sort on. publishedAt is when the post went up on daily.dev.; order(query): Sort direction; limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response
+  Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted; sort(query): Column to sort on. createdAt is when the post went up on daily.dev.; order(query): Sort direction; limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response
 
 #### recommend
 GET /recommend/keyword - [EXPERIMENTAL] Recommend articles by keyword search. Best when the query contains specific technical terms (e.g. "RAG", "pgvector", "LangChain"). Returns posts with engagement signals for LLM consumption. Natural-language questions and long phrases usually match nothing and return an empty list; use GET /search/posts with two or three keywords for those. This endpoint may be removed or changed without notice.
