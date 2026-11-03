@@ -146,6 +146,22 @@ PATCH /bookmarks/{id} - Move a bookmark into a folder, or remove it from its fol
   Params: id(path): Post ID of the bookmark to move
   Body: listId
 
+#### boosts
+GET /boosts/ - Boosts you started, active ones first, then newest. A boost promotes a post or squad in the feed for Cores.
+  Params: limit(query): Number of boosts to return (1-50); cursor(query): Pagination cursor from previous response; targetId(query): Only boosts of this post or squad, by ID (the targetId of a boost)
+
+POST /boosts/ - Promote a post or squad in the feed. Charges budget × duration Cores up front: confirm the cost with the user first, and check the reach with getBoostsEstimate. A post or squad can have one active boost at a time. 402 when the balance is too low, with a link to buy Cores.
+  Body: type, targetId, budget, duration
+
+GET /boosts/estimate - Estimated impressions per day a boost would get at a daily budget, as a range. Spends nothing.
+  Params: type(query): post: a post you authored or submitted. squad: a squad you moderate or admin.; targetId(query): Post ID, or squad ID or handle; budget(query): Cores to spend per day, 1000 to 100000 in steps of 1000
+
+GET /boosts/{id} - Get one of your boosts by ID
+  Params: id(path): Boost ID
+
+DELETE /boosts/{id} - Cancel an active boost and refund the Cores it has not spent. 400 when the boost is no longer active.
+  Params: id(path): Boost ID
+
 #### custom-feeds
 GET /feeds/custom/advanced-settings - Get all available advanced settings that can be configured for custom feeds
 
@@ -338,11 +354,26 @@ GET /posts/{id} - Get post details by ID
 GET /posts/{id}/comments - Get comments for a post
   Params: limit(query): Number of comments to return (1-50); cursor(query): Pagination cursor from previous response; sort(query): Sort order (oldest or newest first); id(path): Post ID
 
+GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
+  Params: id(path): Post ID
+
+GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first. Only days with recorded impressions are listed. 403 when you are not the author.
+  Params: limit(query): Number of days to return (1-50); cursor(query): Pagination cursor from previous response; id(path): Post ID
+
 #### profile
 GET /profile/ - Get current user's profile
 
 PATCH /profile/ - Update user profile
   Body: name, bio, timezone, weekStart, experienceLevel, socialLinks
+
+GET /profile/analytics/ - Performance of the posts you authored over the period, compared with the window before it, plus lifetime totals. Each headline metric says whether it is scoped to the period (PERIOD) or a running total (LIFETIME); coverage says which days the period numbers are built from.
+  Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted
+
+GET /profile/analytics/history - Daily impressions across the posts you authored over the period, oldest first. Only days with recorded impressions are listed: a day missing between coverage.coveredStartDate and coverage.endDate had zero impressions, while a day before coveredStartDate was never measured and must not be read as zero.
+  Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted
+
+GET /profile/analytics/posts - The posts you authored with their performance over the period, sorted and paginated.
+  Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted; sort(query): Column to sort on. createdAt is when the post went up on daily.dev.; order(query): Sort direction; limit(query): Number of posts to return (1-50); cursor(query): Pagination cursor from previous response
 
 #### recommend
 GET /recommend/keyword - [EXPERIMENTAL] Recommend articles by keyword search. Best when the query contains specific technical terms (e.g. "RAG", "pgvector", "LangChain"). Returns posts with engagement signals for LLM consumption. Natural-language questions and long phrases usually match nothing and return an empty list; use GET /search/posts with two or three keywords for those. This endpoint may be removed or changed without notice.
@@ -360,6 +391,13 @@ GET /search/tags - Search tags by name
 
 GET /search/sources - Search sources/publishers by name
   Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
+
+#### squads
+GET /squads/{id}/analytics - Lifetime analytics across the posts of a squad you moderate or admin. 403 for other members.
+  Params: id(path): Squad ID or handle
+
+GET /squads/{id}/analytics/history - Daily impressions across the posts of a squad you moderate or admin, for the last 45 days, newest first. Only days with recorded impressions are listed.
+  Params: id(path): Squad ID or handle
 
 #### stack
 GET /profile/stack/search - Search for tools/technologies by name
@@ -483,6 +521,15 @@ Explain and adjust what the user's For You feed shows:
 
 **Trigger:** "Why don't I see [topic] in my feed?", "Show me less [topic]" or "Reset my feed"
 
+### 📣 Measure and Boost Your Content
+Report how the user's posts and squads perform, and promote them:
+- `/profile/analytics?period=30d` (or `90d`) for headline numbers against the window before, `/profile/analytics/posts?sort=impressions` to see which posts worked, `/posts/{id}/analytics` and `/squads/{id}/analytics` for one post or squad
+- A metric whose `semantics` is `LIFETIME` is a running total, not the period's number, and `previous` is null when a comparison would mislead
+- Check `/boosts/estimate` before `POST /boosts`. A boost charges `budget × duration` Cores up front, so confirm the total with the user first. `DELETE /boosts/{id}` stops it and refunds what it has not spent
+- A 402 means the balance is too low: share the `buyCoresUrl` from the response with the user
+
+**Trigger:** "How did my last post do?", "Which of my posts reached the most people?" or "Boost my post"
+
 ## Rate Limits
 
 Requests are rate limited per user and per IP, with a monthly allowance that varies by account. MCP tool calls and OAuth requests count against the same per-user quota as the token.
@@ -498,9 +545,10 @@ Check response headers:
 | Code | Meaning |
 |------|---------|
 | 401  | Invalid or missing token |
+| 402  | Not enough Cores to start a boost. `buyCoresUrl` links to buying more |
 | 403  | A capability this account does not have (bookmark folders, For You exact weights and timed changes), account not confirmed, or OAuth token missing the required scope |
 | 404  | Resource not found |
-| 429  | Rate limit exceeded |
+| 429  | Rate limit exceeded. Without Plus, `upgradeUrl` links to daily.dev Plus |
 
 **Error Response Format:**
 ```json
