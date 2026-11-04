@@ -399,6 +399,62 @@ GET /squads/{id}/analytics - Lifetime analytics across the posts of a squad you 
 GET /squads/{id}/analytics/history - Daily impressions across the posts of a squad you moderate or admin, for the last 45 days, newest first. Only days with recorded impressions are listed.
   Params: id(path): Squad ID or handle
 
+GET /squads/{id} - A squad with its settings, paid features, rules, links and branding. Check features before calling the paid endpoints.
+  Params: id(path): Squad ID or handle
+
+PATCH /squads/{id} - Change the settings of a squad you admin or moderate. Send only the fields to change.
+  Params: id(path): Squad ID or handle
+  Body: name, handle, description, memberPostingRole, memberInviteRole, moderationRequired, postingMinReputation, private, categoryId
+
+PUT /squads/{id}/rules - Replace the rules of a squad you admin or moderate. An empty list removes them.
+  Params: id(path): Squad ID or handle
+  Body: rules
+
+PUT /squads/{id}/links - Replace the website and links shown on the squad page. Needs the links feature (any squad plan). 403 without it.
+  Params: id(path): Squad ID or handle
+  Body: website, links
+
+PUT /squads/{id}/branding - Set the header button members see in place of Join, and the brand color. The button needs the cta feature (Team plan) or a verified squad; the color needs a verified squad (Enterprise). Both values are replaced: omit one to clear it.
+  Params: id(path): Squad ID or handle
+  Body: color, button
+
+GET /squads/{id}/products - Products shown on the squad page, in display order. Empty while the products feature is off.
+  Params: id(path): Squad ID or handle
+
+POST /squads/{id}/products - Add a product to the squad page, linking the catalog tool with that name or creating it. Needs the products feature. Plan squads show one product, verified squads up to 20; 400 past the limit.
+  Params: id(path): Squad ID or handle
+  Body: name, tagline, description, pricingModel, links, url
+
+PATCH /squads/products/{productId} - Change a product on your squad's page. The name cannot be changed. Send only the fields to change.
+  Params: productId(path): Product ID
+  Body: tagline, description, pricingModel, links, url
+
+DELETE /squads/products/{productId} - Remove a product from its squad page. The catalog tool stays.
+  Params: productId(path): Product ID
+
+PUT /squads/{id}/products/order - Set the display order of the squad's products.
+  Params: id(path): Squad ID or handle
+  Body: ids
+
+GET /squads/{id}/members - Members of a squad with their role and whether they hold a paid seat.
+  Params: limit(query): integer; cursor(query): endCursor from the previous page; role(query): Only this role. blocked lists blocked users and needs moderator access.; query(query): Search members by name or username; id(path): Squad ID or handle
+
+PUT /squads/{id}/members/{userId}/role - Set a member role in a squad you admin. blocked removes the member and stops them from joining again; moderators can block members too.
+  Params: id(path): Squad ID or handle; userId(path): The member's user ID
+  Body: role
+
+POST /squads/{id}/members/{userId}/unblock - Let a blocked user join the squad again.
+  Params: id(path): Squad ID or handle; userId(path): The member's user ID
+
+GET /squads/{id}/subscription - The daily.dev for Startups plan of a squad you admin or moderate, with its paid seats (starter 1, team 5). plan is null without an active subscription.
+  Params: id(path): Squad ID or handle
+
+PUT /squads/{id}/seats/{userId} - Give an admin or moderator one of the plan paid seats, which includes API posting for the squad. Squad admins only. 409 when every seat is taken.
+  Params: id(path): Squad ID or handle; userId(path): The member's user ID
+
+DELETE /squads/{id}/seats/{userId} - Free a member's paid seat. Squad admins only. The subscription owner keeps theirs.
+  Params: id(path): Squad ID or handle; userId(path): The member's user ID
+
 #### stack
 GET /profile/stack/search - Search for tools/technologies by name
   Params: query(query): Search query (minimum 1 character)
@@ -530,6 +586,16 @@ Report how the user's posts and squads perform, and promote them:
 
 **Trigger:** "How did my last post do?", "Which of my posts reached the most people?" or "Boost my post"
 
+### 🏠 Manage Your Squad
+Run a squad the user admins or moderates:
+- Start with `GET /squads/{id}` (ID or handle). `features` says which paid endpoints the squad's plan unlocks, and `currentMember.role` says what the user can change
+- `PATCH /squads/{id}` sends only the fields to change. Rules, links and branding are replaced whole, so read them first and send the full list
+- Links need `features.links`, the header button needs `features.cta` (or a verified squad), the brand color needs a verified squad, and products need `features.products`. A plan caps products, and adding past the cap returns 400
+- `GET /squads/{id}/subscription` shows the plan and its paid seats. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409
+- Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
+
+**Trigger:** "Add our new product to the squad page", "Give my cofounder a seat" or "Update the squad rules"
+
 ## Rate Limits
 
 Requests are rate limited per user and per IP, with a monthly allowance that varies by account. MCP tool calls and OAuth requests count against the same per-user quota as the token.
@@ -546,8 +612,10 @@ Check response headers:
 |------|---------|
 | 401  | Invalid or missing token |
 | 402  | Not enough Cores to start a boost. `buyCoresUrl` links to buying more |
-| 403  | A capability this account does not have (bookmark folders, For You exact weights and timed changes), account not confirmed, or OAuth token missing the required scope |
+| 400  | Invalid input, or a squad plan limit such as the product cap |
+| 403  | A capability this account does not have (bookmark folders, For You exact weights and timed changes, a squad role or a paid squad feature), account not confirmed, or OAuth token missing the required scope |
 | 404  | Resource not found |
+| 409  | Conflict, such as a squad with every paid seat taken or a product already on the page |
 | 429  | Rate limit exceeded. Without Plus, `upgradeUrl` links to daily.dev Plus |
 
 **Error Response Format:**
