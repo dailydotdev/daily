@@ -360,6 +360,13 @@ GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed
 GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first. Only days with recorded impressions are listed. 403 when you are not the author.
   Params: limit(query): Number of days to return (1-50); cursor(query): Pagination cursor from previous response; id(path): Post ID
 
+PATCH /posts/{id} - Change the title or markdown content of a written post you published. Shared links keep their article; only written posts can be edited.
+  Params: id(path): Post ID
+  Body: title, content
+
+DELETE /posts/{id} - Delete a post you published, or one in a squad you moderate. Permanent.
+  Params: id(path): Post ID
+
 #### profile
 GET /profile/ - Get current user's profile
 
@@ -393,6 +400,9 @@ GET /search/sources - Search sources/publishers by name
   Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
 
 #### squads
+GET /squads/ - Squads you belong to, with your role, whether you hold a paid seat and the invite link to share with teammates. Use it to find your company page.
+  Params: limit(query): integer; cursor(query): endCursor from the previous page
+
 GET /squads/{id}/analytics - Lifetime analytics across the posts of a squad you moderate or admin. 403 for other members.
   Params: id(path): Squad ID or handle
 
@@ -402,9 +412,9 @@ GET /squads/{id}/analytics/history - Daily impressions across the posts of a squ
 GET /squads/{id} - A squad with its settings, paid features, rules, links and branding. Check features before calling the paid endpoints.
   Params: id(path): Squad ID or handle
 
-PATCH /squads/{id} - Change the settings of a squad you admin or moderate. Send only the fields to change.
+PATCH /squads/{id} - Change the settings, logo or cover of a squad you admin or moderate. Send only the fields to change.
   Params: id(path): Squad ID or handle
-  Body: name, handle, description, memberPostingRole, memberInviteRole, moderationRequired, postingMinReputation, private, categoryId
+  Body: name, handle, description, memberPostingRole, memberInviteRole, moderationRequired, postingMinReputation, private, categoryId, image, headerImage (image and headerImage are http(s) image URLs that daily.dev downloads and stores; 400 when one cannot be fetched or is not an image)
 
 PUT /squads/{id}/rules - Replace the rules of a squad you admin or moderate. An empty list removes them.
   Params: id(path): Squad ID or handle
@@ -446,7 +456,7 @@ PUT /squads/{id}/members/{userId}/role - Set a member role in a squad you admin.
 POST /squads/{id}/members/{userId}/unblock - Let a blocked user join the squad again.
   Params: id(path): Squad ID or handle; userId(path): The member's user ID
 
-GET /squads/{id}/subscription - The daily.dev for Startups plan of a squad you admin or moderate, with its paid seats (starter 1, team 5). plan is null without an active subscription.
+GET /squads/{id}/subscription - The daily.dev for Startups plan of a squad you admin or moderate, with its paid seats (starter 1, team 5) and the Cores its wallet holds for boosts. plan is null without an active subscription.
   Params: id(path): Squad ID or handle
 
 PUT /squads/{id}/seats/{userId} - Give an admin or moderator one of the plan paid seats, which includes API posting for the squad. Squad admins only. 409 when every seat is taken.
@@ -454,6 +464,17 @@ PUT /squads/{id}/seats/{userId} - Give an admin or moderator one of the plan pai
 
 DELETE /squads/{id}/seats/{userId} - Free a member's paid seat. Squad admins only. The subscription owner keeps theirs.
   Params: id(path): Squad ID or handle; userId(path): The member's user ID
+
+POST /squads/{id}/posts - Publish to a squad as yourself: send url (and optional commentary) to share a link, or title (and optional content and imageUrl) for a written post. Needs the apiPosting feature and, on a squad with a plan, a paid seat. On a squad that moderates posts, status is pending until a moderator approves it. Public: confirm the text with the user first.
+  Params: id(path): Squad ID or handle
+  Body: url, commentary, title, content, imageUrl
+
+GET /squads/{id}/pending-posts - Posts waiting for approval in a squad that moderates posts. Moderators and admins see every pending post, members only their own.
+  Params: limit(query): integer; cursor(query): endCursor from the previous page; id(path): Squad ID or handle
+
+POST /squads/{id}/pending-posts/moderate - Approve pending posts so they publish, or reject them with a reason. Squad moderators and admins only.
+  Params: id(path): Squad ID or handle
+  Body: ids, status (approved or rejected), rejectionReason (required when rejecting), message
 
 #### stack
 GET /profile/stack/search - Search for tools/technologies by name
@@ -587,14 +608,15 @@ Report how the user's posts and squads perform, and promote them:
 **Trigger:** "How did my last post do?", "Which of my posts reached the most people?" or "Boost my post"
 
 ### 🏠 Manage Your Squad
-Run a squad the user admins or moderates:
-- Start with `GET /squads/{id}` (ID or handle). `features` says which paid endpoints the squad's plan unlocks, and `currentMember.role` says what the user can change
-- `PATCH /squads/{id}` sends only the fields to change. Rules, links and branding are replaced whole, so read them first and send the full list
+Run a squad the user admins or moderates, such as their company page on daily.dev for Startups:
+- Find it with `GET /squads/` when the user doesn't name it: each row has their role, seat and the squad's invite link. Then `GET /squads/{id}` (ID or handle): `features` says which paid endpoints the squad's plan unlocks, and `currentMember.role` says what the user can change
+- `PATCH /squads/{id}` sends only the fields to change, including the logo (`image`) and cover (`headerImage`) as image URLs. Rules, links and branding are replaced whole, so read them first and send the full list
 - Links need `features.links`, the header button needs `features.cta` (or a verified squad), the brand color needs a verified squad, and products need `features.products`. A plan caps products, and adding past the cap returns 400
-- `GET /squads/{id}/subscription` shows the plan and its paid seats. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409
+- `GET /squads/{id}/subscription` shows the plan, its paid seats and the wallet's Cores. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409. A teammate who isn't a member yet joins through the invite link first
+- `POST /squads/{id}/posts` publishes as the user: a link with commentary, or a written post. It needs `features.apiPosting` and, on a plan, a seat. Show the user the exact text before posting. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
 - Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
 
-**Trigger:** "Add our new product to the squad page", "Give my cofounder a seat" or "Update the squad rules"
+**Trigger:** "Add our new product to the squad page", "Post our launch to our daily.dev page", "Give my cofounder a seat" or "Update the squad rules"
 
 ## Rate Limits
 
