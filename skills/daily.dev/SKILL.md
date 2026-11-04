@@ -151,7 +151,7 @@ GET /boosts/ - Boosts you started, active ones first, then newest. A boost promo
   Params: limit(query): Number of boosts to return (1-50); cursor(query): Pagination cursor from previous response; targetId(query): Only boosts of this post or squad, by ID (the targetId of a boost)
 
 POST /boosts/ - Promote a post or squad in the feed. Charges budget × duration Cores up front: confirm the cost with the user first, and check the reach with getBoostsEstimate. A post or squad can have one active boost at a time. 402 when the balance is too low, with a link to buy Cores.
-  Body: type, targetId, budget, duration
+  Body: type, targetId, budget, duration, wallet
 
 GET /boosts/estimate - Estimated impressions per day a boost would get at a daily budget, as a range. Spends nothing.
   Params: type(query): post: a post you authored or submitted. squad: a squad you moderate or admin.; targetId(query): Post ID, or squad ID or handle; budget(query): Cores to spend per day, 1000 to 100000 in steps of 1000
