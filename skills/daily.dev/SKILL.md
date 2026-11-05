@@ -456,7 +456,7 @@ PUT /squads/{id}/members/{userId}/role - Set a member role in a squad you admin.
 POST /squads/{id}/members/{userId}/unblock - Let a blocked user join the squad again.
   Params: id(path): Squad ID or handle; userId(path): The member's user ID
 
-GET /squads/{id}/subscription - The daily.dev for Startups plan of a squad you admin or moderate, with its paid seats (starter 1, team 5) and the Cores its wallet holds for boosts. plan is null without an active subscription.
+GET /squads/{id}/subscription - The daily.dev for Startups plan of a squad you admin or moderate, with its paid seats (starter 1, team 5, enterprise per contract) and the Cores its wallet holds for boosts. plan is null without an active subscription.
   Params: id(path): Squad ID or handle
 
 PUT /squads/{id}/seats/{userId} - Give an admin or moderator one of the plan paid seats, which includes API posting for the squad. Squad admins only. 409 when every seat is taken.
@@ -465,13 +465,13 @@ PUT /squads/{id}/seats/{userId} - Give an admin or moderator one of the plan pai
 DELETE /squads/{id}/seats/{userId} - Free a member's paid seat. Squad admins only. The subscription owner keeps theirs.
   Params: id(path): Squad ID or handle; userId(path): The member's user ID
 
-GET /squads/{id}/intel - The latest weekly intel for the squad: what developers read in its tags last week, which topics and titles work, and when to publish. Use it as context for content ideas and reviews. Numbers are shares, indexes (100 is average) and changes, never raw counts. New intel is built every Monday; data is null until the first is ready, within about an hour of setting the tags. Needs a daily.dev for Startups plan.
+GET /squads/{id}/intel - The latest weekly intel for the squad: what developers read in its tags last week, which topics and titles work, and when to publish. Use it as context for content ideas and reviews. Numbers are shares, indexes (100 is average) and changes, never raw counts. New intel is built every Monday; data is null until the first is ready, within about an hour of setting the tags. For the paid seats of a squad on a daily.dev for Startups plan.
   Params: id(path): Squad ID or handle
 
-GET /squads/{id}/intel/settings - The tags the weekly intel follows, the readers it targets and what the plan allows (starter up to 5 tags, team up to 20 tags and seniority, verified squads up to 40 tags with seniority and region).
+GET /squads/{id}/intel/settings - The tags the weekly intel follows, the readers it targets and what the plan allows (starter up to 5 tags, team up to 20 tags with seniority, enterprise up to 40 tags with seniority and region). Paid seats only.
   Params: id(path): Squad ID or handle
 
-PUT /squads/{id}/intel/settings - Choose the tags the weekly intel follows and, where the plan allows, the readers it targets (starter up to 5 tags, team up to 20 tags and seniority, verified squads up to 40 tags with seniority and region). Replaces the stored settings. Tags are daily.dev tags such as kubernetes; synonyms are mapped to their tag. Intel for last week follows within the hour. Squad admins and moderators only.
+PUT /squads/{id}/intel/settings - Choose the tags the weekly intel follows and, where the plan allows, the readers it targets (starter up to 5 tags, team up to 20 tags with seniority, enterprise up to 40 tags with seniority and region). Replaces the stored settings. Tags are daily.dev tags such as kubernetes; synonyms are mapped to their tag. Changes show from the next weekly intel; a squad without intel yet gets last week's within the hour. Paid seats only.
   Params: id(path): Squad ID or handle
   Body: tags, seniority, regions
 
@@ -624,7 +624,7 @@ Run a squad the user admins or moderates, such as their company page on daily.de
 - Links need `features.links`, the header button needs `features.cta` (or a verified squad), the brand color needs a verified squad, and products need `features.products`. A plan caps products, and adding past the cap returns 400
 - `GET /squads/{id}/subscription` shows the plan, its paid seats and the wallet's Cores. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409. A teammate who isn't a member yet joins through the invite link first
 - `POST /squads/{id}/posts` publishes as the user: a link with commentary, or a written post. It needs `features.apiPosting` and, on a plan, a seat. Show the user the exact text before posting. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
-- The weekly intel (`GET /squads/{id}/intel`) is grounded context for content ideas and post reviews: which of the squad's topics get read, what else the same readers read, which title types work and when to publish. It comes as `markdown` and as structured `numbers`. Choose its tags with `PUT /squads/{id}/intel/settings` (read `GET /squads/{id}/intel/settings` first for the plan's limits). Numbers are shares and indexes, so quote them as they are rather than turning them into reader counts
+- The weekly intel (`GET /squads/{id}/intel`) is grounded context for content ideas and post reviews: which of the squad's topics get read, what else the same readers read, which title types work and when to publish. It comes as `markdown` and as structured `numbers`. It is for the plan's paid seats. Choose its tags with `PUT /squads/{id}/intel/settings` (read `GET /squads/{id}/intel/settings` first for the plan's limits); a change shows from the next week's intel. Numbers are shares and indexes, so quote them as they are rather than turning them into reader counts
 - Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
 
 **Trigger:** "Add our new product to the squad page", "Post our launch to our daily.dev page", "Give my cofounder a seat", "What should we write about this week?" or "Update the squad rules"
