@@ -102,10 +102,3 @@ Then give the idea card:
 If the idea is a video, add one line saying that the intel measures posts on daily.dev, so it informs the topic, title and angle, but says nothing about pacing, on-screen length or visuals.
 
 Offer to save the card to a file, to write a first draft, or to review the draft later with the daily-dev-content-review skill.
-
-## Notes
-
-- Call the weekly report "intel".
-- Call saved posts "Bookmarks".
-- Use only numbers that are in the intel. Don't invent audience data.
-- Don't publish anything from this skill. To post to the squad, follow the daily.dev skill, and show the user the exact text first.

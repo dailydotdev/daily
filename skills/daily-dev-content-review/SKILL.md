@@ -88,10 +88,3 @@ Offer to rewrite a part of the draft, or to review it again after the user revis
 ## Step 5: Review again
 
 When the user sends a revised draft, review it against the last review: say what improved, what is still open and anything new. When the draft is ready, say so.
-
-## Notes
-
-- Call the weekly report "intel".
-- Call saved posts "Bookmarks".
-- Use only numbers that are in the intel. Don't invent audience data.
-- Don't publish anything from this skill. To post to the squad, follow the daily.dev skill, and show the user the exact text first.
