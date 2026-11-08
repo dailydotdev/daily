@@ -18,6 +18,8 @@ What you get:
 
 - **daily.dev skill** — query feeds, search posts, and pull personalized content via the daily.dev API. Works with any daily.dev account: create a free API token, or connect Claude Code to the daily.dev MCP server at `https://api.daily.dev/mcp` and sign in instead (see the skill for setup).
 - **`/daily.dev:trends` skill** — today's curated headlines and most-upvoted posts, no token needed.
+- **`/daily.dev:daily-dev-profile` skill** — makes your daily.dev profile credible: photo, headline, current role, About me, links and stack.
+- **For daily.dev for Startups companies** — `daily-dev-content-ideas` and `daily-dev-content-review` shape posts with your weekly intel, and `daily-dev-growth-routine` schedules a daily report on your page, posts and boosts, with reminders at the content cadence you choose.
 - **Headlines** — rotating daily.dev headlines while you wait: a status line entry under the prompt and a band above it with **Open** and **Hide**. Curated major headlines interleaved with the community's most-upvoted posts of the day, refreshed every 10 minutes, rotating every ~60 seconds. Headlines are clickable in terminals with hyperlink support (iTerm2, Kitty, WezTerm, Ghostty).
 
 ## Headlines setup

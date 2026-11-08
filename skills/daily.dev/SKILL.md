@@ -370,8 +370,8 @@ DELETE /posts/{id} - Delete a post you published, or one in a squad you moderate
 #### profile
 GET /profile/ - Get current user's profile
 
-PATCH /profile/ - Update user profile
-  Body: name, bio, timezone, weekStart, experienceLevel, socialLinks
+PATCH /profile/ - Update your profile. Only the fields you send change. Show the user every change before saving.
+  Body: name, bio, timezone, weekStart, experienceLevel, socialLinks, image, cover, readme
 
 GET /profile/analytics/ - Performance of the posts you authored over the period, compared with the window before it, plus lifetime totals. Each headline metric says whether it is scoped to the period (PERIOD) or a running total (LIFETIME); coverage says which days the period numbers are built from.
   Params: period(query): The last 30 or 90 whole days, ending yesterday in UTC since today is still being counted
@@ -508,6 +508,12 @@ PUT /profile/stack/reorder - Reorder stack items
 
 #### tags
 GET /tags/ - Get all tags
+
+#### uploads
+POST /uploads/ - Upload an image file from the user's machine, such as a profile photo or a cover you made. Returns a one-time URL valid for 15 minutes: send the file to it with `curl -X PUT -H "Content-Type: image/png" --data-binary @file.png "<uploadUrl>"` (png, jpeg, webp or gif, up to 5 MB). The response has the hosted image url to pass as a profile image or cover, or a squad image or headerImage.
+
+PUT /uploads/{token} - Send the image file as the raw request body to the uploadUrl from POST /uploads. Needs no Authorization header.
+  Params: token(path): string
 
 This list is generated from the OpenAPI spec. To regenerate it:
 ```bash
