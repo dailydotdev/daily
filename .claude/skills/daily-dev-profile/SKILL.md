@@ -20,14 +20,14 @@ Use what you already know about the user and their work: the project you are in,
 
 Fields, most important first:
 
-1. **Photo** (`image` on `patchProfile`). Their face, never the company logo: the logo belongs on the company page. A good source is their GitHub avatar (`https://github.com/<username>.png`) when it is a real photo. If the photo is a file on their machine, get an upload URL with `postUploads`, send the file with `curl -X PUT -H "Content-Type: image/jpeg" --data-binary @photo.jpg "<uploadUrl>"`, and use the `url` it returns.
+1. **Photo** (`image` on `patchProfile`). Their face, never the company logo: the logo belongs on the company page. A good source is their GitHub avatar (`https://github.com/<username>.png`) when it is a real photo. If the photo is a file on their machine, get an upload URL with `postUploads`, send the file with `curl -X PUT -H "Content-Type: image/jpeg" --data-binary @photo.jpg "<uploadUrl>"`, and use the `url` it returns. Best size: square, 400x400 px or larger, with the face centred. It shows as a rounded square, so a non-square photo is cropped to its centre.
 2. **Headline** (`bio`). One line under 100 characters: role, company and what they build, in plain words. For example: "Co-founder & CTO at Acme. Building open-source feature flags for backend teams."
 3. **Current role** (`postProfileExperiences`, type work). Their title at the company with a start date and no end date. The profile header shows this company. Don't add one that already exists; update it with `putProfileExperiencesById` if the title changed.
 4. **Name** (`name`). Their real name. Change it only if it is a handle or empty.
 5. **Experience level** (`experienceLevel`). From their years of experience; ask if unclear.
 6. **About me** (`readme`, markdown). Three to six short lines in first person: what they build and for whom, their background, and what they write about. No buzzwords, no lists of adjectives.
 7. **Links** (`socialLinks`). GitHub, X, LinkedIn, personal site and the company site. This replaces all links, so send the existing ones too.
-8. **Cover** (`cover`). A wide image at the top of the profile. The company's cover or a wide image from its site works well. Upload a file the same way as the photo.
+8. **Cover** (`cover`). A wide image at the top of the profile. The company's cover or a wide image from its site works well. Upload a file the same way as the photo. Best size: 1024x256 px (4:1). It shows as a strip 144 px tall, about 5:1 on desktop and cropped to about 2.3:1 on phones, and the photo covers its bottom-left corner. Use a decorative image with the subject in the middle and no text: words near the edges get cut off. Crop a wider or taller image to 4:1 before uploading.
 9. **Tech stack** (`getProfileStackSearch`, then `postProfileStack`). The main languages, frameworks and tools they use, from the project and their GitHub. Five to ten items is enough.
 10. **Education** (`postProfileExperiences`, type education). Optional: ask once, skip if they decline.
 
