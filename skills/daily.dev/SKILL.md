@@ -510,7 +510,7 @@ PUT /profile/stack/reorder - Reorder stack items
 GET /tags/ - Get all tags
 
 #### uploads
-POST /uploads/ - Upload an image file from the user's machine, such as a profile photo or a cover you made. Returns a one-time URL valid for 15 minutes: send the file to it with `curl -X PUT -H "Content-Type: image/png" --data-binary @file.png "<uploadUrl>"` (png, jpeg, webp or gif, up to 5 MB). The response has the hosted image url to pass as a profile image or cover, or a squad image or headerImage.
+POST /uploads/ - Upload an image file from the user's machine, such as a profile photo or a cover you made. Returns a one-time URL valid for 15 minutes: send the file to it with `curl -X PUT -H "Content-Type: image/png" --data-binary @file.png "<uploadUrl>"` (png, jpeg, webp or gif, up to 5 MB; a gif shows as its first frame). The response has the hosted image url to pass as a profile image or cover, a squad image or headerImage, or a written post imageUrl. Size the image for its slot first: profile image 400x400, profile cover 1024x256, squad image 512x512, squad headerImage 1500x300, post imageUrl 1200x630. Each field's description has the details.
 
 PUT /uploads/{token} - Send the image file as the raw request body to the uploadUrl from POST /uploads. Needs no Authorization header.
   Params: token(path): string
@@ -627,6 +627,7 @@ Report how the user's posts and squads perform, and promote them:
 Run a squad the user admins or moderates, such as their company page on daily.dev for Startups:
 - Find it with `GET /squads/` when the user doesn't name it: each row has their role, seat and the squad's invite link. Then `GET /squads/{id}` (ID or handle): `features` says which paid endpoints the squad's plan unlocks, and `currentMember.role` says what the user can change
 - `PATCH /squads/{id}` sends only the fields to change, including the logo (`image`) and cover (`headerImage`) as image URLs. Rules, links and branding are replaced whole, so read them first and send the full list
+- Size the logo and cover before sending them (see [Images](#images)): the cover is a wide 5:1 banner, not a 16:9 or 2:1 image, or its top and bottom get cut off
 - Links need `features.links`, the header button needs `features.cta` (or a verified squad), the brand color needs a verified squad, and products need `features.products`. A plan caps products, and adding past the cap returns 400
 - `GET /squads/{id}/subscription` shows the plan, its paid seats and the wallet's Cores. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409. A teammate who isn't a member yet joins through the invite link first
 - `POST /squads/{id}/posts` publishes as the user: a link with commentary, or a written post. It needs `features.apiPosting` and, on a plan, a seat. Show the user the exact text before posting. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
@@ -634,6 +635,29 @@ Run a squad the user admins or moderates, such as their company page on daily.de
 - Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
 
 **Trigger:** "Add our new product to the squad page", "Post our launch to our daily.dev page", "Give my cofounder a seat", "What should we write about this week?" or "Update the squad rules"
+
+## Images
+
+Every image field takes an http(s) URL that daily.dev downloads, resizes and stores. For a file on the user's machine, get a URL from `POST /uploads` first. PNG, JPEG, WebP or GIF, up to 5 MB; a GIF shows as its first frame. A URL that cannot be fetched or is not an image returns 400.
+
+daily.dev crops each image to fill its slot, so an image with the wrong shape loses its edges. Make or crop it to the size below before uploading. When you generate an image, ask for this aspect ratio, then crop and resize the result to the exact size.
+
+| Image | Field | Upload | How it shows | Stored at |
+|---|---|---|---|---|
+| Profile photo | `image` on `PATCH /profile` | 400x400 (1:1) | Rounded square, up to 120 px | 400 px wide |
+| Profile cover | `cover` on `PATCH /profile` | 1024x256 (4:1) | Strip 144 px tall: about 5:1 on desktop, cropped to about 2.3:1 on phones | 1024 px wide |
+| Squad logo | `image` on `PATCH /squads/{id}` | 512x512 (1:1) | Circle, up to 104 px | 512 px |
+| Squad cover | `headerImage` on `PATCH /squads/{id}` | 1500x300 (5:1) | Strip 144 px tall: about 5.4:1 on desktop, up to 7:1 on tablets, cropped at the sides on phones; also behind the squad on Squads directory cards | 924 px wide |
+| Written post image | `imageUrl` on `POST /squads/{id}/posts` | 1200x630 (1.91:1) | Cropped to about 1.9:1 on feed cards, whole on the post page | 800 px wide |
+
+Bigger is fine as long as the shape matches: daily.dev scales it down. Smaller looks blurry.
+
+Best practices:
+- **Profile photo:** the person's face, centred and filling most of the frame. Never a company logo.
+- **Profile cover:** decorative, with no text. The profile photo covers the bottom-left corner and phones keep only the middle half, so keep the subject in the centre.
+- **Squad logo:** the logomark, not the full wordmark, inside the middle 70% so the circle does not clip it. Use a solid background: a transparent logo can vanish on the dark or light theme.
+- **Squad cover:** run the background to every edge, with no border or frame. Keep text to one short line, and keep text and logos inside the middle 60% of the width and 70% of the height. Leave the bottom-left corner clear: the squad logo sits over it. A 16:9 or 2:1 image loses its top and bottom, which cuts through text.
+- **Written post image:** the standard link preview size. Keep text large and centred, because feed cards are small.
 
 ## Rate Limits
 
