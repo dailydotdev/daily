@@ -325,6 +325,13 @@ DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled 
 
 DELETE /feeds/foryou/personalization - Start For You over in one call: forget what it learned from the reader's reading and which posts they scrolled past, and take every topic, source and author back to auto. Follows, blocks and the learning and fill-ins switches stay. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
+#### history
+GET /history/reads - Get the posts the user read. Newest first, one entry per read: a post read more than once appears once per read. Reads the user hid from their history are not returned.
+  Params: limit(query): Number of reads to return (1-50); cursor(query): Pagination cursor from previous response
+
+GET /history/reads/search - Search the posts the user read by their content. Newest first, one entry per read: a post read more than once appears once per read. Reads the user hid from their history are not returned.
+  Params: q(query): Search query (required); limit(query): Number of reads to return (1-50); cursor(query): Pagination cursor from previous response
+
 #### notifications
 GET /notifications/ - Get user notifications
   Params: limit(query): Number of notifications to return (1-50); cursor(query): Pagination cursor from previous response
