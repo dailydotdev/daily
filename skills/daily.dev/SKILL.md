@@ -364,10 +364,10 @@ GET /posts/{id} - Get post details by ID
 GET /posts/{id}/comments - Get comments for a post
   Params: limit(query): Number of comments to return (1-50); cursor(query): Pagination cursor from previous response; sort(query): Sort order (oldest or newest first); id(path): Post ID
 
-GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
+GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. Includes AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
   Params: id(path): Post ID
 
-GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first. Only days with recorded impressions are listed. 403 when you are not the author.
+GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first, with AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics. Only days with recorded analytics are listed. 403 when you are not the author.
   Params: limit(query): Number of days to return (1-50); cursor(query): Pagination cursor from previous response; id(path): Post ID
 
 PATCH /posts/{id} - Change the title or markdown content of a written post you published. Shared links keep their article; only written posts can be edited.
@@ -626,6 +626,7 @@ Explain and adjust what the user's For You feed shows:
 ### 📣 Measure and Boost Your Content
 Report how the user's posts and squads perform, and promote them:
 - `/profile/analytics?period=30d` (or `90d`) for headline numbers against the window before, `/profile/analytics/posts?sort=impressions` to see which posts worked, `/posts/{id}/analytics` and `/squads/{id}/analytics` for one post or squad
+- `/posts/{id}/analytics` and its history include AI agent reads (`agentViews`, with a per-assistant split such as `agentViewsClaude` or `agentViewsChatgpt`) and AI crawler visits (`agentViewsBot` and its per-crawler split) only when the post is in a squad on a daily.dev for Startups plan (Starter, Team or Enterprise). Otherwise every `agentViews*` field is null: treat null as "not on a plan", never as zero
 - A metric whose `semantics` is `LIFETIME` is a running total, not the period's number, and `previous` is null when a comparison would mislead
 - Check `/boosts/estimate` before `POST /boosts`. A boost charges `budget × duration` Cores up front, so confirm the total with the user first. `DELETE /boosts/{id}` stops it and refunds what it has not spent
 - A post boost reaches developers who read about the post's tags, worldwide, unless you pass an audience: `tags` to target other or extra tags, `countries` (ISO codes such as `US`, `DE`) to limit where readers are. Send the same `tags` and `countries` to the estimate and to `POST /boosts`, since narrower or pricier audiences buy fewer impressions for the same budget. Squad boosts take no audience. `GET /boosts/{id}` returns the boost's `audience`, null when it used the defaults
