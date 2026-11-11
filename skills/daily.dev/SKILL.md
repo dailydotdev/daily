@@ -151,10 +151,10 @@ GET /boosts/ - Boosts you started, active ones first, then newest. A boost promo
   Params: limit(query): Number of boosts to return (1-50); cursor(query): Pagination cursor from previous response; targetId(query): Only boosts of this post or squad, by ID (the targetId of a boost)
 
 POST /boosts/ - Promote a post or squad in the feed. Charges budget × duration Cores up front: confirm the cost with the user first, and check the reach with getBoostsEstimate. A post or squad can have one active boost at a time. 402 when the balance is too low, with a link to buy Cores.
-  Body: type, targetId, budget, duration, wallet
+  Body: type, targetId, budget, duration, wallet, tags, countries
 
-GET /boosts/estimate - Estimated impressions per day a boost would get at a daily budget, as a range. Spends nothing.
-  Params: type(query): post: a post you authored or submitted. squad: a squad you moderate or admin.; targetId(query): Post ID, or squad ID or handle; budget(query): Cores to spend per day, 1000 to 100000 in steps of 1000
+GET /boosts/estimate - Estimated impressions per day a boost would get at a daily budget and audience, as a range. Spends nothing. Pass the same tags and countries you plan to start the boost with.
+  Params: type(query): post: a post you authored or submitted. squad: a squad you moderate or admin.; targetId(query): Post ID, or squad ID or handle; budget(query): Cores to spend per day, 1000 to 100000 in steps of 1000; tags(query): Post boosts only: tags to target, defaults to the post's own tags. Readers of these tags (and closely related ones) see the boost.; countries(query): Post boosts only: ISO 3166-1 alpha-2 country codes to target (e.g. US, DE), defaults to worldwide. Narrower or pricier countries buy fewer impressions for the same budget.
 
 GET /boosts/{id} - Get one of your boosts by ID
   Params: id(path): Boost ID
@@ -619,6 +619,8 @@ Report how the user's posts and squads perform, and promote them:
 - `/profile/analytics?period=30d` (or `90d`) for headline numbers against the window before, `/profile/analytics/posts?sort=impressions` to see which posts worked, `/posts/{id}/analytics` and `/squads/{id}/analytics` for one post or squad
 - A metric whose `semantics` is `LIFETIME` is a running total, not the period's number, and `previous` is null when a comparison would mislead
 - Check `/boosts/estimate` before `POST /boosts`. A boost charges `budget × duration` Cores up front, so confirm the total with the user first. `DELETE /boosts/{id}` stops it and refunds what it has not spent
+- A post boost reaches developers who read about the post's tags, worldwide, unless you pass an audience: `tags` to target other or extra tags, `countries` (ISO codes such as `US`, `DE`) to limit where readers are. Send the same `tags` and `countries` to the estimate and to `POST /boosts`, since narrower or pricier audiences buy fewer impressions for the same budget. Squad boosts take no audience. `GET /boosts/{id}` returns the boost's `audience`, null when it used the defaults
+- Keep the defaults unless the user names a market or topic. When they do, suggest tags close to the post's own (`GET /search/tags`) and show the estimate with and without the narrower audience so they can compare
 - A 402 means the balance is too low: share the `buyCoresUrl` from the response with the user
 
 **Trigger:** "How did my last post do?", "Which of my posts reached the most people?" or "Boost my post"
