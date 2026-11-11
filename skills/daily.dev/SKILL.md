@@ -364,10 +364,10 @@ GET /posts/{id} - Get post details by ID
 GET /posts/{id}/comments - Get comments for a post
   Params: limit(query): Number of comments to return (1-50); cursor(query): Pagination cursor from previous response; sort(query): Sort order (oldest or newest first); id(path): Post ID
 
-GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
+GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. Includes AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
   Params: id(path): Post ID
 
-GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first. Only days with recorded impressions are listed. 403 when you are not the author.
+GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first, with AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics. Only days with recorded analytics are listed. 403 when you are not the author.
   Params: limit(query): Number of days to return (1-50); cursor(query): Pagination cursor from previous response; id(path): Post ID
 
 PATCH /posts/{id} - Change the title or markdown content of a written post you published. Shared links keep their article; only written posts can be edited.
