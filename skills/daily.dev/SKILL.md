@@ -416,10 +416,10 @@ GET /squads/discover - List public squads anyone can join, largest first. Use it
 GET /squads/ - Squads you belong to, with your role, whether you hold a paid seat and the invite link to share with teammates. Use it to find your company page.
   Params: limit(query): integer; cursor(query): endCursor from the previous page
 
-GET /squads/{id}/analytics - Lifetime analytics across the posts of a squad you moderate or admin. 403 for other members.
+GET /squads/{id}/analytics - Lifetime analytics across the posts of a squad you moderate or admin. Includes AI agent reads and AI crawler visits when the squad's plan includes AI agent analytics. 403 for other members.
   Params: id(path): Squad ID or handle
 
-GET /squads/{id}/analytics/history - Daily impressions across the posts of a squad you moderate or admin, for the last 45 days, newest first. Only days with recorded impressions are listed.
+GET /squads/{id}/analytics/history - Daily impressions across the posts of a squad you moderate or admin, for the last 45 days, newest first, with AI agent reads and AI crawler visits when the squad's plan includes AI agent analytics. Only days with recorded analytics are listed.
   Params: id(path): Squad ID or handle
 
 GET /squads/{id} - A squad with its settings, paid features, rules, links and branding. Check features before calling the paid endpoints.
