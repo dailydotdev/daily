@@ -20,6 +20,8 @@ Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggre
 1. **Create a token** at https://daily.dev/settings/api - every account can create one, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
+**No account yet, or no token?** Use the daily-dev-onboarding skill instead: it gives the user one link to create or connect their account, receives a token for you, and sets the account up.
+
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
 ### MCP instead of a token
@@ -91,7 +93,7 @@ export DAILY_DEV_TOKEN=$(secret-tool lookup service daily-dev-api username "$USE
 $cred = Import-Clixml "$env:USERPROFILE\.daily-dev-credential.xml" 2>$null; $env:DAILY_DEV_TOKEN = $cred.GetNetworkCredential().Password
 ```
 
-If the token is still empty after trying secure storage, direct the user to the Setup section above.
+If the token is still empty after trying secure storage, run the daily-dev-onboarding skill to connect the user's account, or direct the user to the Setup section above.
 
 ## Authentication
 
@@ -151,10 +153,10 @@ GET /boosts/ - Boosts you started, active ones first, then newest. A boost promo
   Params: limit(query): Number of boosts to return (1-50); cursor(query): Pagination cursor from previous response; targetId(query): Only boosts of this post or squad, by ID (the targetId of a boost)
 
 POST /boosts/ - Promote a post or squad in the feed. Charges budget × duration Cores up front: confirm the cost with the user first, and check the reach with getBoostsEstimate. A post or squad can have one active boost at a time. 402 when the balance is too low, with a link to buy Cores.
-  Body: type, targetId, budget, duration, wallet
+  Body: type, targetId, budget, duration, wallet, tags, countries
 
-GET /boosts/estimate - Estimated impressions per day a boost would get at a daily budget, as a range. Spends nothing.
-  Params: type(query): post: a post you authored or submitted. squad: a squad you moderate or admin.; targetId(query): Post ID, or squad ID or handle; budget(query): Cores to spend per day, 1000 to 100000 in steps of 1000
+GET /boosts/estimate - Estimated impressions per day a boost would get at a daily budget and audience, as a range. Spends nothing. Pass the same tags and countries you plan to start the boost with.
+  Params: type(query): post: a post you authored or submitted. squad: a squad you moderate or admin.; targetId(query): Post ID, or squad ID or handle; budget(query): Cores to spend per day, 1000 to 100000 in steps of 1000; tags(query): Post boosts only: tags to target, defaults to the post's own tags. Readers of these tags (and closely related ones) see the boost.; countries(query): Post boosts only: ISO 3166-1 alpha-2 country codes to target (e.g. US, DE), defaults to worldwide. Narrower or pricier countries buy fewer impressions for the same budget.
 
 GET /boosts/{id} - Get one of your boosts by ID
   Params: id(path): Boost ID
@@ -340,6 +342,14 @@ GET /notifications/unread/count - Get unread notifications count
 
 POST /notifications/read - Mark all notifications as read
 
+#### onboarding
+GET /onboarding/setup - Get the current account setup in the same shape PATCH /onboarding/setup accepts, plus whether onboarding is complete. Read it before changing an existing account. Squads and followed people are listed by handle and username, the 200 most recent of each.
+
+PATCH /onboarding/setup - Apply an account setup in one call. Every section is optional and only the sections sent are changed, so the same call sets up a new account and adjusts an existing one. Tags and sources only add: nothing is unfollowed or unblocked. Each section reports its own result, and one failing section does not undo the others. Safe to repeat. Does not use the free quota until onboarding is complete.
+  Body: tags, sources, squads, users, contentTypes, username, settings, digest, acquisitionChannel
+
+POST /onboarding/complete - Mark onboarding as complete once the account is set up. The apps then open the feed instead of the in-app onboarding. Safe to repeat.
+
 #### plugins
 GET /plugins/ - List approved plugins from the daily.dev marketplace, most upvoted first. A plugin has an about page plus agent instructions (SKILL.md), a link, or both.
   Params: q(query): Search in plugin names and descriptions; limit(query): Number of plugins to return (1-50); cursor(query): Pagination cursor from previous response
@@ -407,6 +417,9 @@ GET /search/sources - Search sources/publishers by name
   Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
 
 #### squads
+GET /squads/discover - List public squads anyone can join, largest first. Use it to pick squads for PATCH /onboarding/setup.
+  Params: category(query): Only squads in this category, by its title (case-insensitive). An unknown title returns 400 with the valid ones.; limit(query): Number of squads to return (1-50); cursor(query): Pagination cursor from previous response
+
 GET /squads/ - Squads you belong to, with your role, whether you hold a paid seat and the invite link to share with teammates. Use it to find your company page.
   Params: limit(query): integer; cursor(query): endCursor from the previous page
 
@@ -517,7 +530,7 @@ PUT /profile/stack/reorder - Reorder stack items
 GET /tags/ - Get all tags
 
 #### uploads
-POST /uploads/ - Upload an image file from the user's machine, such as a profile photo or a cover you made. Returns a one-time URL valid for 15 minutes: send the file to it with `curl -X PUT -H "Content-Type: image/png" --data-binary @file.png "<uploadUrl>"` (png, jpeg, webp or gif, up to 5 MB). The response has the hosted image url to pass as a profile image or cover, or a squad image or headerImage.
+POST /uploads/ - Upload an image file from the user's machine, such as a profile photo or a cover you made. Returns a one-time URL valid for 15 minutes: send the file to it with `curl -X PUT -H "Content-Type: image/png" --data-binary @file.png "<uploadUrl>"` (png, jpeg, webp or gif, up to 5 MB; a gif shows as its first frame). The response has the hosted image url to pass as a profile image or cover, a squad image or headerImage, or a written post imageUrl. Size the image for its slot first: profile image 400x400, profile cover 1024x256, squad image 512x512, squad headerImage 1500x300, post imageUrl 1200x630. Each field's description has the details.
 
 PUT /uploads/{token} - Send the image file as the raw request body to the uploadUrl from POST /uploads. Needs no Authorization header.
   Params: token(path): string
@@ -534,11 +547,7 @@ curl -s https://api.daily.dev/public/v1/docs/json | jq -r '.paths | to_entries |
 These examples show how AI agents can combine daily.dev APIs with external context to create powerful developer workflows.
 
 ### 🔍 GitHub Repo → Personalized Feed
-Scan a user's GitHub repositories to detect their actual tech stack from `package.json`, `go.mod`, `Cargo.toml`, `requirements.txt`, etc. Then:
-- Fetch `/tags` to see all available tags for deterministic matching
-- Auto-follow matching tags via `/feeds/filters/tags/follow`
-- Create a custom feed tuned to their stack with `/feeds/custom/`
-- Surface trending articles about their specific dependencies
+Use the daily-dev-onboarding skill. It detects the user's stack from their projects and GitHub with their OK, shows a plan, and applies it in one `PATCH /onboarding/setup` call: tags, sources, squads and preferences. It also connects a user who has no account or token yet.
 
 **Trigger:** "Set up daily.dev based on my GitHub projects"
 
@@ -626,6 +635,8 @@ Report how the user's posts and squads perform, and promote them:
 - `/profile/analytics?period=30d` (or `90d`) for headline numbers against the window before, `/profile/analytics/posts?sort=impressions` to see which posts worked, `/posts/{id}/analytics` and `/squads/{id}/analytics` for one post or squad
 - A metric whose `semantics` is `LIFETIME` is a running total, not the period's number, and `previous` is null when a comparison would mislead
 - Check `/boosts/estimate` before `POST /boosts`. A boost charges `budget × duration` Cores up front, so confirm the total with the user first. `DELETE /boosts/{id}` stops it and refunds what it has not spent
+- A post boost reaches developers who read about the post's tags, worldwide, unless you pass an audience: `tags` to target other or extra tags, `countries` (ISO codes such as `US`, `DE`) to limit where readers are. Send the same `tags` and `countries` to the estimate and to `POST /boosts`, since narrower or pricier audiences buy fewer impressions for the same budget. Squad boosts take no audience. `GET /boosts/{id}` returns the boost's `audience`, null when it used the defaults
+- Keep the defaults unless the user names a market or topic. When they do, suggest tags close to the post's own (`GET /search/tags`) and show the estimate with and without the narrower audience so they can compare
 - A 402 means the balance is too low: share the `buyCoresUrl` from the response with the user
 
 **Trigger:** "How did my last post do?", "Which of my posts reached the most people?" or "Boost my post"
@@ -634,6 +645,7 @@ Report how the user's posts and squads perform, and promote them:
 Run a squad the user admins or moderates, such as their company page on daily.dev for Startups:
 - Find it with `GET /squads/` when the user doesn't name it: each row has their role, seat and the squad's invite link. Then `GET /squads/{id}` (ID or handle): `features` says which paid endpoints the squad's plan unlocks, and `currentMember.role` says what the user can change
 - `PATCH /squads/{id}` sends only the fields to change, including the logo (`image`) and cover (`headerImage`) as image URLs. Rules, links and branding are replaced whole, so read them first and send the full list
+- Size the logo and cover before sending them (see [Images](#images)): the cover is a wide 5:1 banner, not a 16:9 or 2:1 image, or its top and bottom get cut off
 - Links need `features.links`, the header button needs `features.cta` (or a verified squad), the brand color needs a verified squad, and products need `features.products`. A plan caps products, and adding past the cap returns 400
 - `GET /squads/{id}/subscription` shows the plan, its paid seats and the wallet's Cores. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409. A teammate who isn't a member yet joins through the invite link first
 - `POST /squads/{id}/posts` publishes as the user: a link with commentary, or a written post. It needs `features.apiPosting` and, on a plan, a seat. Show the user the exact text before posting. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
@@ -641,6 +653,29 @@ Run a squad the user admins or moderates, such as their company page on daily.de
 - Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
 
 **Trigger:** "Add our new product to the squad page", "Post our launch to our daily.dev page", "Give my cofounder a seat", "What should we write about this week?" or "Update the squad rules"
+
+## Images
+
+Every image field takes an http(s) URL that daily.dev downloads, resizes and stores. For a file on the user's machine, get a URL from `POST /uploads` first. PNG, JPEG, WebP or GIF, up to 5 MB; a GIF shows as its first frame. A URL that cannot be fetched or is not an image returns 400.
+
+daily.dev crops each image to fill its slot, so an image with the wrong shape loses its edges. Make or crop it to the size below before uploading. When you generate an image, ask for this aspect ratio, then crop and resize the result to the exact size.
+
+| Image | Field | Upload | How it shows | Stored at |
+|---|---|---|---|---|
+| Profile photo | `image` on `PATCH /profile` | 400x400 (1:1) | Rounded square, up to 120 px | 400 px wide |
+| Profile cover | `cover` on `PATCH /profile` | 1024x256 (4:1) | Strip 144 px tall: about 5:1 on desktop, cropped to about 2.3:1 on phones | 1024 px wide |
+| Squad logo | `image` on `PATCH /squads/{id}` | 512x512 (1:1) | Circle, up to 104 px | 512 px |
+| Squad cover | `headerImage` on `PATCH /squads/{id}` | 1500x300 (5:1) | Strip 144 px tall: about 5.4:1 on desktop, up to 7:1 on tablets, cropped at the sides on phones; also behind the squad on Squads directory cards | 924 px wide |
+| Written post image | `imageUrl` on `POST /squads/{id}/posts` | 1200x630 (1.91:1) | Cropped to about 1.9:1 on feed cards, whole on the post page | 800 px wide |
+
+Bigger is fine as long as the shape matches: daily.dev scales it down. Smaller looks blurry.
+
+Best practices:
+- **Profile photo:** the person's face, centred and filling most of the frame. Never a company logo.
+- **Profile cover:** decorative, with no text. The profile photo covers the bottom-left corner and phones keep only the middle half, so keep the subject in the centre.
+- **Squad logo:** the logomark, not the full wordmark, inside the middle 70% so the circle does not clip it. Use a solid background: a transparent logo can vanish on the dark or light theme.
+- **Squad cover:** run the background to every edge, with no border or frame. Keep text to one short line, and keep text and logos inside the middle 60% of the width and 70% of the height. Leave the bottom-left corner clear: the squad logo sits over it. A 16:9 or 2:1 image loses its top and bottom, which cuts through text.
+- **Written post image:** the standard link preview size. Keep text large and centred, because feed cards are small.
 
 ## Rate Limits
 

@@ -64,7 +64,7 @@ Keep it under 12 lines, plain words, numbers with their comparison:
 Pick one next action, in this order:
 
 1. A post is due or overdue: say so and offer to find what to publish with the daily-dev-content-ideas skill. Prefer something the team already wrote or shipped (a blog post, release notes, a video) over writing from scratch.
-2. No boost is running, the wallet holds Cores and a recent post is doing better than the others: suggest boosting it, with the cost and the estimate from `getBoostsEstimate`.
+2. No boost is running, the wallet holds Cores and a recent post is doing better than the others: suggest boosting it, with the cost and the estimate from `getBoostsEstimate`. The boost targets readers of the post's tags worldwide by default; if the user has said which markets matter to them, offer that country list too, with its own estimate.
 3. A post got comments: suggest replying, since answering readers keeps the post alive.
 4. Otherwise: nothing to do today, and when the next post is due.
 
