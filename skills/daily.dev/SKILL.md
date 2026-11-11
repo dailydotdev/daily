@@ -20,6 +20,8 @@ Overcome LLM knowledge cutoffs with real-time developer content. daily.dev aggre
 1. **Create a token** at https://daily.dev/settings/api - every account can create one, no subscription needed
 2. Store your token securely (environment variables, secrets manager)
 
+**No account yet, or no token?** Use the daily-dev-onboarding skill instead: it gives the user one link to create or connect their account, receives a token for you, and sets the account up.
+
 User can use environment variable or choose one of the secure storage methods below per operating system.
 
 ### MCP instead of a token
@@ -91,7 +93,7 @@ export DAILY_DEV_TOKEN=$(secret-tool lookup service daily-dev-api username "$USE
 $cred = Import-Clixml "$env:USERPROFILE\.daily-dev-credential.xml" 2>$null; $env:DAILY_DEV_TOKEN = $cred.GetNetworkCredential().Password
 ```
 
-If the token is still empty after trying secure storage, direct the user to the Setup section above.
+If the token is still empty after trying secure storage, run the daily-dev-onboarding skill to connect the user's account, or direct the user to the Setup section above.
 
 ## Authentication
 
@@ -333,6 +335,14 @@ GET /notifications/unread/count - Get unread notifications count
 
 POST /notifications/read - Mark all notifications as read
 
+#### onboarding
+GET /onboarding/setup - Get the current account setup in the same shape PATCH /onboarding/setup accepts, plus whether onboarding is complete. Read it before changing an existing account. Squads and followed people are listed by handle and username, the 200 most recent of each.
+
+PATCH /onboarding/setup - Apply an account setup in one call. Every section is optional and only the sections sent are changed, so the same call sets up a new account and adjusts an existing one. Tags and sources only add: nothing is unfollowed or unblocked. Each section reports its own result, and one failing section does not undo the others. Safe to repeat. Does not use the free quota until onboarding is complete.
+  Body: tags, sources, squads, users, contentTypes, username, settings, digest, acquisitionChannel
+
+POST /onboarding/complete - Mark onboarding as complete once the account is set up. The apps then open the feed instead of the in-app onboarding. Safe to repeat.
+
 #### plugins
 GET /plugins/ - List approved plugins from the daily.dev marketplace, most upvoted first. A plugin has an about page plus agent instructions (SKILL.md), a link, or both.
   Params: q(query): Search in plugin names and descriptions; limit(query): Number of plugins to return (1-50); cursor(query): Pagination cursor from previous response
@@ -400,6 +410,9 @@ GET /search/sources - Search sources/publishers by name
   Params: q(query): Search query (required); limit(query): Number of sources to return (1-50)
 
 #### squads
+GET /squads/discover - List public squads anyone can join, largest first. Use it to pick squads for PATCH /onboarding/setup.
+  Params: category(query): Only squads in this category, by its title (case-insensitive). An unknown title returns 400 with the valid ones.; limit(query): Number of squads to return (1-50); cursor(query): Pagination cursor from previous response
+
 GET /squads/ - Squads you belong to, with your role, whether you hold a paid seat and the invite link to share with teammates. Use it to find your company page.
   Params: limit(query): integer; cursor(query): endCursor from the previous page
 
@@ -527,11 +540,7 @@ curl -s https://api.daily.dev/public/v1/docs/json | jq -r '.paths | to_entries |
 These examples show how AI agents can combine daily.dev APIs with external context to create powerful developer workflows.
 
 ### 🔍 GitHub Repo → Personalized Feed
-Scan a user's GitHub repositories to detect their actual tech stack from `package.json`, `go.mod`, `Cargo.toml`, `requirements.txt`, etc. Then:
-- Fetch `/tags` to see all available tags for deterministic matching
-- Auto-follow matching tags via `/feeds/filters/tags/follow`
-- Create a custom feed tuned to their stack with `/feeds/custom/`
-- Surface trending articles about their specific dependencies
+Use the daily-dev-onboarding skill. It detects the user's stack from their projects and GitHub with their OK, shows a plan, and applies it in one `PATCH /onboarding/setup` call: tags, sources, squads and preferences. It also connects a user who has no account or token yet.
 
 **Trigger:** "Set up daily.dev based on my GitHub projects"
 
