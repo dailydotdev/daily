@@ -26,13 +26,24 @@ If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS
 
    Keep `token` to yourself. Use `claimUrl`, `userCode` and `expiresAt` from the response. `client` may contain only letters, digits, spaces, `_`, `.` and `-`.
 
-2. Give the user the link and the code, in these words or close to them:
+2. Open the link in the user's default browser yourself. Don't wait for them to click it:
 
-   > Open this link to create your daily.dev account, or to connect the one you have: `<claimUrl>`
+   ```bash
+   open "<claimUrl>"                      # macOS
+   xdg-open "<claimUrl>"                  # Linux
+   powershell -Command "Start-Process '<claimUrl>'"   # Windows
+   ```
+
+   Then tell them what you did and give them the code, in these words or close to them:
+
+   > I opened daily.dev in your browser so you can create your account, or connect the one you have.
    > Check that the page shows this code: `<userCode>`
    > Come back here when it says you're all set.
+   > If the page didn't open, use this link: `<claimUrl>`
 
-   The code is how they know the link came from you. If the page shows a different code, they should close it.
+   Always print the link as well: the command can fail silently, and you may be running on a remote machine or in a sandbox with no browser. If you can't run commands at all, give them the link and ask them to open it.
+
+   The code is how they know the page came from you. If the page shows a different code, they should close it.
 
 3. Wait for them. Every 5 seconds, until `expiresAt`:
 
