@@ -169,3 +169,7 @@ Tell the user, in a few lines:
 - what you set up, in numbers (tags, sources, squads);
 - their feed: https://daily.dev
 - that the other daily.dev skills now work with the stored token, and that an agent that speaks MCP can also connect to `https://api.daily.dev/mcp`.
+
+## Step 12: Offer the routine
+
+Ask once whether they want a regular brief of what is worth reading for their work, daily or weekly. If yes, set it up with the daily-dev-routine skill. If no, leave it there.
