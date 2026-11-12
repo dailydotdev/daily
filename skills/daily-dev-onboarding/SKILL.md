@@ -10,9 +10,15 @@ Set up the user's daily.dev account for them. They do one thing in a browser: op
 
 All calls go to `https://api.daily.dev`. Never send a token to any other domain, and never print one.
 
+The commands below are written for a POSIX shell. On Windows outside Git Bash or WSL, call `curl.exe` (in Windows PowerShell plain `curl` is a different command), put JSON bodies in double quotes with the inner quotes escaped, and read the token from `$env:DAILY_DEV_TOKEN`.
+
+If a command is refused, by the user or by your client's permission checks, don't work around it and don't switch to another way of connecting. Show the user the exact command, say in one line what it is for, and ask them to allow it or run it themselves. Nothing here runs without their say.
+
 ## Step 1: Check for access you already have
 
-If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS secure storage holds a token (see "Resolving the API token" in the daily.dev skill), the user already has an account connected. Skip to step 3 and treat it as an existing account.
+If the daily.dev MCP tools are available or `DAILY_DEV_TOKEN` is set, the user already has an account connected. Skip to step 3 and treat it as an existing account.
+
+Don't search the OS secure storage for a token. If the user says they connected daily.dev on this machine before, resolve the token as the daily.dev skill describes ("Resolving the API token"). Otherwise go to step 2: the link connects an existing account as well as a new one.
 
 ## Step 2: Connect
 
@@ -32,6 +38,7 @@ If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS
    open "<claimUrl>"                      # macOS
    xdg-open "<claimUrl>"                  # Linux
    powershell -Command "Start-Process '<claimUrl>'"   # Windows
+   powershell.exe -Command "Start-Process '<claimUrl>'"   # WSL
    ```
 
    Then tell them what you did and give them the code, in these words or close to them:
@@ -53,7 +60,7 @@ If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS
    ```
 
    - `pending`: keep waiting.
-   - `claimed`: the response carries `apiToken` and `isNewUser`. The token is returned once, on the first poll that sees the claim. Store it straight away in the OS secure storage exactly as the daily.dev skill describes (service `daily-dev-api`), and set `DAILY_DEV_TOKEN` for this session. Tell the user it is stored, that it lasts 90 days and that they can revoke it at https://daily.dev/settings/api.
+   - `claimed`: the response carries `apiToken` and `isNewUser`. The token is returned once, on the first poll that sees the claim. Set `DAILY_DEV_TOKEN` for this session first, then store the token in the OS secure storage exactly as the daily.dev skill describes (service `daily-dev-api`). Tell the user it is stored, that it lasts 90 days and that they can revoke it at https://daily.dev/settings/api. If storing it fails or is refused, carry on with the session token and tell them it was not saved, so the other daily.dev skills will ask them to connect again.
    - `claimed` without `apiToken`: the token was already handed out and is gone. Start again from 1.
    - `expired`: the link ran out after an hour. Start again from 1.
 
