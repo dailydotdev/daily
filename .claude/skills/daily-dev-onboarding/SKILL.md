@@ -147,11 +147,25 @@ curl -s -X POST https://api.daily.dev/public/v1/onboarding/complete \
 
 Until this is called, daily.dev sends the user through its own onboarding when they open the feed. If you stop before this step, tell them so.
 
-## Step 10: Hand over
+## Step 10: Browser extension
+
+The extension puts the feed you just set up on every new tab, so they see it without having to remember to visit. It is the difference between an account that gets used and one that doesn't, so don't leave it as a link at the end of a list.
+
+Tell them in one line what it does and that you are opening the install page, then open it in their default browser the same way as the link in step 2:
+
+```bash
+open "https://r.daily.dev/extension"                      # macOS
+xdg-open "https://r.daily.dev/extension"                  # Linux
+powershell -Command "Start-Process 'https://r.daily.dev/extension'"   # Windows
+powershell.exe -Command "Start-Process 'https://r.daily.dev/extension'"   # WSL
+```
+
+The page picks the right store for their browser. Installing is their click and their choice: you can't install it for them, and don't ask twice. Print the link as well in case the page didn't open. Skip this step if they told you they already have the extension.
+
+## Step 11: Hand over
 
 Tell the user, in a few lines:
 
 - what you set up, in numbers (tags, sources, squads);
-- their feed: https://app.daily.dev
-- the browser extension, which puts the feed on every new tab: https://r.daily.dev/extension
+- their feed: https://daily.dev
 - that the other daily.dev skills now work with the stored token, and that an agent that speaks MCP can also connect to `https://api.daily.dev/mcp`.
