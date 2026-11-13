@@ -10,9 +10,15 @@ Set up the user's daily.dev account for them. They do one thing in a browser: op
 
 All calls go to `https://api.daily.dev`. Never send a token to any other domain, and never print one.
 
+The commands below are written for a POSIX shell. On Windows outside Git Bash or WSL, call `curl.exe` (in Windows PowerShell plain `curl` is a different command), put JSON bodies in double quotes with the inner quotes escaped, and read the token from `$env:DAILY_DEV_TOKEN`.
+
+If a command is refused, by the user or by your client's permission checks, don't work around it and don't switch to another way of connecting. Show the user the exact command, say in one line what it is for, and ask them to allow it or run it themselves. Nothing here runs without their say.
+
 ## Step 1: Check for access you already have
 
-If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS secure storage holds a token (see "Resolving the API token" in the daily.dev skill), the user already has an account connected. Skip to step 3 and treat it as an existing account.
+If the daily.dev MCP tools are available or `DAILY_DEV_TOKEN` is set, the user already has an account connected. Skip to step 3 and treat it as an existing account.
+
+Don't search the OS secure storage for a token. If the user says they connected daily.dev on this machine before, resolve the token as the daily.dev skill describes ("Resolving the API token"). Otherwise go to step 2: the link connects an existing account as well as a new one.
 
 ## Step 2: Connect
 
@@ -26,13 +32,25 @@ If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS
 
    Keep `token` to yourself. Use `claimUrl`, `userCode` and `expiresAt` from the response. `client` may contain only letters, digits, spaces, `_`, `.` and `-`.
 
-2. Give the user the link and the code, in these words or close to them:
+2. Open the link in the user's default browser yourself. Don't wait for them to click it:
 
-   > Open this link to create your daily.dev account, or to connect the one you have: `<claimUrl>`
+   ```bash
+   open "<claimUrl>"                      # macOS
+   xdg-open "<claimUrl>"                  # Linux
+   powershell -Command "Start-Process '<claimUrl>'"   # Windows
+   powershell.exe -Command "Start-Process '<claimUrl>'"   # WSL
+   ```
+
+   Then tell them what you did and give them the code, in these words or close to them:
+
+   > I opened daily.dev in your browser so you can create your account, or connect the one you have.
    > Check that the page shows this code: `<userCode>`
    > Come back here when it says you're all set.
+   > If the page didn't open, use this link: `<claimUrl>`
 
-   The code is how they know the link came from you. If the page shows a different code, they should close it.
+   Always print the link as well: the command can fail silently, and you may be running on a remote machine or in a sandbox with no browser. If you can't run commands at all, give them the link and ask them to open it.
+
+   The code is how they know the page came from you. If the page shows a different code, they should close it.
 
 3. Wait for them. Every 5 seconds, until `expiresAt`:
 
@@ -42,7 +60,7 @@ If the daily.dev MCP tools are available, or `DAILY_DEV_TOKEN` is set, or the OS
    ```
 
    - `pending`: keep waiting.
-   - `claimed`: the response carries `apiToken` and `isNewUser`. The token is returned once, on the first poll that sees the claim. Store it straight away in the OS secure storage exactly as the daily.dev skill describes (service `daily-dev-api`), and set `DAILY_DEV_TOKEN` for this session. Tell the user it is stored, that it lasts 90 days and that they can revoke it at https://daily.dev/settings/api.
+   - `claimed`: the response carries `apiToken` and `isNewUser`. The token is returned once, on the first poll that sees the claim. Set `DAILY_DEV_TOKEN` for this session first, then store the token in the OS secure storage exactly as the daily.dev skill describes (service `daily-dev-api`). Tell the user it is stored, that it lasts 90 days and that they can revoke it at https://daily.dev/settings/api. If storing it fails or is refused, carry on with the session token and tell them it was not saved, so the other daily.dev skills will ask them to connect again.
    - `claimed` without `apiToken`: the token was already handed out and is gone. Start again from 1.
    - `expired`: the link ran out after an hour. Start again from 1.
 
@@ -129,11 +147,29 @@ curl -s -X POST https://api.daily.dev/public/v1/onboarding/complete \
 
 Until this is called, daily.dev sends the user through its own onboarding when they open the feed. If you stop before this step, tell them so.
 
-## Step 10: Hand over
+## Step 10: Browser extension
+
+The extension puts the feed you just set up on every new tab, so they see it without having to remember to visit. It is the difference between an account that gets used and one that doesn't, so don't leave it as a link at the end of a list.
+
+Tell them in one line what it does and that you are opening the install page, then open it in their default browser the same way as the link in step 2:
+
+```bash
+open "https://r.daily.dev/extension"                      # macOS
+xdg-open "https://r.daily.dev/extension"                  # Linux
+powershell -Command "Start-Process 'https://r.daily.dev/extension'"   # Windows
+powershell.exe -Command "Start-Process 'https://r.daily.dev/extension'"   # WSL
+```
+
+The page picks the right store for their browser. Installing is their click and their choice: you can't install it for them, and don't ask twice. Print the link as well in case the page didn't open. Skip this step if they told you they already have the extension.
+
+## Step 11: Hand over
 
 Tell the user, in a few lines:
 
 - what you set up, in numbers (tags, sources, squads);
-- their feed: https://app.daily.dev
-- the browser extension, which puts the feed on every new tab: https://r.daily.dev/extension
+- their feed: https://daily.dev
 - that the other daily.dev skills now work with the stored token, and that an agent that speaks MCP can also connect to `https://api.daily.dev/mcp`.
+
+## Step 12: Offer the routine
+
+Ask once whether they want a regular brief of what is worth reading for their work, daily or weekly. If yes, set it up with the daily-dev-routine skill. If no, leave it there.

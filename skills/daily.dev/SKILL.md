@@ -549,6 +549,8 @@ These examples show how AI agents can combine daily.dev APIs with external conte
 ### 🔍 GitHub Repo → Personalized Feed
 Use the daily-dev-onboarding skill. It detects the user's stack from their projects and GitHub with their OK, shows a plan, and applies it in one `PATCH /onboarding/setup` call: tags, sources, squads and preferences. It also connects a user who has no account or token yet.
 
+For a recurring brief of what is worth reading for their work, use the daily-dev-routine skill. It sets up the schedule with the user and uses one feed call per run.
+
 **Trigger:** "Set up daily.dev based on my GitHub projects"
 
 ### 🛠️ GitHub → Auto-fill Stack Profile
