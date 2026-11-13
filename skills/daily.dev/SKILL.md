@@ -26,7 +26,7 @@ User can use environment variable or choose one of the secure storage methods be
 
 ### MCP instead of a token
 
-If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP). Authentication is OAuth: the client registers itself and opens the daily.dev sign-in and consent screens, where the user approves `read` or `read write` access and can disconnect later from Settings > API. Almost every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`; deprecated endpoints are REST only and are not exposed as tools. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
+If your agent speaks MCP, you don't need a token or any of the curl calls below. Add `https://api.daily.dev/mcp` as a remote MCP server (streamable HTTP). Authentication is OAuth: the client registers itself and opens the daily.dev sign-in and consent screens, where the user approves `read` or `read write` access, plus the optional `reading_history` scope, and can disconnect later from Settings > API. The `history` endpoints need `reading_history`: without it their tools are not listed and REST calls return `403 insufficient_scope`. Almost every endpoint in this file is a tool named after its `operationId`, for example `getFeedsForyou` for `GET /feeds/foryou`; deprecated endpoints are REST only and are not exposed as tools. Clients that can't run OAuth can send the token as `Authorization: Bearer dda_...` instead. Setup for Claude Code, Cursor, Codex and VS Code: https://docs.daily.dev/mcp-server/
 
 ### Secure Token Storage (Recommended)
 
@@ -326,6 +326,13 @@ DELETE /feeds/foryou/learned - Make For You forget what it learned from the read
 DELETE /feeds/foryou/seen - Make For You forget which posts the reader scrolled past, so posts they skipped can show up again. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
 
 DELETE /feeds/foryou/personalization - Start For You over in one call: forget what it learned from the reader's reading and which posts they scrolled past, and take every topic, source and author back to auto. Follows, blocks and the learning and fill-ins switches stay. Cannot be undone. At most 10 resets an hour, counted across deleteFeedsForyouLearned, deleteFeedsForyouSeen, deleteFeedsForyouLevels and deleteFeedsForyouPersonalization.
+
+#### history
+GET /history/reads - Get the posts the user read. Newest first, one entry per read: a post read more than once appears once per read. Reads the user hid from their history are not returned.
+  Params: limit(query): Number of reads to return (1-50); cursor(query): Pagination cursor from previous response
+
+GET /history/reads/search - Search the posts the user read by their content. Newest first, one entry per read: a post read more than once appears once per read. Reads the user hid from their history are not returned.
+  Params: q(query): Search query (required); limit(query): Number of reads to return (1-50); cursor(query): Pagination cursor from previous response
 
 #### notifications
 GET /notifications/ - Get user notifications
