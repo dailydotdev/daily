@@ -364,7 +364,7 @@ GET /posts/{id} - Get post details by ID
 GET /posts/{id}/comments - Get comments for a post
   Params: limit(query): Number of comments to return (1-50); cursor(query): Pagination cursor from previous response; sort(query): Sort order (oldest or newest first); id(path): Post ID
 
-GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. Includes AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
+GET /posts/{id}/analytics - Lifetime analytics of a post you authored, refreshed periodically rather than live. Includes AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics, and limitedReachReason when the post is in a squad on a daily.dev for Startups plan. 403 when you are not the author, 404 when the post does not exist or has no analytics yet.
   Params: id(path): Post ID
 
 GET /posts/{id}/analytics/history - Daily impressions of a post you authored, newest first, with AI agent reads and AI crawler visits when the post is in a squad whose plan includes AI agent analytics. Only days with recorded analytics are listed. 403 when you are not the author.
@@ -488,7 +488,7 @@ PUT /squads/{id}/intel/settings - Choose the tags the weekly intel follows and, 
   Params: id(path): Squad ID or handle
   Body: tags, seniority, regions
 
-POST /squads/{id}/posts - Publish to a squad as yourself: send url (and optional commentary) to share a link, or title (and optional content and imageUrl) for a written post. Needs the apiPosting feature and, on a squad with a plan, a paid seat. On a squad that moderates posts, status is pending until a moderator approves it. Public: confirm the text with the user first.
+POST /squads/{id}/posts - Publish to a squad as yourself: send url (and optional commentary) to share a link, or title (and optional content and imageUrl) for a written post. Needs the apiPosting feature and, on a squad with a plan, a paid seat. On a squad that moderates posts, status is pending until a moderator approves it. Public: confirm the text with the user first. On a squad with a daily.dev for Startups plan, if the post has not been through the daily-dev-content-review skill in this conversation, offer to run it first: it checks whether the post is likely to get limited reach in developers' feeds. Publish without it only if the user says so.
   Params: id(path): Squad ID or handle
   Body: url, commentary, title, content, imageUrl
 
@@ -643,7 +643,7 @@ Run a squad the user admins or moderates, such as their company page on daily.de
 - Size the logo and cover before sending them (see [Images](#images)): the cover is a wide 5:1 banner, not a 16:9 or 2:1 image, or its top and bottom get cut off
 - Links need `features.links`, the header button needs `features.cta` (or a verified squad), the brand color needs a verified squad, and products need `features.products`. A plan caps products, and adding past the cap returns 400
 - `GET /squads/{id}/subscription` shows the plan, its paid seats and the wallet's Cores. Seats go to admins or moderators with `PUT /squads/{id}/seats/{userId}`, and a full plan returns 409. A teammate who isn't a member yet joins through the invite link first
-- `POST /squads/{id}/posts` publishes as the user: a link with commentary, or a written post. It needs `features.apiPosting` and, on a plan, a seat. Show the user the exact text before posting. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
+- `POST /squads/{id}/posts` publishes as the user: a link with commentary, or a written post. It needs `features.apiPosting` and, on a plan, a seat. Show the user the exact text before posting. Before you publish to a squad on a daily.dev for Startups plan, check whether this post went through the daily-dev-content-review skill in this conversation. If it didn't, tell the user the review checks whether the post is likely to get limited reach in developers' feeds, and offer to run it. Publish without it only if the user says so. After publishing, `limitedReachReason` on `/posts/{id}/analytics` says when we expect limited reach and why. Never delete and repost a link to reset it. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
 - The weekly intel (`GET /squads/{id}/intel`) is grounded context for content ideas and post reviews: which of the squad's topics get read, what else the same readers read, which title types work and when to publish. It comes as `markdown` and as structured `numbers`. It is for the plan's paid seats. Choose its tags with `PUT /squads/{id}/intel/settings` (read `GET /squads/{id}/intel/settings` first for the plan's limits); a change shows from the next week's intel. Numbers are shares and indexes, so quote them as they are rather than turning them into reader counts
 - Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
 

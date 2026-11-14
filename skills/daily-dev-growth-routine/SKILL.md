@@ -37,6 +37,7 @@ When a schedule runs this skill, nobody may be watching: report, suggest and sto
 
 - **Page reach**: `getSquadsByIdAnalyticsHistory`. Compare yesterday with the average of the 7 days before it. A day missing from the list had no recorded impressions.
 - **Posts**: `getFeedsSourceBySource` with the squad handle for the latest posts on the page and when each went up. For the user's own posts, `getProfileAnalyticsPosts` (period 30, sorted by createdAt) gives impressions, reads and upvotes.
+- **Reach notes**: for the user's posts from the last 7 days, `getPostsByIdAnalytics` returns `limitedReachReason` when we expect limited reach for the post in the wider feed, and why.
 - **Boosts**: `getBoosts` for the active ones and any that ended since yesterday, with their reach and spend.
 - **Wallet**: `getSquadsByIdSubscription` for the Cores in the page wallet.
 - **Intel**: on Mondays, or when `getSquadsByIdIntel` shows a new week, read it for the changes worth knowing.
@@ -56,6 +57,7 @@ Keep it under 12 lines, plain words, numbers with their comparison:
 - Boost: <post>, day <n> of <m>, <reach so far>; or none running
 - Wallet: <Cores> Cores
 - Next post: due <today / in n days / n days overdue> (<cadence>)
+- <Only when a post from the last 7 days has one: Reach note: <post>, <reason in plain words>>
 - <On Mondays: one or two lines on what changed in the intel>
 
 **Do next:** <one action>
@@ -63,9 +65,10 @@ Keep it under 12 lines, plain words, numbers with their comparison:
 
 Pick one next action, in this order:
 
-1. A post is due or overdue: say so and offer to find what to publish with the daily-dev-content-ideas skill. Prefer something the team already wrote or shipped (a blog post, release notes, a video) over writing from scratch.
-2. No boost is running, the wallet holds Cores and a recent post is doing better than the others: suggest boosting it, with the cost and the estimate from `getBoostsEstimate`. The boost targets readers of the post's tags worldwide by default; if the user has said which markets matter to them, offer that country list too, with its own estimate.
-3. A post got comments: suggest replying, since answering readers keeps the post alive.
-4. Otherwise: nothing to do today, and when the next post is due.
+1. A post published since the last report has a `limitedReachReason`: say which post and why in one line, link the matching section of https://docs.daily.dev/docs/for-content-creators/what-the-feed-recommends, and suggest running the daily-dev-content-review skill on the next post. Don't suggest deleting and reposting it: that resets nothing.
+2. A post is due or overdue: say so and offer to find what to publish with the daily-dev-content-ideas skill. Prefer something the team already wrote or shipped (a blog post, release notes, a video) over writing from scratch. Run the daily-dev-content-review skill on the candidate before publishing. If it expects limited reach, pick another piece of the team's content, or bring the review to the user and let them decide.
+3. No boost is running, the wallet holds Cores and a recent post is doing better than the others: suggest boosting it, with the cost and the estimate from `getBoostsEstimate`. The boost targets readers of the post's tags worldwide by default; if the user has said which markets matter to them, offer that country list too, with its own estimate.
+4. A post got comments: suggest replying, since answering readers keeps the post alive.
+5. Otherwise: nothing to do today, and when the next post is due.
 
 If a number is missing because the page is new, say so in a few words instead of guessing.
