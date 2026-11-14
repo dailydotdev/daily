@@ -65,7 +65,7 @@ Keep it under 12 lines, plain words, numbers with their comparison:
 
 Pick one next action, in this order:
 
-1. A post published since the last report has a `limitedReachReason`: say which post and why in one line, link the matching section of https://docs.daily.dev/docs/for-content-creators/what-the-feed-recommends, and suggest running the daily-dev-content-review skill on the next post. Don't suggest deleting and reposting it: that resets nothing.
+1. A post published since the last report has a `limitedReachReason`: say which post and why in one line, link the matching section of https://docs.daily.dev/what-the-feed-recommends/, and suggest running the daily-dev-content-review skill on the next post. Don't suggest deleting and reposting it: that resets nothing.
 2. A post is due or overdue: say so and offer to find what to publish with the daily-dev-content-ideas skill. Prefer something the team already wrote or shipped (a blog post, release notes, a video) over writing from scratch. Run the daily-dev-content-review skill on the candidate before publishing. If it expects limited reach, pick another piece of the team's content, or bring the review to the user and let them decide.
 3. No boost is running, the wallet holds Cores and a recent post is doing better than the others: suggest boosting it, with the cost and the estimate from `getBoostsEstimate`. The boost targets readers of the post's tags worldwide by default; if the user has said which markets matter to them, offer that country list too, with its own estimate.
 4. A post got comments: suggest replying, since answering readers keeps the post alive.

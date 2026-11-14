@@ -46,7 +46,7 @@ The draft can be a file, pasted text, or a URL of an article the user wants to s
 
 ## Step 3: Reach check
 
-Check the post against each reason developers' feeds give a post limited reach. The daily.dev docs explain each one: https://docs.daily.dev/docs/for-content-creators/what-the-feed-recommends
+Check the post against each reason developers' feeds give a post limited reach. The daily.dev docs explain each one: https://docs.daily.dev/what-the-feed-recommends/
 
 - **Reads as AI-written** (`#ai-written`). This is the most common reason. Developers here tend to skip posts that read as AI-written, and that includes AI drafts that were only lightly edited. Look for the patterns readers notice: generic openings and closings, lists of three, the same rhythm in every paragraph, no first-hand detail, no numbers, no code, and no point where the author says what they tried, saw or decided.
 - **Mostly about a product** (`#promotional`). The post mostly sells, and a reader learns little they could use without buying.
@@ -83,7 +83,7 @@ Back each point with the intel number behind it, or with a clear reason for the 
 **Reach check:** Good to go / Limited reach expected
 
 <For each reason that limits reach:>
-**<Reason in plain words>** ([what developers here respond to](https://docs.daily.dev/docs/for-content-creators/what-the-feed-recommends#<anchor>))
+**<Reason in plain words>** ([what developers here respond to](https://docs.daily.dev/what-the-feed-recommends/#<anchor>))
 - "<quoted passage>"
 - "<quoted passage>"
 Questions to work from:
