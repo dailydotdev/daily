@@ -112,7 +112,7 @@ Title options are fine to suggest, since a title is a choice for the author and 
 
 If the draft is a video script, add one line saying that the intel measures posts on daily.dev, so it informs the topic, title and angle, but says nothing about pacing, on-screen length or visuals.
 
-If limited reach is expected, say plainly that the post can still go out: it reaches the squad page and followers, and a boost reaches developers either way. Leave the call to the user.
+If limited reach is expected, say plainly that the post can still go out: it reaches the squad page and followers. Leave the call to the user. Don't suggest a boost to get around limited reach.
 
 ## Step 6: Review again
 
