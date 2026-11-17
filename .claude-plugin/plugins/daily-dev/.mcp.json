@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "daily-dev": {
+      "type": "http",
+      "url": "https://api.daily.dev/mcp"
+    }
+  }
+}

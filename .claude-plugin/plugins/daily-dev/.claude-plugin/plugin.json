@@ -1,0 +1,15 @@
+{
+  "name": "daily-dev",
+  "displayName": "daily.dev",
+  "description": "Access personalized developer content feeds from daily.dev - the professional network for developers. Surface relevant articles, tutorials, and discussions based on user interests.",
+  "version": "0.30.0",
+  "author": { "name": "daily.dev" },
+  "homepage": "https://daily.dev",
+  "license": "AGPL-3.0-only",
+  "icon": "./icon.png",
+  "documentationUrl": "https://docs.daily.dev/mcp-server/",
+  "supportUrl": "https://daily.dev/support",
+  "privacyPolicyUrl": "https://daily.dev/privacy/",
+  "termsOfServiceUrl": "https://daily.dev/tos/",
+  "types": "./types/index.d.ts"
+}

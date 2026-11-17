@@ -6,7 +6,7 @@
  * interleaved with the community's most-upvoted posts of the day.
  *
  * Claude Code does not activate statuslines from plugin settings — users wire
- * this script into their own settings via the /daily.dev:statusline skill
+ * this script into their own settings via the /daily-dev:statusline skill
  * (or manually; see the plugin README).
  *
  * Design constraints:
@@ -47,10 +47,6 @@ const MIN_ITEMS = 10; // below this, recycle least-recently-shown items
 const IMPRESSION_DEDUP_MS = 30 * 60 * 1000; // log each post at most every 30 min
 const ORIGIN = process.env.DAILY_DEV_ORIGIN || 'https://api.daily.dev';
 const API = `${ORIGIN}/graphql`;
-const CLAUDE_DIR = process.env.CLAUDE_CONFIG_DIR || join(homedir(), '.claude');
-const RENAMED_PLUGIN = 'daily-dev';
-const RENAME_NOTICE =
-  'plugin renamed to daily-dev · run: claude plugin uninstall daily.dev@daily.dev && claude plugin install daily-dev@daily.dev';
 
 const TELEMETRY_ENABLED = !['0', 'false'].includes(
   process.env.DAILY_DEV_TELEMETRY ?? '',
@@ -341,27 +337,6 @@ function sanitizeLine(line) {
   return marked.replace(/\x00(\d+)\x00/g, (_, i) => placeholders[Number(i)]);
 }
 
-function renamedPluginAvailable() {
-  try {
-    const known = JSON.parse(
-      readFileSync(join(CLAUDE_DIR, 'plugins', 'known_marketplaces.json'), 'utf8'),
-    );
-    return Object.values(known).some(({ source, installLocation }) => {
-      const origin = `${source?.repo ?? ''} ${source?.url ?? ''}`;
-      if (!/dailydotdev\/daily(?:\.git)?(?:\s|$)/.test(origin)) return false;
-      const marketplace = JSON.parse(
-        readFileSync(
-          join(installLocation, '.claude-plugin', 'marketplace.json'),
-          'utf8',
-        ),
-      );
-      return (marketplace.plugins ?? []).some((p) => p.name === RENAMED_PLUGIN);
-    });
-  } catch {
-    return false;
-  }
-}
-
 function render(sessionInfo) {
   const cache = readCache();
   const items = cache?.items ?? [];
@@ -373,9 +348,6 @@ function render(sessionInfo) {
   }
 
   const idx = Math.floor(Date.now() / 1000 / ROTATE_SECONDS) % items.length;
-  if (idx === 0 && renamedPluginAvailable()) {
-    return `${prefix}${purple('daily.dev')} ${RENAME_NOTICE}`;
-  }
   const item = items[idx];
   maybeLogImpression(item, cache);
   const safeLine = sanitizeLine(item.line);

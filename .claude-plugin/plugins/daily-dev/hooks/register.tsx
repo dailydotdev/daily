@@ -14,11 +14,11 @@ import type { Headline } from '../types';
 const POLL_MS = 10_000; // the old statusLine used refreshInterval: 10
 
 const headlineAtom = atom(
-  { plugin: 'daily.dev', key: 'headline' } as const,
+  { plugin: 'daily-dev', key: 'headline' } as const,
   undefined as Headline | undefined,
 );
 const bandHiddenAtom = atom(
-  { plugin: 'daily.dev', key: 'bandHidden' } as const,
+  { plugin: 'daily-dev', key: 'bandHidden' } as const,
   false as boolean | undefined,
 );
 
