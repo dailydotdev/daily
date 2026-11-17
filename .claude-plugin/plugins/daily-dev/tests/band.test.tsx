@@ -21,7 +21,7 @@ function world(on: On, statuses: (string | undefined)[], argvs: (readonly string
   return mock.clock(on);
 }
 
-test('session.start runs the statusline script and pins the headline', async ($, on) => {
+test('session.start runs the statusline script and shows the headline only in the band', async ($, on) => {
   const statuses: (string | undefined)[] = [];
   const argvs: (readonly string[])[] = [];
   world(on, statuses, argvs, () => LINE);
@@ -31,7 +31,11 @@ test('session.start runs the statusline script and pins the headline', async ($,
   expect(argvs.length).toBe(1);
   expect(argvs[0]?.[0]).toBe('node');
   expect(argvs[0]?.[1]).toMatch(/\/statusline\/statusline\.mjs$/);
-  expect(statuses).toEqual(['daily.dev · Why the best programmers are switching to Linux ▲13']);
+  expect(statuses).toEqual([]);
+
+  const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
+  expect(await ui.find({ type: 'Text', text: 'Why the best programmers are switching to Linux ▲13' })).toBeDefined();
+  await ui.unmount();
 });
 
 test('the poll re-runs the script every 10s', async ($, on) => {
@@ -68,23 +72,22 @@ test('the band yields to a survey', async ($, on) => {
 });
 
 test('the band draws nothing while the script is still fetching', async ($, on) => {
-  const statuses: (string | undefined)[] = [];
-  world(on, statuses, [], () => FETCHING);
+  world(on, [], [], () => FETCHING);
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
-  expect(statuses).toEqual([undefined]);
   const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
   expect(await ui.find({ type: 'Link' })).toBeUndefined();
   await ui.unmount();
 });
 
-test('a failing node call clears the status and never throws', async ($, on) => {
-  const statuses: (string | undefined)[] = [];
+test('a failing node call leaves the band empty and never throws', async ($, on) => {
   on('session.start', (_$, e) => ({ cwd: e.cwd }));
-  on('ui.status', (_$, e) => { statuses.push(e.text); return { value: undefined }; });
   on('process.run', () => { throw new Error('spawn node ENOENT'); });
+  on('ui.render', () => ({ type: 'engine', ref: 0 }) as const);
   mock.clock(on);
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
-  expect(statuses).toEqual([undefined]);
+  const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
+  expect((await ui.drawn()) as any).toMatchObject({ type: 'engine' });
+  await ui.unmount();
 });
 
 test('pressing Hide dismisses the band for the session', async ($, on) => {
@@ -105,10 +108,8 @@ const INJECTED =
   '\x1b[1mHello \x1b]52;c;aGVsbG8=\x07world \x1b[2J\x1b[31m\x9b2Jred\x1b]0;owned\x07\x07\x1b[0m\x1b]8;;\x1b\\ \x1b[2m▲4\x1b[0m';
 
 test('injected escape sequences are stripped from the title and a non-https link is dropped', async ($, on) => {
-  const statuses: (string | undefined)[] = [];
-  world(on, statuses, [], () => INJECTED);
+  world(on, [], [], () => INJECTED);
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
-  expect(statuses).toEqual(['daily.dev · Hello world red ▲4']);
 
   const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
   expect(await ui.find({ type: 'Text', text: 'Hello world red ▲4' })).toBeDefined();

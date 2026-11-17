@@ -64,10 +64,8 @@ export const register: Register = (on) => {
         );
         const headline = parse(String(out.stdout ?? ''));
         await update($, headlineAtom, () => headline);
-        $.ui.status(headline ? `daily.dev · ${headline.title}` : undefined);
       } catch {
-        // No node on PATH or offline: keep the line empty, never break the session.
-        $.ui.status(undefined);
+        // No node on PATH or offline: never break the session.
       }
     };
 

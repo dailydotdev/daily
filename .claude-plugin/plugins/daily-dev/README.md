@@ -31,11 +31,11 @@ What you get:
 - **`/daily-dev:daily-dev-routine` skill** — a daily or weekly brief of what is worth reading on daily.dev for what you are working on, run on a schedule.
 - **`/daily-dev:daily-dev-profile` skill** — makes your daily.dev profile credible: photo, headline, current role, About me, links and stack.
 - **For daily.dev for Startups companies** — `daily-dev-content-ideas` and `daily-dev-content-review` shape posts with your weekly intel, and `daily-dev-growth-routine` schedules a daily report on your page, posts and boosts, with reminders at the content cadence you choose.
-- **Headlines** — rotating daily.dev headlines while you wait: a status line entry under the prompt and a band above it with **Open** and **Hide**. Curated major headlines interleaved with the community's most-upvoted posts of the day, refreshed every 10 minutes, rotating every ~60 seconds. Headlines are clickable in terminals with hyperlink support (iTerm2, Kitty, WezTerm, Ghostty).
+- **Headlines** — rotating daily.dev headlines while you wait, in a band above the prompt with **Open** and **Hide**. Curated major headlines interleaved with the community's most-upvoted posts of the day, refreshed every 10 minutes, rotating every ~60 seconds. Headlines are clickable in terminals with hyperlink support (iTerm2, Kitty, WezTerm, Ghostty).
 
 ## Headlines setup
 
-Nothing to set up. On Claude Code 2.1.275 or later the plugin ships a hooks module that shows the headline as soon as the plugin is installed, with no edits to your `settings.json`. Your own `statusLine` setting, if you have one, keeps working alongside it. Press **Hide** on the band to dismiss it for the current session.
+Nothing to set up. On Claude Code 2.1.275 or later the plugin ships a hooks module that shows the headline band as soon as the plugin is installed, with no edits to your `settings.json`. Your own `statusLine` setting, if you have one, keeps working alongside it. Press **Hide** on the band to dismiss it for the current session.
 
 ### Upgrading from the old statusline
 
@@ -49,7 +49,7 @@ and Claude removes the old entry. If you prefer to do it by hand, delete the `st
 
 ### Older Claude Code
 
-Claude Code before 2.1.275 does not load the hooks module, so the band and status line entry do not appear. The old setup still works there: run `/daily-dev:statusline` and Claude wires the script into `~/.claude/settings.json`, or point `statusLine` at the plugin's script yourself. The glob keeps it working across plugin updates:
+Claude Code before 2.1.275 does not load the hooks module, so the band does not appear. The old setup still works there: run `/daily-dev:statusline` and Claude wires the script into `~/.claude/settings.json`, or point `statusLine` at the plugin's script yourself. The glob keeps it working across plugin updates:
 
 ```json
 {

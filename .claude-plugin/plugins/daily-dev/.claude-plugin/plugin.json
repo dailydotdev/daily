@@ -2,7 +2,7 @@
   "name": "daily-dev",
   "displayName": "daily.dev",
   "description": "Access personalized developer content feeds from daily.dev - the professional network for developers. Surface relevant articles, tutorials, and discussions based on user interests.",
-  "version": "0.31.0",
+  "version": "0.32.0",
   "author": { "name": "daily.dev" },
   "homepage": "https://daily.dev",
   "license": "AGPL-3.0-only",
