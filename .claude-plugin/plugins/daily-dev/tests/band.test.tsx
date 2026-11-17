@@ -49,7 +49,7 @@ test('the band shows the headline with an Open link and a Hide button on every s
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
 
   for (const surface of ['terminal', 'desktop'] as const) {
-    const ui = await $.ui.mount({ plugin: 'daily.dev', surface, component: 'AbovePrompt', props: PROPS });
+    const ui = await $.ui.mount({ plugin: 'daily-dev', surface, component: 'AbovePrompt', props: PROPS });
     expect(await ui.find({ type: 'Text', text: /switching to Linux/ })).toBeDefined();
     const link = await ui.find({ type: 'Link' });
     expect(link?.props.href).toMatch(/^https:\/\/api\.daily\.dev\/c\/D8LNYgDuu/);
@@ -61,7 +61,7 @@ test('the band shows the headline with an Open link and a Hide button on every s
 test('the band yields to a survey', async ($, on) => {
   world(on, [], [], () => LINE);
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
-  const ui = await $.ui.mount({ plugin: 'daily.dev', surface: 'terminal', component: 'AbovePrompt', props: { ...PROPS, hasSurvey: true } });
+  const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: { ...PROPS, hasSurvey: true } });
   expect(await ui.find({ type: 'Link' })).toBeUndefined();
   expect((await ui.drawn()) as any).toMatchObject({ type: 'engine' });
   await ui.unmount();
@@ -72,7 +72,7 @@ test('the band draws nothing while the script is still fetching', async ($, on) 
   world(on, statuses, [], () => FETCHING);
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
   expect(statuses).toEqual([undefined]);
-  const ui = await $.ui.mount({ plugin: 'daily.dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
+  const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
   expect(await ui.find({ type: 'Link' })).toBeUndefined();
   await ui.unmount();
 });
@@ -90,7 +90,7 @@ test('a failing node call clears the status and never throws', async ($, on) => 
 test('pressing Hide dismisses the band for the session', async ($, on) => {
   world(on, [], [], () => LINE);
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
-  const ui = await $.ui.mount({ plugin: 'daily.dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
+  const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
   expect(await ui.find({ type: 'Button', key: 'Hide' })).toBeDefined();
   await ui.press({ key: 'Hide' });
   expect(await ui.find({ type: 'Link' })).toBeUndefined();
@@ -110,7 +110,7 @@ test('injected escape sequences are stripped from the title and a non-https link
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true });
   expect(statuses).toEqual(['daily.dev · Hello world red ▲4']);
 
-  const ui = await $.ui.mount({ plugin: 'daily.dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
+  const ui = await $.ui.mount({ plugin: 'daily-dev', surface: 'terminal', component: 'AbovePrompt', props: PROPS });
   expect(await ui.find({ type: 'Text', text: 'Hello world red ▲4' })).toBeDefined();
   expect(await ui.find({ type: 'Link' })).toBeUndefined();
   await ui.unmount();

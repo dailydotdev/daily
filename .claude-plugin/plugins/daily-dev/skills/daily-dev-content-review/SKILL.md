@@ -17,12 +17,12 @@ $ARGUMENTS
 
 ## Step 1: Get the intel
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`):
+Use the daily.dev MCP tools this plugin provides:
 
 1. Find the squad with `getSquads`. Use the squad where the user holds a paid seat. If there are several, ask the user which company this is for.
 2. Call `getSquadsByIdIntel` with the squad's ID or handle and read its `markdown`.
 
-If the daily.dev MCP tools are not available, ask the user to add `https://api.daily.dev/mcp` as a remote MCP server (setup: https://docs.daily.dev/mcp-server/). If they prefer an API token, use the REST endpoint as the daily.dev skill describes: `GET https://api.daily.dev/public/v1/squads/{id}/intel` with `Authorization: Bearer $DAILY_DEV_TOKEN`.
+If the daily.dev tools are missing, or only an authentication tool is listed for the `daily-dev` server, ask the user to run `/mcp`, pick `daily-dev` and sign in. There is no token to handle: never ask for one, and never look for one in the user's environment, files or OS secure storage.
 
 When the intel is not there:
 - `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, and suggest asking a squad admin for a seat.
