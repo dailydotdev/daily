@@ -2,7 +2,7 @@
   "name": "developer-distribution",
   "displayName": "Developer Distribution",
   "description": "Free weekly trends on what developers read on daily.dev, with two skills that turn them into post ideas and post reviews. No account needed.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": { "name": "daily.dev" },
   "homepage": "https://daily.dev/startups",
   "license": "AGPL-3.0-only",
