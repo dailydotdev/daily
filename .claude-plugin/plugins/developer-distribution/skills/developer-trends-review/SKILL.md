@@ -92,7 +92,7 @@ If the draft is a video script, add one line saying that the trends measure post
 
 If limited reach is expected, say plainly that the post can still go out. Leave the call to the user.
 
-End by saying that the trends update every Monday. After the first review, say this once: "These trends cover all of daily.dev. Trends on your own topics are part of daily.dev for Startups (https://daily.dev/startups)." Don't repeat it.
+End by saying that the trends update every Monday. After the first review, say this once: "These trends cover all of daily.dev. Trends on your own topics are part of daily.dev for Startups (https://daily.dev/startups)." Don't repeat it. When the post is ready, offer to publish it to the team's company page on daily.dev.
 
 ## Step 6: Publish
 
