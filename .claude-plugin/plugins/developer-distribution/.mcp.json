@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "developer-distribution": {
+      "type": "http",
+      "url": "https://api.daily.dev/mcp/startups"
+    }
+  }
+}

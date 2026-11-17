@@ -430,6 +430,9 @@ PUT /profile/stack/reorder - Reorder stack items
 #### tags
 GET /tags/ - Get all tags
 
+#### trends
+GET /trends/ - What developers read across daily.dev last week, the same for everyone and free to call without an account: which topics rose and cooled compared with the 4 weeks before, which post formats and title patterns earned more reads, Bookmarks and comments, and example patterns. Numbers are multiples, never raw counts. Use it to see where developer attention is going. Updated every week; data is null until the first trends are published.
+
 #### uploads
 POST /uploads/ - Upload an image file from the user's machine, such as a profile photo or a cover you made. Returns a one-time URL valid for 15 minutes: send the file to it with `curl -X PUT -H "Content-Type: image/png" --data-binary @file.png "<uploadUrl>"` (png, jpeg, webp or gif, up to 5 MB; a gif shows as its first frame). The response has the hosted image url to pass as a profile image or cover, a squad image or headerImage, or a written post imageUrl. Size the image for its slot first: profile image 400x400, profile cover 1024x256, squad image 512x512, squad headerImage 1500x300, post imageUrl 1200x630. Each field's description has the details.
 
