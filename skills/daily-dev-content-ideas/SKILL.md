@@ -17,7 +17,7 @@ $ARGUMENTS
 
 Always start here. Do not suggest ideas before you have read the intel.
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`, or `https://api.daily.dev/mcp/startups`, which has every tool these steps use):
+Use the daily.dev MCP server (`https://api.daily.dev/mcp`). `https://api.daily.dev/mcp/startups` is a smaller server with only the trends, squads, intel and posting tools; where a step needs a tool it lacks, follow that step's fallback:
 
 1. Find the squad with `getSquads`. Use the squad where the user holds a paid seat. If there are several, ask the user which company this is for.
 2. Call `getSquadsByIdIntel` with the squad's ID or handle and read its `markdown`.
@@ -28,7 +28,7 @@ If the daily.dev MCP tools are not available, ask the user to add `https://api.d
 
 When the intel is not there:
 - `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, suggest asking a squad admin for a seat, and use the free developer trends meanwhile.
-- `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built.
+- `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built. If these settings tools aren't available, ask the user to choose the topics in the squad's intel settings on daily.dev.
 - In both cases, offer to carry on with the free developer trends, and say that the suggestions won't be tuned to the squad's own topics.
 
 ## Working from the free trends

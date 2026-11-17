@@ -17,7 +17,7 @@ $ARGUMENTS
 
 ## Step 1: Get the intel
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`, or `https://api.daily.dev/mcp/startups`, which has every tool these steps use):
+Use the daily.dev MCP server (`https://api.daily.dev/mcp`). `https://api.daily.dev/mcp/startups` is a smaller server with only the trends, squads, intel and posting tools; where a step needs a tool it lacks, follow that step's fallback:
 
 1. Find the squad with `getSquads`. Use the squad where the user holds a paid seat. If there are several, ask the user which company this is for.
 2. Call `getSquadsByIdIntel` with the squad's ID or handle and read its `markdown`.
@@ -28,7 +28,7 @@ If the daily.dev MCP tools are not available, ask the user to add `https://api.d
 
 When the intel is not there:
 - `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, suggest asking a squad admin for a seat, and use the free developer trends meanwhile.
-- `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built.
+- `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built. If these settings tools aren't available, ask the user to choose the topics in the squad's intel settings on daily.dev.
 - In both cases, still run the reach check in Step 3, review the rest against the free developer trends, and say it isn't tuned to the squad's own topics.
 
 ## Working from the free trends
@@ -63,7 +63,7 @@ Check the post against each reason developers' feeds give a post limited reach. 
 - **Title promises more than the post** (`#oversold-title`). The title claims more than the post delivers.
 - **Not in English** (`#language`). The post reaches only readers who chose its language.
 - **Page title and preview** (`#page-metadata`). For a link, check whether the page title is the company name instead of the headline, and whether the description or image is missing. daily.dev shows what the page declares.
-- **Shared before** (`#reposting`). Call `getFeedsSourceBySource` with the squad handle and check whether the link is already on the page. If it is, don't share it again. Deleting a post and reposting it doesn't reset anything.
+- **Shared before** (`#reposting`). Call `getFeedsSourceBySource` with the squad handle and check whether the link is already on the page. If it is, don't share it again. Deleting a post and reposting it doesn't reset anything. If `getFeedsSourceBySource` isn't available, ask the user whether they shared this link before.
 
 For every reason that applies, quote two or three passages that show it. Then give two or three questions or directions that help the author fix it from their own material. For example: "What went wrong the first time you tried this? Readers here trust posts that show the failed attempt." Or: "Which number from your own setup would back this claim?"
 
