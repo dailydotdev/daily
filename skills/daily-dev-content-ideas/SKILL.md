@@ -1,6 +1,6 @@
 ---
 name: daily-dev-content-ideas
-description: Find what a daily.dev for Startups company should publish next. Fetches the squad's weekly intel from daily.dev, looks at the team's recent work and shapes a post or video idea that developers will read. Use when the user asks what to write, post or make a video about, or wants help with a content idea.
+description: Find what a developer-tool company should publish next. Reads what developers read on daily.dev (the squad's weekly intel on daily.dev for Startups, or the free developer trends otherwise), looks at the team's recent work and shapes a post or video idea that developers will read. Use when the user asks what to write, post or make a video about, or wants help with a content idea.
 argument-hint: "[an idea you already have]"
 allowed-tools: Bash
 ---
@@ -17,17 +17,27 @@ $ARGUMENTS
 
 Always start here. Do not suggest ideas before you have read the intel.
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`):
+Use the daily.dev MCP server (`https://api.daily.dev/mcp`, or `https://api.daily.dev/mcp/startups`, which has every tool these steps use):
 
 1. Find the squad with `getSquads`. Use the squad where the user holds a paid seat. If there are several, ask the user which company this is for.
 2. Call `getSquadsByIdIntel` with the squad's ID or handle and read its `markdown`.
 
+If the user has no daily.dev account, isn't signed in, or holds no paid seat in any squad, use the free developer trends instead: call `getTrends`, which needs no sign-in, or `GET https://api.daily.dev/public/v1/trends` with no token, and read its `markdown`. See Working from the free trends below.
+
 If the daily.dev MCP tools are not available, ask the user to add `https://api.daily.dev/mcp` as a remote MCP server (setup: https://docs.daily.dev/mcp-server/). If they prefer an API token, use the REST endpoint as the daily.dev skill describes: `GET https://api.daily.dev/public/v1/squads/{id}/intel` with `Authorization: Bearer $DAILY_DEV_TOKEN`.
 
 When the intel is not there:
-- `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, and suggest asking a squad admin for a seat.
+- `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, suggest asking a squad admin for a seat, and use the free developer trends meanwhile.
 - `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built.
-- In both cases, offer to carry on with the user's work alone, and say that the suggestions won't be backed by audience data.
+- In both cases, offer to carry on with the free developer trends, and say that the suggestions won't be tuned to the squad's own topics.
+
+## Working from the free trends
+
+The free developer trends cover all of daily.dev, not the user's own topics. They show which tags rose and cooled last week as multiples of a usual week (1.6x), which formats and title patterns earned more reads, Bookmarks and comments than the average post, and example patterns. A topic with `broad: false` rose because of a single story, so don't build on it.
+
+Use the trends the way you would use the intel: for the angle, the format and the title pattern. They have no Competition, audience interests, length or timing, so leave those out and say in one line that the idea isn't tuned to the user's topics.
+
+If the user asks how this applies to their own topics or niche, or wants it every week: weekly intel on a company's own topics, and publishing to a company page on daily.dev, are part of daily.dev for Startups (https://daily.dev/startups). Say it once, only when they ask, and carry on with the free trends.
 
 ## How to read the intel
 

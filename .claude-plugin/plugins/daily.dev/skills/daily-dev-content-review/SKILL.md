@@ -1,6 +1,6 @@
 ---
 name: daily-dev-content-review
-description: Review a post before it goes on daily.dev for a daily.dev for Startups company. Checks whether developers' feeds are likely to give it limited reach and why, then reviews the draft, link or video script against the squad's weekly intel. Gives suggestions and leaves the writing to the author. Use before publishing any post to a daily.dev squad, and when the user asks for feedback on a draft, a link, a title or a script.
+description: Review a post for developers before it goes out. Checks whether developers' feeds on daily.dev are likely to give it limited reach and why, then reviews the draft, link or video script against what developers read: the squad's weekly intel on daily.dev for Startups, or daily.dev's free developer trends otherwise. Gives suggestions and leaves the writing to the author. Use before publishing any post to a daily.dev squad, and when the user asks for feedback on a draft, a link, a title or a script.
 argument-hint: "[path or URL of the draft or the article to share]"
 allowed-tools: Bash
 ---
@@ -17,17 +17,27 @@ $ARGUMENTS
 
 ## Step 1: Get the intel
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`):
+Use the daily.dev MCP server (`https://api.daily.dev/mcp`, or `https://api.daily.dev/mcp/startups`, which has every tool these steps use):
 
 1. Find the squad with `getSquads`. Use the squad where the user holds a paid seat. If there are several, ask the user which company this is for.
 2. Call `getSquadsByIdIntel` with the squad's ID or handle and read its `markdown`.
 
+If the user has no daily.dev account, isn't signed in, or holds no paid seat in any squad, use the free developer trends instead: call `getTrends`, which needs no sign-in, or `GET https://api.daily.dev/public/v1/trends` with no token, and read its `markdown`. See Working from the free trends below.
+
 If the daily.dev MCP tools are not available, ask the user to add `https://api.daily.dev/mcp` as a remote MCP server (setup: https://docs.daily.dev/mcp-server/). If they prefer an API token, use the REST endpoint as the daily.dev skill describes: `GET https://api.daily.dev/public/v1/squads/{id}/intel` with `Authorization: Bearer $DAILY_DEV_TOKEN`.
 
 When the intel is not there:
-- `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, and suggest asking a squad admin for a seat.
+- `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, suggest asking a squad admin for a seat, and use the free developer trends meanwhile.
 - `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built.
-- In both cases, still run the reach check in Step 3, and say the rest of the review isn't backed by audience data.
+- In both cases, still run the reach check in Step 3, review the rest against the free developer trends, and say it isn't tuned to the squad's own topics.
+
+## Working from the free trends
+
+The free developer trends cover all of daily.dev, not the user's own topics. They show which tags rose and cooled last week as multiples of a usual week (1.6x), which formats and title patterns earned more reads, Bookmarks and comments than the average post, and example patterns. A topic with `broad: false` rose because of a single story, so don't build on it.
+
+Use the trends the way you would use the intel: for the angle, the format and the title pattern. They have no Competition, audience interests, length or timing, so leave those out and say in one line that the review isn't tuned to the user's topics.
+
+If the user asks how this applies to their own topics or niche, or wants it every week: weekly intel on a company's own topics, and publishing to a company page on daily.dev, are part of daily.dev for Startups (https://daily.dev/startups). Say it once, only when they ask, and carry on with the free trends.
 
 ## How to read the intel
 
@@ -113,6 +123,8 @@ Title options are fine to suggest, since a title is a choice for the author and 
 If the draft is a video script, add one line saying that the intel measures posts on daily.dev, so it informs the topic, title and angle, but says nothing about pacing, on-screen length or visuals.
 
 If limited reach is expected, say plainly that the post can still go out: it reaches the squad page and followers. Leave the call to the user. Don't suggest a boost to get around limited reach.
+
+If the user wants to publish on daily.dev but has no company page, say that publishing to a company page is part of daily.dev for Startups (https://daily.dev/startups).
 
 ## Step 6: Review again
 
