@@ -1,6 +1,6 @@
 ---
 name: developer-trends-review
-description: Review a post for developers before it goes out. Checks whether developers' feeds on daily.dev are likely to give it limited reach and why, then reviews the draft, link or video script against this week's free developer trends from daily.dev. Gives suggestions and leaves the writing to the author. Use when the user asks for feedback on a post, draft, link, title or script meant for developers.
+description: Reviews a post for developers before it goes out. It checks whether daily.dev feeds are likely to limit its reach and why, then compares it with the free weekly developer trends. It suggests changes and never rewrites the author's text. Use when the user wants feedback on a draft, link, title or video script meant for developers.
 argument-hint: "[path or URL of the draft or the article to share]"
 allowed-tools: Bash
 ---

@@ -1,13 +1,13 @@
 {
   "name": "developer-distribution",
   "displayName": "Developer Distribution",
-  "description": "See what developers read this week, shape post ideas around it and check a post before it goes out. Free, no account needed. Built on daily.dev reading data.",
+  "description": "Free weekly trends on what developers read on daily.dev, with two skills that turn them into post ideas and post reviews. No account needed.",
   "version": "0.1.0",
   "author": { "name": "daily.dev" },
   "homepage": "https://daily.dev/startups",
   "license": "AGPL-3.0-only",
   "icon": "./icon.png",
-  "documentationUrl": "https://docs.daily.dev/mcp-server/",
+  "documentationUrl": "https://docs.daily.dev/developer-distribution/",
   "supportUrl": "https://daily.dev/support",
   "privacyPolicyUrl": "https://daily.dev/privacy/",
   "termsOfServiceUrl": "https://daily.dev/tos/"

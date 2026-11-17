@@ -1,6 +1,6 @@
 ---
 name: developer-trends-ideas
-description: Find what a developer-tool team should publish next for developers. Reads this week's free developer trends from daily.dev (which topics rose and cooled, which formats and titles got read), looks at the team's recent work and shapes a post or video idea from it. Use when the user asks what to write, post or make a video about for developers, or wants help with a content idea.
+description: Helps a developer-tool team decide what to publish next. It reads the free weekly developer trends from daily.dev and turns the team's recent work into a post or video idea that fits what developers are reading. Use when the user asks what to write, post or make a video about for developers, or wants help with a content idea.
 argument-hint: "[an idea you already have]"
 allowed-tools: Bash
 ---
