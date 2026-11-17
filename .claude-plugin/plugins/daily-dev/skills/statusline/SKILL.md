@@ -3,7 +3,7 @@ name: statusline
 description: Fix or set up the daily.dev headlines in Claude Code. Use when the user sees the daily.dev headline twice, wants the old statusline entry removed after upgrading, asks to enable/disable the daily.dev statusline, or the headlines are not showing after installing the plugin.
 ---
 
-Since plugin version 0.7.0 the headlines come from a hooks module (`hooks/register.tsx`) that Claude Code 2.1.275 or later loads automatically: a status line entry under the prompt and a band above it, with no `settings.json` edits. Older plugin versions wired the same script into `statusLine` in `~/.claude/settings.json`. This skill cleans up that old entry, and sets it up only as a fallback on Claude Code versions that cannot load the hooks module.
+Since plugin version 0.7.0 the headlines come from a hooks module (`hooks/register.tsx`) that Claude Code 2.1.275 or later loads automatically: a band above the prompt, with no `settings.json` edits. Older plugin versions wired the same script into `statusLine` in `~/.claude/settings.json`. This skill cleans up that old entry, and sets it up only as a fallback on Claude Code versions that cannot load the hooks module.
 
 First, find out which case applies:
 
