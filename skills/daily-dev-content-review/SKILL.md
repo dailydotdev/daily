@@ -17,17 +17,27 @@ $ARGUMENTS
 
 ## Step 1: Get the intel
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`):
+Use the daily.dev MCP server (`https://api.daily.dev/mcp`) if its tools are available. Otherwise call `https://api.daily.dev/public/v1` with the API token, as the daily.dev skill describes (`DAILY_DEV_TOKEN`, or the token stored in the OS secure storage). Each call below names the MCP tool and its REST endpoint: use the one that matches the access you have. If there is neither, or a call returns 401, connect the account with step 2 of the daily-dev-onboarding skill: it gives the user one link and stores a token for you. Adding the MCP server also works (setup: https://docs.daily.dev/mcp-server/), but don't require it.
 
-1. Find the squad with `getSquads`. Use the squad where the user holds a paid seat. If there are several, ask the user which company this is for.
-2. Call `getSquadsByIdIntel` with the squad's ID or handle and read its `markdown`.
-
-If the daily.dev MCP tools are not available, ask the user to add `https://api.daily.dev/mcp` as a remote MCP server (setup: https://docs.daily.dev/mcp-server/). If they prefer an API token, use the REST endpoint as the daily.dev skill describes: `GET https://api.daily.dev/public/v1/squads/{id}/intel` with `Authorization: Bearer $DAILY_DEV_TOKEN`.
+1. Find the company page with `getSquads` (`GET /squads/`): the squad the user admins or moderates that is a company page, or where they hold a paid seat. If there are several, ask the user which company this is for.
+2. Call `getSquadsByIdIntel` (`GET /squads/{id}/intel`) with the squad's ID or handle and read its `markdown`.
 
 When the intel is not there:
-- `403`: the intel is only for paid seats on a daily.dev for Startups plan. Tell the user, and suggest asking a squad admin for a seat.
-- `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings`. If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built.
+- `403`: check the page's plan with `getSquadsByIdSubscription` (`GET /squads/{id}/subscription`). If `plan` is null, the page is on the free plan: use the free weekly trends instead, as described in "With the free trends" below. If the page has a plan, the intel is only for its paid seats: tell the user, and suggest asking a squad admin for a seat.
+- `data` is null: there is no intel yet. Call `getSquadsByIdIntelSettings` (`GET /squads/{id}/intel/settings`). If no tags are set, offer to choose tags with the user and save them with `putSquadsByIdIntelSettings` (`PUT /squads/{id}/intel/settings`, confirm the tags first); the first intel is ready within about an hour. If tags are set, the intel is still being built.
 - In both cases, still run the reach check in Step 3, and say the rest of the review isn't backed by audience data.
+
+## With the free trends
+
+A company page on the free plan has no weekly intel. Call `getTrends` (`GET /trends/`, no account needed) and read its `markdown` and `data`. The trends cover last week across all of daily.dev, the same for everyone:
+
+- **Rising and cooling topics**: tags developers read more or less than in a usual week, as multiples (1.6 means 1.6 times a usual week). A topic with `broad: false` rose because of a single story, so don't build on it.
+- **Formats**: title patterns and formats, as multiples of the average post for reads, Bookmarks, upvotes and comments.
+- **Examples**: patterns of posts that did well or badly, with their upvotes and comments.
+
+Use them wherever the steps below say intel: quote the multiples as they are and never turn them into reader counts. The trends don't cover your audience's topics, Competition, length or timing, so skip the advice that needs those. If `data` is null, the first trends aren't published yet: carry on with the user's work alone.
+
+After the review, say once, in one line, that these trends cover all of daily.dev, and that weekly intel on the page's own topics and readers comes with daily.dev for Startups: https://daily.dev/startups
 
 ## How to read the intel
 

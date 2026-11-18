@@ -8,7 +8,7 @@ allowed-tools: Bash
 
 Make the user's daily.dev profile one that developers trust. Their name and photo sit on every post and comment they publish, so a blank profile makes a good post look like spam. Fill what is empty or weak, keep what the user already wrote, and save nothing without their OK.
 
-Use the daily.dev MCP server (`https://api.daily.dev/mcp`). If its tools are not available, ask the user to add `https://api.daily.dev/mcp` as a remote MCP server (setup: https://docs.daily.dev/mcp-server/). With an API token instead, call the same endpoints under `https://api.daily.dev/public/v1` as the daily.dev skill describes.
+Use the daily.dev MCP server (`https://api.daily.dev/mcp`) if its tools are available. Otherwise call `https://api.daily.dev/public/v1` with the API token, as the daily.dev skill describes (`DAILY_DEV_TOKEN`, or the token stored in the OS secure storage). The steps name the MCP tools; with the token, call the endpoint of the same name (`getProfile` is `GET /profile/`, `patchProfile` is `PATCH /profile/`). If there is neither, or a call returns 401, connect the account with step 2 of the daily-dev-onboarding skill: it gives the user one link and stores a token for you. Adding the MCP server also works (setup: https://docs.daily.dev/mcp-server/), but don't require it.
 
 ## Step 1: Read the profile
 
