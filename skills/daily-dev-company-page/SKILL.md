@@ -74,6 +74,7 @@ Show the page in one block:
 - **Name**: the company or product name.
 - **Handle**: used in the page URL, `daily.dev/squads/<handle>`. Letters, numbers and underscores, lower case. Offer one and a fallback.
 - **Description**: one or two sentences, up to 250 characters, on what they build and for which developers. Plain words, no slogans. This one is page setup, so you write it.
+- **Website**: the company's site, linked from the page.
 - **Category**: a slug such as `devtools` or `ai`.
 - **Logo**: a square image, 512x512 px (1:1), the logomark on a solid background. Prefer the site's logo or the GitHub organization avatar over a favicon.
 - **Cover**: a wide banner, 1500x300 px (5:1), with no text near the edges and the bottom-left corner clear for the logo. The daily.dev skill's Images section has the details. Crop a wider or taller image to 5:1 before uploading.
@@ -88,7 +89,7 @@ curl -s -X POST https://api.daily.dev/public/v1/squads/company-pages \
   -d '{"name":"<name>","handle":"<handle>","description":"<description>","categoryId":"<category>","image":"<logo url>"}'
 ```
 
-With MCP: `postSquadsCompanyPages`. Then set the cover with `patchSquadsById` (`PATCH /squads/{id}`, body `{"headerImage":"<url>"}`).
+With MCP: `postSquadsCompanyPages`. Then set the cover with `patchSquadsById` (`PATCH /squads/{id}`, body `{"headerImage":"<url>"}`). Then set the website with `putSquadsByIdLinks` (`PUT /squads/{id}/links`, body `{"website":"<url>","links":[]}`). A free page can show the website but no other links. If this returns 403, skip the website and carry on.
 
 - `409`: the handle is taken. Use the fallback and tell the user.
 - `400` on an image: it could not be fetched or is not an image. For a file on their machine, get an upload URL with `postUploads` (`POST /uploads/`), send the file with `curl -X PUT -H "Content-Type: image/png" --data-binary @logo.png "<uploadUrl>"`, and use the `url` it returns.
