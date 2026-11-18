@@ -17,7 +17,7 @@ The arguments name the company page (squad handle) and the content cadence, such
 
 Use the daily.dev MCP tools this plugin provides. If they are missing, or only an authentication tool is listed for the `daily-dev` server, ask the user to run `/mcp`, pick `daily-dev` and sign in. There is no token to handle: never ask for one, and never look for one in the user's environment, files or OS secure storage.
 
-Find the squad with `getSquads`: the one named in the arguments, or else the one where the user holds a paid seat (ask if there are several).
+Find the squad with `getSquads`: the one named in the arguments, or else the company page the user admins or holds a paid seat on (ask if there are several). Check its plan with `getSquadsByIdSubscription`: a page whose `plan` is null is on the free plan.
 
 ## Set up the routine
 
@@ -39,8 +39,8 @@ When a schedule runs this skill, nobody may be watching: report, suggest and sto
 - **Posts**: `getFeedsSourceBySource` with the squad handle for the latest posts on the page and when each went up. For the user's own posts, `getProfileAnalyticsPosts` (period 30, sorted by createdAt) gives impressions, reads and upvotes.
 - **Reach notes**: for the user's posts from the last 7 days, `getPostsByIdAnalytics` returns `limitedReachReason` when we expect limited reach for the post in the wider feed, and why.
 - **Boosts**: `getBoosts` for the active ones and any that ended since yesterday, with their reach and spend.
-- **Wallet**: `getSquadsByIdSubscription` for the Cores in the page wallet.
-- **Intel**: on Mondays, or when `getSquadsByIdIntel` shows a new week, read it for the changes worth knowing.
+- **Wallet**: `getSquadsByIdSubscription` for the Cores in the page wallet. Free pages have no wallet: leave the line out.
+- **Intel**: on Mondays, or when `getSquadsByIdIntel` shows a new week, read it for the changes worth knowing. On a free page, read `getTrends` (the free weekly trends for all of daily.dev) instead.
 
 ### Work out what is due
 
@@ -66,7 +66,7 @@ Keep it under 12 lines, plain words, numbers with their comparison:
 Pick one next action, in this order:
 
 1. A post published since the last report has a `limitedReachReason`: say which post and why in one line, link the matching section of https://docs.daily.dev/what-the-feed-recommends/, and suggest running the daily-dev-content-review skill on the next post. Don't suggest deleting and reposting it: that resets nothing.
-2. A post is due or overdue: say so and offer to find what to publish with the daily-dev-content-ideas skill. Prefer something the team already wrote or shipped (a blog post, release notes, a video) over writing from scratch. Run the daily-dev-content-review skill on the candidate before publishing. If it expects limited reach, pick another piece of the team's content, or bring the review to the user and let them decide.
+2. A post is due or overdue: say so and offer to find what to publish with the daily-dev-content-ideas skill. Prefer something the team already wrote or shipped (a blog post, release notes, a video) over writing from scratch. Run the daily-dev-content-review skill on the candidate before publishing. The user writes the post; never write it for them. On a free page, they publish from the composer: give them `https://app.daily.dev/squads/create?sid=<handle>`, adding `&link=<url>` when they are sharing an article. If it expects limited reach, pick another piece of the team's content, or bring the review to the user and let them decide.
 3. No boost is running, the wallet holds Cores and a recent post is doing better than the others: suggest boosting it, with the cost and the estimate from `getBoostsEstimate`. The boost targets readers of the post's tags worldwide by default; if the user has said which markets matter to them, offer that country list too, with its own estimate.
 4. A post got comments: suggest replying, since answering readers keeps the post alive.
 5. Otherwise: nothing to do today, and when the next post is due.
