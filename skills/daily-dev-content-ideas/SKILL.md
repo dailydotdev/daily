@@ -21,6 +21,7 @@ Use the daily.dev MCP server (`https://api.daily.dev/mcp`) if its tools are avai
 
 1. Find the company page with `getSquads` (`GET /squads/`): the squad the user admins or moderates that is a company page, or where they hold a paid seat. If there are several, ask the user which company this is for.
 2. Call `getSquadsByIdIntel` (`GET /squads/{id}/intel`) with the squad's ID or handle and read its `markdown`.
+3. Read the content strategy with `getSquadsByIdContentStrategy` (`GET /squads/{id}/content-strategy`). If there is one, follow its readers, themes, mix and sources in the steps below. If `data` is null on a page with a plan, offer once to build one with the daily-dev-content-strategy skill, then carry on.
 
 When the intel is not there:
 - `403`: check the page's plan with `getSquadsByIdSubscription` (`GET /squads/{id}/subscription`). If `plan` is null, the page is on the free plan: use the free weekly trends instead, as described in "With the free trends" below. If the page has a plan, the intel is only for its paid seats: tell the user, and suggest asking a squad admin for a seat.
@@ -58,7 +59,7 @@ Otherwise, open with two or three short openings from this week's intel, such as
 
 ## Step 3: Find ideas in their work
 
-If they don't have an idea, look at what the team did over the last 2 to 4 weeks, wherever you know their work lives: commits and pull requests in the repositories you know about, releases, changelogs, docs and issues. Look for things worth telling other developers:
+If they don't have an idea, look at what the team did over the last 2 to 4 weeks, starting with the sources in the strategy and wherever else you know their work lives: commits and pull requests in the repositories you know about, releases, changelogs, docs and issues. Look for things worth telling other developers:
 
 - A feature or product that shipped
 - A hard problem they solved, a bug that took days, or a migration
@@ -78,9 +79,15 @@ Ask questions one at a time, usually 3 to 5, to get the details only the user ha
 - What did you get wrong, or what surprised you?
 - Who is this for: what do they work on, and how senior are they?
 
-Stop when you have enough to shape the idea.
+Stop when you have enough to say what a reader takes away.
 
-## Step 5: Shape the idea with the intel
+## Step 5: What a reader takes away
+
+Before shaping the idea, tell the user in one or two sentences what a developer who doesn't use their product could take away from this post, based on the interview. For example: "A reader would learn how to cut cold starts on serverless Postgres, with your numbers from before and after."
+
+If you can't find a takeaway, the post is mostly about the product. Say so plainly and ask what the team learned along the way that other developers could use. A product post is still fine now and then: if there is a strategy, say how this one fits its mix.
+
+## Step 6: Shape the idea with the intel
 
 Adjust the idea to give it the best chance with this audience:
 
