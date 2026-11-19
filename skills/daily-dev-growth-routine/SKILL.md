@@ -23,7 +23,7 @@ Find the squad with `getSquads`: the one named in the arguments, or else the com
 
 Do this when the user asks to set up the routine, or when the arguments have no cadence and no schedule runs this skill yet.
 
-1. Ask how often they want to publish. Suggest 2 posts a week as a sustainable start; 1 a week is the minimum that keeps a page alive.
+1. Read the content strategy with `getSquadsByIdContentStrategy` (`GET /squads/{id}/content-strategy`). If there is one, take the cadence and the review period (weekly or monthly) from it and confirm them with the user. If `data` is null on a page with a plan, offer to build one first with the daily-dev-content-strategy skill. Otherwise ask how often they want to publish. Suggest 2 posts a week as a sustainable start; 1 a week is the minimum that keeps a page alive.
 2. Ask when they want the daily report, such as 9:00 in their time zone.
 3. Create a daily scheduled run with what your client supports, such as a scheduled task, routine or automation. If it has none, offer an entry in the system scheduler (cron, launchd or Task Scheduler) that runs your command-line client headless with the prompt. The scheduled prompt invokes this skill by name with the handle and cadence, for example `/daily-dev-growth-routine acme 2 posts a week`. Never copy these steps into the schedule: the skill gets updated, and a schedule that names it always runs the latest version.
 4. Make sure the scheduled run can reach daily.dev: it needs the daily.dev MCP server or an API token, wherever it runs.
@@ -40,7 +40,10 @@ When a schedule runs this skill, nobody may be watching: report, suggest and sto
 - **Reach notes**: for the user's posts from the last 7 days, `getPostsByIdAnalytics` returns `limitedReachReason` when we expect limited reach for the post in the wider feed, and why.
 - **Boosts**: `getBoosts` for the active ones and any that ended since yesterday, with their reach and spend.
 - **Wallet**: `getSquadsByIdSubscription` for the Cores in the page wallet. Free pages have no wallet: leave the line out.
+- **Strategy**: `getSquadsByIdContentStrategy` for the themes, mix and review period, when the page has one.
 - **Intel**: on Mondays, or when `getSquadsByIdIntel` shows a new week, read it for the changes worth knowing. On a free page, read `getTrends` (the free weekly trends for all of daily.dev) instead.
+
+On the review day the strategy sets (the first workday of the week for a weekly review, of the month for a monthly one), write the strategy review below instead of the daily report.
 
 ### Work out what is due
 
@@ -72,3 +75,21 @@ Pick one next action, in this order:
 5. Otherwise: nothing to do today, and when the next post is due.
 
 If a number is missing because the page is new, say so in a few words instead of guessing.
+
+## The strategy review
+
+Gather the posts published since the last review with `getProfileAnalyticsPosts` and `getPostsByIdAnalytics`, the page's reach with `getSquadsByIdAnalyticsHistory`, and the latest intel. Read each post's title and content to tell what kind of post it is.
+
+```markdown
+**daily.dev review, <period>**
+- Posts: <n> published, against <n> planned
+- Best post: <title>, <impressions> impressions, <upvotes> upvotes, <comments> comments, and why it likely worked (theme, format, what a reader took away)
+- Weakest post: <title>, and the likely reason (nothing a reader could use, reads as AI-written, a crowded topic, timing)
+- Mix: <n> posts that teach, <n> takes on news, <n> about the product, against the strategy
+- Intel: one line on what changed in the readers' topics
+
+**Keep:** one thing that worked.
+**Change:** one suggestion for the next period, such as a theme to drop or a kind of post to try.
+```
+
+If the founder agrees to change the strategy, run the daily-dev-content-strategy skill to update it. Never change the saved strategy without their OK in the conversation.

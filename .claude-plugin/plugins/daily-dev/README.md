@@ -30,7 +30,7 @@ What you get:
 - **`/daily-dev:daily-dev-onboarding` skill** — sets up your daily.dev account from the agent: sign in or create the account, then tags, sources, squads and preferences based on what you work on.
 - **`/daily-dev:daily-dev-routine` skill** — a daily or weekly brief of what is worth reading on daily.dev for what you are working on, run on a schedule.
 - **`/daily-dev:daily-dev-profile` skill** — makes your daily.dev profile credible: photo, headline, current role, About me, links and stack.
-- **For daily.dev for Startups companies** — `daily-dev-content-ideas` and `daily-dev-content-review` shape posts with your weekly intel, and `daily-dev-growth-routine` schedules a daily report on your page, posts and boosts, with reminders at the content cadence you choose.
+- **For daily.dev for Startups companies** — `daily-dev-content-strategy` plans what your page publishes with you, `daily-dev-content-ideas` and `daily-dev-content-review` shape posts with your weekly intel, and `daily-dev-growth-routine` schedules a daily report on your page, posts and boosts, with reminders at the content cadence you choose and a weekly or monthly review against your strategy.
 - **Headlines** — rotating daily.dev headlines while you wait, in a band above the prompt with **Open** and **Hide**. Curated major headlines interleaved with the community's most-upvoted posts of the day, refreshed every 10 minutes, rotating every ~60 seconds. Headlines are clickable in terminals with hyperlink support (iTerm2, Kitty, WezTerm, Ghostty).
 
 ## Headlines setup

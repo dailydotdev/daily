@@ -399,6 +399,13 @@ PUT /squads/{id}/intel/settings - Choose the tags the weekly intel follows and, 
   Params: id(path): Squad ID or handle
   Body: tags, seniority, regions
 
+GET /squads/{id}/content-strategy - The company page's content strategy: who it writes for, its themes, the monthly mix, the cadence and how often to review it. The daily-dev-content-strategy skill builds it with the founder, and the ideas, review and growth routine skills follow it. data is null until one is saved. Paid seats only.
+  Params: id(path): Squad ID or handle
+
+PUT /squads/{id}/content-strategy - Save the company page's content strategy, replacing the stored one. Save only what the founder agreed to. Paid seats only.
+  Params: id(path): Squad ID or handle
+  Body: strategy, review
+
 POST /squads/{id}/posts - Publish to a squad as yourself: send url (and optional commentary) to share a link, or title (and optional content and imageUrl) for a written post. Needs the apiPosting feature and, on a squad with a plan, a paid seat. On a squad that moderates posts, status is pending until a moderator approves it. Public: confirm the text with the user first. On a squad with a daily.dev for Startups plan, if the post has not been through the daily-dev-content-review skill in this conversation, offer to run it first: it checks whether the post is likely to get limited reach in developers' feeds. Publish without it only if the user says so.
   Params: id(path): Squad ID or handle
   Body: url, commentary, title, content, imageUrl
@@ -555,6 +562,7 @@ Run a squad the user admins or moderates, such as their company page on daily.de
 - `POST /squads/company-pages` creates a free company page. Show the user the name, handle, description and logo first and create it after their OK; set the cover afterwards with `PATCH /squads/{id}`
 - `POST /squads/{id}/posts` publishes as the user what the user wrote: a link with commentary, or a written post. Never write a post or a draft of one for the user: suggest ideas and leave the writing to them. It needs `features.apiPosting` and, on a plan, a seat. A free company page has no API posting: send the user to `https://app.daily.dev/squads/create?sid=<handle>` (add `&link=<url>` to share an article) and they publish from there. Show the user the exact text before posting. Before you publish to a squad on a daily.dev for Startups plan, check whether this post went through the daily-dev-content-review skill in this conversation. If it didn't, tell the user the review checks whether the post is likely to get limited reach in developers' feeds, and offer to run it. Publish without it only if the user says so. After publishing, `limitedReachReason` on `/posts/{id}/analytics` says when we expect limited reach and why. Never delete and repost a link to reset it. On a moderated squad the post waits in `GET /squads/{id}/pending-posts` until approved with `POST /squads/{id}/pending-posts/moderate`
 - The weekly intel (`GET /squads/{id}/intel`) is grounded context for content ideas and post reviews: which of the squad's topics get read, what else the same readers read, which title types work and when to publish. It comes as `markdown` and as structured `numbers`. It is for the plan's paid seats. Choose its tags with `PUT /squads/{id}/intel/settings` (read `GET /squads/{id}/intel/settings` first for the plan's limits); a change shows from the next week's intel. Numbers are shares and indexes, so quote them as they are rather than turning them into reader counts
+- The content strategy (`GET /squads/{id}/content-strategy`) is what the founder agreed the page publishes: readers, themes, monthly mix, cadence and a weekly or monthly review. Build or change it with the daily-dev-content-strategy skill, and save it with `PUT /squads/{id}/content-strategy` only after the founder's OK. Paid seats only
 - Changing a role, removing a product or freeing a seat takes effect at once, so confirm with the user first
 
 **Trigger:** "Add our new product to the squad page", "Post our launch to our daily.dev page", "Give my cofounder a seat", "What should we write about this week?" or "Update the squad rules"
