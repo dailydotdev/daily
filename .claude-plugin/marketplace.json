@@ -33,7 +33,7 @@
       "name": "developer-distribution",
       "source": "./.claude-plugin/plugins/developer-distribution",
       "description": "Free weekly trends on what developers read on daily.dev, with two skills that turn them into post ideas and post reviews. No account needed.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "daily.dev"
       },
