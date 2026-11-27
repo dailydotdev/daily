@@ -384,6 +384,10 @@ PATCH /posts/{id} - Change the title or markdown content of a written post you p
 DELETE /posts/{id} - Delete a post you published, or one in a squad you moderate. Permanent.
   Params: id(path): Post ID
 
+PUT /posts/{id}/vote - Upvote or downvote a post, or remove your vote. Replaces any earlier vote on the post.
+  Params: id(path): Post ID
+  Body: vote
+
 #### profile
 GET /profile/ - Get current user's profile
 
